@@ -1,0 +1,19 @@
+[user]
+	name = Sam Stokes
+	email = sam@mo.jo
+	signingkey = Sam Stokes (Mojo) <sam@mo.jo>
+[core]
+	excludesfile = /home/sam/.git-excludes
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+	interactive = auto
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	st = status
+	h = !x git help
+[gui]
+	recentrepo = /home/sam/projects/ovc

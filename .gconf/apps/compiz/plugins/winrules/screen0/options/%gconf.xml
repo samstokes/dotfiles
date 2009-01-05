@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="sticky_match" mtime="1231152028" type="string">
+                <stringvalue>(title=Buddy List) | title=TweetDeck</stringvalue>
+        </entry>
+</gconf>

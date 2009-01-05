@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="window_match" mtime="1231150300" type="string">
+                <stringvalue>(Toolbar | Utility | Dialog | Normal | Unknown) &amp; !(title=wibblefarmer - Skype™) &amp; !(title=gTwitter 1.0beta) &amp; !(title=TweetDeck) &amp; !(title=Buddy List)</stringvalue>
+        </entry>
+</gconf>

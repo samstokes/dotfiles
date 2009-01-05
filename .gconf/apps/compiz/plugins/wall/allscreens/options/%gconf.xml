@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="miniscreen" mtime="1219199833" type="bool" value="true">
+        </entry>
+</gconf>

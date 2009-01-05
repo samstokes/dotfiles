@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="initiate_all_key" mtime="1223289191" type="string">
+                <stringvalue>&lt;Shift&gt;&lt;Alt&gt;Tab</stringvalue>
+        </entry>
+        <entry name="initiate_key" mtime="1218210975" type="string">
+                <stringvalue>&lt;Alt&gt;Tab</stringvalue>
+        </entry>
+</gconf>

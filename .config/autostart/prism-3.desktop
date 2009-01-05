@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Version=1.0
+Name=No Name
+Name[en_GB]=sugar.mo.jo
+Comment[en_GB]=Mojo SugarCRM, prismised
+Comment=Mojo SugarCRM, prismised
+Exec="/opt/prism/prism" -override "/home/sam/WebApps/sugar.mo.jo@prism.app/override.ini" -webapp sugar.mo.jo@prism.app
+X-GNOME-Autostart-enabled=true

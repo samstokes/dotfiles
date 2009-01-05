@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="opacity_step" mtime="1219022632" type="int" value="5">
+        </entry>
+        <entry name="vsize" mtime="1218210152" type="int" value="3">
+        </entry>
+        <entry name="hsize" mtime="1218210152" type="int" value="3">
+        </entry>
+</gconf>

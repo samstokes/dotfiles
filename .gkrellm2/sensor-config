@@ -1,0 +1,8 @@
+sensor sensor_config_version 1
+sensor sensor_sysdep_private 1
+sensor sensor_float_factor 10000
+sensor gkrellm_float_factor 1000
+sensor sysdep_option use_nvclock 0
+sensor "THRM" "thermal_zone/THRM" 10000 0 1 0
+sensor units_fahrenheit 0
+sensor volt_display_mode 0

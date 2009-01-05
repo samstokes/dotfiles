@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<gconf>
+        <entry name="triggerscreen_key" mtime="1223289344" type="string">
+                <stringvalue>Disabled</stringvalue>
+        </entry>
+        <entry name="trigger_key" mtime="1223289341" type="string">
+                <stringvalue>Disabled</stringvalue>
+        </entry>
+        <entry name="inc_button" mtime="1223289316" type="string">
+                <stringvalue>&lt;Super&gt;Button4</stringvalue>
+        </entry>
+        <entry name="dec_button" mtime="1223289314" type="string">
+                <stringvalue>&lt;Super&gt;Button5</stringvalue>
+        </entry>
+</gconf>

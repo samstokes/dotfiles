@@ -1,0 +1,7 @@
+Story: ${Story Title}
+
+  As ${role}
+  I want ${something}
+  So that ${business value}
+
+  Scenario: ${Scenario 1 Title}
