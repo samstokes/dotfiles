@@ -22,11 +22,13 @@ launch_tabbed_terminal() {
       $opts -t "$proj - console" -e "/usr/bin/ruby ./script/console" \
       $opts -t "$proj - specs" -e /usr/bin/autotest \
       $opts -t "$proj - server" -e "/usr/bin/ruby ./script/server $server_opts" \
+      &     # normally forks anyway, but seems not to when run from panel
 
 }
 
 launch_gvim_browser() {
-  { cd "$dirname" && gvim . ; }
+  { cd "$dirname" && gvim . ; } \
+      &     # normally forks anyway, but seems not to when run from panel
 }
 
 launch_web_browser() {
