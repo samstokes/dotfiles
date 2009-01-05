@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <gconf>
-        <entry name="init_plugin" mtime="1229097177" type="string">
+        <entry name="init_plugin" mtime="1231159265" type="string">
                 <stringvalue>expo</stringvalue>
         </entry>
-        <entry name="prev_button" mtime="1229097177" type="string">
+        <entry name="prev_button" mtime="1231159265" type="string">
                 <stringvalue>Disabled</stringvalue>
         </entry>
-        <entry name="next_button" mtime="1229097177" type="string">
+        <entry name="next_button" mtime="1231159265" type="string">
                 <stringvalue>Disabled</stringvalue>
         </entry>
 </gconf>
