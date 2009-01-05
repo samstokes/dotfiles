@@ -19,6 +19,7 @@ launch_tabbed_terminal() {
 
   /usr/bin/gnome-terminal \
       $opts \
+      $opts -t "$proj - console" -e "/usr/bin/ruby ./script/console" \
       $opts -t "$proj - specs" -e /usr/bin/autotest \
       $opts -t "$proj - server" -e "/usr/bin/ruby ./script/server $server_opts" \
 
