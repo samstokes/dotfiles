@@ -8,7 +8,7 @@ SERVER_PORT=3000
 error() { echo "$@" >&2; exit 1; }
 
 parse_args() {
-  dirname=${1:-.}     # default to current dir if not specified
+  dirname=${1:-`pwd`}     # default to current dir if not specified
   test -d "$dirname" || error "$dirname is not a directory"
   proj=$(basename $(cd "$dirname" && pwd))
 }
@@ -34,7 +34,7 @@ launch_web_browser() {
   echo -n "Waiting $sleepytime seconds for server to start up... "
   sleep $sleepytime
   echo "done."
-  /usr/bin/x-www-browser http://localhost:$SERVER_PORT
+  /usr/bin/x-www-browser http://localhost:$SERVER_PORT &
 }
 
 parse_args "$@" || error "Bad arguments."
