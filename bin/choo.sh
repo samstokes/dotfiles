@@ -26,6 +26,10 @@ launch_tabbed_terminal() {
 
 }
 
+launch_gitk() {
+  { cd "$dirname" && gitk --all & }
+}
+
 launch_gvim_browser() {
   { cd "$dirname" && gvim . ; } \
       &     # normally forks anyway, but seems not to when run from panel
@@ -42,6 +46,7 @@ launch_web_browser() {
 parse_args "$@" || error "Bad arguments."
 echo "Choo choo!  Launching a Rails development environment in $dirname..."
 launch_tabbed_terminal || error "Failed to launch tabbed terminal."
+launch_gitk || error "Failed to launch gitk."
 launch_gvim_browser || error "Failed to launch gvim."
 launch_web_browser || error "Failed to launch web browser."
 echo "You're good to go!  Feel free to close this terminal window."
