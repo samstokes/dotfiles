@@ -25,6 +25,8 @@ launch_gvim_browser() {
   { cd "$dirname" && gvim . ; }
 }
 
-parse_args "$@"
-launch_tabbed_terminal
-launch_gvim_browser
+parse_args "$@" || error "Bad arguments."
+echo "Choo choo!  Launching a Rails development environment in $dirname..."
+launch_tabbed_terminal || error "Failed to launch tabbed terminal."
+launch_gvim_browser || error "Failed to launch gvim."
+echo "You're good to go!  Feel free to close this terminal window."
