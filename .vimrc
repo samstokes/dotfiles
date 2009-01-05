@@ -87,4 +87,4 @@ nnoremap <C-b> :FuzzyFinderBuffer<CR>
 autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 
 " make current file executable
-nnoremap <C-x> :!chmod +x %<CR><CR>
+nnoremap <C-S-x> :!chmod +x %<CR><CR>

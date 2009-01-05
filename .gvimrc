@@ -1,2 +1,2 @@
 colorscheme darkblue
-let g:netrw_browse_split=3
+let g:netrw_browse_split=1
