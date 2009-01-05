@@ -1,0 +1,13 @@
+MESSAGE=${1?Please give message as first argument.}
+DELAY=${2?Please give delay in seconds as second argument.}
+MESSAGE="$MESSAGE\n(This message will self-destruct after $DELAY seconds.)"
+{
+  SECS=0
+  INCR=$[100 / $DELAY]
+  while [ $SECS -lt $DELAY ]
+  do
+    SECS=$[SECS + 1]
+    echo $[INCR * SECS]
+    sleep 1
+  done
+} | zenity --text "$MESSAGE" --progress --auto-close
