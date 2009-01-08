@@ -31,7 +31,8 @@ launch_gitk() {
 }
 
 launch_gvim_browser() {
-  { cd "$dirname" && gvim . ; } \
+  local GVIM_OPTS="-geom 9999x9999 -O2"   # maximised, with two panes
+  { cd "$dirname" && gvim $GVIM_OPTS . ; } \
       &     # normally forks anyway, but seems not to when run from panel
 }
 
