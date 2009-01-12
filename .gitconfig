@@ -15,5 +15,6 @@
 	br = branch
 	st = status
 	h = !x git help
+	sm = submodule
 [gui]
 	recentrepo = /home/sam/projects/ovc
