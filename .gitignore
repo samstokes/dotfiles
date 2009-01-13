@@ -10,11 +10,8 @@ documents
 .gconfd
 .gem
 .gimp-2.4
-.gkrellm2/data*
 .gksu.lock
 .gnome2
-.gnupg/*.gpg*
-.gnupg/random_seed
 .gnuplot_history
 .gnuplot-wxt
 .gstreamer-0.10
@@ -48,9 +45,6 @@ Pictures
 projects
 .pulse
 .pulse-cookie
-.purple/blist.xml
-.purple/icons
-.purple/status.xml
 .qemu_history
 .qt
 .recently-used
@@ -58,9 +52,6 @@ projects
 .ruby_inline
 .Skype
 .sqlite_history
-.ssh/authorized_keys
-.ssh/id_rsa*
-.ssh/known_hosts
 .sudo_as_admin_successful
 .thumbnails
 tmp
