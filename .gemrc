@@ -2,7 +2,6 @@
 :sources: 
 - http://gems.rubyforge.org/
 - http://gems.github.com
-- http://code.whytheluckystiff.net
 :update_sources: true
 :benchmark: false
 :bulk_threshold: 1000
