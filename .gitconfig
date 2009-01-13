@@ -18,3 +18,5 @@
 	sm = submodule
 [gui]
 	recentrepo = /home/sam/projects/ovc
+[merge]
+	tool = gvimdiff
