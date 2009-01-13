@@ -5,6 +5,4 @@
         <entry name="trigger_key" mtime="1229082830" type="string">
                 <stringvalue>&lt;Super&gt;space</stringvalue>
         </entry>
-        <entry name="ignore_sticky" mtime="1229082806" type="bool" value="false">
-        </entry>
 </gconf>
