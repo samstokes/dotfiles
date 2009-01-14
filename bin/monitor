@@ -1,13 +1,23 @@
 #!/bin/bash
 
+ICON_DIR=/home/sam/Pictures/icons/status
+
+pending() {
+  test -f $ICON_DIR/pending.png && icon="-i $ICON_DIR/pending.png" 
+  /usr/bin/notify-send $icon "Starting: $1" "$*"
+}
+
 success() {
-  /usr/bin/notify-send "SUCCEEDED: $1" "$*"
+  test -f $ICON_DIR/pass.png && icon="-i $ICON_DIR/pass.png" 
+  /usr/bin/notify-send $icon "SUCCEEDED: $1" "$*"
 }
 
 failure() {
+  test -f $ICON_DIR/fail.png && icon="-i $ICON_DIR/fail.png" 
   code=$1
   shift
-  /usr/bin/notify-send "FAILED ($code): $1" "$*"
+  /usr/bin/notify-send $icon "FAILED ($code): $1" "$*"
 }
 
-"$@" && success $@ || failure $? $@
+pending $@
+eval "$*" && success $@ || failure $? $@
