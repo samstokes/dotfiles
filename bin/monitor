@@ -1,0 +1,13 @@
+#!/bin/bash
+
+success() {
+  /usr/bin/notify-send "SUCCEEDED: $1" "$*"
+}
+
+failure() {
+  code=$1
+  shift
+  /usr/bin/notify-send "FAILED ($code): $1" "$*"
+}
+
+"$@" && success $@ || failure $? $@
