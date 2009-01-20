@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <gconf>
+        <entry name="toggle_window_maximized_vertically_key" mtime="1232482117" type="string">
+                <stringvalue>&lt;Shift&gt;&lt;Super&gt;x</stringvalue>
+        </entry>
         <entry name="active_plugins" mtime="1231152035" type="list" ltype="string">
                 <li type="string">
                         <stringvalue>vpswitch</stringvalue>
@@ -86,9 +89,9 @@
                         <stringvalue>scaleaddon</stringvalue>
                 </li>
         </entry>
-        <entry name="cursor_size" mtime="1231160326" type="int" value="18">
+        <entry name="cursor_size" mtime="1232472893" type="int" value="18">
         </entry>
-        <entry name="cursor_theme" mtime="1231160326" type="string">
+        <entry name="cursor_theme" mtime="1232472893" type="string">
                 <stringvalue>Human</stringvalue>
         </entry>
 </gconf>
