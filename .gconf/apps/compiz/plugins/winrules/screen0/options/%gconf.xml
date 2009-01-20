@@ -3,7 +3,7 @@
         <entry name="skiptaskbar_match" mtime="1231160394" type="string">
                 <stringvalue>(title=Buddy List) | title=TweetDeck</stringvalue>
         </entry>
-        <entry name="sticky_match" mtime="1231152028" type="string">
-                <stringvalue>(title=Buddy List) | title=TweetDeck</stringvalue>
+        <entry name="sticky_match" mtime="1231940813" type="string">
+                <stringvalue>(title=Buddy List)</stringvalue>
         </entry>
 </gconf>
