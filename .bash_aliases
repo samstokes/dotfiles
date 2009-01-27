@@ -2,6 +2,7 @@
 
 for i in gvim gview; do
   alias $i="$i -p"
+  alias "${i}x"="$i -p -geom 9999x9999"
 done
 
 alias less="less -i"
