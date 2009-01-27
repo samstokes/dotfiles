@@ -10,6 +10,7 @@ pending() {
 success() {
   test -f $ICON_DIR/pass.png && icon="-i $ICON_DIR/pass.png" 
   /usr/bin/notify-send $icon "SUCCEEDED: $1" "$*"
+  exit 0
 }
 
 failure() {
@@ -17,6 +18,7 @@ failure() {
   code=$1
   shift
   /usr/bin/notify-send $icon "FAILED ($code): $1" "$*"
+  exit $code
 }
 
 pending $@
