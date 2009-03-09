@@ -37,7 +37,7 @@ launch_gvim_browser() {
 }
 
 launch_web_browser() {
-  local sleepytime=5
+  local sleepytime=30
   echo -n "Waiting $sleepytime seconds for server to start up... "
   sleep $sleepytime
   echo "done."
