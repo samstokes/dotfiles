@@ -20,3 +20,5 @@
 	recentrepo = /home/sam/projects/ovc
 [merge]
 	tool = gvimdiff
+[clean]
+	requireForce = true
