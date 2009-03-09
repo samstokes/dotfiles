@@ -17,11 +17,11 @@ set colors {green red blue magenta darkgrey brown orange}
 set diffcolors {red "#00a000" blue}
 set diffcontext 3
 set selectbgcolor gray85
-set geometry(main) 1204x989+380+24
-set geometry(topwidth) 1202
-set geometry(topheight) 256
-set geometry(pwsash0) "506 1"
-set geometry(pwsash1) "629 1"
-set geometry(botwidth) 530
-set geometry(botheight) 721
+set geometry(main) 1679x922+1553+92
+set geometry(topwidth) 1677
+set geometry(topheight) 508
+set geometry(pwsash0) "707 1"
+set geometry(pwsash1) "880 1"
+set geometry(botwidth) 1010
+set geometry(botheight) 402
 set permviews {}
