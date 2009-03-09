@@ -80,12 +80,12 @@ inet update_interval all 1
 net enables eth0 1 0 0
 net chart_config eth0 40 3000000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables eth1 1 0 0
-net chart_config eth1 40 30000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
+net chart_config eth1 40 20000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables lo 0 1 0
 net enables ppp0 1 1 0
 net chart_config ppp0 40 2000 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables vnet0 1 0 0
-net chart_config vnet0 40 200 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
+net chart_config vnet0 40 5 0 1 0 0 : 0 0 0 0 500 : 0 0 0 0 500
 net enables vnet1 1 1 0
 net enables wlan0 1 1 0
 net chart_config wlan0 40 1500 0 1 0 0 : 0 1 0 0 500 : 0 0 0 0 500
