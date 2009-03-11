@@ -92,3 +92,14 @@ nnoremap <M-x> :!chmod +x %<CR><CR>
 " Easier browsing of search results
 nnoremap <C-DOWN> :cnext<CR>
 nnoremap <C-UP> :cprevious<CR>
+
+if &diff
+  " Handy shortcuts for three-way diffing (e.g. as git mergetool)
+
+  " Diff center window against just the left-hand window
+  nnoremap <C-Left> 2<C-w>l:diffo<CR>2<C-w>h:difft<CR>
+  " Diff center window against just the right-hand window
+  nnoremap <C-Right> 2<C-w>h:diffo<CR>2<C-w>l:difft<CR>
+  " Diff center window against both windows
+  nnoremap <C-Space> 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
+endif
