@@ -1,0 +1,6 @@
+#!/bin/sh
+offset=0
+for i in "$@"; do
+  wmctrl -r "$i" -e 0,$offset,$offset,-1,-1
+  offset=`expr $offset + 16`
+done
