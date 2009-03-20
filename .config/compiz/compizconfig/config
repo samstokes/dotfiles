@@ -1,4 +1,5 @@
 [gnome_session]
 profile = 
 plugin_list_autosort = true
+backend = ini
 
