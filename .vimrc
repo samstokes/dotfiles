@@ -80,6 +80,11 @@ silent! ruby nil
 " set up do...end replacement for surround plugin
 autocmd FileType ruby let b:surround_100 = "do \r end"
 
+" Remap word deletion: Ctrl-w is a risky habit to get into...
+imap <C-BS> <C-w>
+" Actually unmapping C-w breaks C-BS as well :(
+" inoremap <C-w> <C-o>:echo 'Please use Ctrl-Backspace to delete previous word!'<CR>
+
 " Map Ctrl-F to Jamis Buck's TextMate-like fuzzy file finder
 nnoremap <C-f> :FuzzyFinderTextMate<CR>
 nnoremap <C-b> :FuzzyFinderBuffer<CR>
