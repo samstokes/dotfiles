@@ -43,16 +43,6 @@ noremap Q gqap                  " make rejustifying easier
 noremap - Vyp:s/./-/g<RETURN>o<ESC>
 noremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
-" `comment this line/block' hotkey for several languages
-autocmd FileType python,sh,make  map ,/ :s/^/# <CR>
-autocmd FileType python,sh,make  map ,. :s/^# //<CR>
-autocmd FileType tex             map ,/ :s/^/% <CR>
-autocmd FileType tex             map ,. :s/^% //<CR>
-autocmd FileType c,cpp,java,php  map ,/ :s/^/\/\/ <CR>
-autocmd FileType c,cpp,java,php  map ,. :s/^\/\/ //<CR>
-autocmd FileType vim             map ,/ :s/^/" <CR>
-autocmd FileType vim             map ,. :s/^" //<CR>
-
 " don't break makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 
