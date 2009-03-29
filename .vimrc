@@ -1,9 +1,6 @@
-" $Id: .vimrc 124 2008-04-23 21:52:03Z sam $
-
 set nocompatible                " I think this is redundant, but just in case
 
 syntax on                       " syntax highlighting
-filetype on                     " filetype detection (on by default?)
 filetype plugin indent on       " enable per-filetype plugins and indenters
 
 set background=dark
@@ -36,6 +33,8 @@ set wildmode=longest,list
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
 
+set display=uhex                " more obvious display of binary files
+
 augroup filetype
   autocmd BufNewFile,BufRead *.ypp set filetype=yacc    " recognise ypp ext
   autocmd BufNewFile,BufRead *.y++ set filetype=yacc    " recognise y++ ext
@@ -43,8 +42,8 @@ augroup END
 
 noremap Q gqap                  " make rejustifying easier
 
-noremap - Vyp:s/./-/g<RETURN>o<ESC>
-noremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
+nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
+nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
 " don't break makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
@@ -56,8 +55,8 @@ autocmd FileType python,ruby,sh,make,tex,c,cpp,java,php,vim set autoindent
 autocmd FileType sh,c,cpp,java,php set cindent
 " enable actual text wrap for these file types only
 autocmd FileType tex,html,xhtml,xml,mail set textwidth=79
-" I like 1-space indents for *ml files
-autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=1 tabstop=1 expandtab
+" 2-space indents for *ml files
+autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
 
 " some helpful abbrevs for LaTeX documents
 autocmd FileType tex iab  naive na\"\i ve
