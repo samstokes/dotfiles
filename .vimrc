@@ -48,13 +48,12 @@ nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 " don't break makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 
+set autoindent " want this most of the time
 " indentation is annoying when trying to write text...
-" so enable it only for programming languages
-autocmd FileType python,ruby,sh,make,tex,c,cpp,java,php,vim set autoindent
 " and C-indentation for C-like languages
 autocmd FileType sh,c,cpp,java,php set cindent
 " enable actual text wrap for these file types only
-autocmd FileType tex,html,xhtml,xml,mail set textwidth=79
+autocmd FileType tex,html,xhtml,xml,mail set textwidth=79 noautoindent
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
 
