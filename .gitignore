@@ -1,6 +1,7 @@
 .appdata
 .bash_history
 .cache
+cornucopia
 .dbus
 Desktop
 documents
@@ -22,6 +23,10 @@ documents
 .ICEauthority
 .inkscape
 .java
+.jungledisk
+.junglediskinstance
+junglesam
+Jungle Disk Workgroup.status
 .kde
 learning
 .lesshst
