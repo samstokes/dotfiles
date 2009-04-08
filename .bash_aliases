@@ -14,6 +14,7 @@ alias gci="git commit"
 alias gco="git checkout"
 alias gbr="git branch"
 alias gad="git add"
+alias gap="x git add -p"
 alias gdf="git diff"
 
 alias gciav="git commit -av"
