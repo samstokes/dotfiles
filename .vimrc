@@ -16,12 +16,15 @@ set tabstop=2                   " and tab stops of 2
 " set softtabstop=2               " 'feel like' tabs are 2
 set shiftround                  " round shift to n*shiftwidth when indenting
 set expandtab                   " expand tabs to spaces
+set smarttab                    " backspace deletes a tab's worth of spaces
 set so=6                        " leave 6 lines of scope when scrolling
 
 set ignorecase                  " searches are case-insensitive
 set smartcase                   " ... unless they contain uppercase letters
 set nohlsearch                  " don't leave search phrases highlighted
 set incsearch                   " show best-match-so-far
+
+set title                       " set xterm title when in terminal mode
 
 set showmatch                   " blink matching brackets
 
