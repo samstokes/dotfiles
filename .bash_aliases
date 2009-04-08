@@ -17,6 +17,8 @@ alias gad="git add"
 alias gap="x git add -p"
 alias gdf="git diff"
 
+alias gspop="git stash apply && git stash clear"
+
 alias gciav="git commit -av"
 alias gcim="git commit -m"
 
