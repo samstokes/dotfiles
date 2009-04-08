@@ -89,9 +89,9 @@
                         <stringvalue>scaleaddon</stringvalue>
                 </li>
         </entry>
-        <entry name="cursor_size" mtime="1232472893" type="int" value="18">
+        <entry name="cursor_size" mtime="1238586993" type="int" value="18">
         </entry>
-        <entry name="cursor_theme" mtime="1232472893" type="string">
+        <entry name="cursor_theme" mtime="1238586993" type="string">
                 <stringvalue>Human</stringvalue>
         </entry>
 </gconf>
