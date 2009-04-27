@@ -88,6 +88,9 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
 " make current file executable
 nnoremap <M-x> :!chmod +x %<CR><CR>
 
+" Tell snipMate.vim who I am
+let g:snips_author = 'Sam Stokes <me@samstokes.co.uk>'
+
 " Easier browsing of search results
 nnoremap <C-DOWN> :cnext<CR>
 nnoremap <C-UP> :cprevious<CR>
