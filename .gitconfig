@@ -16,6 +16,7 @@
 	st = status
 	h = !x git help
 	sm = submodule
+	dfw = !x git diff -w
 [gui]
 	recentrepo = /home/sam/projects/ovc
 [merge]
