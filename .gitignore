@@ -60,6 +60,7 @@ tmp
 .tomboy
 .transmission
 .update-manager-core
+.update-notifier
 .vimfuzzyfinder
 .viminfo
 .vlc
@@ -70,3 +71,4 @@ WebApps
 .xine
 .xscreensaver-getimage.cache
 .xsession-errors
+.yuuguu
