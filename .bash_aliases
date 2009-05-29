@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-for i in gvim gview; do
-  alias $i="$i -p"
-  alias "${i}x"="$i -p -geom 9999x9999"
+for i in gvim gview gvimdiff; do
+  alias $i="$i -O"
+  alias "${i}x"="$i -O -geom 9999x9999"
 done
 
 alias less="less -i"
