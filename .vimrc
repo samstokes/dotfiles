@@ -43,6 +43,8 @@ augroup filetype
   autocmd BufNewFile,BufRead *.y++ set filetype=yacc    " recognise y++ ext
 augroup END
 
+let mapleader = ','
+
 noremap Q gqap                  " make rejustifying easier
 
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
