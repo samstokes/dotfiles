@@ -85,6 +85,8 @@ imap <C-BS> <C-w>
 nnoremap <C-f> :FuzzyFinderTextMate<CR>
 nnoremap <C-b> :FuzzyFinderBuffer<CR>
 
+autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
+
 " make current file executable
 nnoremap <M-x> :!chmod +x %<CR><CR>
 
