@@ -16,6 +16,7 @@ alias gbr="git branch"
 alias gad="git add"
 alias gap="x git add -p"
 alias gdf="git diff"
+alias gpk="git cherry-pick"
 
 alias gspop="git stash apply && git stash clear"
 

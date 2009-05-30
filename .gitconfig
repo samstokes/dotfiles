@@ -17,6 +17,7 @@
 	h = !x git help
 	sm = submodule
 	dfw = !x git diff -w
+  pk = cherry-pick
 [gui]
 	recentrepo = /home/sam/projects/ovc
 [merge]
