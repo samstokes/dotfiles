@@ -86,3 +86,11 @@ fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 export EDITOR="gvim -f"
+
+export JAVA_HOME=/usr/lib/jvm/java-6-sun
+
+# Maven
+export PATH="$HOME/packages/apache-maven-2.1.0/bin:$PATH"
+
+# Haskell: ghc 6.10 and cabal
+export PATH="/home/sam/packages/ghc-6.10/bin:/home/sam/.cabal/bin:$PATH"
