@@ -1,5 +1,6 @@
 .appdata
 .bash_history
+.cabal
 .cache
 cornucopia
 .dbus
@@ -10,6 +11,7 @@ documents
 .fontconfig
 .gconfd
 .gem
+.ghc
 .gimp-2.4
 .gitk
 .gksu.lock
@@ -32,6 +34,7 @@ learning
 .lesshst
 .local
 *.log
+.m2
 .macromedia
 .mcop
 .mcoprc
