@@ -1,4 +1,6 @@
 colorscheme darkblue
+set background=dark
+
 let g:netrw_browse_split=1
 
 " for gist.vim: open a browser instance after creating a gist
