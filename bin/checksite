@@ -1,0 +1,17 @@
+#!/bin/bash
+
+url="${1?First argument must be URL to check}"
+shift
+recipients="${@?Second and further arguments must be email addresses to notify}"
+
+do_checksite () 
+{ 
+    response=`curl -sI "$url"`
+    first=`echo $response | head -1`
+    status=`echo $first | awk '{print $2}'`
+    if [[ "$status" != 200 ]]; then
+        echo $response | mail -s "[checksite] $url: $status" $recipients
+    fi
+}
+
+do_checksite "$@"
