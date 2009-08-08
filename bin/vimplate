@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-VIM="`basename ${0%plate}`"
-TEMPLATE="$1"
-shift
-
-exec "$VIM" -c ":0r ++edit ~/templates/$TEMPLATE" "$@"
