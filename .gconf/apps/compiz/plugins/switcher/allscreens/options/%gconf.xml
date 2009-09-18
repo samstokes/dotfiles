@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-        <entry name="next_all_key" mtime="1218210987" type="string">
-                <stringvalue>Disabled</stringvalue>
-        </entry>
-</gconf>

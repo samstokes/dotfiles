@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-        <entry name="skiptaskbar_match" mtime="1233252655" type="string">
-                <stringvalue>(title=Buddy List)</stringvalue>
-        </entry>
-        <entry name="sticky_match" mtime="1231940813" type="string">
-                <stringvalue>(title=Buddy List)</stringvalue>
-        </entry>
-</gconf>

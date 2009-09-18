@@ -1,3 +1,0 @@
-require '/home/sam/packages/autotest_libnotify/lib/autotest/autotest_libnotify.rb'
-
-Autotest::Libnotify.new('/home/sam/packages/autotest_libnotify/icons')

@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-        <entry name="filter_case_insensitive" mtime="1231159265" type="bool" value="true">
-        </entry>
-</gconf>

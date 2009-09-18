@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<gconf>
-        <entry name="ignore_overlapping" mtime="1229097177" type="bool" value="true">
-        </entry>
-        <entry name="trigger_key" mtime="1229082830" type="string">
-                <stringvalue>&lt;Super&gt;space</stringvalue>
-        </entry>
-</gconf>
