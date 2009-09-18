@@ -86,3 +86,7 @@ fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 export EDITOR="gvim -f"
+
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+
+export PATH=/home/sam/packages/apache-maven/bin:"$PATH"
