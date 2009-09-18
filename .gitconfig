@@ -1,7 +1,6 @@
 [user]
 	name = Sam Stokes
-	email = sam@mo.jo
-	signingkey = Sam Stokes (Mojo) <sam@mo.jo>
+	email = me@samstokes.co.uk
 [core]
 	excludesfile = /home/sam/.git-excludes
 [color]
@@ -18,8 +17,6 @@
 	sm = submodule
 	dfw = !x git diff -w
   pk = cherry-pick
-[gui]
-	recentrepo = /home/sam/projects/ovc
 [merge]
 	tool = gvimdiff
 [clean]
