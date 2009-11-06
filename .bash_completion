@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# nice command completion for "x" and "monitor" auxiliary commands
+have x && complete -F _command $filenames x
+have monitor && complete -F _command $filenames monitor
