@@ -1,0 +1,3 @@
+#!/bin/bash
+
+x monitor "$* || { echo FAILED... press ENTER to dismiss; read; }"
