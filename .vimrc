@@ -50,6 +50,16 @@ noremap Q gqap                  " make rejustifying easier
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
+" with wrapped long lines, have up and down motions move as they look like
+" they should 
+" makes editing prose much easier
+nnoremap j           gj
+nnoremap k           gk
+inoremap <Down> <C-o>gj
+inoremap <Up>   <C-o>gk
+inoremap <Home> <C-o>g^
+inoremap <End>  <C-o>g$
+
 " don't break makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 
