@@ -117,3 +117,16 @@ if &diff
   " Diff center window against both windows
   nnoremap <C-Space> 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
 endif
+
+" Haskellise SLIME
+autocmd FileType haskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
+
+" scion (Haskell IDE)
+let g:scion_connection_setting = [ 'scion', '/home/sam/.cabal/bin/scion-server' ]
+set runtimepath+=/home/sam/.cabal/share/scion-0.1.0.2/vim_runtime_path/
+autocmd FileType haskell nnoremap <Leader>sl :LoadComponentScion<CR>
+autocmd FileType haskell nnoremap <Leader>sc :BackgroundTypecheckFileScion<CR>
+autocmd FileType haskell nnoremap <Leader>st :ThingAtPointScion<CR>
+autocmd FileType haskell inoremap <C-c> <ESC>:ThingAtPointScion<CR>
+"autocmd FileType haskell :LoadComponentScion " dies on new files
+"autocmd FileType haskell :BackgroundTypecheckFileScion " dies on new files
