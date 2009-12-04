@@ -17,6 +17,7 @@
 	sm = submodule
 	dfw = !x git diff -w
   pk = cherry-pick
+	dt = difftool
 [merge]
 	tool = gvimdiff
 [clean]
