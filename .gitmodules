@@ -1,0 +1,3 @@
+[submodule "lib/ss496-shutil"]
+	path = lib/ss496-shutil
+	url = git@github.com:samstokes/ss496-shutil.git
