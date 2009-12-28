@@ -2,8 +2,10 @@ import XMonad
 import XMonad.Config.Gnome
 import XMonad.ManageHook
 
+myModMask = mod4Mask
+
 main = xmonad $ gnomeConfig
-    { modMask = mod4Mask
+    { modMask = myModMask
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
     }
 
