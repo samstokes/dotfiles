@@ -50,9 +50,13 @@ noremap Q gqap                  " make rejustifying easier
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
+" stuff for editing prose
+
+" start new paragraph
+nmap <C-o> O<CR>
+
 " with wrapped long lines, have up and down motions move as they look like
 " they should 
-" makes editing prose much easier
 nnoremap j           gj
 nnoremap k           gk
 inoremap <Down> <C-o>gj
