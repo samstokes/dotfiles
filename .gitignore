@@ -2,6 +2,9 @@
 .appdata
 .aptitude
 .bash_history
+.cabal/bin
+.cabal/lib
+.cabal/share
 .cache
 .compiz/session
 .config/enchant
