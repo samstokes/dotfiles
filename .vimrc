@@ -64,6 +64,9 @@ inoremap <Up>   <C-o>gk
 inoremap <Home> <C-o>g^
 inoremap <End>  <C-o>g$
 
+" blog-specific stuff
+vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
+
 " don't break makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 
