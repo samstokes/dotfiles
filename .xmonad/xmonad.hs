@@ -8,7 +8,9 @@ myModMask = mod4Mask
 
 myKeys :: [(String, X ())]
 myKeys =
-    [ ("M-S-p"  , spawn "gnome-do")
+    [ ("M-r"    , gnomeRun)
+    , ("M-S-r"  , spawn "gnome-do")
+    , ("M-p"    , spawn "x nice top")
     , ("M-t"    , spawn myTerminal)
     , ("C-M-h"  , myMove ToLeft)
     , ("C-M-j"  , myMove ToDown)
