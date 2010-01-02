@@ -1,10 +1,15 @@
 import XMonad
 import XMonad.Actions.Plane
 import XMonad.Config.Gnome
+import XMonad.Layout.ShowWName
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
 
 myModMask = mod4Mask
+
+myLayoutModifiers = showWName
+
+myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
 myKeys :: [(String, X ())]
 myKeys =
@@ -36,6 +41,8 @@ myConfig = gnomeConfig
     { modMask = myModMask
     , startupHook = startupHook gnomeConfig >> myStartupHook
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
+    , layoutHook = myLayoutModifiers $ layoutHook gnomeConfig
+    , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
 
