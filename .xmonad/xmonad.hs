@@ -25,6 +25,7 @@ myKeys =
     , ("S-C-M-j", myShift ToDown)
     , ("S-C-M-k", myShift ToUp)
     , ("S-C-M-l", myShift ToRight)
+    , ("M1-<F4>", kill)
     ]
     where
       myMove = planeMove GConf Finite
