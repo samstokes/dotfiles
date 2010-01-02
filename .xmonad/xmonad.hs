@@ -26,6 +26,7 @@ myKeys =
     , ("S-C-M-k", myShift ToUp)
     , ("S-C-M-l", myShift ToRight)
     , ("M1-<F4>", kill)
+    , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
     ]
     where
       myMove = planeMove GConf Finite
