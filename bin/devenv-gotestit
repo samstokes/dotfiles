@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# Set up a Go Test It development environment, with a tabbed terminal and gvim
+
+. "$HOME"/lib/ss496-shutil/util.bash
+
+PROJECT_NAME="Go Test It"
+PROJECT_DIR="$HOME"/projects/gotestit
+VMCONTROL_DIR="$PROJECT_DIR/vmcontrol"
+FRONTEND_DIR="$PROJECT_DIR/gotestit"
+GUEST_DISPLAY=1
+XEPHYR_RESOLUTION=1280x640
+
+GNOME_TERMINAL_PROFILE=Default
+
+launch_tabbed_terminal() {
+  local opts="--tab-with-profile=$GNOME_TERMINAL_PROFILE"
+  local opts_wd_vmcontrol="--working-directory=$VMCONTROL_DIR"
+  local opts_wd_frontend="--working-directory=$FRONTEND_DIR"
+  local tab_vmcontrol="$opts $opts_wd_vmcontrol"
+  local tab_frontend="$opts $opts_wd_frontend"
+
+  /usr/bin/gnome-terminal \
+      $tab_vmcontrol -t "manager" -e "sh -c 'echo Why not run:; echo mvn -o jetty:run; bash'" \
+      $tab_vmcontrol -t "runner" -e "sh -c 'echo Why not run:; echo mvn -o exec:exec; bash'" \
+      $tab_vmcontrol -t "guest" -e "bin/guest" \
+      $tab_vmcontrol \
+      $tab_frontend -t "rails" -e "script/server" \
+      $tab_frontend -t "amqpl" -e "script/runner script/amqp-subscriber.rb" \
+      &     # normally forks anyway, but seems not to when run from panel
+}
+
+check_rabbitmq() {
+  sudo /etc/init.d/rabbitmq-server status
+}
+
+start_rabbitmq() {
+  sudo /etc/init.d/rabbitmq-server start
+}
+
+check_Xephyr() {
+  ps waxu | grep Xephyr | grep :$GUEST_DISPLAY
+}
+
+start_Xephyr() {
+  Xephyr \
+    :$GUEST_DISPLAY \
+    -screen $XEPHYR_RESOLUTION \
+    &
+}
+
+echo "Launching a $PROJECT_NAME development environment in $PROJECT_DIR..."
+ss496_ensure rabbitmq || ss496_die "Failed to ensure RabbitMQ was running."
+ss496_ensure Xephyr || ss496_die "Failed to ensure Xephyr nested X server."
+launch_tabbed_terminal || ss496_die "Failed to launch tabbed terminal."
+gvim +"cd $PROJECT_DIR" -geom 999x999 -O2
+echo "You're good to go!  Feel free to close this terminal window."
