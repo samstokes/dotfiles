@@ -41,6 +41,11 @@ myKeys =
       myMove = planeMove GConf Finite
       myShift = planeShift GConf Finite
 
+myMouseBindings :: [((ButtonMask, Button), Window -> X ())]
+myMouseBindings =
+    [
+    ]
+
 myStartupHook :: X ()
 myStartupHook = checkKeymap myConfig myKeys
 
@@ -56,6 +61,7 @@ myConfig = gnomeConfig
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
+    `additionalMouseBindings` myMouseBindings
 
 myTerminal = terminal myConfig
 
