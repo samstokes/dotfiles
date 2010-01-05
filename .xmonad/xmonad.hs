@@ -7,13 +7,14 @@ import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Layout.BoringWindows
 import XMonad.Layout.Minimize
+import XMonad.Layout.NoBorders
 import XMonad.Layout.ShowWName
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
 
 myModMask = mod4Mask
 
-myLayoutModifiers = boringAuto . minimize . showWName
+myLayoutModifiers = boringAuto . minimize . showWName . noBorders
 
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
