@@ -1,6 +1,7 @@
 import Data.Monoid
 import XMonad
 import XMonad.Actions.Plane
+import XMonad.Actions.UpdatePointer
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
@@ -73,7 +74,9 @@ myManageHook =
     [ resource =? "Do"   --> doIgnore ]
 
 myLogHook :: X ()
-myLogHook = fadeInactiveLogHook 0.8
+myLogHook = do
+  updatePointer $ TowardsCentre 0.2 0.2
+  fadeInactiveLogHook 0.8
 
 myConfig = gnomeConfig
     { modMask = myModMask
