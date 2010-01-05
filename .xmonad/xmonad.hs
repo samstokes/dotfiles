@@ -1,14 +1,18 @@
+import Data.Monoid
 import XMonad
 import XMonad.Actions.Plane
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.RestoreMinimized
+import XMonad.Layout.BoringWindows
+import XMonad.Layout.Minimize
 import XMonad.Layout.ShowWName
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
 
 myModMask = mod4Mask
 
-myLayoutModifiers = showWName
+myLayoutModifiers = boringAuto . minimize . showWName
 
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
@@ -33,7 +37,14 @@ myKeys =
     , ("S-C-M-l", myShift ToRight)
 
     -- window management commands
+    , ("M-z",     withFocused (\win -> sendMessage (MinimizeWin win)))
+    , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
+
+      -- skip boring windows when changing focus
+    , ("M-j",     focusDown)
+    , ("M-k",     focusUp)
+    , ("M-m",     focusMaster)
 
     -- session management
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
@@ -51,6 +62,9 @@ myMouseBindings =
     {-, ((myModMask, button5), (flip setOpacity) 0.1)-}
     ]
 
+myEventHook :: Event -> X All
+myEventHook = restoreMinimizedEventHook
+
 myStartupHook :: X ()
 myStartupHook = checkKeymap myConfig myKeys
 
@@ -67,6 +81,7 @@ myConfig = gnomeConfig
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
     , layoutHook = myLayoutModifiers $ layoutHook gnomeConfig
     , logHook = logHook gnomeConfig >> myLogHook
+    , handleEventHook = handleEventHook gnomeConfig `mappend` myEventHook
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
