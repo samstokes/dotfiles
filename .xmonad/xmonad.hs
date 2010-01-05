@@ -19,6 +19,7 @@ myKeys =
 
     -- tools and apps
     , ("M-p",     spawn "x nice top")
+    , ("M-g"    , spawn "x ssh -t jabberwock.vm.bytemark.co.uk bin/passgrep")
 
     -- workspace navigation
     , ("C-M-h",   myMove ToLeft)
