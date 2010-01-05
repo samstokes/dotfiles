@@ -14,18 +14,18 @@ myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 myKeys :: [(String, X ())]
 myKeys =
     -- launchers
-    [ ("M-r"    , gnomeRun)
-    , ("M-S-r"  , spawn "gnome-do")
-    , ("M-t"    , spawn myTerminal)
+    [ ("M-r",     gnomeRun)
+    , ("M-S-r",   spawn "gnome-do")
+    , ("M-t",     spawn myTerminal)
 
     -- tools and apps
-    , ("M-p"    , spawn "x nice top")
+    , ("M-p",     spawn "x nice top")
 
     -- workspace navigation
-    , ("C-M-h"  , myMove ToLeft)
-    , ("C-M-j"  , myMove ToDown)
-    , ("C-M-k"  , myMove ToUp)
-    , ("C-M-l"  , myMove ToRight)
+    , ("C-M-h",   myMove ToLeft)
+    , ("C-M-j",   myMove ToDown)
+    , ("C-M-k",   myMove ToUp)
+    , ("C-M-l",   myMove ToRight)
     , ("S-C-M-h", myShift ToLeft)
     , ("S-C-M-j", myShift ToDown)
     , ("S-C-M-k", myShift ToUp)
