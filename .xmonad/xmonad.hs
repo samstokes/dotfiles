@@ -15,7 +15,12 @@ import XMonad.Util.EZConfig
 
 myModMask = mod4Mask
 
-myLayoutModifiers = boringAuto . minimize . showWName . layoutHintsWithPlacement (0.5, 0.5) . noBorders
+myLayoutModifiers =
+    boringAuto
+  . minimize
+  . showWName
+  . layoutHintsWithPlacement (0.5, 0.5)
+  . noBorders
 
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
