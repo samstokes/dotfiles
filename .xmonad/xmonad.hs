@@ -6,6 +6,7 @@ import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Layout.BoringWindows
+import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ShowWName
@@ -14,7 +15,7 @@ import XMonad.Util.EZConfig
 
 myModMask = mod4Mask
 
-myLayoutModifiers = boringAuto . minimize . showWName . noBorders
+myLayoutModifiers = boringAuto . minimize . showWName . layoutHintsWithPlacement (0.5, 0.5) . noBorders
 
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
