@@ -45,6 +45,10 @@ myKeys =
 myMouseBindings :: [((ButtonMask, Button), Window -> X ())]
 myMouseBindings =
     [
+      -- Super-scroll to transparentise window
+      -- Maybe useful if I ever set up conky?
+      {-((myModMask, button4), fadeIn)-}
+    {-, ((myModMask, button5), (flip setOpacity) 0.1)-}
     ]
 
 myStartupHook :: X ()
