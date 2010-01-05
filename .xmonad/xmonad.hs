@@ -13,10 +13,15 @@ myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
 myKeys :: [(String, X ())]
 myKeys =
+    -- launchers
     [ ("M-r"    , gnomeRun)
     , ("M-S-r"  , spawn "gnome-do")
-    , ("M-p"    , spawn "x nice top")
     , ("M-t"    , spawn myTerminal)
+
+    -- tools and apps
+    , ("M-p"    , spawn "x nice top")
+
+    -- workspace navigation
     , ("C-M-h"  , myMove ToLeft)
     , ("C-M-j"  , myMove ToDown)
     , ("C-M-k"  , myMove ToUp)
@@ -25,7 +30,11 @@ myKeys =
     , ("S-C-M-j", myShift ToDown)
     , ("S-C-M-k", myShift ToUp)
     , ("S-C-M-l", myShift ToRight)
+
+    -- window management commands
     , ("M1-<F4>", kill)
+
+    -- session management
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
     ]
     where
