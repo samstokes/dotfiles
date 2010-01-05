@@ -1,6 +1,7 @@
 import XMonad
 import XMonad.Actions.Plane
 import XMonad.Config.Gnome
+import XMonad.Hooks.FadeInactive
 import XMonad.Layout.ShowWName
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
@@ -53,11 +54,15 @@ myManageHook :: [ManageHook]
 myManageHook =
     [ resource =? "Do"   --> doIgnore ]
 
+myLogHook :: X ()
+myLogHook = fadeInactiveLogHook 0.8
+
 myConfig = gnomeConfig
     { modMask = myModMask
     , startupHook = startupHook gnomeConfig >> myStartupHook
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
     , layoutHook = myLayoutModifiers $ layoutHook gnomeConfig
+    , logHook = logHook gnomeConfig >> myLogHook
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
