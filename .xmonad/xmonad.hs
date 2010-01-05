@@ -16,7 +16,6 @@ myKeys =
     -- launchers
     [ ("M-r",     gnomeRun)
     , ("M-S-r",   spawn "gnome-do")
-    , ("M-t",     spawn myTerminal)
 
     -- tools and apps
     , ("M-p",     spawn "x nice top")
