@@ -138,3 +138,4 @@ autocmd FileType haskell,lhaskell inoremap <C-c> <ESC>:ThingAtPointScion<CR>
 "autocmd FileType haskell,lhaskell :LoadComponentScion " dies on new files
 "autocmd FileType haskell,lhaskell :BackgroundTypecheckFileScion " dies on new files
 autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
+autocmd FileType haskell,lhaskell set keywordprg=hoogle\ --count=10
