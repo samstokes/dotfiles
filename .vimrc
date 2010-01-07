@@ -67,6 +67,9 @@ inoremap <End>  <C-o>g$
 " blog-specific stuff
 vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 
+" don't text wrap emails, mail client will do it too and conflict
+autocmd FileType mail set textwidth=0
+
 " don't break makefiles
 autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 
@@ -74,8 +77,10 @@ set autoindent " want this most of the time
 " indentation is annoying when trying to write text...
 " and C-indentation for C-like languages
 autocmd FileType sh,c,cpp,java,php set cindent
+" kill autoindent for text-like languages
+autocmd FileType tex,html,xhtml,xml,mail set noautoindent
 " enable actual text wrap for these file types only
-autocmd FileType tex,html,xhtml,xml,mail set textwidth=79 noautoindent
+autocmd FileType tex,html,xhtml,xml set textwidth=79
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
 
