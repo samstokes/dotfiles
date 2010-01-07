@@ -77,8 +77,14 @@ myStartupHook :: X ()
 myStartupHook = checkKeymap myConfig myKeys
 
 myManageHook :: [ManageHook]
-myManageHook =
-    [ resource =? "Do"   --> doIgnore ]
+myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
+                                   , (doIgnore, ignorables)
+                                   ]
+  where ignorables = [ resource =? "Do"
+                     ]
+        floatables = [ className =? "Gcalctool"
+                     ]
+        hookAll (hook, queries) = [query --> hook | query <- queries]
 
 myLogHook :: X ()
 myLogHook = do
