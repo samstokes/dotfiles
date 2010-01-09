@@ -1,6 +1,7 @@
 -- vim:foldmethod=marker:foldcolumn=4
 -- === Imports === {{{1
 import Data.List (intercalate)
+import Data.Maybe
 import Data.Monoid
 import qualified SSH.Config
 import Text.ParserCombinators.Parsec (parse, ParseError)
@@ -18,6 +19,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.ShowWName
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
+import XMonad.Util.Run
 
 
 -- === Keyboard and mouse === {{{1
@@ -38,7 +40,7 @@ myKeys =
     , ("M-S-e",   bringSelected windowGSConfig)
 
     ----- tools and apps ----- {{{3
-    , ("M-p",     spawn "x nice top")
+    , ("M-p",     spawnX "nice top")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
 
@@ -142,22 +144,32 @@ windowGSConfig = defaultGSConfig
 -- === Utilities === {{{1
 
 ----- launching things ----- {{{2
+
+spawnX :: FilePath -> X ()
+spawnX = spawn . ("x " ++)
+
+safeSpawnX :: FilePath -> [String] -> X ()
+safeSpawnX cmd opts = safeSpawn "x" (cmd : opts)
+
+notify :: String -> Maybe String -> X ()
+notify title maybeBody = safeSpawn "notify-send" $
+    [title] ++ maybeToList maybeBody
+
 spawnSsh :: String -> X ()
 spawnSsh host = spawnSshOpts host [] Nothing
 
-spawnSshOptsCmd :: String -> [String] -> String -> X ()
+spawnSshOptsCmd :: String -> [String] -> FilePath -> X ()
 spawnSshOptsCmd host opts cmd = spawnSshOpts host opts (Just cmd)
 
-spawnSshOpts :: String -> [String] -> Maybe String -> X ()
-spawnSshOpts host opts maybeCmd = spawn $ "x ssh " ++ optsStr ++ host ++ cmdStr
-  where optsStr = intercalate " " opts ++ (if null opts then "" else " ")
-        cmdStr = case maybeCmd of (Just cmd) -> " " ++ cmd; Nothing -> ""
+spawnSshOpts :: String -> [String] -> Maybe FilePath -> X ()
+spawnSshOpts host opts maybeCmd = safeSpawnX "ssh" $
+    opts ++ [host] ++ maybeToList maybeCmd
 
 ----- SSH utilities ----- {{{2
 sshGridSelect :: X ()
 sshGridSelect = io readSshHosts >>= sshGridSelect'
   where
-    sshGridSelect' [] = spawn "notify-send SSH \"Couldn't find any hosts defined\""
+    sshGridSelect' [] = notify "SSH" (Just "Couldn't find any hosts defined")
     sshGridSelect' hostSections = do
       let hosts = map SSH.Config.name hostSections
       host <- gridselect defaultGSConfig (zip hosts hosts)
