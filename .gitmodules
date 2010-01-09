@@ -1,3 +1,6 @@
 [submodule "lib/ss496-shutil"]
 	path = lib/ss496-shutil
 	url = git@github.com:samstokes/ss496-shutil.git
+[submodule ".xmonad/src/hassh"]
+	path = .xmonad/src/hassh
+	url = /home/sam/projects/hassh/
