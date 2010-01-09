@@ -18,6 +18,7 @@
 .config/transmission
 .config/Trolltech.conf
 .config/user-dirs.*
+.config/vlc
 .cups
 .dbus
 Desktop
