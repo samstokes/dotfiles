@@ -2,6 +2,7 @@
 -- === Imports === {{{1
 import Data.Monoid
 import XMonad
+import XMonad.Actions.GridSelect
 import XMonad.Actions.Plane
 import XMonad.Actions.UpdatePointer
 import XMonad.Config.Gnome
@@ -30,6 +31,8 @@ myKeys =
     ----- launchers ----- {{{3
     [ ("M-r",     gnomeRun)
     , ("M-S-r",   spawn "gnome-do")
+    , ("M-e",     goToSelected windowGSConfig)
+    , ("M-S-e",   bringSelected windowGSConfig)
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawn "x nice top")
@@ -124,6 +127,12 @@ myLogHook :: X ()
 myLogHook = do
   updatePointer $ TowardsCentre 0.2 0.2
   fadeInactiveLogHook 0.8
+
+
+-- === GridSelect config === {{{1
+
+windowGSConfig :: GSConfig Window
+windowGSConfig = defaultGSConfig
 
 
 -- === Put it all together === {{{1
