@@ -1,5 +1,6 @@
 -- vim:foldmethod=marker:foldcolumn=4
 -- === Imports === {{{1
+import Data.List (intercalate)
 import Data.Monoid
 import qualified SSH.Config
 import Text.ParserCombinators.Parsec (parse, ParseError)
@@ -38,7 +39,7 @@ myKeys =
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawn "x nice top")
-    , ("M-g"    , spawn "x ssh -t jabberwock.vm.bytemark.co.uk bin/passgrep")
+    , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
 
     ----- workspace navigation ----- {{{3
@@ -138,15 +139,29 @@ windowGSConfig :: GSConfig Window
 windowGSConfig = defaultGSConfig
 
 
--- === SSH utilities === {{{1
+-- === Utilities === {{{1
+
+----- launching things ----- {{{2
+spawnSsh :: String -> X ()
+spawnSsh host = spawnSshOpts host [] Nothing
+
+spawnSshOptsCmd :: String -> [String] -> String -> X ()
+spawnSshOptsCmd host opts cmd = spawnSshOpts host opts (Just cmd)
+
+spawnSshOpts :: String -> [String] -> Maybe String -> X ()
+spawnSshOpts host opts maybeCmd = spawn $ "x ssh " ++ optsStr ++ host ++ cmdStr
+  where optsStr = intercalate " " opts ++ (if null opts then "" else " ")
+        cmdStr = case maybeCmd of (Just cmd) -> " " ++ cmd; Nothing -> ""
+
+----- SSH utilities ----- {{{2
 sshGridSelect :: X ()
 sshGridSelect = io readSshHosts >>= sshGridSelect'
   where
     sshGridSelect' [] = spawn "notify-send SSH \"Couldn't find any hosts defined\""
     sshGridSelect' hostSections = do
       let hosts = map SSH.Config.name hostSections
-      host <- gridselect defaultGSConfig (zip hosts (("x ssh " ++) `map` hosts))
-      whenJust host spawn
+      host <- gridselect defaultGSConfig (zip hosts hosts)
+      whenJust host spawnSsh
 
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
