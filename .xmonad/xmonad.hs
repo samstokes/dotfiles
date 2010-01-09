@@ -80,11 +80,12 @@ myManageHook :: [ManageHook]
 myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
                                    , (doIgnore, ignorables)
                                    ]
-  where ignorables = [ resource =? "Do"
-                     ]
-        floatables = [ className =? "Gcalctool"
-                     ]
-        hookAll (hook, queries) = [query --> hook | query <- queries]
+  where
+    ignorables = [ resource =? "Do"
+                 ]
+    floatables = [ className =? "Gcalctool"
+                 ]
+    hookAll (hook, queries) = [query --> hook | query <- queries]
 
 myLogHook :: X ()
 myLogHook = do
