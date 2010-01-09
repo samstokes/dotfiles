@@ -1,6 +1,8 @@
 -- vim:foldmethod=marker:foldcolumn=4
 -- === Imports === {{{1
 import Data.Monoid
+import qualified SSH.Config
+import Text.ParserCombinators.Parsec (parse, ParseError)
 import XMonad
 import XMonad.Actions.GridSelect
 import XMonad.Actions.Plane
@@ -37,6 +39,7 @@ myKeys =
     ----- tools and apps ----- {{{3
     , ("M-p",     spawn "x nice top")
     , ("M-g"    , spawn "x ssh -t jabberwock.vm.bytemark.co.uk bin/passgrep")
+    , ("M-s",     sshGridSelect)
 
     ----- workspace navigation ----- {{{3
     , ("C-M-h",   myMove ToLeft)
@@ -133,6 +136,29 @@ myLogHook = do
 
 windowGSConfig :: GSConfig Window
 windowGSConfig = defaultGSConfig
+
+
+-- === SSH utilities === {{{1
+sshGridSelect :: X ()
+sshGridSelect = io readSshHosts >>= sshGridSelect'
+  where
+    sshGridSelect' [] = spawn "notify-send SSH \"Couldn't find any hosts defined\""
+    sshGridSelect' hostSections = do
+      let hosts = map SSH.Config.name hostSections
+      host <- gridselect defaultGSConfig (zip hosts (("x ssh " ++) `map` hosts))
+      whenJust host spawn
+
+sshConfig :: FilePath
+sshConfig = "/home/sam/.ssh/config"
+
+readSshHosts :: IO [SSH.Config.Section]
+readSshHosts = do
+    configFile <- readFile sshConfig
+    case parse SSH.Config.parser sshConfig configFile of
+      Left parseError -> fail $ show parseError
+      Right config -> return $ SSH.Config.sections config
+  `catch` handleError
+  where handleError e = print e >> return []
 
 
 -- === Put it all together === {{{1
