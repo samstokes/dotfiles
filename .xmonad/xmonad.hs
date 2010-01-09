@@ -15,15 +15,6 @@ import XMonad.Util.EZConfig
 
 myModMask = mod4Mask
 
-myLayoutModifiers =
-    boringAuto
-  . minimize
-  . showWName
-  . layoutHintsWithPlacement (0.5, 0.5)
-  . noBorders
-
-myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
-
 myKeys :: [(String, X ())]
 myKeys =
     -- launchers
@@ -69,6 +60,15 @@ myMouseBindings =
       {-((myModMask, button4), fadeIn)-}
     {-, ((myModMask, button5), (flip setOpacity) 0.1)-}
     ]
+
+myLayoutModifiers =
+    boringAuto
+  . minimize
+  . showWName
+  . layoutHintsWithPlacement (0.5, 0.5)
+  . noBorders
+
+myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
 myEventHook :: Event -> X All
 myEventHook = restoreMinimizedEventHook
