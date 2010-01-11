@@ -96,3 +96,6 @@ export JAVA_HOME=/usr/lib/jvm/java-6-sun/
 
 # Local installation of Maven
 export PATH=/home/sam/packages/apache-maven/bin:"$PATH"
+
+# Add cabal binaries to PATH
+export PATH=/home/sam/.cabal/bin:"$PATH"
