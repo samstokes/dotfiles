@@ -16,7 +16,6 @@ import XMonad.Layout.BoringWindows
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
-import XMonad.Layout.ShowWName
 import XMonad.ManageHook
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
@@ -88,7 +87,6 @@ myMouseBindings =
 myLayoutModifiers =
     boringAuto
   . minimize
-  . showWName
   . layoutHintsWithPlacement (0.5, 0.5)
   . noBorders
 
