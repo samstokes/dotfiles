@@ -12,7 +12,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
-import XMonad.Layout.BoringWindows
+import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
@@ -58,9 +58,9 @@ myKeys =
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
       ----- skip boring windows when changing focus ----- {{{4
-    , ("M-j",     focusDown)
-    , ("M-k",     focusUp)
-    , ("M-m",     focusMaster)
+    , ("M-j",     B.focusDown)
+    , ("M-k",     B.focusUp)
+    , ("M-m",     B.focusMaster)
 
     ----- session management ----- {{{3
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
@@ -85,7 +85,7 @@ myMouseBindings =
 -- === Layout modifiers === {{{1
 
 myLayoutModifiers =
-    boringAuto
+    B.boringAuto
   . minimize
   . layoutHintsWithPlacement (0.5, 0.5)
   . noBorders
