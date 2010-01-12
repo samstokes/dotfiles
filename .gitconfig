@@ -19,6 +19,7 @@
 	dfw = !x git diff -w
   pk = cherry-pick
 	dt = difftool
+	rb = rebase
 [merge]
 	tool = gvimdiff
 [clean]
