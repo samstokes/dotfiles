@@ -1,6 +1,6 @@
 -- vim:foldmethod=marker:foldcolumn=4
 -- === Imports === {{{1
-import Data.List (intercalate)
+import Data.List (intercalate, isInfixOf)
 import Data.Maybe
 import Data.Monoid
 import qualified SSH.Config
@@ -17,6 +17,7 @@ import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.ManageHook
+import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
@@ -113,6 +114,7 @@ myStartupHook = checkKeymap myConfig myKeys
 myManageHook :: [ManageHook]
 myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
                                    , (doIgnore, ignorables)
+                                   , (doF W.shiftMaster, masters)
                                    ]
   where
     ----- windows to ignore completely (don't manage) {{{2
@@ -121,6 +123,12 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
     ----- windows to float {{{2
     floatables = [ className =? "Gcalctool"
                  ]
+    ----- windows that should be made master when they appear {{{2
+    masters = [
+                -- make git commit message editor master - this will only
+                -- work if gvim is invoked via a symlink called 'git-msg-vim'
+                fmap ("Git-msg-vim" `isInfixOf`) className
+              ]
     ----- helper functions ----- {{{2
     hookAll (hook, queries) = [query --> hook | query <- queries]
 
