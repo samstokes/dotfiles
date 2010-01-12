@@ -39,6 +39,7 @@ documents
 .gimp-*
 .gitk
 .gksu.lock
+.gnome/apps
 .gnome2
 .gnuplot_history
 .gnuplot-wxt
