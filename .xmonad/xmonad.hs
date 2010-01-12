@@ -6,6 +6,7 @@ import Data.Monoid
 import qualified SSH.Config
 import Text.ParserCombinators.Parsec (parse, ParseError)
 import XMonad
+import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.Plane
 import XMonad.Actions.UpdatePointer
@@ -53,6 +54,9 @@ myKeys =
     , ("S-C-M-j", myShift ToDown)
     , ("S-C-M-k", myShift ToUp)
     , ("S-C-M-l", myShift ToRight)
+
+    , ("M-<Backspace>",     viewEmptyWorkspace)
+    , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
     ----- window management commands ----- {{{3
     , ("M-z",     withFocused (\win -> sendMessage (MinimizeWin win)))
