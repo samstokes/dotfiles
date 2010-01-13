@@ -44,6 +44,7 @@ myKeys =
     , ("M-p",     spawnX "nice top")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
+    , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
 
     ----- workspace navigation ----- {{{3
     , ("C-M-h",   myMove ToLeft)
