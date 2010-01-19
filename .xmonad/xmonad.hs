@@ -1,7 +1,9 @@
 -- === Boilerplate === {{{1
 -- vim:foldmethod=marker:foldcolumn=4
 ----- Pragmas ----- {{{2
+{-# LANGUAGE GADTs #-}
 ----- Imports ----- {{{2
+import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
 import Data.Monoid
@@ -47,6 +49,11 @@ myKeys =
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
     , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
+
+    , ("M-<XF86AudioPlay>", timerStart (Minutes 25))
+    , ("M-S-<XF86AudioPlay>", timerStart (Minutes 5))
+    , ("M-<XF86AudioStop>", timerStop)
+    , ("M-S-<XF86AudioStop>", timerStop)
 
     ----- workspace navigation ----- {{{3
     , ("C-M-h",   myMove ToLeft)
@@ -172,6 +179,43 @@ safeSpawnX cmd opts = safeSpawn "x" (cmd : opts)
 notify :: String -> Maybe String -> X ()
 notify title maybeBody = safeSpawn "notify-send" $
     [title] ++ maybeToList maybeBody
+
+
+----- timers ----- {{{3
+
+----- timer types ----- {{{4
+
+type TimerCommand = String
+
+data Duration a where
+    Duration :: a -> a -> a -> Duration a
+    Hours :: a -> Duration a
+    Minutes :: a -> Duration a
+    Seconds :: a -> Duration a
+  deriving (Show)
+
+toHMS :: Show a => Duration a -> [String]
+toHMS (Duration h m s) = map show [h, m, s]
+toHMS (Hours h) = [show h, "0", "0"]
+toHMS (Minutes m) = ["0", show m, "0"]
+toHMS (Seconds s) = ["0", "0", show s]
+
+newtype NiceDuration a = NiceDuration { unNice :: Duration a }
+instance Show a => Show (NiceDuration a) where
+  show = unwords . reverse . map (map toLower) . words . show . unNice
+
+----- timer helper functions ----- {{{4
+
+timerStart :: Show a => Duration a -> X ()
+timerStart duration = do
+  notify "Starting timer" (Just $ show $ NiceDuration duration)
+  timer "start" $ toHMS duration
+
+timerStop :: X ()
+timerStop = notify "Stopping timer" Nothing >> timer "stop" []
+
+timer :: TimerCommand -> [String] -> X ()
+timer command options = safeSpawn "timer-applet-cli.py" $ command : options
 
 
 ----- spawn ssh ----- {{{3
