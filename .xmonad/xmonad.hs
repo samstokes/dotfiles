@@ -156,15 +156,23 @@ windowGSConfig = defaultGSConfig
 
 ----- launching things ----- {{{2
 
+----- spawn in xterm ----- {{{3
+
 spawnX :: FilePath -> X ()
 spawnX = spawn . ("x " ++)
 
 safeSpawnX :: FilePath -> [String] -> X ()
 safeSpawnX cmd opts = safeSpawn "x" (cmd : opts)
 
+
+----- popup notifications ----- {{{3
+
 notify :: String -> Maybe String -> X ()
 notify title maybeBody = safeSpawn "notify-send" $
     [title] ++ maybeToList maybeBody
+
+
+----- spawn ssh ----- {{{3
 
 spawnSsh :: String -> X ()
 spawnSsh host = spawnSshOpts host [] Nothing
