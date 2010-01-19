@@ -50,8 +50,9 @@ myKeys =
     , ("M-s",     sshGridSelect)
     , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
 
-    , ("M-<XF86AudioPlay>", timerStart (Minutes 25))
-    , ("M-S-<XF86AudioPlay>", timerStart (Minutes 5))
+    , ("M-<XF86AudioPlay>", timerStart pomodoro)
+    , ("M-S-<XF86AudioPlay>", timerStart breakShort)
+    , ("M-C-<XF86AudioPlay>", timerStart breakLong)
     , ("M-<XF86AudioStop>", timerStop)
     , ("M-S-<XF86AudioStop>", timerStop)
 
@@ -216,6 +217,14 @@ timerStop = notify "Stopping timer" Nothing >> timer "stop" []
 
 timer :: TimerCommand -> [String] -> X ()
 timer command options = safeSpawn "timer-applet-cli.py" $ command : options
+
+
+----- standard time periods ----- {{{4
+
+pomodoro, breakShort, breakLong :: Duration Int
+pomodoro = Minutes 25
+breakShort = Minutes 5
+breakLong = Minutes 25
 
 
 ----- spawn ssh ----- {{{3
