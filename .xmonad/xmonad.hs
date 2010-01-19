@@ -1,5 +1,7 @@
+-- === Boilerplate === {{{1
 -- vim:foldmethod=marker:foldcolumn=4
--- === Imports === {{{1
+----- Pragmas ----- {{{2
+----- Imports ----- {{{2
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
 import Data.Monoid
