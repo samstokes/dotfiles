@@ -1,3 +1,5 @@
+runtime! ftdetect/*.vim
+
 " Goodies for Markdown
 if exists("did\_load\_filetypes")
  finish
