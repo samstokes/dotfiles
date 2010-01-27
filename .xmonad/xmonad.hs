@@ -17,6 +17,7 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
+import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
@@ -121,7 +122,9 @@ myEventHook = restoreMinimizedEventHook
 -- === Startup hook === {{{1
 
 myStartupHook :: X ()
-myStartupHook = checkKeymap myConfig myKeys
+myStartupHook = do
+  setWMName "LG3D" -- lie about my name to fool Java programs into not breaking
+  checkKeymap myConfig myKeys
 
 
 -- === Manage hook === {{{1
