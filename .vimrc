@@ -130,6 +130,12 @@ if &diff
   nnoremap <C-Space> 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
 endif
 
+" use ack if available
+call system('type ack >/dev/null 2>&1')
+if !v:shell_error
+  set grepprg=ack
+endif
+
 " Haskellise SLIME
 autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
 
