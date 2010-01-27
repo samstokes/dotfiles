@@ -106,6 +106,7 @@ tmp
 .update-notifier
 .vimfuzzyfinder
 .viminfo
+.vimoutliner/vo_tags.tag
 .vimprojects
 .VirtualBox
 .vlc
