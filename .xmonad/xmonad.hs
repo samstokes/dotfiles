@@ -23,6 +23,8 @@ import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.ManageHook
+import XMonad.Prompt
+import XMonad.Prompt.Window
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
@@ -44,6 +46,8 @@ myKeys =
     , ("M-S-r",   spawn "gnome-do")
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
+    , ("C-M-e",   windowPromptGoto defaultXPConfig)
+    , ("C-M-S-e", windowPromptBring defaultXPConfig)
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
