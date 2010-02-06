@@ -1,0 +1,1 @@
+sudo -i -b -u couchdb /home/sam/packages/apache-couchdb/bin/couchdb
