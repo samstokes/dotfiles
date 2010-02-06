@@ -25,6 +25,9 @@ Desktop
 .dmrc
 Documents
 documents
+Dropbox
+.dropbox
+.dropbox-dist
 .erlang.cookie
 .esd_auth
 .evolution
@@ -55,8 +58,10 @@ documents
 .kde
 learning
 .lesshst
+.links2
 .local
 *.log
+.m2/scala-console.histo
 .m2/repository
 .macromedia
 .mcop
@@ -87,6 +92,7 @@ projects
 .qemu_history
 .qt
 .quicksynergy
+.raindrop
 .recently-used
 .recently-used.xbel
 .ruby_inline
@@ -113,15 +119,18 @@ tmp
 vm
 vms
 .wapi
+.webapps
 WebApps
 .wine
 workspace
 .Xauthority
 .xine
+.xmonad/history
 .xmonad/xmonad-x86_64-linux
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
 .xscreensaver-getimage.cache
 .xsession-errors
+Yammer
 .yuuguu
