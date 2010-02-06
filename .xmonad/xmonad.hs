@@ -52,6 +52,8 @@ myKeys =
     , ("M-s",     sshGridSelect)
     , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
 
+    , ("M-v",     spawn "gvim")
+
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
     , ("M-C-<XF86AudioPlay>", timerStart breakLong)
