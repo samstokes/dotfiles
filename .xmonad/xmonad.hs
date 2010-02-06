@@ -47,6 +47,7 @@ myKeys =
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
+    , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
     , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
