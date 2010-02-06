@@ -54,6 +54,9 @@ myKeys =
 
     , ("M-v",     spawn "gvim")
 
+    , ("<Print>", spawn "gnome-screenshot")
+    , ("S-<Print>", spawn "gnome-screenshot -w")
+
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
     , ("M-C-<XF86AudioPlay>", timerStart breakLong)
