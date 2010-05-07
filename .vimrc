@@ -125,6 +125,12 @@ let g:snips_author = 'Sam Stokes <me@samstokes.co.uk>'
 nnoremap <C-DOWN> :cnext<CR>
 nnoremap <C-UP> :cprevious<CR>
 
+" Easier navigation of split windows
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+
 if &diff
   " Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
