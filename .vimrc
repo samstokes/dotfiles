@@ -48,6 +48,9 @@ let mapleader = ','
 " make rejustifying easier
 noremap Q gqap
 
+" by analogy with D
+nnoremap Y y$
+
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
