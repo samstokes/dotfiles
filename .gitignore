@@ -28,6 +28,7 @@ documents
 Dropbox
 .dropbox
 .dropbox-dist
+.ecryptfs
 .erlang.cookie
 .esd_auth
 .evolution
@@ -49,9 +50,12 @@ Dropbox
 .gstreamer-0.10
 .gtk-bookmarks
 .gtwitter
+.heroku/credentials*
+.heroku/console_history
 .hplip
 .ICEauthority
 .inkscape
+.ivy2
 .java
 .jungledisk
 .junglediskinstance
@@ -82,10 +86,13 @@ music
 packages
 PDF
 Pictures
+.Private
+Private
 .pki
 .printer-groups.xml
 .prism
 projects
+.psql_history
 .pulse
 .pulse-cookie
 .purple
@@ -110,6 +117,7 @@ tmp
 .transmission
 .update-manager-core
 .update-notifier
+Videos
 .vimfuzzyfinder
 .viminfo
 .vimoutliner/vo_tags.tag
