@@ -45,3 +45,9 @@ alias gdfc="git diff --cached"
 for i in grep fgrep egrep; do
   alias $i="$i --color=auto"
 done
+
+
+# install software easierly
+
+alias msgi="monitor sudo gem install"
+alias msai="monitor sudo apt-get install"
