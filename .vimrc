@@ -88,6 +88,8 @@ autocmd FileType tex,html,xhtml,xml set textwidth=79
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
 
+autocmd FileType xml set equalprg=xmllint\ --format\ -
+
 " some helpful abbrevs for LaTeX documents
 autocmd FileType tex iab  naive na\"\i ve
 autocmd FileType tex iab  Naive Na\"\i ve
