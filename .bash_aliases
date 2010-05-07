@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
 
+# vim
+
 for i in gvim gview gvimdiff; do
   alias $i="$i -O"
   alias "${i}x"="$i -O -geom 9999x9999"
 done
 
+
+# less
+
 alias less="less -i"
+
+
+# git
 
 alias gh="x git help"
 
@@ -22,6 +30,9 @@ alias gspop="git stash apply && git stash clear"
 
 alias gciav="git commit -av"
 alias gcim="git commit -m"
+
+
+# grep
 
 for i in grep fgrep egrep; do
   alias $i="$i --color=auto"
