@@ -1,0 +1,3 @@
+#!/bin/sh
+
+java -Xmx512M -jar $HOME/packages/sbt-launch.jar "$@"
