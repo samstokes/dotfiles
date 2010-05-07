@@ -20,6 +20,7 @@
   pk = cherry-pick
 	dt = difftool
 	rb = rebase
+	mf = merge-feature
 [merge]
 	tool = gvimdiff
 [clean]
