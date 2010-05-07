@@ -1,3 +1,7 @@
 # Scala
 --type-set
 scala=.scala
+
+# Sass
+--type-set
+sass=.sass
