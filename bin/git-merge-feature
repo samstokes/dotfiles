@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. "$HOME"/lib/ss496-shutil/util.bash
+
+GIT=`which git`
+
+"$GIT" merge --no-ff --no-commit "$1" || ss496_die "Merging feature branch $1 failed with $?, aborting"
+
+"$GIT" commit -v || ss496_die "Merge commit failed with $?, aborting"
+
+"$GIT" branch -d "$1"
