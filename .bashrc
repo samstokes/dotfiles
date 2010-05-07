@@ -99,3 +99,7 @@ export PATH=/home/sam/packages/apache-maven/bin:"$PATH"
 
 # Add cabal binaries to PATH
 export PATH=/home/sam/.cabal/bin:"$PATH"
+
+# Hadoop and Cascading
+export HADOOP_HOME=/home/sam/packages/hadoop
+export CASCADING_HOME=/home/sam/packages/cascading
