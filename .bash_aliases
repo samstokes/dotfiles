@@ -29,8 +29,15 @@ alias gpk="git cherry-pick"
 
 alias gspop="git stash apply && git stash clear"
 
-alias gciav="git commit -av"
-alias gcim="git commit -m"
+for i in v av m am; do
+  alias gci$i="git commit -$i"
+done
+
+for i in b; do
+  alias gco$i="git checkout -$i"
+done
+
+alias gdfc="git diff --cached"
 
 
 # grep
