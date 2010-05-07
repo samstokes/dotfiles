@@ -45,7 +45,8 @@ augroup END
 
 let mapleader = ','
 
-noremap Q gqap                  " make rejustifying easier
+" make rejustifying easier
+noremap Q gqap
 
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
