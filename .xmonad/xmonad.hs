@@ -43,7 +43,7 @@ myKeys :: [(String, X ())]
 myKeys =
     ----- launchers ----- {{{3
     [ ("M-r",     gnomeRun)
-    , ("M-S-r",   spawn "gnome-do")
+    , ("M-S-r",   summonGnomeDo)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
     , ("C-M-e",   windowPromptGoto defaultXPConfig)
@@ -96,6 +96,8 @@ myKeys =
     where
       myMove = planeMove GConf Finite
       myShift = planeShift GConf Finite
+      summonGnomeDo =
+        safeSpawn "dbus-send" ["--session", "--type=method_call", "--dest=org.gnome.Do", "/org/gnome/Do/Controller", "org.gnome.Do.Controller.Summon"]
 
 ----- Mouse bindings ----- {{{2
 
