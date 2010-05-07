@@ -21,6 +21,7 @@
 	dt = difftool
 	rb = rebase
 	mf = merge-feature
+  mt = mergetool
 [merge]
 	tool = gvimdiff
 [clean]
