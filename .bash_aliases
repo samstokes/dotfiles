@@ -11,6 +11,7 @@ done
 # less
 
 alias less="less -i"
+alias lessf="less -i +F"
 
 
 # git
