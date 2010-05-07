@@ -24,5 +24,7 @@
   mt = mergetool
 [merge]
 	tool = gvimdiff
+[rerere]
+	enabled = true
 [clean]
 	requireForce = true
