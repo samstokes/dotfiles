@@ -80,13 +80,16 @@ autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
 set autoindent " want this most of the time
 " indentation is annoying when trying to write text...
 " and C-indentation for C-like languages
-autocmd FileType sh,c,cpp,java,php set cindent
+autocmd FileType sh,c,cpp,java,php,javascript set cindent
 " kill autoindent for text-like languages
 autocmd FileType tex,html,xhtml,xml,mail set noautoindent
 " enable actual text wrap for these file types only
 autocmd FileType tex,html,xhtml,xml set textwidth=79
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
+
+" 4-space indent for Javascript (Rapportive coding standard)
+autocmd FileType javascript set shiftwidth=4 tabstop=4
 
 autocmd FileType xml set equalprg=xmllint\ --format\ -
 
