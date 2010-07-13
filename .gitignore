@@ -1,4 +1,5 @@
 .adobe
+.aerofs
 .appdata
 .aptitude
 .bash_history
@@ -53,6 +54,7 @@ Dropbox
 .heroku/credentials*
 .heroku/console_history
 .hplip
+.htoprc
 .ICEauthority
 .inkscape
 .ivy2
