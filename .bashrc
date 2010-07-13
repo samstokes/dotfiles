@@ -92,3 +92,6 @@ export EDITOR="gvim -f"
 
 # Add custom Python libs
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
+
+# Add cabal binaries to PATH
+export PATH=/home/sam/.cabal/bin:"$PATH"
