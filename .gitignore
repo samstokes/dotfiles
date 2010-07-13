@@ -12,11 +12,15 @@
 .config/autokey/autokey.pid
 .config/compiz/compizconfig/config
 .config/compiz/fusion-icon
+.config/desktop-couch
+.config/Empathy
 .config/enchant
 .config/google-chrome
 .config/gtk-2.0
+.config/indicators
 .config/menus
 .config/monitors.xml
+.config/tomboy
 .config/totem/state.ini
 .config/transmission
 .config/Trolltech.conf
@@ -84,6 +88,7 @@ music
 .mysql_history
 .nautilus
 .notifier.conf
+.nvidia-settings-rc
 .openoffice.org
 .openoffice.org2
 .opera
@@ -105,7 +110,7 @@ projects
 .quicksynergy
 .raindrop
 .recently-used
-.recently-used.xbel
+.recently-used.xbel*
 .ruby_inline
 .sane
 .scala_history
@@ -122,6 +127,7 @@ tmp
 .update-manager-core
 .update-notifier
 Videos
+.vim/.netrwhist
 .vimfuzzyfinder
 .viminfo
 .vimoutliner/vo_tags.tag
@@ -143,6 +149,6 @@ workspace
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
 .xscreensaver-getimage.cache
-.xsession-errors
+.xsession-errors*
 Yammer
 .yuuguu
