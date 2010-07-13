@@ -27,6 +27,9 @@ alias gap="x git add -p"
 alias gdf="git diff"
 alias gpk="git cherry-pick"
 
+# I keep mistyping this, and I never actually want to run 'gs' (== GhostScript)
+alias gs="git status"
+
 alias gspop="git stash apply && git stash clear"
 
 for i in v av m am; do
