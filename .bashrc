@@ -3,7 +3,8 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+# RVM doesn't like this...
+# [ -z "$PS1" ] && return
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -95,3 +96,6 @@ export EDITOR="gvim -f"
 
 # Add cabal binaries to PATH
 export PATH=/home/sam/.cabal/bin:"$PATH"
+
+# RVM - Ruby Version Manager
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
