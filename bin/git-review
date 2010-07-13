@@ -1,0 +1,13 @@
+#!/bin/bash -e
+
+. "$HOME"/lib/ss496-shutil/util.bash
+
+GIT=`which git`
+GITK=`which gitk`
+
+feature=${1?Please specify feature name}
+master=${2:-master}
+
+"$GIT" checkout -b "$feature" github/wip."$feature"
+
+"$GITK" "$feature" ^"$master" &
