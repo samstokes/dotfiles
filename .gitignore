@@ -10,6 +10,7 @@
 .com.jungledisk.service.status
 .compiz/session
 .config/autokey/autokey.pid
+.config/compiz/compizconfig/config
 .config/compiz/fusion-icon
 .config/enchant
 .config/google-chrome
