@@ -134,6 +134,12 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
 
+" Expand window we move into
+nnoremap <C-w>h <C-w>h<C-w>_
+nnoremap <C-w>j <C-w>j<C-w>_
+nnoremap <C-w>k <C-w>k<C-w>_
+nnoremap <C-w>l <C-w>l<C-w>_
+
 if &diff
   " Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
