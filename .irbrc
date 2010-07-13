@@ -13,6 +13,12 @@ def gciav(*args); git :commit, "-a", "-v", *args; end
 def gciv(*args); git :commit, "-v", *args; end
 
 
+def vim(*args)
+  require 'rubygems'
+  require 'interactive_editor'
+  vi(*args)
+end
+
 def gvim(*args)
   system("gvim", *args.map(&:to_s))
 end
