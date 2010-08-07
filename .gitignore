@@ -61,7 +61,6 @@ Dropbox
 .gstreamer-0.10
 .gtk-bookmarks
 .gtwitter
-.heroku/credentials*
 .heroku/console_history
 .hplip
 .htoprc
