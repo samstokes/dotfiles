@@ -9,12 +9,15 @@
 .cache
 .com.jungledisk.service.status
 .compiz/session
+.config/autokey/autokey.log
 .config/autokey/autokey.pid
 .config/compiz/compizconfig/config
 .config/compiz/fusion-icon
 .config/desktop-couch
 .config/Empathy
 .config/enchant
+.config/f-spot
+.config/gitg
 .config/google-chrome
 .config/gtk-2.0
 .config/indicators
@@ -32,6 +35,7 @@ Desktop
 .dmrc
 Documents
 documents
+Downloads
 Dropbox
 .dropbox
 .dropbox-dist
@@ -128,6 +132,7 @@ tmp
 .update-notifier
 Videos
 .vim/.netrwhist
+.vim/.VimballRecord
 .vimfuzzyfinder
 .viminfo
 .vimoutliner/vo_tags.tag
