@@ -86,3 +86,6 @@ fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 export EDITOR="gvim -f"
+
+# Add git-bits to PATH
+[[ -d "$HOME/projects/git-bits" ]] && export PATH="$HOME/projects/git-bits/bin":"$PATH"
