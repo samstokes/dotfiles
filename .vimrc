@@ -151,6 +151,9 @@ if &diff
   nnoremap <C-Space> 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
 endif
 
+" fewer keystrokes for a.vim
+nnoremap <Leader>a :AV<CR>
+
 " use ack if available
 call system('type ack >/dev/null 2>&1')
 if !v:shell_error
