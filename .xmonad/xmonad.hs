@@ -119,13 +119,20 @@ myMouseBindings =
     ]
 
 
--- === Layout modifiers === {{{1
+-- === Layout === {{{1
+
+----- Layout modifiers {{{2
 
 myLayoutModifiers =
     B.boringAuto
   . minimize
   . layoutHintsWithPlacement (0.5, 0.5)
   . noBorders
+
+
+----- Layout hook {{{2
+
+myLayoutHook = layoutHook gnomeConfig
 
 
 -- === Workspace setup === {{{1
@@ -293,7 +300,7 @@ myConfig = gnomeConfig
     { modMask = myModMask
     , startupHook = startupHook gnomeConfig >> myStartupHook
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
-    , layoutHook = myLayoutModifiers $ layoutHook gnomeConfig
+    , layoutHook = myLayoutModifiers $ myLayoutHook
     , logHook = logHook gnomeConfig >> myLogHook
     , handleEventHook = handleEventHook gnomeConfig `mappend` myEventHook
     , workspaces = myWorkspaces
