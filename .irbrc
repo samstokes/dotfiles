@@ -26,3 +26,27 @@ end
 def sql(statement)
   puts ActiveRecord::Base.connection.execute(statement).entries
 end
+
+
+def methods_returning(answer, *args)
+  # probably want to filter out some methods
+  # e.g. ones that mutate their receiver...
+  blacklist = %w()
+
+  (methods - blacklist).select do |method|
+    begin
+      send(method, *args) == answer
+    rescue ArgumentError, LocalJumpError
+    rescue TypeError, NoMethodError => e
+      args_inspected = args.inspect
+      args_nice = args_inspected[1, args_inspected.length - 2]
+      puts "#{self.inspect}.#{method}(#{args_nice}) throws #{e.class}: #{e}"
+    end
+  end
+end
+
+def methods_like(pattern)
+  methods.grep(/^.*#{pattern}.*$/i)
+end
+
+public :methods_returning, :methods_like
