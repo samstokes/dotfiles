@@ -12,6 +12,7 @@ import Text.ParserCombinators.Parsec (parse, ParseError)
 import XMonad
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
+import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.Plane
 import XMonad.Actions.UpdatePointer
 import XMonad.Config.Gnome
@@ -80,6 +81,12 @@ myKeys =
     , ("M-<Backspace>",     viewEmptyWorkspace)
     , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
+    ----- physical screens ----- {{{3
+    , ("M-<XF86Back>", viewScreen (P 0))
+    , ("M-<XF86Forward>", viewScreen (P 1))
+    , ("S-M-<XF86Back>", sendToScreen (P 0))
+    , ("S-M-<XF86Forward>", sendToScreen (P 1))
+
     ----- window management commands ----- {{{3
     , ("M-z",     withFocused (\win -> sendMessage (MinimizeWin win)))
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
@@ -91,6 +98,7 @@ myKeys =
 
     ----- session management ----- {{{3
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
+    , ("C-M-q", rescreen)
     ]
     ----- helper functions ----- {{{3
     where
