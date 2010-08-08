@@ -29,6 +29,7 @@ import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
+import XMonad.Layout.Circle
 import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
@@ -155,7 +156,7 @@ myLayoutModifiers =
 
 ----- Layout hook {{{2
 
-myLayoutHook = defaultLayout
+myLayoutHook = defaultLayout ||| Circle
   where
     -- defaultLayout copied from source of defaultConfig
     defaultLayout = tiled ||| Mirror tiled ||| Full
