@@ -22,6 +22,8 @@
 	rb = rebase
 	mf = merge-feature
   mt = mergetool
+	ct = committool
+	rc = review-commits
 [merge]
 	tool = gvimdiff
 [rerere]
