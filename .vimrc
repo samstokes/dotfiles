@@ -43,6 +43,10 @@ augroup filetype
   autocmd BufNewFile,BufRead *.y++ set filetype=yacc    " recognise y++ ext
 augroup END
 
+" easy quit if all files saved
+" by analogy with ZQ
+nnoremap ZA :qa<CR>
+
 let mapleader = ','
 
 " make rejustifying easier
@@ -141,6 +145,9 @@ nnoremap <C-w>k <C-w>k<C-w>_
 nnoremap <C-w>l <C-w>l<C-w>_
 
 if &diff
+  " ignore whitespace in diffs
+  nnoremap <Leader>dw :set diffopt+=iwhite<CR>
+
   " Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
   " Diff center window against just the left-hand window
@@ -149,6 +156,12 @@ if &diff
   nnoremap <C-Right> 2<C-w>h:diffo<CR>2<C-w>l:difft<CR>
   " Diff center window against both windows
   nnoremap <C-Space> 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
+
+  " 'Merge Local' - pick the local version of a merge conflict
+  nnoremap <Leader>ml />>>><CR>V?====<CR>d?<<<<<CR>dd
+
+  " 'Merge Remote' - pick the remote version of a merge conflict
+  nnoremap <Leader>mr ?<<<<<CR>V/====<CR>d/>>>><CR>dd
 endif
 
 " fewer keystrokes for a.vim
