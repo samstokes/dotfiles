@@ -1,5 +1,9 @@
 set nocompatible                " I think this is redundant, but just in case
 
+filetype off    " load order issue with pathogen.vim
+
+call pathogen#runtime_append_all_bundles()
+
 syntax on                       " syntax highlighting
 filetype plugin indent on       " enable per-filetype plugins and indenters
 
