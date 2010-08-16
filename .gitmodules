@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/repeat"]
 	path = .vim/bundle/repeat
 	url = http://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/ragtag"]
+	path = .vim/bundle/ragtag
+	url = git@github.com:samstokes/vim-ragtag.git
