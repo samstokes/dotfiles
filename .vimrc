@@ -174,6 +174,9 @@ if !v:shell_error
   set grepprg=ack
 endif
 
+" autoCompletePop for snipMate snippets
+let g:acp_behaviorSnipmateLength = 1
+
 " Haskellise SLIME
 autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
 
