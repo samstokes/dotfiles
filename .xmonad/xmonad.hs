@@ -254,7 +254,7 @@ timer command options = safeSpawn "timer-applet-cli.py" $ command : options
 pomodoro, breakShort, breakLong :: Duration Int
 pomodoro = Minutes 25
 breakShort = Minutes 5
-breakLong = Minutes 25
+breakLong = Minutes 30
 
 
 ----- spawn ssh ----- {{{3
