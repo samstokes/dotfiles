@@ -1,5 +1,9 @@
 set nocompatible                " I think this is redundant, but just in case
 
+filetype off    " load order issue with pathogen.vim
+
+call pathogen#runtime_append_all_bundles()
+
 syntax on                       " syntax highlighting
 filetype plugin indent on       " enable per-filetype plugins and indenters
 
@@ -169,6 +173,15 @@ call system('type ack >/dev/null 2>&1')
 if !v:shell_error
   set grepprg=ack
 endif
+
+" include git branch in statusline via Fugitive
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" after posting a gist (using gist.vim), open it in browser
+let g:gist_open_browser_after_post = 1
+
+" autoCompletePop for snipMate snippets
+let g:acp_behaviorSnipmateLength = 1
 
 " Haskellise SLIME
 autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
