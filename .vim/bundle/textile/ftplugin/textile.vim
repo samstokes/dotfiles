@@ -33,7 +33,7 @@ function! TextileRenderBufferToPreview()
   call TextileRenderFile(getbufline(bufname("%"), 1, '$'), filename)
 
   " Modify this line to make it compatible on other platforms
-  call system("firefox ". filename)
+  call system("open -a Safari ". filename)
 endfunction
 
 function! TextileRenderBufferToFile()
