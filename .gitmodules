@@ -4,3 +4,6 @@
 [submodule ".xmonad/src/hassh"]
 	path = .xmonad/src/hassh
 	url = /home/sam/projects/hassh/
+[submodule ".vim/bundle/command-t"]
+	path = .vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git
