@@ -116,12 +116,6 @@ imap <C-BS> <C-w>
 " Actually unmapping C-w breaks C-BS as well :(
 " inoremap <C-w> <C-o>:echo 'Please use Ctrl-Backspace to delete previous word!'<CR>
 
-" Map Ctrl-F to Jamis Buck's TextMate-like fuzzy file finder
-nnoremap <C-f> :FuzzyFinderTextMate<CR>
-nnoremap <C-b> :FuzzyFinderBuffer<CR>
-
-autocmd BufNewFile,BufRead COMMIT_EDITMSG set filetype=gitcommit
-
 " make current file executable
 nnoremap <M-x> :!chmod +x %<CR><CR>
 
