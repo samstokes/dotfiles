@@ -177,6 +177,9 @@ endif
 " include git branch in statusline via Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" after posting a gist (using gist.vim), open it in browser
+let g:gist_open_browser_after_post = 1
+
 " autoCompletePop for snipMate snippets
 let g:acp_behaviorSnipmateLength = 1
 
