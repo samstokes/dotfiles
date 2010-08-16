@@ -174,6 +174,9 @@ if !v:shell_error
   set grepprg=ack
 endif
 
+" include git branch in statusline via Fugitive
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
 " autoCompletePop for snipMate snippets
 let g:acp_behaviorSnipmateLength = 1
 
