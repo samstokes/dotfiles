@@ -1,9 +1,9 @@
 " -*- vim -*-
-" FILE: "C:\Documents and Settings\William Lee\vimfiles\plugin\DirDiff.vim" {{{
-" LAST MODIFICATION: "Wed, 22 Feb 2006 22:31:59 Central Standard Time"
+" FILE: "/home/wlee/.vim/plugin/DirDiff.vim" {{{
+" LAST MODIFICATION: "Mon, 20 Oct 2008 09:04:59 -0500 (wlee)"
 " HEADER MAINTAINED BY: N/A
-" VERSION: 1.1.0
-" (C) 2001-2006 by William Lee, <wl1012@yahoo.com>
+" VERSION: 1.1.3
+" (C) 2001-2010 by William Lee, <wl1012@yahoo.com>
 " }}}
 
 
@@ -147,9 +147,15 @@
 "
 "   Florian Delizy for the i18n diff patch
 "   Robert Webb for his sorting function
+"   Wu WeiWei for his Chinese diff patch
 "   Salman Halim, Yosuke Kimura, and others for their suggestions
 "
 " HISTORY:
+"  1.1.3  - Applied the patch to 1.1.2 by Wu WeiWei in order to make diff
+"           that's localized in Chinese work.
+"  1.1.2  - Applied the patch to 1.1.0 instead of 1.0.2. Please do not use
+"           1.1.1
+"  1.1.1  - Make it work with filename with spaces. (Thanks to Atte Kojo)
 "  1.1.0  - Added support for i18n (tested on a French version for now only).
 "           Can dynamically figure out the diff strings output by diff.
 "  1.0.2  - Fixed a small typo bug in the quit function.
@@ -276,6 +282,11 @@ endif
 " String used for the English equivalent "Only in ")
 if !exists("g:DirDiffTextOnlyIn")
     let g:DirDiffTextOnlyIn = "Only in "
+endif
+
+" String used for the English equivalent ": ")
+if !exists("g:DirDiffTextOnlyInCenter")
+    let g:DirDiffTextOnlyInCenter = ": "
 endif
 
 " Set some script specific variables:
@@ -532,7 +543,7 @@ function! <SID>DirDiffOpen()
         endif
         split
         wincmd k
-        silent exec "edit ".fileToOpen
+        silent exec "edit ".fnameescape(fileToOpen)
         " Fool the window saying that this is diff
         diffthis
         wincmd j
@@ -543,8 +554,8 @@ function! <SID>DirDiffOpen()
         "Open the diff windows
         split
         wincmd k
-        silent exec "edit ".fileB
-        silent exec "vert diffsplit ".fileA
+        silent exec "edit ".fnameescape(fileB)
+        silent exec "vert diffsplit ".fnameescape(fileA)
         " Go back to the diff window
         wincmd j
         " Resize the window
@@ -775,11 +786,11 @@ endfunction
 
 "Returns the source (A or B) of the "Only" line
 function! <SID>ParseOnlySrc(line)
-    return substitute(a:line, '^.*' . s:DirDiffDiffOnlyLine . '\[\(.\)\].*:.*', '\1', '')
+    return substitute(a:line, '^.*' . s:DirDiffDiffOnlyLine . '\[\(.\)\].*' . s:DirDiffDiffOnlyLineCenter . '.*', '\1', '')
 endfunction
 
 function! <SID>ParseOnlyFile(line)
-    let regex = '^.*' . s:DirDiffDiffOnlyLine . '\[.\]\(.*\): \(.*\)'
+    let regex = '^.*' . s:DirDiffDiffOnlyLine . '\[.\]\(.*\)' . s:DirDiffDiffOnlyLineCenter . '\(.*\)'
     let root = substitute(a:line, regex , '\1', '')
     let file = root . s:sep . substitute(a:line, regex , '\2', '')
     return file
@@ -1003,6 +1014,7 @@ function! <SID>GetDiffStrings()
     " what's set in the global variables
 
     if (g:DirDiffDynamicDiffText == 0)
+        let s:DirDiffDiffOnlyLineCenter = g:DirDiffTextOnlyInCenter
         let s:DirDiffDiffOnlyLine = g:DirDiffTextOnlyIn
         let s:DirDiffDifferLine = g:DirDiffTextFiles
         let s:DirDiffDifferAndLine = g:DirDiffTextAnd
@@ -1029,7 +1041,9 @@ function! <SID>GetDiffStrings()
     "echo "First line: " . getline(1)
     "echo "tmp1: " . tmp1
     "echo "tmp1rx: " . tmp1rx
-	let s:DirDiffDiffOnlyLine = substitute( getline(1), tmp1rx . ".*$", "", '') 
+    let regex = '\(^.*\)' . tmp1rx . '\(.*\)' . "test"
+	let s:DirDiffDiffOnlyLine = substitute( getline(1), regex, '\1', '') 
+	let s:DirDiffDiffOnlyLineCenter = substitute( getline(1), regex, '\2', '') 
     "echo "DirDiff Only: " . s:DirDiffDiffOnlyLine
 	
 	q
@@ -1063,5 +1077,13 @@ function! <SID>GetDiffStrings()
 	call <SID>Delete(tmp1)
 	call <SID>Delete(tmp2)
 	call <SID>Delete(tmpdiff)
+
+	"avoid get diff text again
+	let g:DirDiffTextOnlyInCenter = s:DirDiffDiffOnlyLineCenter
+	let g:DirDiffTextOnlyIn = s:DirDiffDiffOnlyLine
+	let g:DirDiffTextFiles = s:DirDiffDifferLine
+	let g:DirDiffTextAnd = s:DirDiffDifferAndLine
+	let g:DirDiffTextDiffer = s:DirDiffDifferEndLine
+	let g:DirDiffDynamicDiffText = 0
 
 endfunction
