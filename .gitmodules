@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/markdown/syntax"]
+	path = .vim/bundle/markdown/syntax
+	url = http://github.com/plasticboy/vim-markdown.git
