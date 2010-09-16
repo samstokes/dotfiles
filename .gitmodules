@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/markdown/syntax"]
 	path = .vim/bundle/markdown/syntax
 	url = http://github.com/plasticboy/vim-markdown.git
+[submodule ".vim/bundle/vividchalk"]
+	path = .vim/bundle/vividchalk
+	url = http://github.com/tpope/vim-vividchalk.git
