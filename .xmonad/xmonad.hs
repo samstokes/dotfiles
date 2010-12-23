@@ -11,17 +11,20 @@ import Data.Maybe
 import Data.Monoid
 import qualified SSH.Config
 import Text.ParserCombinators.Parsec (parse, ParseError)
-import XMonad
+import XMonad hiding ( (|||) ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.Plane
+import XMonad.Actions.Promote
 import XMonad.Actions.UpdatePointer
+import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
+import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
@@ -95,6 +98,7 @@ myKeys =
     , ("M-z",     withFocused (\win -> sendMessage (MinimizeWin win)))
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
+    , ("M-<F11>", promote >> sendMessage (JumpToLayout "Full"))
       ----- skip boring windows when changing focus ----- {{{4
     , ("M-j",     B.focusDown)
     , ("M-k",     B.focusUp)
@@ -128,7 +132,8 @@ myMouseBindings =
 ----- Layout modifiers {{{2
 
 myLayoutModifiers =
-    B.boringAuto
+  desktopLayoutModifiers
+  . B.boringAuto
   . minimize
   . layoutHintsWithPlacement (0.5, 0.5)
   . noBorders
@@ -136,7 +141,22 @@ myLayoutModifiers =
 
 ----- Layout hook {{{2
 
-myLayoutHook = layoutHook gnomeConfig
+myLayoutHook = defaultLayout
+  where
+    -- defaultLayout copied from source of defaultConfig
+    defaultLayout = tiled ||| Mirror tiled ||| Full
+    -- default tiling algorithm partitions the screen into two panes
+    tiled   = Tall nmaster delta ratio
+
+    -- The default number of windows in the master pane
+    nmaster = 1
+
+    -- Default proportion of screen occupied by master pane
+    ratio   = 1/2
+
+    -- Percent of screen to increment by when resizing panes
+    delta   = 3/100
+
 
 
 -- === Workspace setup === {{{1
