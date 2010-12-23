@@ -105,5 +105,10 @@ export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
 export QT_IM_MODULE=ibus
 
+# for AWS EC2 API tools
+export EC2_HOME=$HOME/packages/ec2-api-tools
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/jre
+export PATH="$EC2_HOME"/bin:"$PATH"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
