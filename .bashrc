@@ -100,5 +100,10 @@ export PATH=/home/sam/.cabal/bin:"$PATH"
 # Add custom ghc version and Haskell Platform to PATH
 export PATH=/home/sam/packages/ghc/bin:/home/sam/packages/haskell-platform/bin:"$PATH"
 
+# Ibus for input methods
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
