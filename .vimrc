@@ -148,6 +148,24 @@ nnoremap <C-w>l <C-w>l<C-w>_
 " ignore whitespace in diffs
 nnoremap <Leader>dw :set diffopt+=iwhite<CR>
 
+" stop diffing current buffer
+nnoremap <Leader>do :diffoff<CR>
+
+" diff current buffer
+nnoremap <Leader>dt :diffthis<CR>
+
+" update diff with fewer keystrokes
+nnoremap <Leader>du :diffupdate<CR>
+
+function! s:toggleDiff()
+    if &diff
+        :diffoff
+    else
+        :diffthis
+    endif
+endfunction
+nnoremap <Leader>dd :call <SID>toggleDiff()<CR>
+
 if &diff
   " Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
