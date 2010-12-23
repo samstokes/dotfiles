@@ -200,6 +200,12 @@ endif
 " include git branch in statusline via Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" fugitive shortcuts
+nnoremap <Leader>gst :Gstatus<CR>
+nnoremap <Leader>gci :Gcommit<CR>
+nnoremap <Leader>gdf :Gdiff<CR>
+nnoremap <Leader>gad :Git add %<CR>
+
 " edit .vimrc in split window
 nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
 
