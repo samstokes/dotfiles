@@ -3,6 +3,7 @@
 ----- Pragmas ----- {{{2
 {-# LANGUAGE GADTs #-}
 ----- Imports ----- {{{2
+import Control.Applicative ((<$>))
 import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
@@ -279,9 +280,12 @@ sshGridSelectOptsCmd opts cmd = io readSshHosts >>= sshGridSelect'
   where
     sshGridSelect' [] = notify "SSH" (Just "Couldn't find any hosts defined")
     sshGridSelect' hostSections = do
-      let hosts = map SSH.Config.name hostSections
-      host <- gridselect defaultGSConfig (zip hosts hosts)
-      whenJust host spawnSsh
+      let hosts = map SSH.Config.names hostSections
+      host <- gridselect sshGSConfig (zip (label <$> hosts) (head <$> hosts))
+      whenJust host $ \h -> spawnSshOpts h opts cmd
+    label [name] = name
+    label (name : others) = name ++ " (" ++ unwords others ++ ")"
+    sshGSConfig = defaultGSConfig { gs_cellwidth = 200 }
 
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
