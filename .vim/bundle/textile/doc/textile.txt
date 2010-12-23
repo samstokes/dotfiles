@@ -27,7 +27,8 @@ COMMANDS                                                    *textile-commands*
 h2. Commands
 
 :TextilePreview     - Render the current buffer to a temp file, and open it in
-                      your web browser (OSX only)
+                      your web browser (requires Ryan Tomayko's
+                      "bcat":http://rtomayko.github.com/bcat/)
 
                       <Leader>rp
 

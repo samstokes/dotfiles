@@ -22,18 +22,20 @@ function! TextileRender(lines)
   return html
 endfunction
 
+function! TextileRenderPage(lines)
+  let html = TextileRender(a:lines)
+  return "<html><head><title>" . bufname("%") . "</title><body>\n" . html . "\n</body></html>"
+endfunction
+
 function! TextileRenderFile(lines, filename)
-  let html = TextileRender(getbufline(bufname("%"), 1, '$'))
-  let html = "<html><head><title>" . bufname("%") . "</title><body>\n" . html . "\n</body></html>"
+  let html = TextileRenderPage(getbufline(bufname("%"), 1, '$'))
   return writefile(split(html, "\n"), a:filename)
 endfunction
 
 function! TextileRenderBufferToPreview()
-  let filename = "/tmp/textile-preview.html"
-  call TextileRenderFile(getbufline(bufname("%"), 1, '$'), filename)
+  let html = TextileRenderPage(getbufline(bufname("%"), 1, '$'))
 
-  " Modify this line to make it compatible on other platforms
-  call system("open -a Safari ". filename)
+  call system("bcat", html)
 endfunction
 
 function! TextileRenderBufferToFile()
