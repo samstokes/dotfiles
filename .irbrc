@@ -1,3 +1,6 @@
+require 'irb/completion'
+IRB.conf[:AUTO_INDENT] = true
+
 def git(command, *args)
   system("git", command.to_s, *args.map(&:to_s))
 end
