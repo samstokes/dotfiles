@@ -145,10 +145,10 @@ nnoremap <C-w>j <C-w>j<C-w>_
 nnoremap <C-w>k <C-w>k<C-w>_
 nnoremap <C-w>l <C-w>l<C-w>_
 
-if &diff
-  " ignore whitespace in diffs
-  nnoremap <Leader>dw :set diffopt+=iwhite<CR>
+" ignore whitespace in diffs
+nnoremap <Leader>dw :set diffopt+=iwhite<CR>
 
+if &diff
   " Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
   " Diff center window against just the left-hand window
