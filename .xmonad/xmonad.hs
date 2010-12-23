@@ -4,6 +4,7 @@
 {-# LANGUAGE GADTs #-}
 ----- Imports ----- {{{2
 import Control.Applicative ((<$>))
+import Control.Applicative.Error (maybeRead)
 import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
@@ -26,6 +27,7 @@ import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.ManageHook
 import XMonad.Prompt
+import XMonad.Prompt.Input
 import XMonad.Prompt.Window
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
@@ -66,7 +68,7 @@ myKeys =
 
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
-    , ("M-C-<XF86AudioPlay>", timerStart breakLong)
+    , ("M-C-<XF86AudioPlay>", promptMinutes ?+ timerStart)
     , ("M-<XF86AudioStop>", timerStop)
     , ("M-S-<XF86AudioStop>", timerStop)
 
@@ -227,6 +229,10 @@ data Duration a where
     Seconds :: a -> Duration a
   deriving (Show)
 
+instance Read a => Read (Duration a) where
+    readsPrec p = fmap dummyPair . fmap Minutes . (fmap fst . readsPrec p)
+        where dummyPair x = (x, "")
+
 toHMS :: Show a => Duration a -> [String]
 toHMS (Duration h m s) = map show [h, m, s]
 toHMS (Hours h) = [show h, "0", "0"]
@@ -298,6 +304,15 @@ readSshHosts = do
       Right config -> return $ SSH.Config.sections config
   `catch` handleError
   where handleError e = print e >> return []
+
+
+----- Prompts ----- {{{2
+
+maybeReadM :: (Monad m, Read a) => Maybe String -> m (Maybe a)
+maybeReadM = return . (>>= maybeRead)
+
+promptMinutes :: X (Maybe (Duration Int))
+promptMinutes = inputPrompt greenXPConfig "Minutes" >>= maybeReadM
 
 
 -- === Put it all together === {{{1
