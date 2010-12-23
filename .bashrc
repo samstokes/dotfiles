@@ -110,5 +110,9 @@ export EC2_HOME=$HOME/packages/ec2-api-tools
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/jre
 export PATH="$EC2_HOME"/bin:"$PATH"
 
+# for AWS Elastic Load Balancer tools
+export AWS_ELB_HOME=$HOME/packages/ElasticLoadBalancing
+export PATH="$AWS_ELB_HOME"/bin:"$PATH"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
