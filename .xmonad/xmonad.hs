@@ -55,6 +55,7 @@ myKeys =
     , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
+    , ("M-S-s",   sshGridSelectOptsCmd ["-t"] (Just "screen -RD"))
     , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
@@ -271,7 +272,10 @@ spawnSshOpts host opts maybeCmd = safeSpawnX "ssh" $
 
 ----- SSH utilities ----- {{{2
 sshGridSelect :: X ()
-sshGridSelect = io readSshHosts >>= sshGridSelect'
+sshGridSelect = sshGridSelectOptsCmd [] Nothing
+
+sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
+sshGridSelectOptsCmd opts cmd = io readSshHosts >>= sshGridSelect'
   where
     sshGridSelect' [] = notify "SSH" (Just "Couldn't find any hosts defined")
     sshGridSelect' hostSections = do
