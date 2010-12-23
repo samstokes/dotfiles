@@ -200,6 +200,9 @@ endif
 " include git branch in statusline via Fugitive
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
+" edit .vimrc in split window
+nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
+
 " after posting a gist (using gist.vim), open it in browser
 let g:gist_open_browser_after_post = 1
 
