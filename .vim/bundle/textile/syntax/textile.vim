@@ -84,4 +84,8 @@ if version >= 508 || !exists("did_txt_syn_inits")
     delcommand HiLink
 endif
 
+" include HTML syntax inside <table> tags
+syn include @html syntax/html.vim
+syn region txtHtmlTable start=+<table\( [^>]\+\)\?>+ keepend end=+</table>+me=e contains=@html
+
 " vim: set ai et sw=4 :
