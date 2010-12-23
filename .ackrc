@@ -5,3 +5,11 @@ scala=.scala
 # Sass
 --type-set
 sass=.sass
+
+# ignore Rails junk dirs, they're rarely interesting for grep
+--ignore-dir
+doc
+--ignore-dir
+vendor
+--ignore-dir
+tmp
