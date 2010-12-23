@@ -26,6 +26,8 @@ alias gad="git add"
 alias gap="x git add -p"
 alias gdf="git diff"
 alias gpk="git cherry-pick"
+alias grs="git russet"
+alias grsh="git russet --hard"
 
 # I keep mistyping this, and I never actually want to run 'gs' (== GhostScript)
 alias gs="git status"
