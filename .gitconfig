@@ -24,6 +24,7 @@
   mt = mergetool
 	ct = committool
 	rc = review-commits
+	wbr = describe --contains --all HEAD
 [merge]
 	tool = gvimdiff
 [rerere]
