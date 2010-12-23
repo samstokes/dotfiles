@@ -97,5 +97,8 @@ export EDITOR="gvim -f"
 # Add cabal binaries to PATH
 export PATH=/home/sam/.cabal/bin:"$PATH"
 
+# Add custom ghc version and Haskell Platform to PATH
+export PATH=/home/sam/packages/ghc/bin:/home/sam/packages/haskell-platform/bin:"$PATH"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
