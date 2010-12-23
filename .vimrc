@@ -189,6 +189,8 @@ nnoremap <Leader>a :AV<CR>
 " Taglist plugin
 map <Leader>ll :TlistToggle<CR>
 
+" easy project grep
+nmap <Leader>/ :grep 
 " use ack if available
 call system('type ack >/dev/null 2>&1')
 if !v:shell_error
