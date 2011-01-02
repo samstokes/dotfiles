@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/git"]
 	path = .vim/bundle/git
 	url = git@github.com:samstokes/vim-git.git
+[submodule ".vim/bundle/unimpaired"]
+	path = .vim/bundle/unimpaired
+	url = git@github.com:samstokes/vim-unimpaired.git
