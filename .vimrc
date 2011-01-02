@@ -212,9 +212,6 @@ nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
 " after posting a gist (using gist.vim), open it in browser
 let g:gist_open_browser_after_post = 1
 
-" autoCompletePop for snipMate snippets
-let g:acp_behaviorSnipmateLength = 1
-
 " Haskellise SLIME
 autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
 
