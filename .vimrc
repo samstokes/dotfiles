@@ -37,6 +37,10 @@ set backspace=eol,start,indent  " BkSp works properly
 " make tab-completion of commands and files behave like Bash's
 set wildmode=longest,list
 
+" ignore directories we probably never want to edit directly
+set wildignore+=log/*
+set wildignore+=doc/*.html
+
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
 
@@ -117,7 +121,6 @@ autocmd FileType tex iab <img> \begin{figure}[hbp]<CR><TAB>\begin{center}<CR><TA
 silent! ruby nil
 " set up do...end replacement for surround plugin
 autocmd FileType ruby let b:surround_100 = "do \r end"
-
 " Remap word deletion: Ctrl-w is a risky habit to get into...
 imap <C-BS> <C-w>
 " Actually unmapping C-w breaks C-BS as well :(
