@@ -215,6 +215,9 @@ nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
 " after posting a gist (using gist.vim), open it in browser
 let g:gist_open_browser_after_post = 1
 
+" When editing XMonad config, ,q to check config
+autocmd BufNewFile,BufRead .xmonad/xmonad.hs nnoremap <Leader>q :!check-xmonad-config.sh<CR>
+
 " Haskellise SLIME
 autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
 
