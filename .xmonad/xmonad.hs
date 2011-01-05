@@ -56,6 +56,8 @@ myKeys =
     , ("C-M-e",   windowPromptGoto defaultXPConfig)
     , ("C-M-S-e", windowPromptBring defaultXPConfig)
 
+    , ("S-M-x",   spawnGvimWithArgs ".xmonad/xmonad.hs")
+
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
     , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
