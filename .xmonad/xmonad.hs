@@ -65,6 +65,7 @@ myKeys =
     , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
+    , ("C-M-v",   inputPrompt defaultXPConfig "Args?" ?+ spawnGvimWithArgs)
 
     , ("<Print>", spawn "gnome-screenshot")
     , ("S-<Print>", spawn "gnome-screenshot -w")
@@ -296,6 +297,11 @@ spawnSshOptsCmd host opts cmd = spawnSshOpts host opts (Just cmd)
 spawnSshOpts :: String -> [String] -> Maybe FilePath -> X ()
 spawnSshOpts host opts maybeCmd = safeSpawnX "ssh" $
     opts ++ [host] ++ maybeToList maybeCmd
+
+----- spawn gvim ----- {{{4
+
+spawnGvimWithArgs :: String -> X ()
+spawnGvimWithArgs args = spawn ("gvim " ++ args)
 
 ----- SSH utilities ----- {{{2
 sshGridSelect :: X ()
