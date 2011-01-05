@@ -54,5 +54,6 @@ done
 
 # install software easierly
 
+alias mgi="monitor gem install"
 alias msgi="monitor sudo gem install"
 alias msai="monitor sudo apt-get install"
