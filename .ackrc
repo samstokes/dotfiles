@@ -13,3 +13,5 @@ doc
 vendor
 --ignore-dir
 tmp
+--ignore-dir
+pkg

@@ -40,6 +40,7 @@ set wildmode=longest,list
 " ignore directories we probably never want to edit directly
 set wildignore+=log/*
 set wildignore+=doc/*.html
+set wildignore+=pkg/*
 
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
