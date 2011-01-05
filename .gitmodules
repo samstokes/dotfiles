@@ -46,6 +46,9 @@
 [submodule ".vim/bundle/unimpaired"]
 	path = .vim/bundle/unimpaired
 	url = git@github.com:samstokes/vim-unimpaired.git
+[submodule ".vim/bundle/gemspec-snippet"]
+	path = .vim/bundle/gemspec-snippet
+	url = git@github.com:samstokes/vim-gemspec-snippet.git
 [submodule "lib/rake-completion"]
 	path = lib/rake-completion
 	url = git://github.com/ai/rake-completion.git
