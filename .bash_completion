@@ -4,3 +4,6 @@
 for i in x xm monitor; do
   have $i && complete -F _command $filenames $i
 done
+
+# Rake task completion
+. $HOME/lib/rake-completion/rake
