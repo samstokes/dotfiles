@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /home/sam/.git-excludes
 	editor = $HOME/bin/git-msg-vim -f -g
+	pager = less -i
 [color]
 	branch = auto
 	diff = auto
