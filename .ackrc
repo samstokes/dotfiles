@@ -18,4 +18,6 @@ vendor
 --ignore-dir
 tmp
 --ignore-dir
+coverage
+--ignore-dir
 pkg
