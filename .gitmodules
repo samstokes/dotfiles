@@ -52,3 +52,6 @@
 [submodule "lib/rake-completion"]
 	path = lib/rake-completion
 	url = git://github.com/ai/rake-completion.git
+[submodule ".vim/bundle/vimoutliner"]
+	path = .vim/bundle/vimoutliner
+	url = https://github.com/vimoutliner/vimoutliner.git
