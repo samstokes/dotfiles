@@ -37,3 +37,6 @@
 	enabled = true
 [clean]
 	requireForce = true
+[diff]
+	mnemonicprefix = 1
+	renames = copies
