@@ -26,6 +26,7 @@ set so=6                        " leave 6 lines of scope when scrolling
 set ignorecase                  " searches are case-insensitive
 set smartcase                   " ... unless they contain uppercase letters
 set nohlsearch                  " don't leave search phrases highlighted
+nnoremap <Leader>hs :set invhlsearch<CR>
 set incsearch                   " show best-match-so-far
 
 set title                       " set xterm title when in terminal mode
