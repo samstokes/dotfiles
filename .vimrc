@@ -70,6 +70,9 @@ nnoremap Y y$
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
+" reboot syntax highlighting in case it gets confused
+nnoremap <Leader>ss :syntax off\|syntax on<CR>
+
 " stuff for editing prose
 
 " start new paragraph
