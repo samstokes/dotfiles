@@ -6,6 +6,10 @@ scala=.scala
 --type-set
 sass=.sass
 
+# Handlebars
+--type-set
+handlebars=.hbs
+
 # ignore Rails junk dirs, they're rarely interesting for grep
 --ignore-dir
 doc

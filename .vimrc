@@ -50,6 +50,7 @@ set display=uhex                " more obvious display of binary files
 augroup filetype
   autocmd BufNewFile,BufRead *.ypp set filetype=yacc    " recognise ypp ext
   autocmd BufNewFile,BufRead *.y++ set filetype=yacc    " recognise y++ ext
+  autocmd BufNewFile,BufRead *.hbs set filetype=html    " recognise Handlebars
 augroup END
 
 " easy quit if all files saved
@@ -104,8 +105,8 @@ autocmd FileType tex,html,xhtml,xml set textwidth=79
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
 
-" 4-space indent for Javascript (Rapportive coding standard)
-autocmd FileType javascript set shiftwidth=4 tabstop=4
+" 4-space indent for Javascript and Handlebars (Rapportive coding standard)
+autocmd FileType javascript,html set shiftwidth=4 tabstop=4
 
 autocmd FileType xml set equalprg=xmllint\ --format\ -
 
