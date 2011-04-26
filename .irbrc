@@ -40,7 +40,7 @@ def methods_returning(answer, *args)
     begin
       clone.send(method, *args) == answer
     rescue ArgumentError, LocalJumpError
-    rescue TypeError, NoMethodError, NameError => e
+    rescue TypeError, NoMethodError, NameError, IndexError => e
       args_inspected = args.inspect
       args_nice = args_inspected[1, args_inspected.length - 2]
       puts "#{self.inspect}.#{method}(#{args_nice}) throws #{e.class}: #{e}"
