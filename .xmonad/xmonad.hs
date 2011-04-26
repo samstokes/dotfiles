@@ -69,8 +69,9 @@ myKeys =
     , ("M-v",     spawn "gvim")
     , ("C-M-v",   inputPrompt defaultXPConfig "Args?" ?+ spawnGvimWithArgs)
 
-    , ("<Print>", spawn "gnome-screenshot")
-    , ("S-<Print>", spawn "gnome-screenshot -w")
+    , ("<Print>", gimpShot FullScreenshot)
+    , ("S-<Print>", gimpShot WindowScreenshot)
+    , ("C-<Print>", gimpShot RegionScreenshot)
 
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
@@ -231,6 +232,25 @@ spawnX = spawn . ("x " ++)
 
 safeSpawnX :: FilePath -> [String] -> X ()
 safeSpawnX cmd opts = safeSpawn "x" (cmd : opts)
+
+
+----- take screenshot and send to GIMP {{{3
+
+data ScreenshotType = FullScreenshot | WindowScreenshot | RegionScreenshot
+
+gimpShot :: ScreenshotType -> X ()
+gimpShot FullScreenshot = gimpScrot False Nothing
+gimpShot WindowScreenshot = gimpScrot False $ Just "--focused"
+gimpShot RegionScreenshot = do
+  notify "Select a region" Nothing
+  -- Need to sleep before grabbing the cursor, or XMonad gets confused
+  gimpScrot True (Just "--select")
+
+gimpScrot :: Bool -> Maybe String -> X ()
+gimpScrot sleep opts = spawn scrotCmd
+  where
+    scrotCmd = unwords $ catMaybes [sleepCmd, Just "scrot -e 'gimp $f && rm $f'", opts]
+    sleepCmd = if sleep then Just "sleep 0.2;" else Nothing
 
 
 ----- popup notifications ----- {{{3
