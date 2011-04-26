@@ -26,6 +26,11 @@
 	ct = committool
 	rc = review-commits
 	wbr = describe --contains --all HEAD
+	mb = merge-base
+	dfwp = diff -w --patience
+	shwp = show -w --patience
+	clean-conflict-cruft = "!find . \\( -name '*.orig' -o -name '*.BACKUP.*' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' \\) -exec rm -i \\{\\} \\;"
+	ccc = !git clean-conflict-cruft
 [merge]
 	tool = gvimdiff
 [rerere]
