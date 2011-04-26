@@ -77,6 +77,7 @@ myKeys =
     , ("M-C-<XF86AudioPlay>", promptMinutes ?+ timerStart)
     , ("M-<XF86AudioStop>", timerStop)
     , ("M-S-<XF86AudioStop>", timerStop)
+    , ("M-<XF86AudioNext>", spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/log_pomos")
 
     ----- workspace navigation ----- {{{3
     , ("C-M-h",   myMove ToLeft)
