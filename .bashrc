@@ -114,5 +114,9 @@ export PATH="$EC2_HOME"/bin:"$PATH"
 export AWS_ELB_HOME=$HOME/packages/ElasticLoadBalancing
 export PATH="$AWS_ELB_HOME"/bin:"$PATH"
 
+# tarsnap
+export PATH="$HOME/packages/tarsnap-1.0/bin":"$PATH"
+export MANPATH="$HOME/packages/tarsnap-1.0/share/man":"$MANPATH"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
