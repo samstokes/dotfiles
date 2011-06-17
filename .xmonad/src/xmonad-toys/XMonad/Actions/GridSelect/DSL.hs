@@ -31,12 +31,12 @@ data GridDoOpts item result = GridDoOpts {
                                 , gridDoLabels :: item -> String
                                 , gridDoAction :: item -> X result
                                 }
-defaultGridDoOpts :: GridDoOpts item result
+defaultGridDoOpts :: HasColorizer item => GridDoOpts item result
 defaultGridDoOpts = GridDoOpts {
     gridDoChoices = error "must specify choices"
-  , gridDoConfig = error "must specify gsConfig"
-  , gridDoLabels = error "must specify labels"
-  , gridDoAction = error "must specify action"
+  , gridDoConfig = defaultGSConfig
+  , gridDoLabels = const "no label function specified"
+  , gridDoAction = const $ gridNotify "item chosen" >> error "must specify action"
   }
 
 gridDo :: GridDoOpts item result -> X (Maybe result)
@@ -58,13 +58,13 @@ newtype GridDoT m item result a = GridDoT {
   } deriving (Monad, MonadState (GridDoOpts item result))
 
 
-grid :: GridDoT X item result () -> X (Maybe result)
+grid :: HasColorizer item => GridDoT X item result () -> X (Maybe result)
 grid gdt = do
     (_, opts) <- runStateT (runGridDoT gdt) defaultGridDoOpts
     gridDo opts
   `catchX` (gridNotify "grid went wrong - missing an option? check .xsession-errors" >> return Nothing)
 
-noisyGrid :: Show item => String -> GridDoT X item result () -> X (Maybe result)
+noisyGrid :: (HasColorizer item, Show item) => String -> GridDoT X item result () -> X (Maybe result)
 noisyGrid description gdt = grid noisyGdt
   where
     noisyGdt = do
@@ -78,10 +78,10 @@ noisyGrid description gdt = grid noisyGdt
         put $ opts { gridDoAction = noisyAction }
     shoutAbout item = notify description (Just $ show item)
 
-grid_ :: GridDoT X item result () -> X ()
+grid_ :: HasColorizer item => GridDoT X item result () -> X ()
 grid_ gdt = grid gdt >> return ()
 
-noisyGrid_ :: Show item => String -> GridDoT X item result () -> X ()
+noisyGrid_ :: (HasColorizer item, Show item) => String -> GridDoT X item result () -> X ()
 noisyGrid_ description gdt = noisyGrid description gdt >> return ()
 
 

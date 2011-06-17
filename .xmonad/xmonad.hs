@@ -272,7 +272,6 @@ dir path = getDirectoryContents path >>= return . filter (not . isHidden)
 
 soundGridSelect :: X ()
 soundGridSelect = noisyGrid_ "Playing sound" $ do
-    gsConfig $ defaultGSConfig
     choices $ io (dir soundDir)
     labels $ takeWhile (/= '.')
     action (\file -> safeSpawn "aplay" [soundDir </> file])
@@ -289,7 +288,6 @@ spawnIrb ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]]
 
 rubyGridSelect :: X (Maybe String)
 rubyGridSelect = noisyGrid "Ruby" $ do
-  gsConfig $ defaultGSConfig
   choices $ io listRubies
   labels $ drop 5 -- TODO this is a cheap hack!
   action return
