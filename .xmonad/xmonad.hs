@@ -271,20 +271,18 @@ dir path = getDirectoryContents path >>= return . filter (not . isHidden)
 ----- Hilarious sounds ----- {{{3
 
 soundGridSelect :: X ()
-soundGridSelect = grid_ $ do
+soundGridSelect = noisyGrid_ "Playing sound" $ do
     gsConfig $ defaultGSConfig
     choices $ io (dir soundDir)
     labels $ takeWhile (/= '.')
-    action (\file -> do
-        notify ("Playing " ++ file) Nothing
-        safeSpawn "aplay" [soundDir </> file])
+    action (\file -> safeSpawn "aplay" [soundDir </> file])
   where soundDir = "/home/sam/sounds"
 
 
 ----- Ruby prompts ----- {{{3
 
 irbGridSelect :: X ()
-irbGridSelect = grid_ $ do
+irbGridSelect = noisyGrid_ "IRB prompt" $ do
   gsConfig $ defaultGSConfig
   choices $ io listRubies
   labels $ drop 5 -- TODO this is a cheap hack!
@@ -368,7 +366,7 @@ sshGridSelect :: X ()
 sshGridSelect = sshGridSelectOptsCmd [] Nothing
 
 sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
-sshGridSelectOptsCmd opts cmd = grid_ $ do
+sshGridSelectOptsCmd opts cmd = noisyGrid_ "SSH prompt" $ do
     choices $ io readSshHosts
     labels hostLabel
     gsConfig $ defaultGSConfig { gs_cellwidth = 300 }

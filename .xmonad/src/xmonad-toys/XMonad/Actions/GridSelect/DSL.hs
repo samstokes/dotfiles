@@ -4,6 +4,8 @@
 module XMonad.Actions.GridSelect.DSL
   ( grid
   , grid_
+  , noisyGrid
+  , noisyGrid_
   , choices
   , gsConfig
   , labels
@@ -62,8 +64,25 @@ grid gdt = do
     gridDo opts
   `catchX` (gridNotify "grid went wrong - missing an option? check .xsession-errors" >> return Nothing)
 
+noisyGrid :: Show item => String -> GridDoT X item result () -> X (Maybe result)
+noisyGrid description gdt = grid noisyGdt
+  where
+    noisyGdt = do
+        gdt
+        opts <- get
+        let quietAction = gridDoAction opts
+        let noisyAction = \item -> do
+            result <- quietAction item
+            shoutAbout item
+            return result
+        put $ opts { gridDoAction = noisyAction }
+    shoutAbout item = notify description (Just $ show item)
+
 grid_ :: GridDoT X item result () -> X ()
 grid_ gdt = grid gdt >> return ()
+
+noisyGrid_ :: Show item => String -> GridDoT X item result () -> X ()
+noisyGrid_ description gdt = noisyGrid description gdt >> return ()
 
 
 choices :: Monad m => X [item] -> GridDoT m item result ()
