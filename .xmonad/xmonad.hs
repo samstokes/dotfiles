@@ -372,16 +372,10 @@ sshGridSelect :: X ()
 sshGridSelect = sshGridSelectOptsCmd [] Nothing
 
 sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
-sshGridSelectOptsCmd opts cmd = io readSshHosts >>= sshGridSelect'
-  where
-    sshGridSelect' [] = notify "SSH" (Just "Couldn't find any hosts defined")
-    sshGridSelect' hostSections = do
-      let hosts = map SSH.Config.names hostSections
-      host <- gridselect sshGSConfig (zip (label <$> hosts) (head <$> hosts))
-      whenJust host $ \h -> spawnSshOpts h opts cmd
-    label [name] = name
-    label (name : others) = name ++ " (" ++ unwords others ++ ")"
-    sshGSConfig = defaultGSConfig { gs_cellwidth = 200 }
+sshGridSelectOptsCmd opts cmd = grid $ do
+    choices $ (head . SSH.Config.names <$>) <$> io readSshHosts
+    gsConfig $ defaultGSConfig { gs_cellwidth = 200 }
+    action (\host -> spawnSshOpts host opts cmd)
 
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
