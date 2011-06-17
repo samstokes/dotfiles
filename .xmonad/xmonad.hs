@@ -61,6 +61,8 @@ myKeys =
     , ("C-M-e",   windowPromptGoto defaultXPConfig)
     , ("C-M-S-e", windowPromptBring defaultXPConfig)
 
+    , ("S-M-]",   soundGridSelect)
+
     , ("S-M-x",   spawnGvimWithArgs ".xmonad/xmonad.hs")
 
     ----- tools and apps ----- {{{3
@@ -263,6 +265,18 @@ gimpScrot sleep opts = spawn scrotCmd
 dir :: FilePath -> IO [FilePath]
 dir path = getDirectoryContents path >>= return . filter (not . isHidden)
   where isHidden file = head file == '.'
+
+
+----- Hilarious sounds ----- {{{3
+
+soundGridSelect :: X ()
+soundGridSelect = grid $ do
+    choices $ io (dir soundDir)
+    labels $ takeWhile (/= '.')
+    action (\file -> do
+        notify ("Playing " ++ file) Nothing
+        safeSpawn "aplay" [soundDir </> file])
+  where soundDir = "/home/sam/sounds"
 
 
 ----- Ruby prompts ----- {{{3
