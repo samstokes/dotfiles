@@ -18,6 +18,7 @@ import XMonad hiding ( (|||) ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.GridSelect.DSL
+import XMonad.Actions.Notify
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.Plane
 import XMonad.Actions.Promote
@@ -294,13 +295,6 @@ listRubies = do
     rubyDirs <- dir rubiesDir
     return $ filter (/= "default") rubyDirs
   where rubiesDir = ".rvm/rubies"
-
-
------ popup notifications ----- {{{3
-
-notify :: String -> Maybe String -> X ()
-notify title maybeBody = safeSpawn "notify-send" $
-    [title] ++ maybeToList maybeBody
 
 
 ----- timers ----- {{{3
