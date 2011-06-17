@@ -375,10 +375,14 @@ sshGridSelect = sshGridSelectOptsCmd [] Nothing
 
 sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
 sshGridSelectOptsCmd opts cmd = grid $ do
-    choices $ (head . SSH.Config.names <$>) <$> io readSshHosts
-    gsConfig $ defaultGSConfig { gs_cellwidth = 200 }
-    labels id
-    action (\host -> spawnSshOpts host opts cmd)
+    choices $ io readSshHosts
+    labels hostLabel
+    gsConfig $ defaultGSConfig { gs_cellwidth = 300 }
+    action (\host -> spawnSshOpts (head $ SSH.Config.names host) opts cmd)
+  where
+    hostLabel host = head (SSH.Config.names host) ++ case SSH.Config.hostName host of
+        Just hostname -> " (" ++ hostname ++ ")"
+        Nothing -> ""
 
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
