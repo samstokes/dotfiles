@@ -14,13 +14,14 @@ where
 import "mtl" Control.Monad.State
 import XMonad (X, catchX, spawn, whenJust)
 import XMonad.Actions.GridSelect
+import XMonad.Actions.Notify
 
 
 withLabels :: (a -> b) -> [a] -> [(b, a)]
 withLabels label items = (map label items) `zip` items
 
-notify :: String -> X ()
-notify msg = spawn $ "xmessage " ++ msg
+gridNotify :: String -> X ()
+gridNotify = notify "grid" . Just
 
 data GridDoOpts item result = GridDoOpts {
                                   gridDoChoices :: X [item]
@@ -40,7 +41,7 @@ gridDo :: GridDoOpts item result -> X (Maybe result)
 gridDo opts = do
     choices <- gridDoChoices opts
     case choices of
-      [] -> notify "Couldn't find any choices!" >> return Nothing
+      [] -> gridNotify "Couldn't find any choices!" >> return Nothing
       [choice] -> doAction choice
       _ -> do
           choice <- gridselect (gridDoConfig opts) $ withLabels (gridDoLabels opts) choices
@@ -59,7 +60,7 @@ grid :: GridDoT X item result () -> X (Maybe result)
 grid gdt = do
     (_, opts) <- runStateT (runGridDoT gdt) defaultGridDoOpts
     gridDo opts
-  `catchX` (notify "grid went wrong - missing an option? check .xsession-errors" >> return Nothing)
+  `catchX` (gridNotify "grid went wrong - missing an option? check .xsession-errors" >> return Nothing)
 
 grid_ :: GridDoT X item result () -> X ()
 grid_ gdt = grid gdt >> return ()
