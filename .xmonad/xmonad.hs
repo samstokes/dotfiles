@@ -270,7 +270,7 @@ dir path = getDirectoryContents path >>= return . filter (not . isHidden)
 ----- Hilarious sounds ----- {{{3
 
 soundGridSelect :: X ()
-soundGridSelect = grid $ do
+soundGridSelect = grid_ $ do
     gsConfig $ defaultGSConfig
     choices $ io (dir soundDir)
     labels $ takeWhile (/= '.')
@@ -283,7 +283,7 @@ soundGridSelect = grid $ do
 ----- Ruby prompts ----- {{{3
 
 irbGridSelect :: X ()
-irbGridSelect = grid $ do
+irbGridSelect = grid_ $ do
   gsConfig $ defaultGSConfig
   choices $ io listRubies
   labels $ drop 5 -- TODO this is a cheap hack!
@@ -374,7 +374,7 @@ sshGridSelect :: X ()
 sshGridSelect = sshGridSelectOptsCmd [] Nothing
 
 sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
-sshGridSelectOptsCmd opts cmd = grid $ do
+sshGridSelectOptsCmd opts cmd = grid_ $ do
     choices $ io readSshHosts
     labels hostLabel
     gsConfig $ defaultGSConfig { gs_cellwidth = 300 }
