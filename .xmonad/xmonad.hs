@@ -10,10 +10,14 @@ import Data.List (intercalate, isInfixOf)
 import Data.Maybe
 import Data.Monoid
 import qualified SSH.Config
+import System.Directory (getDirectoryContents)
+import System.FilePath.Posix ((</>))
+import System.Process (readProcess)
 import Text.ParserCombinators.Parsec (parse, ParseError)
 import XMonad hiding ( (|||) ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
+import XMonad.Actions.GridSelect.DSL
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.Plane
 import XMonad.Actions.Promote
@@ -49,8 +53,9 @@ myModMask = mod4Mask
 myKeys :: [(String, X ())]
 myKeys =
     ----- launchers ----- {{{3
-    [ ("M-r",     gnomeRun)
-    , ("M-S-r",   summonGnomeDo)
+    [ ("M-S-r",   gnomeRun)
+    , ("M-r",     summonGnomeDo)
+    , ("C-M-r",   irbGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
     , ("C-M-e",   windowPromptGoto defaultXPConfig)
@@ -251,6 +256,28 @@ gimpScrot sleep opts = spawn scrotCmd
   where
     scrotCmd = unwords $ catMaybes [sleepCmd, Just "scrot -e 'gimp $f && rm $f'", opts]
     sleepCmd = if sleep then Just "sleep 0.2;" else Nothing
+
+
+----- File / directory utils ----- {{{3
+
+dir :: FilePath -> IO [FilePath]
+dir path = getDirectoryContents path >>= return . filter (not . isHidden)
+  where isHidden file = head file == '.'
+
+
+----- Ruby prompts ----- {{{3
+
+irbGridSelect :: X ()
+irbGridSelect = grid $ do
+  choices $ io listRubies
+  labels $ drop 5 -- TODO this is a cheap hack!
+  action (\ruby -> safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]])
+
+listRubies :: IO [String]
+listRubies = do
+    rubyDirs <- dir rubiesDir
+    return $ filter (/= "default") rubyDirs
+  where rubiesDir = ".rvm/rubies"
 
 
 ----- popup notifications ----- {{{3
