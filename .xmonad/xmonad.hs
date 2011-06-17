@@ -282,11 +282,17 @@ soundGridSelect = noisyGrid_ "Playing sound" $ do
 ----- Ruby prompts ----- {{{3
 
 irbGridSelect :: X ()
-irbGridSelect = noisyGrid_ "IRB prompt" $ do
+irbGridSelect = rubyGridSelect >>= (flip whenJust) spawnIrb
+
+spawnIrb :: String -> X ()
+spawnIrb ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]]
+
+rubyGridSelect :: X (Maybe String)
+rubyGridSelect = noisyGrid "Ruby" $ do
   gsConfig $ defaultGSConfig
   choices $ io listRubies
   labels $ drop 5 -- TODO this is a cheap hack!
-  action (\ruby -> safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]])
+  action return
 
 listRubies :: IO [String]
 listRubies = do
