@@ -271,6 +271,7 @@ dir path = getDirectoryContents path >>= return . filter (not . isHidden)
 
 soundGridSelect :: X ()
 soundGridSelect = grid $ do
+    gsConfig $ defaultGSConfig
     choices $ io (dir soundDir)
     labels $ takeWhile (/= '.')
     action (\file -> do
@@ -283,6 +284,7 @@ soundGridSelect = grid $ do
 
 irbGridSelect :: X ()
 irbGridSelect = grid $ do
+  gsConfig $ defaultGSConfig
   choices $ io listRubies
   labels $ drop 5 -- TODO this is a cheap hack!
   action (\ruby -> safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]])
@@ -375,6 +377,7 @@ sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
 sshGridSelectOptsCmd opts cmd = grid $ do
     choices $ (head . SSH.Config.names <$>) <$> io readSshHosts
     gsConfig $ defaultGSConfig { gs_cellwidth = 200 }
+    labels id
     action (\host -> spawnSshOpts host opts cmd)
 
 sshConfig :: FilePath

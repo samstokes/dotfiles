@@ -11,27 +11,31 @@ module XMonad.Actions.GridSelect.DSL
 where
 
 import "mtl" Control.Monad.State
-import XMonad (X, spawn, whenJust)
+import XMonad (X, catchX, spawn, whenJust)
 import XMonad.Actions.GridSelect
 
 
 withLabels :: (a -> b) -> [a] -> [(b, a)]
 withLabels label items = (map label items) `zip` items
 
-
-data GridDoOpts = GridDoOpts {
-                      gridDoChoices :: X [String]
-                    , gridDoConfig :: GSConfig String
-                    , gridDoLabels :: String -> String
-                    , gridDoAction :: String -> X ()
-                    }
-defaultGridDoOpts :: GridDoOpts
-defaultGridDoOpts = GridDoOpts (return (map show [0..5])) defaultGSConfig id notify
-
 notify :: String -> X ()
 notify msg = spawn $ "xmessage " ++ msg
 
-gridDo :: GridDoOpts -> X ()
+data GridDoOpts item = GridDoOpts {
+                                  gridDoChoices :: X [item]
+                                , gridDoConfig :: GSConfig item
+                                , gridDoLabels :: item -> String
+                                , gridDoAction :: item -> X ()
+                                }
+defaultGridDoOpts :: GridDoOpts item
+defaultGridDoOpts = GridDoOpts {
+    gridDoChoices = error "must specify choices"
+  , gridDoConfig = error "must specify gsConfig"
+  , gridDoLabels = error "must specify labels"
+  , gridDoAction = error "must specify action"
+  }
+
+gridDo :: GridDoOpts item -> X ()
 gridDo opts = do
     choices <- gridDoChoices opts
     case choices of
@@ -42,25 +46,26 @@ gridDo opts = do
           whenJust choice (gridDoAction opts)
 
 
-newtype GridDoT m a = GridDoT {
-    runGridDoT :: StateT GridDoOpts m a
-  } deriving (Monad, MonadState GridDoOpts)
+newtype GridDoT m item a = GridDoT {
+    runGridDoT :: StateT (GridDoOpts item) m a
+  } deriving (Monad, MonadState (GridDoOpts item))
 
-grid :: GridDoT X () -> X ()
+
+grid :: GridDoT X item () -> X ()
 grid gdt = do
     (_, opts) <- runStateT (runGridDoT gdt) defaultGridDoOpts
     gridDo opts
+  `catchX` notify "grid went wrong - missing an option? check .xsession-errors"
 
 
-
-choices :: Monad m => X [String] -> GridDoT m ()
+choices :: Monad m => X [item] -> GridDoT m item ()
 choices getChoices = modify (\opts -> opts { gridDoChoices = getChoices })
 
-gsConfig :: Monad m => GSConfig String -> GridDoT m ()
+gsConfig :: Monad m => GSConfig item -> GridDoT m item ()
 gsConfig config = modify (\opts -> opts { gridDoConfig = config })
 
-labels :: Monad m => (String -> String) -> GridDoT m ()
+labels :: Monad m => (item -> String) -> GridDoT m item ()
 labels labeller = modify (\opts -> opts { gridDoLabels = labeller })
 
-action :: Monad m => (String -> X ()) -> GridDoT m ()
+action :: Monad m => (item -> X ()) -> GridDoT m item ()
 action f = modify (\opts -> opts { gridDoAction = f })
