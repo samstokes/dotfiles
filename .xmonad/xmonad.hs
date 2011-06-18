@@ -378,6 +378,9 @@ sshGridSelectOptsCmd opts cmd = noisyGrid_ "SSH prompt" $ do
   where
     hostLabel host = SSH.Config.alias host ++ " (" ++ SSH.Config.hostName host ++ ")"
 
+instance HasColorizer SSH.Config.Section where
+  defaultColorizer = stringColorizer . show . SSH.Config.nonIdentifyingOptions
+
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
 
