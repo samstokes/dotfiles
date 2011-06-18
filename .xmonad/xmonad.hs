@@ -376,9 +376,7 @@ sshGridSelectOptsCmd opts cmd = noisyGrid_ "SSH prompt" $ do
     gsConfig $ defaultGSConfig { gs_cellwidth = 300 }
     action (\host -> spawnSshOpts (head $ SSH.Config.names host) opts cmd)
   where
-    hostLabel host = head (SSH.Config.names host) ++ case SSH.Config.hostName host of
-        Just hostname -> " (" ++ hostname ++ ")"
-        Nothing -> ""
+    hostLabel host = head (SSH.Config.names host) ++ " (" ++ SSH.Config.hostName host ++ ")"
 
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
