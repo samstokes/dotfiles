@@ -372,7 +372,7 @@ sshGridSelect = sshGridSelectOptsCmd [] Nothing
 sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
 sshGridSelectOptsCmd opts cmd = noisyGrid_ "SSH prompt" $ do
     choices $ io readSshHosts
-    labels hostLabel
+    labels SSH.Config.label
     gsConfig $ defaultGSConfig { gs_cellwidth = 300 }
     action (\host -> spawnSshOpts (SSH.Config.alias host) opts cmd)
   where
