@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/vimoutliner"]
 	path = .vim/bundle/vimoutliner
 	url = https://github.com/vimoutliner/vimoutliner.git
+[submodule ".vim/bundle/camel-case-motion"]
+	path = .vim/bundle/camel-case-motion
+	url = git@github.com:bkad/CamelCaseMotion.git
