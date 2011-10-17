@@ -47,6 +47,8 @@ set wildignore+=pkg/*
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
 
+set list listchars=tab:>-,trail:·
+
 set display=uhex                " more obvious display of binary files
 
 augroup filetype
