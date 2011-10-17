@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/camel-case-motion"]
 	path = .vim/bundle/camel-case-motion
 	url = git@github.com:bkad/CamelCaseMotion.git
+[submodule ".vim/bundle/argtextobj"]
+	path = .vim/bundle/argtextobj
+	url = git@github.com:vim-scripts/argtextobj.vim.git
