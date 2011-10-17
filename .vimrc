@@ -236,7 +236,7 @@ nnoremap <Leader>gdf :Gdiff<CR>
 nnoremap <Leader>gad :Git add %<CR>
 
 " edit .vimrc in split window
-nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
+nnoremap <Leader>vv :vs $HOME/.vimrc<CR>
 
 " after posting a gist (using gist.vim), open it in browser
 let g:gist_open_browser_after_post = 1
