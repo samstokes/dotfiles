@@ -40,7 +40,7 @@ for i in v av m am; do
   alias gci$i="git commit -$i"
 done
 
-for i in b; do
+for i in b p; do
   alias gco$i="git checkout -$i"
 done
 
