@@ -31,6 +31,7 @@
 	shwp = show -w --patience
 	clean-conflict-cruft = "!find . \\( -name '*.orig' -o -name '*.BACKUP.*' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' \\) -exec rm -i \\{\\} \\;"
 	ccc = !git clean-conflict-cruft
+  rup = remote update --prune
 [merge]
 	tool = gvimdiff
 [rerere]

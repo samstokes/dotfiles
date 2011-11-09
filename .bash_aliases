@@ -29,6 +29,7 @@ alias gpk="git cherry-pick"
 alias grs="git russet"
 alias grsh="git russet --hard"
 alias gwbr="git wbr"
+alias grup="git rup"
 
 # I keep mistyping this, and I never actually want to run 'gs' (== GhostScript)
 alias gs="git status"
