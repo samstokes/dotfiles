@@ -138,7 +138,7 @@ autocmd FileType tex,html,xhtml,xml set textwidth=79
 autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
 
 " 4-space indent for Javascript and Handlebars (Rapportive coding standard)
-autocmd FileType javascript,html set shiftwidth=4 tabstop=4
+autocmd FileType java,javascript,html set shiftwidth=4 tabstop=4
 
 autocmd FileType xml set equalprg=xmllint\ --format\ -
 
