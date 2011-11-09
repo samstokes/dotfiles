@@ -8,3 +8,4 @@ let g:gist_open_browser_after_post = 1
 
 set guioptions-=m   " hide menu
 set guioptions-=T   " hide toolbar
+set guioptions+=c
