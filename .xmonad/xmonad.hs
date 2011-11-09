@@ -56,6 +56,7 @@ myKeys =
     ----- launchers ----- {{{3
     [ ("M-S-r",   gnomeRun)
     , ("M-r",     summonGnomeDo)
+    , ("C-M-r",   viewEmptyWorkspace >> summonGnomeDo)
     , ("M-i",     irbGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
