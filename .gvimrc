@@ -1,5 +1,5 @@
-colorscheme darkblue
-set background=dark
+colorscheme solarized
+call togglebg#map("<F5>")
 
 let g:netrw_browse_split=1
 
