@@ -86,6 +86,7 @@ augroup END
 nnoremap ZA :qa<CR>
 
 let mapleader = ','
+let maplocalleader = ';'
 
 " make rejustifying easier
 noremap Q gqap
