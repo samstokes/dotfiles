@@ -56,7 +56,7 @@ myKeys =
     ----- launchers ----- {{{3
     [ ("M-S-r",   gnomeRun)
     , ("M-r",     summonGnomeDo)
-    , ("C-M-r",   viewEmptyWorkspace >> summonGnomeDo)
+    , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
     , ("M-i",     irbGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
@@ -73,7 +73,7 @@ myKeys =
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     sshGridSelect)
     , ("M-S-s",   sshGridSelectOptsCmd ["-t"] (Just "screen -RD"))
-    , ("C-M-<Return>", viewEmptyWorkspace >> spawn myTerminal)
+    , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
     , ("C-M-v",   inputPrompt defaultXPConfig "Args?" ?+ spawnGvimWithArgs)
@@ -231,6 +231,11 @@ windowGSConfig = defaultGSConfig
 
 
 -- === Utilities === {{{1
+
+----- workspace navigation ----- {{{2
+
+onEmptyWorkspace :: X a -> X a
+onEmptyWorkspace = (viewEmptyWorkspace >>)
 
 ----- launching things ----- {{{2
 
