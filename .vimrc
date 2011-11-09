@@ -60,6 +60,13 @@ set wildignore+=log/*
 set wildignore+=doc/*.html
 set wildignore+=coverage/*
 set wildignore+=pkg/*
+set wildignore+=*.class
+set wildignore+=*.o
+set wildignore+=*.hi
+set wildignore+=target/*
+" for Yesod
+set wildignore+=dist/*
+set wildignore+=static/*
 
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
