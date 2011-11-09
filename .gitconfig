@@ -29,7 +29,7 @@
 	mb = merge-base
 	dfwp = diff -w --patience
 	shwp = show -w --patience
-	clean-conflict-cruft = "!find . \\( -name '*.orig' -o -name '*.BACKUP.*' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' \\) -exec rm -i \\{\\} \\;"
+	clean-conflict-cruft = "!find . \\( -name '*.orig' -o -name '*.rej' -o -name '*.BACKUP.*' -o -name '*.BASE.*' -o -name '*.LOCAL.*' -o -name '*.REMOTE.*' \\) -exec rm -i \\{\\} \\;"
 	ccc = !git clean-conflict-cruft
   rup = remote update --prune
 [merge]
