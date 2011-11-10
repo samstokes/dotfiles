@@ -46,7 +46,7 @@ def methods_returning(answer, *args)
     begin
       guinea_pig.send(method, *args) == answer
     rescue ArgumentError, LocalJumpError
-    rescue TypeError, NoMethodError, NameError, IndexError => e
+    rescue TypeError, NoMethodError, NameError, IndexError, SystemCallError, NotImplementedError => e
       args_inspected = args.inspect
       args_nice = args_inspected[1, args_inspected.length - 2]
       puts "#{self.inspect}.#{method}(#{args_nice}) throws #{e.class}: #{e}"
