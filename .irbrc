@@ -37,8 +37,14 @@ def methods_returning(answer, *args)
   blacklist = %w()
 
   (methods - blacklist).select do |method|
+    guinea_pig = begin
+                   clone
+                 rescue TypeError => e
+                   raise unless e.message =~ /can't clone/
+                   self
+                 end
     begin
-      clone.send(method, *args) == answer
+      guinea_pig.send(method, *args) == answer
     rescue ArgumentError, LocalJumpError
     rescue TypeError, NoMethodError, NameError, IndexError => e
       args_inspected = args.inspect
