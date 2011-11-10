@@ -118,5 +118,8 @@ export PATH="$AWS_ELB_HOME"/bin:"$PATH"
 export PATH="$HOME/packages/tarsnap-1.0/bin":"$PATH"
 export MANPATH="$HOME/packages/tarsnap-1.0/share/man":"$MANPATH"
 
+# Firefox Addon SDK
+export ADDON_SDK_HOME="$HOME/packages/firefox-addon-sdk-1.0"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
