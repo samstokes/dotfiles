@@ -273,6 +273,13 @@ autocmd FileType haskell,lhaskell inoremap <C-c> <ESC>:ThingAtPointScion<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
 autocmd FileType haskell,lhaskell set keywordprg=hoogle\ --count=10
 
+" gitv
+let g:Gitv_PromptToDeleteMergeBranch = 1
+let g:Gitv_TruncateCommitSubjects = 1
+nmap <leader>gv :Gitv --all<cr>
+nmap <leader>gV :Gitv! --all<cr>
+vmap <leader>gV :Gitv! --all<cr>
+
 " Syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
