@@ -1,0 +1,2 @@
+#!/bin/sh
+exec ruby -rcgi -n -e'puts CGI.escape $_.strip'
