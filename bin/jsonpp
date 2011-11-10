@@ -1,0 +1,3 @@
+#!/bin/bash
+source "$HOME/.rvm/scripts/rvm"
+rvm 1.9.2@global exec ruby -rpp -rubygems -rjson -n -e'pp JSON.parse $_.strip'
