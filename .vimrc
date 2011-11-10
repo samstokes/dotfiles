@@ -170,18 +170,6 @@ let g:snips_author = 'Sam Stokes <me@samstokes.co.uk>'
 nnoremap <C-DOWN> :cnext<CR>
 nnoremap <C-UP> :cprevious<CR>
 
-" Easier navigation of split windows
-nnoremap <C-h> <C-w><C-h>
-nnoremap <C-j> <C-w><C-j>
-nnoremap <C-k> <C-w><C-k>
-nnoremap <C-l> <C-w><C-l>
-
-" Expand window we move into
-nnoremap <C-w>h <C-w>h<C-w>_
-nnoremap <C-w>j <C-w>j<C-w>_
-nnoremap <C-w>k <C-w>k<C-w>_
-nnoremap <C-w>l <C-w>l<C-w>_
-
 " ignore whitespace in diffs
 nnoremap <Leader>dw :set diffopt+=iwhite<CR>
 
