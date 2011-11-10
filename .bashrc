@@ -121,5 +121,8 @@ export MANPATH="$HOME/packages/tarsnap-1.0/share/man":"$MANPATH"
 # Firefox Addon SDK
 export ADDON_SDK_HOME="$HOME/packages/firefox-addon-sdk-1.0"
 
+# QT 4.7 (for jasmine-headless-webkit)
+export PATH="$HOME/packages/qt-4.7/bin":"$PATH"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
