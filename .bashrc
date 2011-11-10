@@ -124,5 +124,10 @@ export ADDON_SDK_HOME="$HOME/packages/firefox-addon-sdk-1.0"
 # QT 4.7 (for jasmine-headless-webkit)
 export PATH="$HOME/packages/qt-4.7/bin":"$PATH"
 
+# Maven
+export M2_HOME="$HOME/packages/apache-maven"
+export M2="$M2_HOME/bin"
+export PATH="$M2:$PATH"
+
 # RVM - Ruby Version Manager
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
