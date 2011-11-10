@@ -194,6 +194,10 @@ nnoremap <Leader>dt :diffthis<CR>
 " update diff with fewer keystrokes
 nnoremap <Leader>du :diffupdate<CR>
 
+" Help with fat fingers near Escape
+noremap <F1> <ESC>
+inoremap <F1> <ESC>
+
 function! s:toggleDiff()
     if &diff
         :diffoff
