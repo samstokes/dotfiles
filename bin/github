@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+GITHUB = 'https://github.com'
+
+remote_info = `git remote show github`
+unless $?.success?
+  raise "No github remote in current git repo"
+end
+remote_info =~ %r{Fetch URL: git@github.com:([\w-]+/[\w-]+)\.git}
+REPO = $1
+
+if !REPO || REPO.empty?
+  raise 'Must specify GITHUB_REPO'
+elsif REPO !~ %r{^[\w-]+/[\w-]+$}i
+  raise "Malformed GITHUB_REPO: #{REPO}"
+end
+
+def handle(arg)
+  case arg
+  when /^[0-9a-f]{4,}$/
+    commit arg
+  else
+    raise "Don't know what to do with: #{arg}"
+  end
+end
+
+def commit(hash)
+  browse_github_repo "/commit/#{hash}"
+end
+
+def browse_github_repo(path = nil)
+  browse_github "/#{REPO}#{path}"
+end
+
+def browse_github(path = nil)
+  system('sensible-browser', "#{GITHUB}#{path}") or raise 'Failed to launch browser!'
+end
+
+if ARGV.empty?
+  browse_github_repo
+else
+  ARGV.each {|arg| handle(arg) }
+end

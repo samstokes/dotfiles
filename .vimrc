@@ -289,5 +289,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 
+autocmd FileType git,gitv set keywordprg=github
+
+
 nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>
