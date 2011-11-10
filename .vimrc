@@ -272,3 +272,11 @@ autocmd FileType haskell,lhaskell inoremap <C-c> <ESC>:ThingAtPointScion<CR>
 "autocmd FileType haskell,lhaskell :BackgroundTypecheckFileScion " dies on new files
 autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
 autocmd FileType haskell,lhaskell set keywordprg=hoogle\ --count=10
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
