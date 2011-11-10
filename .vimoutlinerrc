@@ -1,4 +1,7 @@
 "Extra mappings *****************************************************
+
+nmap <Leader>wk ggyG:%!~/.cabal/bin/OTL markdown<CR>:set ft=mkd<CR>Go<CR><!-- OTL<CR><CR><CR>--><ESC>kPggr#jdj
+
 "This mapping is fold-level and fold-state dependent 
 "map <S-Down> dd p
 "map <S-Up> dd <up>P
