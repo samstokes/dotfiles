@@ -1,1 +1,2 @@
-/usr/bin/gvim
+#!/bin/sh
+exec "$(dirname $0)"/vim "$@"

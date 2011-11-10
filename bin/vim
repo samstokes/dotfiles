@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+rvm 1.9.2-p180 exec $HOME/packages/vim-7.3/bin/"$(basename $0)" "$@"
