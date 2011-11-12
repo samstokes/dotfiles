@@ -186,6 +186,9 @@ myLayoutHook = defaultLayout
 
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
+planeLines :: Lines
+planeLines = Lines 3
+
 
 -- === Event hook === {{{1
 
@@ -256,10 +259,10 @@ myButton11 = 11
 ----- workspace navigation ----- {{{2
 
 myMove :: Direction -> X ()
-myMove = planeMove GConf Finite
+myMove = planeMove planeLines Finite
 
 myShift :: Direction -> X ()
-myShift = planeShift GConf Finite
+myShift = planeShift planeLines Finite
 
 onEmptyWorkspace :: X a -> X a
 onEmptyWorkspace = (viewEmptyWorkspace >>)
