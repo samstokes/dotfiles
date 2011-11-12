@@ -19,11 +19,16 @@ AeroFS
 .config/calibre
 .config/compiz*/compizconfig
 .config/compiz/fusion-icon
+.config/dconf
 .config/desktop-couch
 .config/Empathy
 .config/enchant
 .config/f-spot
+.config/gedit
 .config/gitg
+.config/gnome-control-center
+.config/gnome-disk-utility
+.config/gnome-session
 .config/Google
 .config/google-chrome
 .config/google-musicmanager
@@ -33,6 +38,7 @@ AeroFS
 .config/lxterminal
 .config/menus
 .config/monitors.xml
+.config/nautilus
 .config/pitivi
 .config/rftg
 .config/softwarecenter
@@ -41,6 +47,7 @@ AeroFS
 .config/totem/state.ini
 .config/transmission
 .config/Trolltech.conf
+.config/update-notifier
 .config/user-dirs.*
 .config/vlc
 .cpan
