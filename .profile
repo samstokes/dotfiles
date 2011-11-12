@@ -20,3 +20,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# Add cabal binaries to PATH
+export PATH=/home/sam/.cabal/bin:"$PATH"
+
+# Add custom ghc version and Haskell Platform to PATH
+export PATH=/home/sam/opt/ghc/bin:/home/sam/opt/haskell-platform/bin:"$PATH"
