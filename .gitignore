@@ -12,11 +12,11 @@ AeroFS
 .cabal/world
 .cache
 .com.jungledisk.service.status
-.compiz/session
+.compiz*/session
 .config/autokey/autokey.log
 .config/autokey/autokey.pid
 .config/calibre
-.config/compiz/compizconfig/config
+.config/compiz*/compizconfig
 .config/compiz/fusion-icon
 .config/desktop-couch
 .config/Empathy
