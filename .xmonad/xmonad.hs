@@ -131,7 +131,7 @@ myKeys =
     , ("S-M-m",   promote)
 
     ----- session management ----- {{{3
-    , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
+    , ("M-<F4>",  spawn "gnome-session-quit --power-off")
     , ("C-M-q", rescreen)
     ]
     ----- helper functions ----- {{{3
