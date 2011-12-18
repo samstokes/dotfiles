@@ -93,4 +93,9 @@ export EDITOR="gvim -f"
 # Add custom Python libs
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
 
+# Maven
+export M2_HOME="$HOME/opt/apache-maven"
+export M2="$M2_HOME/bin"
+export PATH="$M2:$PATH"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
