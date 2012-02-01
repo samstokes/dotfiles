@@ -78,4 +78,4 @@
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule ".vim/bundle/tslime"]
 	path = .vim/bundle/tslime
-	url = https://github.com/jgdavey/tslime.vim.git
+	url = git@github.com:samstokes/tslime.vim.git
