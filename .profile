@@ -29,3 +29,8 @@ export PATH=/home/sam/.cabal/bin:"$PATH"
 
 # Add custom ghc version and Haskell Platform to PATH
 export PATH=/home/sam/opt/ghc/bin:/home/sam/opt/haskell-platform/bin:"$PATH"
+
+export LANGUAGE="en_GB:en"
+export LC_MESSAGES="en_GB.UTF-8"
+export LC_CTYPE="en_GB.UTF-8"
+export LC_COLLATE="en_GB.UTF-8"
