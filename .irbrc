@@ -34,7 +34,7 @@ end
 def methods_returning(answer, *args)
   # probably want to filter out some methods
   # e.g. ones that mutate their receiver...
-  blacklist = %w()
+  blacklist = %w(debugger breakpoint)
 
   (methods - blacklist).select do |method|
     guinea_pig = begin
@@ -45,6 +45,14 @@ def methods_returning(answer, *args)
                  end
     begin
       guinea_pig.send(method, *args) == answer
+    rescue RuntimeError => e
+      if e.backtrace.grep(/ruby-debug/).empty?
+        raise
+      else
+        args_inspected = args.inspect
+        args_nice = args_inspected[1, args_inspected.length - 2]
+        puts "#{self.inspect}.#{method}(#{args_nice}) throws #{e.class}: #{e}"
+      end
     rescue ArgumentError, LocalJumpError
     rescue TypeError, NoMethodError, NameError, IndexError, SystemCallError, NotImplementedError => e
       args_inspected = args.inspect
