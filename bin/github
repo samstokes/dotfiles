@@ -33,7 +33,7 @@ def browse_github_repo(path = nil)
 end
 
 def browse_github(path = nil)
-  system('sensible-browser', "#{GITHUB}#{path}") or raise 'Failed to launch browser!'
+  fork { exec('sensible-browser', "#{GITHUB}#{path}") }
 end
 
 if ARGV.empty?
