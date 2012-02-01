@@ -43,3 +43,5 @@
 	renames = copies
 [push]
 	default = upstream
+[rebase]
+	autosquash = true
