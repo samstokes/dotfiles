@@ -52,6 +52,9 @@ set showmatch                   " blink matching brackets
 
 set backspace=eol,start,indent  " BkSp works properly
 
+set exrc                        " local .vimrc files
+set secure                      " ... with fewer security risks
+
 " make tab-completion of commands and files behave like Bash's
 set wildmode=longest,list
 
