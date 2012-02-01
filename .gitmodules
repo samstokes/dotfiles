@@ -73,6 +73,9 @@
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/vim-clojure"]
+	path = .vim/bundle/vim-clojure
+	url = https://github.com/vim-scripts/VimClojure.git
 [submodule ".vim/bundle/tslime"]
 	path = .vim/bundle/tslime
 	url = git@github.com:samstokes/tslime.vim.git
