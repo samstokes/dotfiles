@@ -1,4 +1,6 @@
 colorscheme solarized
+set guifont=Ubuntu\ Mono\ 12
+
 call togglebg#map("<F5>")
 
 let g:netrw_browse_split=1
