@@ -21,6 +21,9 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# make Java programs happy
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
+
 # Add cabal binaries to PATH
 export PATH=/home/sam/.cabal/bin:"$PATH"
 
