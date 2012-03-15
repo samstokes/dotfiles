@@ -230,6 +230,18 @@ windowGSConfig = defaultGSConfig
 
 -- === Utilities === {{{1
 
+----- extra mouse buttons ----- {{{2
+
+myButton4, myButton5, myButton6, myButton7, myButton8, myButton9, myButton10, myButton11 :: Button
+myButton4 = button4
+myButton5 = button5
+myButton6 = 6
+myButton7 = 7
+myButton8 = 8
+myButton9 = 9
+myButton10 = 10
+myButton11 = 11
+
 ----- workspace navigation ----- {{{2
 
 myMove :: Direction -> X ()
