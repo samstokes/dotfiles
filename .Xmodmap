@@ -8,7 +8,7 @@ pointer = 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 !    -FROM-
 !  Fn Control_L Alt_L Super_L Space Super_R Alt_R
 !    -TO-
-!  Fn Control_L Super_L Alt_L Space Alt_R Menu
+!  Fn Control_L Alt_L Super_L Space Alt_R Menu
 !
 ! To change defaults, just re-order the rows of the "SWAP" section and
 ! re-write the numbers so they match the "DEFAULT" section.
@@ -25,8 +25,8 @@ pointer = 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
 
 !! SWAP: fn ctrl_l super_l alt_l alt_r menu
 !keycode  37 = Control_L NoSymbol Control_L
-keycode  64 = Super_L NoSymbol Super_L
-keycode 133 = Alt_L Meta_L Alt_L Meta_L
+keycode  64 = Alt_L Meta_L Alt_L Meta_L
+keycode 133 = Super_L NoSymbol Super_L
 keycode 134 = Alt_R Meta_R Alt_R Meta_R
 keycode 108 = Menu NoSymbol Menu
 !!begin vestigial keys:
