@@ -147,6 +147,16 @@ myMouseBindings =
       -- Maybe useful if I ever set up conky?
       {-((myModMask, button4), fadeIn)-}
     {-, ((myModMask, button5), (flip setOpacity) 0.1)-}
+
+      ----- Super-two-finger-swipe to switch desktops
+      ((myModMask, myButton6), const $ myMove ToLeft)
+    , ((myModMask, myButton5), const $ myMove ToDown)
+    , ((myModMask, myButton4), const $ myMove ToUp)
+    , ((myModMask, myButton7), const $ myMove ToRight)
+    , ((shiftMask .|. myModMask, myButton6), const $ myShift ToLeft)
+    , ((shiftMask .|. myModMask, myButton5), const $ myShift ToDown)
+    , ((shiftMask .|. myModMask, myButton4), const $ myShift ToUp)
+    , ((shiftMask .|. myModMask, myButton7), const $ myShift ToRight)
     ]
 
 
