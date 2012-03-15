@@ -1,0 +1,133 @@
+#!/bin/bash
+
+# Joshua V. Dillon
+# jvdillon (a) gmail (.) com
+#
+# Wed Sep 14 10:33:48 EDT 2011 - first version
+#
+# Simple keyboard brightness increment/decrement script.
+# Brightness control is non-linear (square).
+#
+# To allow non-admin users to change this value, possibly without having
+# to enter a password, read "man sudoers" and, e.g., use
+#    ALL ALL = NOPASSWD:/usr/local/bin/keyboard-backlight
+# to allow all users to execute this command on all hosts without a
+# password.
+#
+# Copyright (c) 2011 Joshua V Dillon
+# All rights reserved. See end-of-file for license.
+
+# light sensor information:
+# cat /sys/devices/platform/applesmc.768/light
+
+if [ $(pgrep -f keyboard-backlight|wc -l) -gt 3 ]; then
+	exit 0
+#else
+#	sleep .02
+fi
+
+
+ceil() {
+	/usr/bin/bc -lq <<-EOF
+		define floor(x) {
+			auto os,xx;
+			os=scale;
+			scale=0
+			xx=x/1;if(xx>x)xx-=1
+			scale=os
+			return(xx)
+		}
+		-floor(-($*))
+	EOF
+}
+
+floor() {
+	/usr/bin/bc -lq <<-EOF
+		define floor(x) {
+			auto os,xx;
+			os=scale;
+			scale=0
+			xx=x/1;if(xx>x)xx-=1
+			scale=os
+			return(xx)
+		}
+		floor($*)
+	EOF
+}
+
+DEV='/sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness'
+case "$1" in
+[0-9]*)
+	NEW=$(floor "($1)^2*255/100" )
+	NEW=$(( (NEW<0)?0:NEW ))
+	NEW=$(( (NEW>255)?255:NEW ))
+	#NEW=$1
+	;;
+off)
+	NEW=0
+	;;
+on)
+	NEW=255
+	;;
+down)
+	OLD=$(cat $DEV)
+	NEW=$(( OLD-10 ))
+	NEW=$(( (NEW<0)?0:NEW ))
+
+	#OLD=$(ceil "sqrt(100*$(cat $DEV)/255)")
+	#NEW=$(( OLD-1 ))
+	#NEW=$(( NEW*NEW*255/100 ))
+	#NEW=$(( (OLD<=0|NEW<0)?0:NEW ))
+	;;
+up)
+	OLD=$(cat $DEV)
+	NEW=$(( OLD+10 ))
+	NEW=$(( (NEW>255)?255:NEW ))
+
+	#OLD=$(ceil "sqrt(100*$(cat $DEV)/255)")
+	#NEW=$(( OLD+1 ))
+	#NEW=$(( NEW*NEW*255/100 ))
+	#NEW=$(( (OLD>=255|NEW>255)?255:NEW ))
+	;;
+*)
+	NEW=$(zenity \
+		--title "Keyboard Backlight Settings" \
+		--scale \
+		--text="Adjust the keyboard backlight to the desired level." \
+		--value=$(cat $DEV) \
+		--min-value="0" \
+		--max-value="255")
+	;;
+esac
+
+#echo $1 $OLD $NEW >>~/blah
+echo $NEW | sudo tee $DEV &>/dev/null
+
+#  Redistribution and use in source and binary forms, with or
+#  without modification, are permitted provided that the
+#  following conditions are met:
+#   * Redistributions of source code must retain the above
+#     copyright notice, this list of conditions and the
+#     following disclaimer.
+#   * Redistributions in binary form must reproduce the above
+#     copyright notice, this list of conditions and the
+#     following disclaimer in the documentation and/or other
+#     materials provided with the distribution.
+#   * Neither the name of the author nor the names of its
+#     contributors may be used to endorse or promote products
+#     derived from this software without specific prior written
+#     permission.
+#  
+#  THIS SOFTWARE IS PROVIDED BY JOSHUA V DILLON ''AS IS'' AND
+#  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+#  TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+#  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL JOSHUA
+#  V DILLON BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+#  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+#  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+#  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+#  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+#  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+#  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
