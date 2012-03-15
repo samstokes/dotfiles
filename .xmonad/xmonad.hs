@@ -124,8 +124,6 @@ myKeys =
     ]
     ----- helper functions ----- {{{3
     where
-      myMove = planeMove GConf Finite
-      myShift = planeShift GConf Finite
       summonGnomeDo =
         safeSpawn "dbus-send" ["--session", "--type=method_call", "--dest=org.gnome.Do", "/org/gnome/Do/Controller", "org.gnome.Do.Controller.Summon"]
 
@@ -233,6 +231,12 @@ windowGSConfig = defaultGSConfig
 -- === Utilities === {{{1
 
 ----- workspace navigation ----- {{{2
+
+myMove :: Direction -> X ()
+myMove = planeMove GConf Finite
+
+myShift :: Direction -> X ()
+myShift = planeShift GConf Finite
 
 onEmptyWorkspace :: X a -> X a
 onEmptyWorkspace = (viewEmptyWorkspace >>)
