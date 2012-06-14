@@ -30,6 +30,9 @@ export PATH="$HOME"/opt/ghc-7.0.4/bin:"$HOME"/opt/haskell-platform/bin:"$PATH"
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 
+# Maven
+export PATH="$HOME"/opt/maven/bin:"$PATH"
+
 export LANGUAGE="en_GB:en"
 export LC_MESSAGES="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
