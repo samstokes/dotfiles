@@ -65,7 +65,8 @@ set wildignore+=pkg/*
 set wildignore+=*.class
 set wildignore+=*.o
 set wildignore+=*.hi
-set wildignore+=target/*
+set wildignore+=target
+set wildignore+=.git
 
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
