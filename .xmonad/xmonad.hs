@@ -33,6 +33,7 @@ import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spiral (spiral)
 import XMonad.ManageHook
 import XMonad.Prompt
 import XMonad.Prompt.Hassh
@@ -168,7 +169,7 @@ myLayoutModifiers =
 myLayoutHook = defaultLayout
   where
     -- defaultLayout copied from source of defaultConfig
-    defaultLayout = tiled ||| Mirror tiled ||| Full
+    defaultLayout = tiled ||| Mirror tiled ||| spiral (6/7) ||| Full
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
 
