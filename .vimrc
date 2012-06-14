@@ -240,6 +240,9 @@ nnoremap <Leader>gad :Git add %<CR>
 " edit .vimrc in split window
 nnoremap <Leader>vv :vs $HOME/.vimrc<CR>
 
+" shortcut for :windo
+nnoremap <C-w>: :windo 
+
 " after posting a gist (using gist.vim), open it in browser
 let g:gist_open_browser_after_post = 1
 
