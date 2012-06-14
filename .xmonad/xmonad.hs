@@ -89,9 +89,9 @@ myKeys =
     , ("S-M-o",   spawnTail "/var/log/syslog")
     , ("C-M-o",   inputPrompt defaultXPConfig "file" ?+ spawnTail)
 
-    , ("<Print>", gimpShot FullScreenshot)
-    , ("S-<Print>", gimpShot WindowScreenshot)
-    , ("C-<Print>", gimpShot RegionScreenshot)
+    , ("<XF86LaunchA>", gimpShot FullScreenshot)
+    , ("S-<XF86LaunchA>", gimpShot WindowScreenshot)
+    , ("C-<XF86LaunchA>", gimpShot RegionScreenshot)
 
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
@@ -114,10 +114,10 @@ myKeys =
     , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
-    , ("M-<XF86Back>", viewScreen (P 0))
-    , ("M-<XF86Forward>", viewScreen (P 1))
-    , ("S-M-<XF86Back>", sendToScreen (P 0))
-    , ("S-M-<XF86Forward>", sendToScreen (P 1))
+    , ("M-<KP_Subtract>", viewScreen (P 0))
+    , ("M-<KP_Add>", viewScreen (P 1))
+    , ("S-M-<KP_Subtract>", sendToScreen (P 0))
+    , ("S-M-<KP_Add>", sendToScreen (P 1))
 
     ----- window management commands ----- {{{3
     , ("M-z",     withFocused minimizeWindow)
