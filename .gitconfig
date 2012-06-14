@@ -2,7 +2,7 @@
 	name = Sam Stokes
 	email = me@samstokes.co.uk
 [core]
-	excludesfile = /home/sam/.git-excludes
+	excludesfile = /home/sstokes/.git-excludes
 	editor = $HOME/bin/git-msg-vim -f -g
 	pager = less -i
 [color]
