@@ -33,6 +33,9 @@ export JAVA_HOME=/usr/lib/jvm/java-6-openjdk
 # Maven
 export PATH="$HOME"/opt/maven/bin:"$PATH"
 
+# Hadoop
+export PATH="$HOME"/opt/hadoop/bin:"$PATH"
+
 export LANGUAGE="en_GB:en"
 export LC_MESSAGES="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
