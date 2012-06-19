@@ -46,7 +46,5 @@
 [diff]
 	mnemonicprefix = 1
 	renames = copies
-[push]
-	default = upstream
 [rebase]
 	autosquash = true
