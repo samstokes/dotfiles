@@ -2,6 +2,9 @@
 
 ICON_DIR=/home/sam/Pictures/icons/status
 
+timing_info=$(mktemp /tmp/monitor.XXXXXX)
+trap "rm -f \"$timing_info\"" EXIT
+
 pending() {
   test -f $ICON_DIR/pending.png && icon="-i $ICON_DIR/pending.png" 
   /usr/bin/notify-send $icon "Starting: $1" "$*"
@@ -9,7 +12,7 @@ pending() {
 
 success() {
   test -f $ICON_DIR/pass.png && icon="-i $ICON_DIR/pass.png" 
-  /usr/bin/notify-send $icon "SUCCEEDED: $1" "$*"
+  /usr/bin/notify-send $icon "SUCCEEDED in $(<"$timing_info"): $1" "$*"
   exit 0
 }
 
@@ -17,9 +20,9 @@ failure() {
   test -f $ICON_DIR/fail.png && icon="-i $ICON_DIR/fail.png" 
   code=$1
   shift
-  /usr/bin/notify-send $icon "FAILED ($code): $1" "$*"
+  /usr/bin/notify-send $icon "FAILED ($code) in $(<"$timing_info"): $1" "$* $(<"$timing_info")"
   exit $code
 }
 
 pending $@
-eval "$*" && success $@ || failure $? $@
+eval "/usr/bin/time -f%E -o \"$timing_info\" $*" && success $@ || failure $? $@
