@@ -11,8 +11,10 @@ jobs: 5
 
 
 remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
-remote-repo-cache: /home/sam/.cabal/packages
+remote-repo-cache: /home/sstokes/.cabal/packages
 -- local-repo:
+-- logs-dir:
+world-file: /home/sstokes/.cabal/world
 -- verbose: 1
 -- compiler: ghc
 -- with-compiler:
@@ -34,19 +36,26 @@ remote-repo-cache: /home/sam/.cabal/packages
 -- extra-include-dirs:
 -- extra-lib-dirs:
 -- constraint:
+-- tests: False
 -- cabal-lib-version:
 -- preference:
 -- documentation: False
+-- doc-index-file: $datadir/doc/index.html
+-- upgrade-dependencies:
+-- only-dependencies:
 -- root-cmd:
 -- symlink-bindir:
-build-summary: /home/sam/.cabal/logs/build.log
+build-summary: /home/sstokes/.cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
+-- one-shot:
+-- username:
+-- password:
 -- username:
 -- password:
 
 install-dirs user
-  -- prefix: /home/sam/.cabal
+  -- prefix: /home/sstokes/.cabal
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
   -- libsubdir: $pkgid/$compiler

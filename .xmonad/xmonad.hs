@@ -309,7 +309,7 @@ soundGridSelect = noisyGrid_ "Playing sound" $ do
     choices $ io (dir soundDir)
     labels $ takeWhile (/= '.')
     action (\file -> safeSpawn "aplay" [soundDir </> file])
-  where soundDir = "/home/sam/sounds"
+  where soundDir = "/home/sstokes/sounds"
 
 
 ----- Ruby prompts ----- {{{3
