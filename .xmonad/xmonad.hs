@@ -108,10 +108,10 @@ myKeys =
     , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
-    , ("M-<XF86Back>", viewScreen (P 0))
-    , ("M-<XF86Forward>", viewScreen (P 1))
-    , ("S-M-<XF86Back>", sendToScreen (P 0))
-    , ("S-M-<XF86Forward>", sendToScreen (P 1))
+    , ("M-<KP_Left>", viewScreen (P 0))
+    , ("M-<KP_Right>", viewScreen (P 1))
+    , ("S-M-<KP_Left>", sendToScreen (P 0))
+    , ("S-M-<KP_Right>", sendToScreen (P 1))
 
     ----- window management commands ----- {{{3
     , ("M-z",     withFocused minimizeWindow)
