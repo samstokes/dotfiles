@@ -109,7 +109,7 @@ myKeys =
     , ("S-M-<XF86Forward>", sendToScreen (P 1))
 
     ----- window management commands ----- {{{3
-    , ("M-z",     withFocused (\win -> sendMessage (MinimizeWin win)))
+    , ("M-z",     withFocused minimizeWindow)
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
     , ("M-<F11>", promote >> sendMessage (JumpToLayout "Full"))
