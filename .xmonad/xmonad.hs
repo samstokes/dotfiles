@@ -35,6 +35,7 @@ import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spiral (spiral)
+import XMonad.Layout.ThreeColumns
 import XMonad.ManageHook
 import XMonad.Prompt
 import XMonad.Prompt.Hassh
@@ -167,12 +168,15 @@ myLayoutModifiers =
 
 ----- Layout hook {{{2
 
-myLayoutHook = defaultLayout ||| Circle ||| spiral phi
+myLayoutHook = defaultLayout ||| Circle ||| spiral phi ||| threeRowMid
   where
     -- defaultLayout copied from source of defaultConfig
     defaultLayout = tiled ||| Mirror tiled ||| Full
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
+
+    -- three rows with master in middle
+    threeRowMid = Mirror $ ThreeColMid 1 delta (2/3)
 
     -- The default number of windows in the master pane
     nmaster = 1
