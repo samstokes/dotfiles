@@ -117,6 +117,7 @@ myKeys =
     , ("M-j",     B.focusDown)
     , ("M-k",     B.focusUp)
     , ("M-m",     B.focusMaster)
+    , ("S-M-m",   promote)
 
     ----- session management ----- {{{3
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
