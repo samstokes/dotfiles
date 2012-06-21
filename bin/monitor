@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ICON_DIR=/home/sam/Pictures/icons/status
+ICON_DIR=/home/sstokes/Pictures/icons/status
 
 timing_info=$(mktemp /tmp/monitor.XXXXXX)
 trap "rm -f \"$timing_info\"" EXIT
