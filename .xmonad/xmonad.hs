@@ -81,6 +81,7 @@ myKeys =
     , ("C-M-s",   hasshPrompt defaultXPConfig sshConfig ?+ (\portal ->
                     hasshPrompt defaultXPConfig sshConfig ?+ (\host ->
                       spawnSshHostOpts portal ["-t"] (Just $ "ssh " ++ SSH.Config.hostName host))))
+    , ("C-M-t",   hasshPrompt defaultXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "tmux attach || tmux")))
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
