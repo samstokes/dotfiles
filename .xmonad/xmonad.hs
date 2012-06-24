@@ -34,6 +34,7 @@ import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Spiral (spiral)
 import XMonad.ManageHook
 import XMonad.Prompt
 import XMonad.Prompt.Hassh
@@ -165,7 +166,7 @@ myLayoutModifiers =
 
 ----- Layout hook {{{2
 
-myLayoutHook = defaultLayout ||| Circle
+myLayoutHook = defaultLayout ||| Circle ||| spiral phi
   where
     -- defaultLayout copied from source of defaultConfig
     defaultLayout = tiled ||| Mirror tiled ||| Full
@@ -180,6 +181,9 @@ myLayoutHook = defaultLayout ||| Circle
 
     -- Percent of screen to increment by when resizing panes
     delta   = 3/100
+
+    -- approximation to the golden ratio
+    phi = 1618034 / 1000000
 
 
 
