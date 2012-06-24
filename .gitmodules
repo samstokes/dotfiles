@@ -79,3 +79,6 @@
 [submodule ".vim/bundle/tslime"]
 	path = .vim/bundle/tslime
 	url = git@github.com:samstokes/tslime.vim.git
+[submodule ".vim/bundle/shakespeare-syntax"]
+	path = .vim/bundle/shakespeare-syntax
+	url = https://github.com/pbrisbin/html-template-syntax.git
