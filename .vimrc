@@ -251,15 +251,7 @@ autocmd BufNewFile,BufRead .xmonad/xmonad.hs nnoremap <Leader>q :!check-xmonad-c
 " Haskellise SLIME
 autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
 
-" scion (Haskell IDE)
-let g:scion_connection_setting = [ 'scion', '/home/sam/.cabal/bin/scion-server' ]
-set runtimepath+=/home/sam/.cabal/share/scion-0.1.0.2/vim_runtime_path/
-autocmd FileType haskell,lhaskell nnoremap <Leader>sl :LoadComponentScion<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>sc :BackgroundTypecheckFileScion<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>st :ThingAtPointScion<CR>
-autocmd FileType haskell,lhaskell inoremap <C-c> <ESC>:ThingAtPointScion<CR>
-"autocmd FileType haskell,lhaskell :LoadComponentScion " dies on new files
-"autocmd FileType haskell,lhaskell :BackgroundTypecheckFileScion " dies on new files
+" Haskell
 autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
 autocmd FileType haskell,lhaskell set keywordprg=hoogle\ --count=10
 
