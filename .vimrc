@@ -197,8 +197,6 @@ endfunction
 nnoremap <Leader>dd :call <SID>toggleDiff()<CR>
 
 if &diff
-  autocmd BufNewFile,BufRead * SyntasticDisable
-
   " Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
   " Diff center window against just the left-hand window
