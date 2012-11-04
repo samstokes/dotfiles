@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/shakespeare-syntax"]
 	path = .vim/bundle/shakespeare-syntax
 	url = https://github.com/pbrisbin/html-template-syntax.git
+[submodule ".vim/bundle/switch"]
+	path = .vim/bundle/switch
+	url = https://github.com/AndrewRadev/switch.vim.git
