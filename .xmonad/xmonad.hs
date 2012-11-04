@@ -179,7 +179,7 @@ myLayoutModifiers =
 myLayoutHook = defaultLayout
   where
     -- defaultLayout copied from source of defaultConfig
-    defaultLayout = tiled ||| Mirror tiled ||| threeRowMid ||| spiral (6/7) ||| Full
+    defaultLayout = spiral (6/7) ||| Mirror (spiral (6/7)) ||| threeRowMid ||| Full
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
 
