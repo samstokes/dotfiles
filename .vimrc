@@ -288,3 +288,6 @@ autocmd FileType git,gitv set keywordprg=github
 
 nnoremap [t :tabprevious<CR>
 nnoremap ]t :tabnext<CR>
+
+
+nnoremap <leader>' :Switch<CR>
