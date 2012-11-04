@@ -59,6 +59,7 @@ set secure                      " ... with fewer security risks
 set wildmode=longest,list
 
 " ignore directories we probably never want to edit directly
+set wildignore+=.sw?
 set wildignore+=.*.sw?
 set wildignore+=coverage/*
 set wildignore+=pkg/*
