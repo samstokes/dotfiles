@@ -31,6 +31,7 @@ alias grsh="git russet --hard"
 alias gwbr="git wbr"
 alias grup="git rup"
 alias glogg="git logg"
+alias glogga="git logg --all"
 
 # I keep mistyping this, and I never actually want to run 'gs' (== GhostScript)
 alias gs="git status"
