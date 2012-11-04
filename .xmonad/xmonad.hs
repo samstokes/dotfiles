@@ -79,6 +79,9 @@ myKeys =
     , ("M-v",     spawn "gvim")
     , ("C-M-v",   inputPrompt defaultXPConfig "args" ?+ spawnGvimWithArgs)
 
+    , ("S-M-o",   spawnTail "/var/log/syslog")
+    , ("C-M-o",   inputPrompt defaultXPConfig "file" ?+ spawnTail)
+
     , ("<Print>", gimpShot FullScreenshot)
     , ("S-<Print>", gimpShot WindowScreenshot)
     , ("C-<Print>", gimpShot RegionScreenshot)
@@ -388,6 +391,11 @@ spawnSshOpts host opts maybeCmd = safeSpawnX "ssh" $
 
 spawnGvimWithArgs :: String -> X ()
 spawnGvimWithArgs args = spawn ("gvim " ++ args)
+
+----- tail a thing ----- {{{3
+
+spawnTail :: String -> X ()
+spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
 
 ----- SSH utilities ----- {{{2
 sshGridSelect :: X ()
