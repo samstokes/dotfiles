@@ -259,6 +259,11 @@ autocmd FileType haskell,lhaskell nnoremap <Leader>hi :GhcModInfoPreview<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>he :GhcModExpand<CR>
 autocmd FileType haskell,lhaskell set keywordprg=hoogle\ --count=10
 
+" Haskell completion via NeCoGHC
+autocmd FileType haskell,lhaskell let g:neocomplcache_disable_auto_complete = 1 " don't slow down typing
+"autocmd FileType haskell,lhaskell NeoComplCacheEnable " doesn't seem to be needed?
+autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
+
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
 let g:Gitv_TruncateCommitSubjects = 1
