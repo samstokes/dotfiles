@@ -35,6 +35,7 @@ import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
 import XMonad.ManageHook
 import XMonad.Prompt
+import XMonad.Prompt.Hassh
 import XMonad.Prompt.Input
 import XMonad.Prompt.Window
 import qualified XMonad.StackSet as W
@@ -72,8 +73,8 @@ myKeys =
     , ("M-p",     spawnX "nice top")
     , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
-    , ("M-s",     sshGridSelect)
-    , ("M-S-s",   sshGridSelectOptsCmd ["-t"] (Just "screen -RD"))
+    , ("M-s",     hasshPrompt defaultXPConfig sshConfig ?+ spawnSshHost)
+    , ("M-S-s",   hasshPrompt defaultXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "screen -RD")))
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
@@ -387,6 +388,12 @@ spawnSshOpts :: String -> [String] -> Maybe FilePath -> X ()
 spawnSshOpts host opts maybeCmd = safeSpawnX "ssh" $
     opts ++ [host] ++ maybeToList maybeCmd
 
+spawnSshHost :: SSH.Config.Section -> X ()
+spawnSshHost host = spawnSshHostOpts host [] Nothing
+
+spawnSshHostOpts :: SSH.Config.Section -> [String] -> Maybe FilePath -> X ()
+spawnSshHostOpts = spawnSshOpts . SSH.Config.alias
+
 ----- spawn gvim ----- {{{3
 
 spawnGvimWithArgs :: String -> X ()
@@ -398,33 +405,8 @@ spawnTail :: String -> X ()
 spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
 
 ----- SSH utilities ----- {{{2
-sshGridSelect :: X ()
-sshGridSelect = sshGridSelectOptsCmd [] Nothing
-
-sshGridSelectOptsCmd :: [String] -> Maybe FilePath -> X ()
-sshGridSelectOptsCmd opts cmd = noisyGrid_ "SSH prompt" $ do
-    choices $ io readSshHosts
-    labels SSH.Config.label
-    gsConfig $ defaultGSConfig { gs_cellwidth = 300 }
-    action (\host -> spawnSshOpts (SSH.Config.alias host) opts cmd)
-  where
-    hostLabel host = SSH.Config.alias host ++ " (" ++ SSH.Config.hostName host ++ ")"
-
-instance HasColorizer SSH.Config.Section where
-  defaultColorizer = stringColorizer . show . SSH.Config.nonIdentifyingOptions
-
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
-
-readSshHosts :: IO [SSH.Config.Section]
-readSshHosts = do
-    configFile <- readFile sshConfig
-    case parse SSH.Config.parser sshConfig configFile of
-      Left parseError -> fail $ show parseError
-      Right config -> return $ SSH.Config.sections config
-  `catch` handleError
-  where handleError e = print e >> return []
-
 
 ----- Prompts ----- {{{2
 
