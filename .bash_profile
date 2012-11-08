@@ -49,3 +49,5 @@ export PATH=$GHC_HOME/bin:$HASKELL_PLATFORM_HOME/bin:$HOME/.cabal/bin:$PATH
 export PATH=$ORACLE_HOME:$ANT_HOME/bin:$GRADLE_HOME/bin:/usr/local/linkedin/bin:$PATH
 
 export PATH=/opt/vagrant/bin:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
