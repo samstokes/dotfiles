@@ -77,9 +77,9 @@ set list listchars=tab:>-,trail:·
 set display=uhex                " more obvious display of binary files
 
 augroup filetype
-  autocmd BufNewFile,BufRead *.ypp set filetype=yacc    " recognise ypp ext
-  autocmd BufNewFile,BufRead *.y++ set filetype=yacc    " recognise y++ ext
-  autocmd BufNewFile,BufRead *.hbs set filetype=html    " recognise Handlebars
+  autocmd BufNewFile,BufRead *.ypp setl filetype=yacc    " recognise ypp ext
+  autocmd BufNewFile,BufRead *.y++ setl filetype=yacc    " recognise y++ ext
+  autocmd BufNewFile,BufRead *.hbs setl filetype=html    " recognise Handlebars
 augroup END
 
 " easy quit if all files saved
@@ -122,26 +122,26 @@ vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 autocmd FileType mkd nmap <Leader>rp :silent w !markdown \| bcat<CR>
 
 " don't text wrap emails, mail client will do it too and conflict
-autocmd FileType mail set textwidth=0
+autocmd FileType mail setl textwidth=0
 
 " don't break makefiles
-autocmd FileType make set noexpandtab shiftwidth=8 tabstop=8
+autocmd FileType make setl noexpandtab shiftwidth=8 tabstop=8
 
 set autoindent " want this most of the time
 " indentation is annoying when trying to write text...
 " and C-indentation for C-like languages
-autocmd FileType sh,c,cpp,java,php,javascript set cindent
+autocmd FileType sh,c,cpp,java,php,javascript setl cindent
 " kill autoindent for text-like languages
-autocmd FileType tex,html,xhtml,xml,mail set noautoindent
+autocmd FileType tex,html,xhtml,xml,mail setl noautoindent
 " enable actual text wrap for these file types only
-autocmd FileType tex,html,xhtml,xml set textwidth=79
+autocmd FileType tex,html,xhtml,xml setl textwidth=79
 " 2-space indents for *ml files
-autocmd FileType html,xhtml,xml,sgml,xslt set shiftwidth=2 tabstop=2
+autocmd FileType html,xhtml,xml,sgml,xslt setl shiftwidth=2 tabstop=2
 
 " 4-space indent for Javascript and Handlebars (Rapportive coding standard)
-autocmd FileType java,javascript,html set shiftwidth=4 tabstop=4
+autocmd FileType java,javascript,html setl shiftwidth=4 tabstop=4
 
-autocmd FileType xml set equalprg=xmllint\ --format\ -
+autocmd FileType xml setl equalprg=xmllint\ --format\ -
 
 " some helpful abbrevs for LaTeX documents
 autocmd FileType tex iab  naive na\"\i ve
@@ -257,7 +257,7 @@ autocmd FileType haskell,lhaskell nnoremap <Leader>ht :GhcModType<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>hc :GhcModTypeClear<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>hi :GhcModInfoPreview<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>he :GhcModExpand<CR>
-autocmd FileType haskell,lhaskell set keywordprg=hoogle\ --count=10
+autocmd FileType haskell,lhaskell setl keywordprg=hoogle\ --count=10
 
 " Haskell completion via NeCoGHC
 autocmd FileType haskell,lhaskell let g:neocomplcache_disable_auto_complete = 1 " don't slow down typing
@@ -283,7 +283,7 @@ let g:syntastic_auto_loc_list=1
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
 
-autocmd FileType git,gitv set keywordprg=github
+autocmd FileType git,gitv setl keywordprg=github
 
 
 nnoremap [t :tabprevious<CR>
