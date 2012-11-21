@@ -291,3 +291,6 @@ nnoremap ]t :tabnext<CR>
 
 
 nnoremap <leader>' :Switch<CR>
+
+
+nnoremap <leader>vo :set ft=vo_base<CR>
