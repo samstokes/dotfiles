@@ -41,6 +41,6 @@ if [ -d "$GIT_HOME" ]; then
   export MANPATH="$GIT_HOME/share/man:$MANPATH"
 fi
 
-export PATH=/opt/vagrant/bin:$PATH
+[ -d /opt/vagrant ] && export PATH=/opt/vagrant/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
