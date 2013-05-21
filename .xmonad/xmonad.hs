@@ -419,7 +419,7 @@ spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
 
 ----- SSH utilities ----- {{{2
 sshConfig :: FilePath
-sshConfig = "/home/sam/.ssh/config"
+sshConfig = "/home/sstokes/.ssh/config"
 
 ----- Prompts ----- {{{2
 
