@@ -54,6 +54,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
+    GIT_PS1_SHOWDIRTYSTATE=true
     PROMPT_COMMAND='PS1="\033]0;\u@\h: \w\007$([[ $? == 0 ]] && echo -e "\[\033[01;32m\]✓\[\033[00m\]" || echo -e "\[\033[01;31m\]✗\[\033[00m\]") ${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w\[\033[00m\]:\[\033[01;31m\]$(__git_ps1 "%s")\[\033[00m\]\n\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ "'
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w:$(__git_ps1 "%s")\$ '
