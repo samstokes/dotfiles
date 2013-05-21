@@ -58,8 +58,8 @@ myKeys :: [(String, X ())]
 myKeys =
     ----- launchers ----- {{{3
     [ ("M-S-r",   gnomeRun)
-    , ("M-r",     summonGnomeDo)
-    , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
+    , ("M-r",     gnomeRun)
+    , ("C-M-r",   onEmptyWorkspace gnomeRun)
     , ("M-i h",   safeSpawnX "ghci" [])
     , ("M-i r",   irbGridSelect)
     , ("M-i p", pryGridSelect)
@@ -136,10 +136,6 @@ myKeys =
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
     , ("C-M-q", rescreen)
     ]
-    ----- helper functions ----- {{{3
-    where
-      summonGnomeDo =
-        safeSpawn "dbus-send" ["--session", "--type=method_call", "--dest=org.gnome.Do", "/org/gnome/Do/Controller", "org.gnome.Do.Controller.Summon"]
 
 ----- Mouse bindings ----- {{{2
 
