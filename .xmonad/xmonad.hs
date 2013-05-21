@@ -3,7 +3,7 @@
 ----- Pragmas ----- {{{2
 {-# LANGUAGE GADTs #-}
 ----- Imports ----- {{{2
-import Control.Applicative ((<$>))
+import Control.Applicative ((<$>), (<*>))
 import Control.Applicative.Error (maybeRead)
 import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
@@ -325,7 +325,7 @@ pryGridSelect :: X ()
 pryGridSelect = rubyGridSelect >>= (flip whenJust) spawnPry
 
 spawnIrb :: String -> X ()
-spawnIrb ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]]
+spawnIrb ruby = safeSpawnX "env" ["RBENV_VERSION=" ++ ruby, "irb"]
 
 spawnPry :: String -> X ()
 spawnPry ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "pry"]]
@@ -333,14 +333,11 @@ spawnPry ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "pry"]]
 rubyGridSelect :: X (Maybe String)
 rubyGridSelect = noisyGrid "Ruby" $ do
   choices $ io listRubies
-  labels $ drop 5 -- TODO this is a cheap hack!
+  labels $ id
   action return
 
 listRubies :: IO [String]
-listRubies = do
-    rubyDirs <- dir rubiesDir
-    return $ filter (/= "default") rubyDirs
-  where rubiesDir = ".rvm/rubies"
+listRubies = (:) <$> return "system" <*> dir ".rbenv/versions"
 
 
 ----- timers ----- {{{3
