@@ -68,6 +68,7 @@ Dropbox
 .evolution
 .face
 .fontconfig
+.fonts/*
 .gegl-0.0
 .gconf
 .gconfd
