@@ -23,7 +23,7 @@ instance XPrompt HasshPrompt where
 hasshPrompt :: XPConfig -> FilePath -> X (Maybe Section)
 hasshPrompt xpConfig sshConfig = do
     hosts <- io $ readSshHosts sshConfig
-    let sortedHosts = sortBy (comparing label) hosts
+    let sortedHosts = sortBy (comparing label) $ filter (not . elem '*' . label) hosts
         hostsByAlias = zip (map alias sortedHosts) sortedHosts
         hostsByLabel = zip (map label sortedHosts) sortedHosts
         completeHostLabels = mkComplFunFromLabelledList' hostsByLabel
