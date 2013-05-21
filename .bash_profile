@@ -32,7 +32,7 @@ export PATH=$PATH:$JAVA_HOME/bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/
 
 export GHC_HOME=/home/sstokes/opt/ghc
 export HASKELL_PLATFORM_HOME=/home/sstokes/opt/haskell-platform
-export PATH=$GHC_HOME/bin:$HASKELL_PLATFORM_HOME/bin:$HOME/.cabal/bin:$PATH
+export PATH=$HOME/.cabal/bin:$GHC_HOME/bin:$HASKELL_PLATFORM_HOME/bin:$PATH
 
 export PATH=/opt/vagrant/bin:$PATH
 
