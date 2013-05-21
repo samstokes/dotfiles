@@ -95,4 +95,4 @@ export EDITOR
 # Add custom Python libs
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
