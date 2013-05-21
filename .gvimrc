@@ -3,6 +3,8 @@ set guifont=Ubuntu\ Mono\ 12
 
 call togglebg#map("<F5>")
 
+set guifont=Ubuntu\ Mono
+
 let g:netrw_browse_split=1
 
 " for gist.vim: open a browser instance after creating a gist
