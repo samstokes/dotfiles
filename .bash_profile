@@ -34,6 +34,13 @@ export GHC_HOME=/home/sstokes/opt/ghc
 export HASKELL_PLATFORM_HOME=/home/sstokes/opt/haskell-platform
 export PATH=$HOME/.cabal/bin:$GHC_HOME/bin:$HASKELL_PLATFORM_HOME/bin:$PATH
 
+GIT_HOME="$HOME"/opt/git
+if [ -d "$GIT_HOME" ]; then
+  export GIT_HOME
+  export PATH="$GIT_HOME/bin:$PATH"
+  export MANPATH="$GIT_HOME/share/man:$MANPATH"
+fi
+
 export PATH=/opt/vagrant/bin:$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
