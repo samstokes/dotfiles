@@ -16,6 +16,7 @@ AeroFS
 .cache
 .com.jungledisk.service.status
 .compiz*/session
+.config/Atlassian
 .config/autokey/autokey.log
 .config/autokey/autokey.pid
 .config/calibre
@@ -38,6 +39,7 @@ AeroFS
 .config/pitivi
 .config/rftg
 .config/softwarecenter
+.config/sublime-text-2/Settings/License.sublime_license
 .config/Synergy
 .config/tomboy
 .config/totem/state.ini
@@ -77,6 +79,7 @@ Dropbox
 .gksu.lock
 .gnome/apps
 .gnome2
+.gnote
 .gnuplot_history
 .gnuplot-wxt
 .googleearth
@@ -97,6 +100,7 @@ Dropbox
 .jungledisk
 .junglediskinstance
 .kde
+.keychain
 learning
 .leksah-*
 .lesshst
@@ -166,6 +170,7 @@ rpmbuild
 .sane
 .scala_history
 .Skype
+.spice-vdagent
 sounds
 .sqlite_history
 StarCraft II
