@@ -156,6 +156,7 @@ projects
 .recently-used
 .recently-used.xbel*
 .rediscli_history
+rpmbuild
 .rnd
 .ruby_inline
 .rubyforge
