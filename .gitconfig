@@ -1,6 +1,6 @@
 [user]
 	name = Sam Stokes
-	email = me@samstokes.co.uk
+	email = sam@rapportive.com
 [core]
 	excludesfile = /home/sstokes/.git-excludes
 	editor = $HOME/bin/git-msg-vim -f -g
