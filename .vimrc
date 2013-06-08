@@ -294,3 +294,9 @@ nnoremap <leader>' :Switch<CR>
 
 
 nnoremap <leader>vo :set ft=vo_base<CR>
+
+
+nnoremap <F9> :Dispatch<CR>
+nnoremap <S-F9> :Dispatch!<CR>
+nnoremap <F10> :Copen<CR>
+nnoremap <S-F10> :cclose<CR>
