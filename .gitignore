@@ -41,6 +41,7 @@ AeroFS
 .config/user-dirs.*
 .config/vlc
 .cpan
+.ctrlp_cache
 .cups
 .dbus
 Desktop
