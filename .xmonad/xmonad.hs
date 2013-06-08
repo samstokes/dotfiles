@@ -82,6 +82,7 @@ myKeys =
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
+    , ("S-M-v",   safeSpawn "gvim" ["+set ft=vo_base"])
     , ("C-M-v",   inputPrompt defaultXPConfig "args" ?+ spawnGvimWithArgs)
 
     , ("S-M-o",   spawnTail "/var/log/syslog")
