@@ -187,6 +187,9 @@ nnoremap <Leader>du :diffupdate<CR>
 noremap <F1> <ESC>
 inoremap <F1> <ESC>
 
+" More intuitive new window placement
+set splitbelow splitright
+
 function! s:toggleDiff()
     if &diff
         :diffoff
