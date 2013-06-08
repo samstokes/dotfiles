@@ -76,6 +76,9 @@ myKeys =
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     hasshPrompt defaultXPConfig sshConfig ?+ spawnSshHost)
     , ("M-S-s",   hasshPrompt defaultXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "screen -RD")))
+    , ("C-M-s",   hasshPrompt defaultXPConfig sshConfig ?+ (\portal ->
+                    hasshPrompt defaultXPConfig sshConfig ?+ (\host ->
+                      spawnSshHostOpts portal ["-t"] (Just $ "ssh " ++ SSH.Config.hostName host))))
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
