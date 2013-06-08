@@ -170,6 +170,7 @@ tmp
 Videos
 .vim/.netrwhist
 .vim/.VimballRecord
+.vim/view
 .vimfuzzyfinder
 .viminfo
 .viminfo.tmp
