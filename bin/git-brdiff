@@ -1,0 +1,5 @@
+#!/bin/bash
+# Borrowed with permission from
+# https://github.com/ConradIrwin/git-aliae/blob/master/wip/git-mdiff
+
+git diff `git mbase` "$@"
