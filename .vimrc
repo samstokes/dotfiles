@@ -283,6 +283,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
 
 " Ctrl-P
+nnoremap <C-b> :<C-u>CtrlPBuffer<CR>
 let g:ctrlp_extensions = ['tag', 'buffertag']
 
 
