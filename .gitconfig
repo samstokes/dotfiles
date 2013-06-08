@@ -26,6 +26,7 @@
 	ct = committool
 	rc = review-commits
 	wbr = describe --contains --all HEAD
+	sha = rev-parse --short HEAD
 	mb = merge-base
 	dfwp = diff -w --patience
 	shwp = show -w --patience
