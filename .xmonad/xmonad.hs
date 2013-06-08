@@ -60,6 +60,7 @@ myKeys =
     , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
     , ("M-i h",   safeSpawnX "ghci" [])
     , ("M-i r",   irbGridSelect)
+    , ("M-i p", pryGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
     , ("C-M-e",   windowPromptGoto defaultXPConfig)
@@ -311,8 +312,14 @@ soundGridSelect = noisyGrid_ "Playing sound" $ do
 irbGridSelect :: X ()
 irbGridSelect = rubyGridSelect >>= (flip whenJust) spawnIrb
 
+pryGridSelect :: X ()
+pryGridSelect = rubyGridSelect >>= (flip whenJust) spawnPry
+
 spawnIrb :: String -> X ()
 spawnIrb ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "irb"]]
+
+spawnPry :: String -> X ()
+spawnPry ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "pry"]]
 
 rubyGridSelect :: X (Maybe String)
 rubyGridSelect = noisyGrid "Ruby" $ do
