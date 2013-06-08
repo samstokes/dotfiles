@@ -39,6 +39,9 @@ export PATH="$HOME"/opt/hadoop/bin:"$PATH"
 # Vagrant
 export PATH=/opt/vagrant/bin:"$PATH"
 
+# Node.js
+export PATH="$HOME"/opt/node/bin:"$PATH"
+
 export LANGUAGE="en_GB:en"
 export LC_MESSAGES="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
