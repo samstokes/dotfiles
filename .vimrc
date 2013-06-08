@@ -267,7 +267,7 @@ autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
 let g:Gitv_TruncateCommitSubjects = 1
-nmap <leader>gv :Gitv --all<cr>
+nmap <leader>gv :Gitv<cr>
 nmap <leader>gV :Gitv! --all<cr>
 vmap <leader>gV :Gitv! --all<cr>
 
