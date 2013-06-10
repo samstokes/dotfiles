@@ -119,7 +119,7 @@ inoremap <End>  <C-o>g$
 vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 
 " markdown preview
-autocmd FileType mkd nmap <Leader>rp :silent w !markdown \| bcat<CR>
+autocmd FileType mkd nmap <Leader>rp :silent w !pandoc \| bcat<CR>
 
 " don't text wrap emails, mail client will do it too and conflict
 autocmd FileType mail setl textwidth=0
