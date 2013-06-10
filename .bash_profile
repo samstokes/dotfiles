@@ -12,7 +12,7 @@ PATH=$HOME/bin:$PATH
 if [ -x /usr/bin/keychain ] ; then
 	MYNAME=`/usr/bin/whoami`
 	if [ -f ~/.ssh/${MYNAME}_at_linkedin.com_dsa_key ] ; then
-	      /usr/bin/keychain ~/.ssh/${MYNAME}_at_linkedin.com_dsa_key
+	      /usr/bin/keychain ~/.ssh/${MYNAME}_at_linkedin.com_dsa_key ~/.ssh/id_rsa
       	      . ~/.keychain/`hostname`-sh
 	fi
 fi
