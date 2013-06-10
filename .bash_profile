@@ -41,6 +41,8 @@ if [ -d "$GIT_HOME" ]; then
   export MANPATH="$GIT_HOME/share/man:$MANPATH"
 fi
 
+[ -d /usr/pgsql-9.2 ] && export PATH=/usr/pgsql-9.2/bin:$PATH
+
 [ -d /opt/vagrant ] && export PATH=/opt/vagrant/bin:$PATH
 
 if [ -d "$HOME/.rvm" ]; then
