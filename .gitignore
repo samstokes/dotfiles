@@ -34,7 +34,9 @@ AeroFS
 .config/menus
 .config/monitors.xml
 .config/pitivi
+.config/rftg
 .config/softwarecenter
+.config/Synergy
 .config/tomboy
 .config/totem/state.ini
 .config/transmission
@@ -80,7 +82,7 @@ Dropbox
 .gtk-bookmarks
 .gtkrc-2.0
 .gtwitter
-.heroku/console_history
+.heroku
 .hplip
 .htoprc
 .ICEauthority
@@ -118,6 +120,7 @@ Music
 music
 .mysql_history
 .nautilus
+.netrc
 .netx
 .notifier.conf
 .nvidia-settings-rc
@@ -136,6 +139,7 @@ Private
 .printer-groups.xml
 .prism
 projects
+.pry_history
 .psql_history
 .pulse
 .pulse-cookie
@@ -159,6 +163,7 @@ projects
 sounds
 .sqlite_history
 StarCraft II
+.subversion
 .sudo_as_admin_successful
 .synaptic
 .thumbnails
@@ -168,6 +173,7 @@ tmp
 .transmission
 .update-manager-core
 .update-notifier
+.vagrant.d
 Videos
 .vim/.netrwhist
 .vim/.VimballRecord
