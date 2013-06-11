@@ -6,6 +6,7 @@ AeroFS
 .appletviewer
 .aptitude
 .bash_history
+.berkshelf
 .cabal/bin
 .cabal/lib
 .cabal/share
