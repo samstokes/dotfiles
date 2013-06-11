@@ -47,10 +47,13 @@ AeroFS
 .config/Trolltech.conf
 .config/user-dirs.*
 .config/vlc
+config
 .cpan
 .ctrlp_cache
 .cups
 .dbus
+.deployment
+.deployrc
 Desktop
 .dmrc
 Documents
@@ -110,6 +113,7 @@ Library
 lib/python
 .links2
 .local
+local-repo
 *.log
 .loki
 .m2/scala-console.histo
