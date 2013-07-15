@@ -1,0 +1,12 @@
+snippet chef_metadata Chef metadata declaration
+	name        '${1:`expand('%:h:t')`}'
+	maintainer  'Sam Stokes'
+	maintainer  'me@samstokes.co.uk'
+	description <<-DESC
+	${2:Set up $1}
+	DESC
+	version     '0.0.1'
+	
+	recipe      '$1', '${3:$2}'
+	
+	supports 'ubuntu'

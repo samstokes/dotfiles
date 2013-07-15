@@ -1,0 +1,10 @@
+snippet chef_role Define a Chef role
+	{
+	  "name": "${1:`Filename('', 'my_role')`}",
+	  "chef_type": "role",
+	  "json_class": "Chef::Role",
+	  "description": "${2:`substitute(Filename(), '_', ' ', '')`}",
+	  "run_list": [
+	    "${3:recipe[apt]}"
+	  ]
+	}
