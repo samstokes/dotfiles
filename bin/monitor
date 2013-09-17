@@ -1,28 +1,35 @@
 #!/bin/bash
 
-ICON_DIR=/home/sam/Pictures/icons/status
-
 timing_info=$(mktemp /tmp/monitor.XXXXXX)
 trap "rm -f \"$timing_info\"" EXIT
 
+notify() {
+  title="$1"; shift
+  what="$1"
+  group="$(tty):$what"
+  /Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier \
+      -title "$title" \
+      -subtitle "$what" \
+      -message "$*" \
+      -group "$group" \
+      -activate com.apple.Terminal
+}
+
 pending() {
-  test -f $ICON_DIR/pending.png && icon="-i $ICON_DIR/pending.png" 
-  /usr/bin/notify-send $icon "Starting: $1" "$*"
+  notify "Starting: $1" "$*"
 }
 
 success() {
-  test -f $ICON_DIR/pass.png && icon="-i $ICON_DIR/pass.png" 
-  /usr/bin/notify-send $icon "SUCCEEDED in $(<"$timing_info"): $1" "$*"
+  notify "SUCCEEDED: $1" "$*" "<$(head -c 256 "$timing_info")>"
   exit 0
 }
 
 failure() {
-  test -f $ICON_DIR/fail.png && icon="-i $ICON_DIR/fail.png" 
   code=$1
   shift
-  /usr/bin/notify-send $icon "FAILED ($code) in $(<"$timing_info"): $1" "$* $(<"$timing_info")"
+  notify "FAILED ($code): $1" "$*" "<$(head -c 256 "$timing_info")>"
   exit $code
 }
 
 pending $@
-eval "/usr/bin/time -f%E -o \"$timing_info\" $*" && success $@ || failure $? $@
+/usr/bin/time -p "$@" 2>"$timing_info" && success $@ || failure $? $@
