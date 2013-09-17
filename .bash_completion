@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
+[ -f /usr/share/git-core/git-completion.bash ] && . /usr/share/git-core/git-completion.bash
+
 # Rake task completion
 [ -f $HOME/lib/rake-completion/rake ] && . $HOME/lib/rake-completion/rake
