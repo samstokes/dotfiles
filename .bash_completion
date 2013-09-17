@@ -6,4 +6,4 @@ for i in x xm monitor; do
 done
 
 # Rake task completion
-. $HOME/lib/rake-completion/rake
+[ -f $HOME/lib/rake-completion/rake ] && . $HOME/lib/rake-completion/rake
