@@ -12,7 +12,7 @@ notify() {
       -subtitle "$what" \
       -message "$*" \
       -group "$group" \
-      -activate com.apple.Terminal
+      -activate com.googlecode.iterm2
 }
 
 pending() {
