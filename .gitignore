@@ -210,3 +210,9 @@ workspace
 .xsession-errors*
 Yammer
 .yuuguu
+.cabal/setup-exe-cache
+Movies
+Public
+.darcs
+.account
+.CFUserTextEncoding
