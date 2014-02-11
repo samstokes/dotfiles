@@ -285,7 +285,8 @@ let g:syntastic_auto_loc_list=1
 
 " Ctrl-P
 nnoremap <C-b> :<C-u>CtrlPBuffer<CR>
-let g:ctrlp_extensions = ['tag', 'buffertag']
+nnoremap <C-d> :<C-u>CtrlPDir<CR>
+let g:ctrlp_extensions = ['tag', 'buffertag', 'dir']
 
 
 autocmd FileType git,gitv setl keywordprg=github
