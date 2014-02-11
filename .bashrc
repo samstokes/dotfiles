@@ -104,4 +104,7 @@ export EDITOR
 
 [ -d $HOME/.rvm ] && export PATH="$HOME/.rvm/bin":$PATH # Add RVM to PATH for scripting
 
+# Heroku Toolbelt
+[ -d /usr/local/heroku ] && export PATH=/usr/local/heroku:$PATH
+
 true # ensure we exit nicely
