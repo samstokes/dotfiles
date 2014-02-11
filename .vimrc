@@ -96,6 +96,7 @@ noremap Q gqap
 nnoremap Y y$
 
 nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
+nnoremap _ Vyp:s/./=/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
 " reboot syntax highlighting in case it gets confused
