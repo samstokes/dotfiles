@@ -128,10 +128,10 @@ myKeys =
     , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
-    , ("M-<XF86Back>", viewScreen (P 0))
-    , ("M-<XF86Forward>", viewScreen (P 1))
-    , ("S-M-<XF86Back>", sendToScreen (P 0))
-    , ("S-M-<XF86Forward>", sendToScreen (P 1))
+    , ("M-<Page_Up>", viewScreen (P 0))
+    , ("M-<Page_Down>", viewScreen (P 1))
+    , ("S-M-<Page_Up>", sendToScreen (P 0))
+    , ("S-M-<Page_Down>", sendToScreen (P 1))
 
     , ("M-<KP_Left>", viewScreen (P 0))
     , ("M-<KP_Right>", viewScreen (P 1))
