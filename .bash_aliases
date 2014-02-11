@@ -61,6 +61,7 @@ done
 alias mgi="monitor gem install"
 alias msgi="monitor sudo gem install"
 alias msai="monitor sudo apt-get install"
+alias msyi="monitor sudo yum install"
 
 
 # "bundle exec" is long
