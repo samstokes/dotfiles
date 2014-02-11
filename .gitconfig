@@ -23,6 +23,8 @@
 	rb = rebase
 	mf = merge-feature
   mt = mergetool
+  mw = !git meanwhile
+  meanwhile = !git logg $(git wbr)..master
 	ct = committool
 	rc = review-commits
 	wbr = describe --contains --all HEAD
