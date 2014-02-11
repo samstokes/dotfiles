@@ -120,6 +120,11 @@ myKeys =
     , ("M-<KP_Right>", viewScreen (P 1))
     , ("S-M-<KP_Left>", sendToScreen (P 0))
     , ("S-M-<KP_Right>", sendToScreen (P 1))
+    ----- physical screens without separate keyboard ----- {{{3
+    , ("M-<Page_Up>", viewScreen (P 0))
+    , ("M-<Page_Down>", viewScreen (P 1))
+    , ("S-M-<Page_Up>", sendToScreen (P 0))
+    , ("S-M-<Page_Down>", sendToScreen (P 1))
 
     ----- window management commands ----- {{{3
     , ("M-z",     withFocused minimizeWindow)
