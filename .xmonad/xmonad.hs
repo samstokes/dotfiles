@@ -88,7 +88,7 @@ myKeys =
     , ("S-M-n",   spawnGvimWithArgs "+'Simplenote -l'")
     , ("M-n",     safeSpawn "gvim" ["_newnote"])
 
-    , ("S-M-o",   spawnTail "/var/log/syslog")
+    , ("S-M-o",   spawnSudoTail "/var/log/messages")
     , ("C-M-o",   inputPrompt defaultXPConfig "file" ?+ spawnTail)
 
     , ("<Print>", screenshot FullScreenshot)
@@ -421,6 +421,9 @@ spawnGvimWithArgs args = spawn ("gvim " ++ args)
 
 spawnTail :: String -> X ()
 spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
+
+spawnSudoTail :: String -> X ()
+spawnSudoTail file = safeSpawnX "sudo" ["less", "-Ri", "+F", file]
 
 ----- SSH utilities ----- {{{2
 sshConfig :: FilePath
