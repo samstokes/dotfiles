@@ -81,6 +81,7 @@ Dropbox
 .gimp-*
 .gitk
 .gksu.lock
+.glulistrc
 .gnome/apps
 .gnome2
 .gnote
@@ -94,6 +95,7 @@ Dropbox
 .gtwitter
 .heroku
 .hplip
+.http-cache
 .htoprc
 .ICEauthority
 .icedteaplugin
@@ -179,6 +181,7 @@ rpmbuild
 .spice-vdagent
 sounds
 .sqlite_history
+.ssl
 StarCraft II
 .subversion
 .sudo_as_admin_successful
