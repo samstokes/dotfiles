@@ -327,7 +327,7 @@ spawnIrb :: String -> X ()
 spawnIrb ruby = safeSpawnX "env" ["RBENV_VERSION=" ++ ruby, ".rbenv/shims/irb"]
 
 spawnPry :: String -> X ()
-spawnPry ruby = safeSpawnX "bash" ["-i", unwords ["rvm", ruby, "exec", "pry"]]
+spawnPry ruby = safeSpawnX "env" ["RBENV_VERSION=" ++ ruby, "pry"]
 
 rubyGridSelect :: X (Maybe String)
 rubyGridSelect = noisyGrid "Ruby" $ do
