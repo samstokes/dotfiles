@@ -66,4 +66,7 @@ alias msai="monitor sudo apt-get install"
 # "bundle exec" is long
 alias mbi="monitor bundle install"
 alias bun="bundle exec"
+alias mun="monitor bundle exec"
+alias mbun="monitor bundle exec"
 alias bake="bundle exec rake"
+alias mbake="monitor bundle exec rake"
