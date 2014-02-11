@@ -241,9 +241,9 @@ map <Leader>ll :TlistToggle<CR>
 " easy project grep
 nmap <Leader>/ :grep 
 " use ack if available
-call system('type ack >/dev/null 2>&1')
+call system('type ag >/dev/null 2>&1')
 if !v:shell_error
-  set grepprg=ack
+  set grepprg=ag\ --nogroup\ --nocolor
 endif
 
 " include git branch in statusline via Fugitive
