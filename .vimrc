@@ -244,6 +244,12 @@ nmap <Leader>/ :grep
 call system('type ag >/dev/null 2>&1')
 if !v:shell_error
   set grepprg=ag\ --nogroup\ --nocolor
+
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 endif
 
 " include git branch in statusline via Fugitive
