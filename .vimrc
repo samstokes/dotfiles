@@ -78,6 +78,7 @@ set wildignore+=*.o
 set wildignore+=*.hi
 set wildignore+=target
 set wildignore+=.git
+set wildignore+=.deploy-logs
 
 " ignore directories in the root we don't want showing up in Ctrl-P
 set wildignore+=.Private
