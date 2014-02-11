@@ -45,6 +45,8 @@ fi
 
 [ -d /opt/vagrant ] && export PATH=/opt/vagrant/bin:$PATH
 
+export PORT_MAPPING_SUFFIX=05
+
 if [ -d "$HOME/.rvm" ]; then
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 elif [ -d "$HOME/.rbenv" ]; then
