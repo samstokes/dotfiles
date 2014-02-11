@@ -36,6 +36,7 @@
 	logg = log --oneline --decorate --graph
 [merge]
 	tool = gvimdiff
+	defaultToUpstream = true
 [rerere]
 	enabled = true
 [clean]
