@@ -21,6 +21,11 @@ xmap <silent> ie <Plug>CamelCaseMotion_ie
 
 if filereadable($HOME . '/.simplenoterc')
   source ~/.simplenoterc
+
+  command! ScratchOutline :setl buftype=acwrite bufhidden=hide noswapfile filetype=vo_base
+
+  autocmd BufNewFile _newnote :ScratchOutline
+  autocmd BufWriteCmd _newnote Simplenote -n
 endif
 
 
