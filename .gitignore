@@ -1,6 +1,7 @@
 .adobe
 AeroFS
 .aerofs
+.android
 .anthy
 .appdata
 .appletviewer
@@ -9,6 +10,7 @@ AeroFS
 .berkshelf
 .cabal/bin
 .cabal/lib
+.cabal/setup-exe-cache
 .cabal/share
 .cabal/world
 .cache
@@ -78,6 +80,7 @@ Dropbox
 .gnuplot_history
 .gnuplot-wxt
 .googleearth
+.gradle
 .gstreamer-0.10
 .gtk-bookmarks
 .gtkrc-2.0
@@ -123,6 +126,7 @@ music
 .netrc
 .netx
 .notifier.conf
+.nv
 .nvidia-settings-rc
 .openoffice.org
 .openoffice.org2
@@ -139,6 +143,7 @@ Private
 .printer-groups.xml
 .prism
 projects
+.pry/themes
 .pry_history
 .psql_history
 .pulse
@@ -166,6 +171,7 @@ StarCraft II
 .subversion
 .sudo_as_admin_successful
 .synaptic
+.texlive2007
 .thumbnails
 .thunderbird
 tmp
@@ -184,6 +190,7 @@ Videos
 .vimoutliner/vo_tags.tag
 .vimprojects
 .VirtualBox
+VirtualBox\ VMs
 .vlc
 .vmware
 .vmc_instances
