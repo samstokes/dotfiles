@@ -93,6 +93,9 @@ export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 hash gvim 2>/dev/null && EDITOR="gvim -f" || EDITOR=vim
 export EDITOR
 
+# custom build of vim
+[[ -d "$HOME/opt/vim" ]] && export PATH="$HOME/opt/vim/bin":"$PATH"
+
 # Add git-bits to PATH
 [[ -d "$HOME/projects/git-bits" ]] && export PATH="$HOME/projects/git-bits/bin":"$PATH"
 
