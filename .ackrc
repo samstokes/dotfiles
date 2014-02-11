@@ -21,3 +21,7 @@ tmp
 coverage
 --ignore-dir
 pkg
+
+# ignore tags files
+--ignore-file
+is:tags
