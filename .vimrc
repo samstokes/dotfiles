@@ -69,6 +69,11 @@ set wildignore+=*.hi
 set wildignore+=target
 set wildignore+=.git
 
+" ignore directories in the root we don't want showing up in Ctrl-P
+set wildignore+=.Private
+set wildignore+=.fontconfig
+set wildignore+=.ctrlp_cache
+
 " visually wrap lines at word boundaries (without changing the text)
 set wrap lbr
 
