@@ -107,4 +107,8 @@ export EDITOR
 # Heroku Toolbelt
 [ -d /usr/local/heroku ] && export PATH=/usr/local/heroku:$PATH
 
+# Android Developer Tools
+export ANDROID_HOME="$HOME/opt/adt/sdk"
+[ -d "$ANDROID_HOME" ] && export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
+
 true # ensure we exit nicely
