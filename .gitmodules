@@ -118,3 +118,6 @@
 [submodule ".vim/bundle/simplenote"]
 	path = .vim/bundle/simplenote
 	url = https://github.com/mrtazz/simplenote.vim.git
+[submodule ".vim/bundle/abolish"]
+	path = .vim/bundle/abolish
+	url = https://github.com/tpope/vim-abolish.git
