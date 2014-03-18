@@ -109,3 +109,6 @@
 [submodule ".vim/bundle/vim-ruby-refactoring"]
 	path = .vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule ".vim/bundle/markology"]
+	path = .vim/bundle/markology
+	url = https://github.com/jeetsukumaran/vim-markology.git
