@@ -96,7 +96,10 @@ else
 fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
-export EDITOR="gvim -f"
+export EDITOR="mvim -f"
+
+# make mvim script work
+export VIM_APP_DIR=~/opt/MacVim
 
 # Add git-bits to PATH
 [[ -d "$HOME/projects/git-bits" ]] && export PATH="$HOME/projects/git-bits/bin":"$PATH"
