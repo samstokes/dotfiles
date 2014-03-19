@@ -117,5 +117,8 @@ export ANDROID_HOME="$HOME/opt/adt/sdk"
 
 # Node
 [ -d $HOME/opt/node/bin ] && export "PATH=$HOME/opt/node/bin:$PATH"
+# do this here, rather than in ~/.bash_completion, because the latter gets
+# sourced (via /etc/profile.d/bash_completion.sh) before npm is in the PATH
+if type npm >/dev/null; then . <(npm completion); fi
 
 true # ensure we exit nicely
