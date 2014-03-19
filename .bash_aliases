@@ -16,14 +16,14 @@ alias lessf="less -i +F"
 
 # git
 
-alias gh="x git help"
+alias gh="git help"
 
 alias gst="git status"
 alias gci="git commit"
 alias gco="git checkout"
 alias gbr="git branch"
 alias gad="git add"
-alias gap="x git add -p"
+alias gap="git add -p"
 alias gdf="git diff"
 alias gpk="git cherry-pick"
 alias grs="git russet"
