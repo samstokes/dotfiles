@@ -115,4 +115,7 @@ export ANT_HOME="$HOME/opt/apache-ant"
 export ANDROID_HOME="$HOME/opt/adt/sdk"
 [ -d "$ANDROID_HOME" ] && export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
+# Node
+[ -d $HOME/opt/node/bin ] && export "PATH=$HOME/opt/node/bin:$PATH"
+
 true # ensure we exit nicely
