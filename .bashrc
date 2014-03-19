@@ -101,6 +101,9 @@ export EDITOR="mvim -f"
 # make mvim script work
 export VIM_APP_DIR=~/opt/MacVim
 
+# For some reason Mac puts /usr/bin ahead of /usr/local/bin; change that
+export PATH=/usr/local/bin:"$PATH"
+
 # Add git-bits to PATH
 [[ -d "$HOME/projects/git-bits" ]] && export PATH="$HOME/projects/git-bits/bin":"$PATH"
 
