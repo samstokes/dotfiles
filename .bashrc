@@ -107,6 +107,10 @@ export EDITOR
 # Heroku Toolbelt
 [ -d /usr/local/heroku ] && export PATH=/usr/local/heroku:$PATH
 
+# Newer ant than LNKD-apache-ant
+export ANT_HOME="$HOME/opt/apache-ant"
+[ -d "$ANT_HOME" ] && export PATH="$ANT_HOME/bin:$PATH"
+
 # Android Developer Tools
 export ANDROID_HOME="$HOME/opt/adt/sdk"
 [ -d "$ANDROID_HOME" ] && export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
