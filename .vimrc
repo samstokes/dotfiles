@@ -323,3 +323,12 @@ nnoremap <F9> :Dispatch<CR>
 nnoremap <S-F9> :Dispatch!<CR>
 nnoremap <F10> :Copen<CR>
 nnoremap <S-F10> :cclose<CR>
+
+
+" use '*' to mean 'all other filetypes'
+" " in this example, html and xml share the same text objects
+let g:wildfire_objects = {
+    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+    \ "html,xml" : ["at"],
+    \ "ruby" : ["i'", 'i"', "i)", "i]", "i}", "ir"],
+  \ }
