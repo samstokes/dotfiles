@@ -121,3 +121,6 @@
 [submodule ".vim/bundle/abolish"]
 	path = .vim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/wildfire"]
+	path = .vim/bundle/wildfire
+	url = https://github.com/gcmt/wildfire.vim.git
