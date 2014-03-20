@@ -314,9 +314,9 @@ nnoremap ]t :tabnext<CR>
 nnoremap <leader>' :Switch<CR>
 
 
-nnoremap <leader>vo :set ft=vo_base<CR>
+nnoremap <leader>vo :set ft=votl<CR>
 
-autocmd FileType vo_base setl comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>,:<,:;
+autocmd FileType votl setl nolist comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>,:<,:;
 
 
 nnoremap <F9> :Dispatch<CR>
