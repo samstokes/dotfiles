@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/markdown"]
 	path = .vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/vinegar"]
+	path = .vim/bundle/vinegar
+	url = https://github.com/tpope/vim-vinegar.git
