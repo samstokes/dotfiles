@@ -1,2 +1,3 @@
 :def hoogle \x -> return $ ":!hoogle " ++ x
 :def git \x -> return $ ":!git " ++ x
+:def gst \x -> return $ ":!git status " ++ x

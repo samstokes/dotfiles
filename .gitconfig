@@ -3,7 +3,7 @@
 	email = me@samstokes.co.uk
 [core]
 	excludesfile = /Users/sstokes/.git-excludes
-	editor = $HOME/bin/git-msg-vim -f -g
+	editor = vim
 	pager = less -i
 [color]
 	branch = auto
@@ -34,8 +34,10 @@
 	ccc = !git clean-conflict-cruft
   rup = remote update --prune
 	logg = log --oneline --decorate --graph
+	gr = good-review
 [merge]
 	tool = gvimdiff
+	defaultToUpstream = true
 [rerere]
 	enabled = true
 [clean]
@@ -43,6 +45,7 @@
 [diff]
 	mnemonicprefix = 1
 	renames = copies
+	tool = vimdiff
 [push]
 	default = upstream
 [rebase]

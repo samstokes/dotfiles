@@ -95,7 +95,7 @@ noremap Q gqap
 " by analogy with D
 nnoremap Y y$
 
-nnoremap - Vyp:s/./-/g<RETURN>o<ESC>
+nnoremap _ Vyp:s/./-/g<RETURN>o<ESC>
 nnoremap # 18I#<ESC>a This line is precisely 80 characters long. <ESC>18a#<ESC>
 
 " reboot syntax highlighting in case it gets confused
@@ -138,8 +138,13 @@ autocmd FileType tex,html,xhtml,xml setl textwidth=79
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt setl shiftwidth=2 tabstop=2
 
-" 4-space indent for Javascript and Handlebars (Rapportive coding standard)
-autocmd FileType java,javascript,html setl shiftwidth=4 tabstop=4
+" better keyword finding for CSS
+autocmd FileType css,lucius,cassius setl iskeyword+=-
+" Hit K to look up on caniuse.com
+autocmd FileType css,lucius,cassius setl keywordprg=caniuse
+
+" 2-space indent for Javascript and Handlebars
+autocmd FileType java,javascript setl shiftwidth=2 tabstop=2
 
 autocmd FileType xml setl equalprg=xmllint\ --format\ -
 
@@ -170,6 +175,8 @@ let g:snips_author = 'Sam Stokes <me@samstokes.co.uk>'
 " Easier browsing of search results
 nnoremap <C-DOWN> :cnext<CR>
 nnoremap <C-UP> :cprevious<CR>
+nnoremap <C-LEFT> :colder<CR>
+nnoremap <C-RIGHT> :cnewer<CR>
 
 " ignore whitespace in diffs
 nnoremap <Leader>dw :set diffopt+=iwhite<CR>
@@ -224,10 +231,15 @@ map <Leader>ll :TlistToggle<CR>
 
 " easy project grep
 nmap <Leader>/ :grep 
-" use ack if available
-call system('type ack >/dev/null 2>&1')
+call system('git status >/dev/null 2>&1')
 if !v:shell_error
-  set grepprg=ack
+  set grepprg=git\ grep\ -n
+else
+  " use ack if available
+  call system('type ack >/dev/null 2>&1')
+  if !v:shell_error
+    set grepprg=ack
+  endif
 endif
 
 " include git branch in statusline via Fugitive
@@ -257,15 +269,23 @@ autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l "
 " Haskell
 autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>ht :GhcModType<CR>
+autocmd FileType haskell,lhaskell nnoremap <Leader>h: :GhcModTypeInsert<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>hc :GhcModTypeClear<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>hi :GhcModInfoPreview<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>he :GhcModExpand<CR>
+autocmd FileType haskell,lhaskell nnoremap <Leader>hl :GhcModLint<CR>
 autocmd FileType haskell,lhaskell setl keywordprg=hoogle\ --count=10
+
+" Haskell syntax checking via ghc-mod
+"autocmd BufWritePost *.hs silent GhcModCheck
 
 " Haskell completion via NeCoGHC
 autocmd FileType haskell,lhaskell let g:neocomplcache_disable_auto_complete = 1 " don't slow down typing
 "autocmd FileType haskell,lhaskell NeoComplCacheEnable " doesn't seem to be needed?
 autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
+
+" allow running Haskell builds via Dispatch F9
+autocmd FileType haskell,lhaskell setlocal makeprg=cabal-dev\ build
 
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
@@ -281,10 +301,25 @@ set statusline+=%*
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_stl_format = '[%E{Err: %e}%B{, }%W{Warn: %w}]'
+
+" disable syntastic haskell checker as its format is unhelpful
+" and we're using ghcmod-vim instead
+let g:syntastic_mode_map = { 'passive_filetypes': ['haskell'] }
 
 " Ctrl-P
 nnoremap <C-b> :<C-u>CtrlPBuffer<CR>
 let g:ctrlp_extensions = ['tag', 'buffertag']
+let g:ctrlp_root_markers = ['.svn/']
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git/', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+    \ 2: ['.svn/', 'cd %s && svn list -R .'],
+  \ },
+  \ 'fallback': 'ag --nogroup --nobreak --noheading --nocolor -g "" %s'
+\ }
 
 
 autocmd FileType git,gitv setl keywordprg=github
@@ -299,8 +334,28 @@ nnoremap <leader>' :Switch<CR>
 
 nnoremap <leader>vo :set ft=votl<CR>
 
+autocmd FileType votl setl nolist comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>,:<,:;
+
+
+let g:go_disable_autoinstall = 1
+autocmd FileType go setl expandtab
+
 
 nnoremap <F9> :Dispatch<CR>
 nnoremap <S-F9> :Dispatch!<CR>
 nnoremap <F10> :Copen<CR>
 nnoremap <S-F10> :cclose<CR>
+
+
+let g:solarized_termcolors = 256
+colorscheme solarized
+
+
+let g:ycm_complete_in_strings = 0
+
+let g:EclimCompletionMethod = 'omnifunc'
+
+
+" scala
+autocmd FileType scala nnoremap <Leader>i :ScalaImport<CR>
+autocmd FileType scala nnoremap <C-]> :ScalaSearch<CR>

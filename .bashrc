@@ -104,11 +104,45 @@ export VIM_APP_DIR=~/opt/MacVim
 # For some reason Mac puts /usr/bin ahead of /usr/local/bin; change that
 export PATH=/usr/local/bin:"$PATH"
 
+# GHC
+GHC_VERSION=7.6
+export PATH=~/opt/ghc-$GHC_VERSION/bin:$PATH
+
 # Add cabal binaries to PATH
 export PATH="$HOME/.cabal/bin:$PATH"
+
+# Add sandboxed cabal binaries to PATH
+export PATH=".cabal-sandbox/bin:$PATH"
 
 # Add git-bits to PATH
 [[ -d "$HOME/projects/git-bits" ]] && export PATH="$HOME/projects/git-bits/bin":"$PATH"
 
 # Add custom Python libs
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
+
+# Java
+#export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+
+export ANT_HOME="$HOME"/opt/apache-ant
+export PATH="$ANT_HOME/bin:$PATH"
+
+# Hadoop
+export HADOOP_PREFIX="$HOME"/opt/hadoop
+export PATH="$HADOOP_PREFIX/bin:$PATH"
+
+# Android
+export ANDROID_HOME="$HOME"/opt/android-sdk-macosx
+export ANDROID_ROOT="$ANDROID_HOME"
+[[ -d "$ANDROID_HOME" ]] && export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/build-tools:$ANDROID_HOME/platform-tools:$PATH"
+
+# USCP
+export USCP_WORKSPACE="$HOME"/projects/uscp_trunk
+export UCP_WORKSPACE="$USCP_WORKSPACE"
+export PATH="$UCP_WORKSPACE"/uscp-cli/cli:$PATH
+
+export PATH=/usr/local/linkedin/bin:"$PATH"
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+true

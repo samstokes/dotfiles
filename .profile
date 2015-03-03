@@ -20,3 +20,11 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# unbreak Ctrl-O
+stty discard undef
+# unbreak Ctrl-S and Ctrl-Q (disable flor control)
+stty stop undef
+stty start undef
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
