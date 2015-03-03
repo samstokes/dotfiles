@@ -118,3 +118,18 @@
 [submodule ".vim/bundle/abolish"]
 	path = .vim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/go"]
+	path = .vim/bundle/go
+	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/gradle"]
+	path = .vim/bundle/gradle
+	url = https://github.com/tfnico/vim-gradle.git
+[submodule ".vim/bundle/scala"]
+	path = .vim/bundle/scala
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/pig"]
+	path = .vim/bundle/pig
+	url = https://github.com/motus/pig.vim.git
