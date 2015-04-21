@@ -217,3 +217,15 @@ workspace
 .xsession-errors*
 Yammer
 .yuuguu
+.config/pulse
+.config/libreoffice
+.config/caja
+.config/software-center
+.config/blueman
+.npm
+.cabal/setup-exe-cache
+.gnupg/*.gpg
+.ssh/id_?sa*
+.ssh/known_hosts
+.config/dconf
+.config/update-notifier
