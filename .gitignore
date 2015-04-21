@@ -229,3 +229,4 @@ Yammer
 .ssh/known_hosts
 .config/dconf
 .config/update-notifier
+.rbenv
