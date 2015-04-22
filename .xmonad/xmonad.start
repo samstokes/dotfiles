@@ -2,4 +2,4 @@
 # You probably want a symlink to this in /usr/local/bin/
 
 xcompmgr -n &     # enable compositing (but no effects)
-exec $HOME/.cabal/bin/xmonad
+exec $HOME/.cabal/bin/xmonad "$@"
