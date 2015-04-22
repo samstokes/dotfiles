@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/sam/.xmonad/xmonad.start --replace
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=XMonad
+Name=XMonad
+Comment[en_US]=XMonad WM
+Comment=XMonad WM
