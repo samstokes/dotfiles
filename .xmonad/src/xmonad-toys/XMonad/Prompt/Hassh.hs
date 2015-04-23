@@ -2,6 +2,7 @@ module XMonad.Prompt.Hassh
   ( hasshPrompt
   ) where
 
+import System.IO.Error (catchIOError)
 import Data.List (sortBy)
 import Data.Maybe (fromJust)
 import Data.Ord (comparing)
@@ -51,5 +52,5 @@ readSshHosts sshConfig = do
     case parse SSH.Config.parser sshConfig configFile of
       Left parseError -> fail $ show parseError
       Right config -> return $ SSH.Config.sections config
-  `catch` handleError
+  `catchIOError` handleError
   where handleError e = print e >> return []
