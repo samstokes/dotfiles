@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/bin/gnome-terminal -e "$*" --title "$*"
+exec /usr/bin/mate-terminal -e "$*" --title "$*"

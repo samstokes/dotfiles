@@ -27,7 +27,7 @@ import XMonad.Actions.Plane
 import XMonad.Actions.Promote
 import XMonad.Actions.UpdatePointer
 import XMonad.Config.Desktop (desktopLayoutModifiers)
-import XMonad.Config.Gnome
+import XMonad.Config.Mate
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
@@ -63,7 +63,7 @@ myModMask = mod4Mask
 myKeys :: [(String, X ())]
 myKeys =
     ----- launchers ----- {{{3
-    [ ("M-S-r",   gnomeRun)
+    [ ("M-S-r",   mateRun)
     , ("M-r",     summonGnomeDo)
     , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
     , ("M-i h",   ghciGridSelect)
@@ -151,7 +151,7 @@ myKeys =
     , ("S-M-m",   promote)
 
     ----- session management ----- {{{3
-    , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
+    , ("M-<F4>",  spawn "mate-session-save --shutdown-dialog")
     , ("C-M-q", rescreen)
     ]
     ----- helper functions ----- {{{3
@@ -548,13 +548,13 @@ promptMinutes = inputPrompt greenXPConfig "Minutes" >>= maybeReadM
 
 ----- XConfig ----- {{{2
 
-myConfig = gnomeConfig
+myConfig = mateConfig
     { modMask = myModMask
-    , startupHook = startupHook gnomeConfig >> myStartupHook
-    , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
+    , startupHook = startupHook mateConfig >> myStartupHook
+    , manageHook = manageHook mateConfig <+> composeAll myManageHook
     , layoutHook = myLayoutModifiers $ myLayoutHook
-    , logHook = logHook gnomeConfig >> myLogHook
-    , handleEventHook = handleEventHook gnomeConfig `mappend` myEventHook
+    , logHook = logHook mateConfig >> myLogHook
+    , handleEventHook = handleEventHook mateConfig `mappend` myEventHook
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
