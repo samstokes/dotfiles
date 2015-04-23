@@ -257,10 +257,13 @@ myButton11 = 11
 ----- workspace navigation ----- {{{2
 
 myMove :: Direction -> X ()
-myMove = planeMove GConf Finite
+myMove = planeMove planeConf Finite
 
 myShift :: Direction -> X ()
-myShift = planeShift GConf Finite
+myShift = planeShift planeConf Finite
+
+planeConf :: Lines
+planeConf = Lines 3
 
 onEmptyWorkspace :: X a -> X a
 onEmptyWorkspace = (viewEmptyWorkspace >>)
