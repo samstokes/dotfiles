@@ -230,7 +230,7 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
 
 myLogHook :: X ()
 myLogHook = do
-  updatePointer $ TowardsCentre 0.2 0.2
+  updatePointer (0.5, 0.5) (0.2, 0.2)
   fadeInactiveLogHook 0.8
 
 
