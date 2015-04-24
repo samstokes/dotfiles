@@ -282,9 +282,11 @@ autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l "
 " Haskell
 autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>ht :GhcModType<CR>
+autocmd FileType haskell,lhaskell nnoremap <Leader>h: :GhcModTypeInsert<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>hc :GhcModTypeClear<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>hi :GhcModInfoPreview<CR>
 autocmd FileType haskell,lhaskell nnoremap <Leader>he :GhcModExpand<CR>
+autocmd FileType haskell,lhaskell nnoremap <Leader>hl :GhcModLint<CR>
 autocmd FileType haskell,lhaskell setl keywordprg=hoogle\ --count=10
 
 " Haskell completion via NeCoGHC
