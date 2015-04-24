@@ -188,6 +188,8 @@ let g:snips_author = 'Sam Stokes <me@samstokes.co.uk>'
 " Easier browsing of search results
 nnoremap <C-DOWN> :cnext<CR>
 nnoremap <C-UP> :cprevious<CR>
+nnoremap <C-LEFT> :colder<CR>
+nnoremap <C-RIGHT> :cnewer<CR>
 
 " ignore whitespace in diffs
 nnoremap <Leader>dw :set diffopt+=iwhite<CR>
