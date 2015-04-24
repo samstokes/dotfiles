@@ -154,6 +154,9 @@ autocmd FileType tex,html,xhtml,xml setl textwidth=79
 " 2-space indents for *ml files
 autocmd FileType html,xhtml,xml,sgml,xslt setl shiftwidth=2 tabstop=2
 
+" better keyword finding for CSS
+autocmd FileType css,lucius,cassius setl iskeyword+=-
+
 autocmd FileType java,javascript setl shiftwidth=2 tabstop=2
 
 autocmd FileType xml setl equalprg=xmllint\ --format\ -
