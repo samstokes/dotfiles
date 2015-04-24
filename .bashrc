@@ -99,3 +99,9 @@ export EDITOR="gvim -f"
 
 # Add custom Python libs
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
+
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+if hash rbenv 2>/dev/null; then
+  eval "$(rbenv init -)"
+fi
