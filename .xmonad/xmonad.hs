@@ -63,8 +63,8 @@ myKeys =
     , ("M-i p", pryGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
-    , ("C-M-e",   windowPromptGoto defaultXPConfig)
-    , ("C-M-S-e", windowPromptBring defaultXPConfig)
+    , ("C-M-e",   windowPromptGoto myXPConfig)
+    , ("C-M-S-e", windowPromptBring myXPConfig)
 
     , ("S-M-]",   soundGridSelect)
 
@@ -74,20 +74,20 @@ myKeys =
     , ("M-p",     spawnX "nice top")
     , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
-    , ("M-s",     hasshPrompt defaultXPConfig sshConfig ?+ spawnSshHost)
-    , ("M-S-s",   hasshPrompt defaultXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "screen -RD")))
-    , ("C-M-s",   hasshPrompt defaultXPConfig sshConfig ?+ (\portal ->
-                    hasshPrompt defaultXPConfig sshConfig ?+ (\host ->
+    , ("M-s",     hasshPrompt myXPConfig sshConfig ?+ spawnSshHost)
+    , ("M-S-s",   hasshPrompt myXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "screen -RD")))
+    , ("C-M-s",   hasshPrompt myXPConfig sshConfig ?+ (\portal ->
+                    hasshPrompt myXPConfig sshConfig ?+ (\host ->
                       spawnSshHostOpts portal ["-t"] (Just $ "ssh " ++ SSH.Config.hostName host))))
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
-    , ("C-M-v",   inputPrompt defaultXPConfig "args" ?+ spawnGvimWithArgs)
+    , ("C-M-v",   inputPrompt myXPConfig "args" ?+ spawnGvimWithArgs)
     , ("S-M-n",   spawnGvimWithArgs "+'Simplenote -l'")
     , ("M-n",     safeSpawn "gvim" ["_newnote"])
 
     , ("S-M-o",   spawnTail "/var/log/syslog")
-    , ("C-M-o",   inputPrompt defaultXPConfig "file" ?+ spawnTail)
+    , ("C-M-o",   inputPrompt myXPConfig "file" ?+ spawnTail)
 
     , ("<Print>", gimpShot FullScreenshot)
     , ("S-<Print>", gimpShot WindowScreenshot)
@@ -237,7 +237,16 @@ myLogHook = do
 -- === GridSelect config === {{{1
 
 windowGSConfig :: GSConfig Window
-windowGSConfig = defaultGSConfig
+windowGSConfig = myGSConfig
+
+myGSConfig :: HasColorizer a => GSConfig a
+myGSConfig = def
+
+
+-- === XPrompt config === {{{1
+
+myXPConfig :: XPConfig
+myXPConfig = def
 
 
 -- === Utilities === {{{1
@@ -332,8 +341,9 @@ spawnPry ruby = safeSpawnX "env" ["RBENV_VERSION=" ++ ruby, "pry"]
 rubyGridSelect :: X (Maybe String)
 rubyGridSelect = noisyGrid "Ruby" $ do
   choices $ io listRubies
-  labels $ id
+  labels id
   action return
+  gsConfig myGSConfig
 
 listRubies :: IO [String]
 listRubies = (:) <$> return "system" <*> dir ".rbenv/versions"
