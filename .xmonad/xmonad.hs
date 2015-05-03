@@ -231,7 +231,7 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
 myLogHook :: X ()
 myLogHook = do
   updatePointer (0.5, 0.5) (0.2, 0.2)
-  fadeInactiveLogHook 0.8
+  fadeInactiveLogHook 0.85
 
 
 -- === GridSelect config === {{{1
