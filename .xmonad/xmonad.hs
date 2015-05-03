@@ -241,12 +241,19 @@ windowGSConfig = myGSConfig
 
 myGSConfig :: HasColorizer a => GSConfig a
 myGSConfig = def
+  { gs_font = "xft:Ubuntu-12"
+  , gs_cellheight = 50
+  , gs_cellwidth = 400
+  }
 
 
 -- === XPrompt config === {{{1
 
 myXPConfig :: XPConfig
 myXPConfig = def
+  { font = "xft:Ubuntu-12"
+  , height = 36
+  }
 
 
 -- === Utilities === {{{1
