@@ -231,3 +231,5 @@ Yammer
 .config/dconf
 .config/update-notifier
 .rbenv
+.config/galculator
+.config/folder-color
