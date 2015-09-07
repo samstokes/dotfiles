@@ -111,3 +111,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if hash rbenv 2>/dev/null; then
   eval "$(rbenv init -)"
 fi
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
