@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/redshift-gtk
+Hidden=false
+X-MATE-Autostart-enabled=true
+Name[en_US]=Redshift
+Name=Redshift
+Comment[en_US]=Adjust colour temperature according to time of day
+Comment=Adjust colour temperature according to time of day
