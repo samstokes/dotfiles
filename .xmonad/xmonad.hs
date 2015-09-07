@@ -3,7 +3,7 @@
 ----- Pragmas ----- {{{2
 {-# LANGUAGE GADTs #-}
 ----- Imports ----- {{{2
-import Control.Applicative ((<$>), (<*>))
+import Control.Applicative ((<$>), (*>), (<*), (<*>))
 import Control.Applicative.Error (maybeRead)
 import Control.Monad (when)
 import Data.Char (toLower)
@@ -15,7 +15,7 @@ import System.Directory (getDirectoryContents)
 import System.FilePath.Posix ((</>))
 import System.IO
 import System.Process (readProcess, runInteractiveCommand)
-import Text.Parsec ((<?>), anyChar, many1, noneOf, parse, spaces, Parsec)
+import Text.Parsec ((<?>), anyChar, char, digit, many, many1, noneOf, oneOf, parse, space, spaces, string, Parsec)
 import XMonad hiding ( (|||), Tall ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
@@ -79,6 +79,9 @@ myKeys =
     , ("C-M-e",   windowPromptGoto myXPConfig)
     , ("C-M-S-e", windowPromptBring myXPConfig)
 
+    , ("M-[",     sonosGridSelect ?+ sonosPlay)
+    , ("S-M-[",   sonosGridSelect ?+ sonosPause)
+    , ("C-M-[",   sonosGridSelect ?+ sonosShowCurrent)
     , ("S-M-]",   soundGridSelect)
 
     , ("S-M-x",   spawnGvimWithArgs ".xmonad/xmonad.hs")
@@ -423,6 +426,62 @@ listDockerImages repo = map parseImageLine . drop 1 . lines <$> getCommandOutput
       tag <- many1 (noneOf " ") <?> "image tag"
       spaces >> many1 anyChar
       return (repo <> ":" <> tag, tag)
+
+
+----- Sonos ----- {{{3
+
+sonosGridSelect :: X (Maybe String)
+sonosGridSelect = noisyGrid "Speaker" $ do
+  choices $ io listSpeakers `catchX` return []
+  labels snd
+  action $ return . fst
+  gsConfig myGSConfig
+
+sonosCommand :: String -> [String] -> X ()
+sonosCommand command args = safeSpawn "socos" (command : args)
+
+sonosCommandOutput :: String -> X String
+sonosCommandOutput command = io $ getCommandOutput ("socos " ++ command)
+
+sonosPlay, sonosPause, sonosShowCurrent :: String -> X ()
+sonosPlay ip = sonosCommand "play" [ip]
+sonosPause ip = sonosCommand "pause" [ip]
+sonosShowCurrent ip = do
+    output <- sonosCommandOutput ("current " ++ ip)
+    let (title, details) = case parse parser "" output of
+                            Right parsed -> parsed
+                            Left e -> (show e, output)
+    notify title (Just details)
+  where
+    parser :: Parsec String () (String, String)
+    parser = do
+      string "Current track: "
+      title <- many $ noneOf "."
+      string ". From album "
+      rest <- many1 anyChar
+      return (title, "From album " ++ rest)
+
+listSpeakers :: IO [(String, String)]
+listSpeakers = map parseSpeaker . lines <$> getCommandOutput "socos list"
+  where
+    parseSpeaker :: String -> (String, String)
+    parseSpeaker str = case parse parser "" str of
+      Right (ip, label) -> (ip, label)
+      Left e -> (str, show e)
+    parser :: Parsec String () (String, String)
+    parser = do
+        speakerNum
+        space
+        ip <- ipAddress
+        spaces
+        name <- speakerName
+        return (ip, name)
+    speakerNum :: Parsec String () Int
+    speakerNum = fmap read (char '(' *> many1 digit <* char ')') <?> "speaker number"
+    ipAddress :: Parsec String () String
+    ipAddress = many1 (oneOf $ '.' : ['0'..'9']) <?> "ip address"
+    speakerName :: Parsec String () String
+    speakerName = many1 anyChar <?> "speaker name"
 
 
 getCommandOutput :: String -> IO String
