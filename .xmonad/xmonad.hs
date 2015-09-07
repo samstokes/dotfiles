@@ -58,7 +58,7 @@ myKeys =
     [ ("M-S-r",   gnomeRun)
     , ("M-r",     summonGnomeDo)
     , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
-    , ("M-i h",   safeSpawnX "ghci" [])
+    , ("M-i h",   ghciGridSelect)
     , ("M-i r",   irbGridSelect)
     , ("M-i p", pryGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
@@ -354,6 +354,26 @@ rubyGridSelect = noisyGrid "Ruby" $ do
 
 listRubies :: IO [String]
 listRubies = (:) <$> return "system" <*> dir ".rbenv/versions"
+
+
+----- ghci ----- {{{3
+
+ghcVersionsDir :: String
+ghcVersionsDir = "/opt/ghc"
+
+ghcGridSelect :: X (Maybe String)
+ghcGridSelect = noisyGrid "Haskell version" $ do
+    choices $ io listHaskells
+    labels id
+    action return
+    gsConfig myGSConfig
+
+ghciGridSelect :: X ()
+ghciGridSelect = ghcGridSelect ?+ (flip safeSpawnX [] . ghciPath)
+  where ghciPath version = ghcVersionsDir ++ "/" ++ version ++ "/bin/ghci"
+
+listHaskells :: IO [String]
+listHaskells = dir ghcVersionsDir
 
 
 ----- timers ----- {{{3
