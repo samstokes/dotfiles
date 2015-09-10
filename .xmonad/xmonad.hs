@@ -82,6 +82,11 @@ myKeys =
     , ("M-[",     sonosGridSelect ?+ sonosPlay)
     , ("S-M-[",   sonosGridSelect ?+ sonosPause)
     , ("C-M-[",   sonosGridSelect ?+ sonosShowCurrent)
+    , ("S-<XF86AudioLowerVolume>", sonosGridSelect ?+ sonosVolume (-5))
+    , ("S-<XF86AudioRaiseVolume>", sonosGridSelect ?+ sonosVolume 5)
+    , ("C-S-<XF86AudioLowerVolume>", sonosGridSelect ?+ sonosVolume (-20))
+    , ("C-S-<XF86AudioRaiseVolume>", sonosGridSelect ?+ sonosVolume 20)
+
     , ("S-M-]",   soundGridSelect)
 
     , ("S-M-x",   spawnGvimWithArgs ".xmonad/xmonad.hs")
@@ -460,6 +465,17 @@ sonosShowCurrent ip = do
       string ". From album "
       rest <- many1 anyChar
       return (title, "From album " ++ rest)
+
+sonosVolume :: Int -> String -> X ()
+sonosVolume increment ip = do
+    output <- sonosCommandOutput $ "volume " ++ ip ++ " " ++ renderIncrement
+    let newVolume = case parse (many1 digit) "" output of
+                      Right parsed -> parsed
+                      Left e -> output ++ "\n" ++ show e
+    notify "New volume" $ Just newVolume
+  where
+    renderIncrement | increment >= 0 = '+' : show increment
+                    | otherwise      = show increment
 
 listSpeakers :: IO [(String, String)]
 listSpeakers = map parseSpeaker . lines <$> getCommandOutput "socos list"
