@@ -55,7 +55,7 @@ gridDo opts = do
 
 newtype GridDoT m item result a = GridDoT {
     runGridDoT :: StateT (GridDoOpts item result) m a
-  } deriving (Monad, MonadState (GridDoOpts item result))
+  } deriving (Applicative, Functor, Monad, MonadState (GridDoOpts item result))
 
 
 grid :: HasColorizer item => GridDoT X item result () -> X (Maybe result)
