@@ -137,7 +137,14 @@ inoremap <End>  <C-o>g$
 vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 
 " markdown preview
-autocmd FileType mkd nmap <Leader>rp :silent w !pandoc \| bcat<CR>
+autocmd FileType markdown nmap <buffer> <Leader>rp :silent w !pandoc \| bcat<CR>
+" insert date
+function BlogInsertDate()
+  let @x = strftime('%Y-%m-%d %H:%M:%S %z')
+  normal! "xp
+endfunction
+autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>d ~<ESC>x:call BlogInsertDate()<CR>a
+autocmd FileType markdown setl spell
 
 " don't text wrap emails, mail client will do it too and conflict
 autocmd FileType mail setl textwidth=0
