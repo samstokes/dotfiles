@@ -75,3 +75,9 @@ alias bake="bundle exec rake"
 alias mbake="monitor bundle exec rake"
 
 alias mw="monitor wget"
+
+# "heroku" is hard to type
+alias heorku=heroku
+alias herpli=heroku
+alias h=heroku
+alias hl='heroku logs'
