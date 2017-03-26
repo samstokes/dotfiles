@@ -16,7 +16,7 @@ import System.FilePath.Posix ((</>))
 import System.IO
 import System.Process (readProcess, runInteractiveCommand)
 import Text.Parsec ((<?>), anyChar, many1, noneOf, parse, spaces, Parsec)
-import XMonad hiding ( (|||) ) -- want ||| from LayoutCombinators
+import XMonad hiding ( (|||), Tall ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.GridSelect.DSL
@@ -31,6 +31,7 @@ import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
+import XMonad.Layout.HintedTile
 import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
@@ -175,9 +176,9 @@ myLayoutModifiers =
 myLayoutHook = defaultLayout
   where
     -- defaultLayout copied from source of defaultConfig
-    defaultLayout = tiled ||| Mirror tiled ||| Full
+    defaultLayout = hintedTile Tall ||| hintedTile Wide ||| Full
     -- default tiling algorithm partitions the screen into two panes
-    tiled   = Tall nmaster delta ratio
+    hintedTile   = HintedTile nmaster delta ratio TopLeft
 
     -- The default number of windows in the master pane
     nmaster = 1
