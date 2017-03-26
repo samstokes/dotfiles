@@ -447,7 +447,7 @@ sonosCommand :: String -> [String] -> X ()
 sonosCommand command args = safeSpawn "socos" (command : args)
 
 sonosCommandOutput :: String -> X String
-sonosCommandOutput command = io $ getCommandOutput ("socos " ++ command)
+sonosCommandOutput command = io $ filter (/= '\n') <$> getCommandOutput ("socos " ++ command)
 
 sonosPlay, sonosPause, sonosShowCurrent :: String -> X ()
 sonosPlay ip = sonosCommand "play" [ip]
