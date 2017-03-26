@@ -31,6 +31,7 @@ import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
+import XMonad.Layout.HintedGrid (Grid(..))
 import XMonad.Layout.HintedTile
 import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
@@ -178,7 +179,7 @@ myLayoutModifiers =
 myLayoutHook = defaultLayout
   where
     -- defaultLayout copied from source of defaultConfig
-    defaultLayout = hintedTile Tall ||| hintedTile Wide ||| spiralL ||| threeColMid ||| Full
+    defaultLayout = hintedTile Tall ||| hintedTile Wide ||| spiralL ||| Grid False ||| threeColMid ||| Full
     -- default tiling algorithm partitions the screen into two panes
     hintedTile   = HintedTile nmaster delta ratio TopLeft
 
