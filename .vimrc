@@ -300,6 +300,7 @@ autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>hl :GhcModLint<CR>
 autocmd FileType haskell,lhaskell setl keywordprg=hoogle\ --count=10
 
 " Haskell completion via NeCoGHC
+let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell,lhaskell let g:neocomplcache_disable_auto_complete = 1 " don't slow down typing
 "autocmd FileType haskell,lhaskell NeoComplCacheEnable " doesn't seem to be needed?
 autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
