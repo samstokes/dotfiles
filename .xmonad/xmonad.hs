@@ -249,6 +249,7 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
                  ]
     ----- windows to float {{{2
     floatables = [ className =? "Gcalctool"
+                 , className =? "Galculator"
                  ]
     ----- windows that should be made master when they appear {{{2
     masters = [
