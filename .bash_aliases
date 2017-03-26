@@ -61,7 +61,10 @@ done
 alias mgi="monitor gem install"
 alias msgi="monitor sudo gem install"
 alias msai="monitor sudo apt-get install"
+alias msau="monitor sudo apt-get update"
+alias mpi="monitor pip install"
 
+alias mmake="monitor make"
 
 # "bundle exec" is long
 alias mbi="monitor bundle install"
@@ -70,3 +73,5 @@ alias mun="monitor bundle exec"
 alias mbun="monitor bundle exec"
 alias bake="bundle exec rake"
 alias mbake="monitor bundle exec rake"
+
+alias mw="monitor wget"
