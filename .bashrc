@@ -115,5 +115,11 @@ fi
 # Java
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
+# Go
+export GOROOT=$HOME/opt/go
+export GOPATH=$HOME/projects/go
+export GOBIN=$GOPATH/bin
+export PATH="$GOROOT/bin:$GOBIN:$PATH"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
