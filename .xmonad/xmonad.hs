@@ -95,6 +95,7 @@ myKeys =
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
+    , ("S-M-v",   spawnGvimWithArgs "+'set filetype=votl' +'lcd $HOME/Dropbox/Notes'")
     , ("C-M-v",   inputPrompt myXPConfig "args" ?+ spawnGvimWithArgs)
     , ("S-M-n",   spawnGvimWithArgs "+'Simplenote -l'")
     , ("M-n",     safeSpawn "gvim" ["_newnote"])
