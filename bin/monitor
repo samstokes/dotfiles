@@ -25,4 +25,4 @@ failure() {
 }
 
 pending $@
-eval "/usr/bin/time -f%E -o \"$timing_info\" $*" && success $@ || failure $? $@
+/usr/bin/time -f%E -o "$timing_info" "$@" && success "$@" || failure $? "$@"
