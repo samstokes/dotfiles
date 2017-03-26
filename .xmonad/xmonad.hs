@@ -21,6 +21,7 @@ import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.GridSelect.DSL
 import XMonad.Actions.Notify
+import XMonad.Actions.NotifyCurrentLayout
 import XMonad.Actions.PhysicalScreens
 import XMonad.Actions.Plane
 import XMonad.Actions.Promote
@@ -37,6 +38,7 @@ import XMonad.Layout.LayoutCombinators ( (|||), JumpToLayout(..))
 import XMonad.Layout.LayoutHints
 import XMonad.Layout.Minimize
 import XMonad.Layout.NoBorders
+import XMonad.Layout.Renamed
 import XMonad.Layout.Spiral (spiral)
 import XMonad.Layout.ThreeColumns
 import XMonad.ManageHook
@@ -131,6 +133,7 @@ myKeys =
     , ("S-M-<XF86Forward>", sendToScreen (P 1))
 
     ----- window management commands ----- {{{3
+    , ("M-<Space>", sendMessage NextLayout >> notifyCurrentLayout)
     , ("M-z",     withFocused minimizeWindow)
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
@@ -169,6 +172,7 @@ myMouseBindings =
 myLayoutModifiers =
   desktopLayoutModifiers
   . B.boringAuto
+  . renamed [CutWordsLeft 2] -- remove "Minimize Hinted"
   . minimize
   . layoutHintsWithPlacement (0.5, 0.5)
   . noBorders
