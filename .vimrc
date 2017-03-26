@@ -356,6 +356,9 @@ nnoremap <F10> :Copen<CR>
 nnoremap <S-F10> :cclose<CR>
 
 
+let g:EclimCompletionMethod = 'omnifunc'
+
+
 " use '*' to mean 'all other filetypes'
 " " in this example, html and xml share the same text objects
 let g:wildfire_objects = {
