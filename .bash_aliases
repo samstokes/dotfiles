@@ -81,3 +81,11 @@ alias heorku=heroku
 alias herpli=heroku
 alias h=heroku
 alias hl='heroku logs'
+
+# "docker-compose" is hard to type
+alias d=docker
+alias dl='docker logs'
+alias dps='docker ps'
+alias dc=docker-compose
+alias dcps='docker-compose ps'
+alias dcl='docker-compose logs'
