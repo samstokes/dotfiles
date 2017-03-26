@@ -121,5 +121,8 @@ export GOPATH=$HOME/projects/go
 export GOBIN=$GOPATH/bin
 export PATH="$GOROOT/bin:$GOBIN:$PATH"
 
+# Phabricator / Arcanist
+export PATH="$PATH:$HOME/opt/arcanist/bin"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
