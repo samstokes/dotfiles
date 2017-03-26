@@ -103,6 +103,9 @@ export EDITOR
 # Add custom Python libs
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
 
+# Haskell
+export PATH="$HOME/.local/bin:~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.8.4/bin:$PATH"
+
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 if hash rbenv 2>/dev/null; then
