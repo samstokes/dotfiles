@@ -5,6 +5,7 @@
 ----- Imports ----- {{{2
 import Control.Applicative ((<$>), (<*>))
 import Control.Applicative.Error (maybeRead)
+import Control.Monad (when)
 import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
@@ -12,8 +13,9 @@ import Data.Monoid
 import qualified SSH.Config
 import System.Directory (getDirectoryContents)
 import System.FilePath.Posix ((</>))
-import System.Process (readProcess)
-import Text.ParserCombinators.Parsec (parse, ParseError)
+import System.IO
+import System.Process (readProcess, runInteractiveCommand)
+import Text.Parsec ((<?>), anyChar, many1, noneOf, parse, spaces, Parsec)
 import XMonad hiding ( (|||) ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
@@ -61,6 +63,11 @@ myKeys =
     , ("M-i h",   ghciGridSelect)
     , ("M-i r",   irbGridSelect)
     , ("M-i p",   pryGridSelect)
+    , ("M-i n",   spawnNode)
+    , ("M-i y",   spawnPython)
+    , ("M-i u",   ubuntuGridSelect)
+    , ("M-i s",   spawnPsql)
+    , ("M-i j",   spawnJq)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
     , ("C-M-e",   windowPromptGoto myXPConfig)
@@ -334,16 +341,28 @@ soundGridSelect = noisyGrid_ "Playing sound" $ do
 ----- Ruby prompts ----- {{{3
 
 irbGridSelect :: X ()
-irbGridSelect = rubyGridSelect >>= (flip whenJust) spawnIrb
+irbGridSelect = rubyGridSelect ?+ spawnIrb
 
 pryGridSelect :: X ()
-pryGridSelect = rubyGridSelect >>= (flip whenJust) spawnPry
+pryGridSelect = rubyGridSelect ?+ spawnPry
 
 spawnIrb :: String -> X ()
 spawnIrb ruby = safeSpawnX "env" ["RBENV_VERSION=" ++ ruby, ".rbenv/shims/irb"]
 
 spawnPry :: String -> X ()
 spawnPry ruby = safeSpawnX "env" ["RBENV_VERSION=" ++ ruby, ".rbenv/shims/pry"]
+
+spawnNode :: X ()
+spawnNode = safeSpawnX "node" []
+
+spawnPython :: X ()
+spawnPython = safeSpawnX "ipython" []
+
+spawnPsql :: X ()
+spawnPsql = safeSpawnX "psql" ["postgres"]
+
+spawnJq :: X ()
+spawnJq = safeSpawnX "jq" ["."]
 
 rubyGridSelect :: X (Maybe String)
 rubyGridSelect = noisyGrid "Ruby" $ do
@@ -354,6 +373,46 @@ rubyGridSelect = noisyGrid "Ruby" $ do
 
 listRubies :: IO [String]
 listRubies = (:) <$> return "system" <*> dir ".rbenv/versions"
+
+
+----- Ubuntu prompt ----- {{{3
+
+ubuntuGridSelect :: X ()
+ubuntuGridSelect = ubuntuImageGridSelect ?+ spawnDockerBash
+
+spawnDockerBash :: String -> X ()
+spawnDockerBash image = safeSpawnX "docker" ["run", "--rm", "-i", "-t", image, "bash"]
+
+ubuntuImageGridSelect :: X (Maybe String)
+ubuntuImageGridSelect = noisyGrid "Ubuntu image" $ do
+  choices $ io (listDockerImages "ubuntu") `catchX` return []
+  labels snd
+  action $ return . fst
+  gsConfig myGSConfig
+
+listDockerImages :: String -> IO [(String, String)]
+listDockerImages repo = map parseImageLine . drop 1 . lines <$> getCommandOutput ("docker images " <> repo)
+  where
+    parseImageLine :: String -> (String, String)
+    parseImageLine str = case parse parser "" str of
+      Right (image, tag) -> (image, tag)
+      Left e -> (str, show e)
+    parser :: Parsec String () (String, String)
+    parser = do
+      repo <- many1 (noneOf " ") <?> "image repository"
+      spaces
+      tag <- many1 (noneOf " ") <?> "image tag"
+      spaces >> many1 anyChar
+      return (repo <> ":" <> tag, tag)
+
+
+getCommandOutput :: String -> IO String
+getCommandOutput command = do
+  (_, hOut, hErr, _) <- runInteractiveCommand command
+  out <- hGetContents hOut
+  err <- hGetContents hErr
+  when (err /= "") $ hPutStrLn stderr err
+  return out
 
 
 ----- ghci ----- {{{3
