@@ -60,7 +60,7 @@ myKeys =
     , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
     , ("M-i h",   ghciGridSelect)
     , ("M-i r",   irbGridSelect)
-    , ("M-i p", pryGridSelect)
+    , ("M-i p",   pryGridSelect)
     , ("M-e",     goToSelected windowGSConfig)
     , ("M-S-e",   bringSelected windowGSConfig)
     , ("C-M-e",   windowPromptGoto myXPConfig)
