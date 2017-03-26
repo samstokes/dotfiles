@@ -286,16 +286,17 @@ let g:gist_open_browser_after_post = 1
 autocmd BufNewFile,BufRead .xmonad/xmonad.hs nnoremap <Leader>q :!xmonad --recompile<CR>
 
 " Haskellise SLIME
-autocmd FileType haskell,lhaskell nnoremap <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <C-c><C-c> :call Send_to_Screen(":l " . @% . "\n")<CR>
 
 " Haskell
-autocmd FileType haskell,lhaskell nnoremap <Leader>r :!runhaskell %<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>ht :GhcModType<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>h: :GhcModTypeInsert<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>hc :GhcModTypeClear<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>hi :GhcModInfoPreview<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>he :GhcModExpand<CR>
-autocmd FileType haskell,lhaskell nnoremap <Leader>hl :GhcModLint<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>r :!runhaskell %<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>ht :GhcModType<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>h: :GhcModTypeInsert<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>hc :GhcModTypeClear<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>hs :GhcModSplitFunCase<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>hi :GhcModInfoPreview<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>he :GhcModExpand<CR>
+autocmd FileType haskell,lhaskell nnoremap <buffer> <Leader>hl :GhcModLint<CR>
 autocmd FileType haskell,lhaskell setl keywordprg=hoogle\ --count=10
 
 " Haskell completion via NeCoGHC
@@ -337,7 +338,7 @@ nnoremap ]t :tabnext<CR>
 nnoremap <leader>' :Switch<CR>
 
 
-nnoremap <leader>vo :set ft=votl<CR>
+nnoremap <leader>vo :setl ft=votl<CR>
 
 autocmd FileType votl setl nolist comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>,:<,:;
 
