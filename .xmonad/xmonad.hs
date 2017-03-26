@@ -88,7 +88,7 @@ myKeys =
     , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
     , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     hasshPrompt myXPConfig sshConfig ?+ spawnSshHost)
-    , ("M-S-s",   hasshPrompt myXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "screen -RD")))
+    , ("M-S-s",   hasshPrompt myXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "tmux attach || tmux")))
     , ("C-M-s",   hasshPrompt myXPConfig sshConfig ?+ (\portal ->
                     hasshPrompt myXPConfig sshConfig ?+ (\host ->
                       spawnSshHostOpts portal ["-t"] (Just $ "ssh " ++ SSH.Config.hostName host))))
