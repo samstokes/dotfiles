@@ -52,9 +52,6 @@
 [submodule ".vim/bundle/camel-case-motion"]
 	path = .vim/bundle/camel-case-motion
 	url = git@github.com:bkad/CamelCaseMotion.git
-[submodule ".vim/bundle/argtextobj"]
-	path = .vim/bundle/argtextobj
-	url = git@github.com:vim-scripts/argtextobj.vim.git
 [submodule ".vim/bundle/vim-indent-object"]
 	path = .vim/bundle/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
@@ -130,3 +127,6 @@
 [submodule ".vim/bundle/webapi"]
 	path = .vim/bundle/webapi
 	url = https://github.com/mattn/webapi-vim.git
+[submodule ".vim/bundle/targets"]
+	path = .vim/bundle/targets
+	url = https://github.com/wellle/targets.vim.git
