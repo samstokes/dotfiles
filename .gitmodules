@@ -136,6 +136,9 @@
 [submodule ".vim/bundle/webapi"]
 	path = .vim/bundle/webapi
 	url = https://github.com/mattn/webapi-vim.git
+[submodule ".vim/bundle/rust"]
+	path = .vim/bundle/rust
+	url = https://github.com/rust-lang/rust.vim.git
 [submodule ".vim/bundle/targets"]
 	path = .vim/bundle/targets
 	url = https://github.com/wellle/targets.vim.git
