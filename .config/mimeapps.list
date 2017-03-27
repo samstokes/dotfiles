@@ -6,7 +6,7 @@ x-scheme-handler/mailto=thunderbird.desktop
 application/x-extension-eml=thunderbird.desktop
 message/rfc822=thunderbird.desktop
 inode/directory=caja-folder-handler.desktop
-text/plain=pluma.desktop
+text/plain=gvim.desktop
 audio/mpeg=rhythmbox.desktop
 audio/x-mpegurl=rhythmbox.desktop
 audio/x-scpls=rhythmbox.desktop
@@ -28,6 +28,7 @@ image/gif=eom.desktop
 image/jpeg=eom.desktop
 image/png=eom.desktop
 image/tiff=eom.desktop
+application/octet-stream=gvim.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;
