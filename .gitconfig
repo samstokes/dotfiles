@@ -51,5 +51,11 @@
 	default = upstream
 [rebase]
 	autosquash = true
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
 [url "git@github.com:"]
 	insteadOf = https://github.com/
