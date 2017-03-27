@@ -121,6 +121,12 @@
 [submodule ".vim/bundle/markdown"]
 	path = .vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
+[submodule ".vim/bundle/javascript"]
+	path = .vim/bundle/javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/jsx"]
+	path = .vim/bundle/jsx
+	url = https://github.com/mxw/vim-jsx.git
 [submodule ".vim/bundle/gist"]
 	path = .vim/bundle/gist
 	url = https://github.com/mattn/gist-vim.git
