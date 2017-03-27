@@ -66,7 +66,7 @@
 	url = https://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/ctrlp"]
 	path = .vim/bundle/ctrlp
-	url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim
 [submodule ".vim/bundle/tslime"]
 	path = .vim/bundle/tslime
 	url = git@github.com:samstokes/tslime.vim.git
