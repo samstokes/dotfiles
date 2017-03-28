@@ -143,6 +143,7 @@ Private
 .printer-groups.xml
 .prism
 projects
+clients
 .pry/themes
 .pry_history
 .psql_history
