@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+case "$(basename "$0")" in
+  pman) export MANROFFOPT="-f P";;
+  hman) export MANROFFOPT="-f H";;
+esac
+
+output=$(mktemp --suffix=.pdf)
+trap "rm -f $output" EXIT
+
+man -t "$@" | ps2pdf - "$output"
+xdg-open "$output"
