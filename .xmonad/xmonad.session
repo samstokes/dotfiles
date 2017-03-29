@@ -1,0 +1,7 @@
+# Based on /usr/share/gnome-session/sessions/gnome-flashback-metacity.session
+# from the gnome-session-flashback package
+#
+# Copy this into /usr/share/gnome-session/sessions and chown root
+[GNOME Session]
+Name=GNOME Flashback (XMonad)
+RequiredComponents=gnome-flashback-init;gnome-flashback;gnome-panel;xmonad;unity-settings-daemon;gnome-flashback-services;

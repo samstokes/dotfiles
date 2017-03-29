@@ -1,0 +1,11 @@
+# Based on /usr/share/xsessions/gnome-flashback-metacity.desktop from the
+# gnome-session-flashback package.
+#
+# You probably want to copy this file to /usr/share/xsessions/ and chown
+# it to root (seems not to work otherwise)
+[Desktop Entry]
+Name=GNOME Flashback (XMonad)
+Comment=GNOME Flashback + XMonad tiling window manager
+Exec=/usr/local/bin/gnome-flashback-xmonad
+Type=Application
+DesktopNames=GNOME-Flashback;Unity;

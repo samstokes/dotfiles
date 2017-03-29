@@ -1,0 +1,13 @@
+# Based on /usr/share/applications/metacity.desktop from the metacity package
+#
+# Copy it into /usr/share/applications and chown root
+[Desktop Entry]
+Type=Application
+Name=XMonad
+Exec=/usr/local/bin/xmonad.start
+NoDisplay=true
+X-GNOME-WMName=XMonad
+# back compat only 
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
+X-GNOME-Autostart-Notify=true

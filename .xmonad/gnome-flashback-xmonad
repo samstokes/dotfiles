@@ -1,0 +1,10 @@
+#!/bin/sh
+# Based on /usr/lib/gnome-flashback/gnome-flashback-metacity from the
+# gnome-session-flashback package
+# You probably want a symlink to this in /usr/local/bin/
+
+if [ -z $XDG_CURRENT_DESKTOP ]; then
+  export XDG_CURRENT_DESKTOP="GNOME-Flashback:Unity"
+fi
+
+exec gnome-session --session=gnome-flashback-xmonad --disable-acceleration-check "$@"
