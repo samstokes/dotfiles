@@ -7,13 +7,21 @@
 -- Be careful with spaces and indentation because they are
 -- used to indicate layout for nested sections.
 
--- Cabal library version: 1.22.2.0
--- cabal-install version: 1.22.2.0
+-- Cabal library version: 1.24.2.0
+-- cabal-install version: 1.24.0.2
 
 
+repository hackage.haskell.org
+  url: http://hackage.haskell.org/
+  -- secure: False
+  -- root-keys:
+  -- key-threshold:
+
+-- default-user-config:
 -- require-sandbox: False
 -- ignore-sandbox: False
-remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
+-- ignore-expiry: False
+-- http-transport:
 remote-repo-cache: /home/sam/.cabal/packages
 -- local-repo:
 -- logs-dir:
@@ -30,6 +38,8 @@ world-file: /home/sam/.cabal/world
 -- executable-dynamic: False
 -- profiling:
 -- executable-profiling:
+-- profiling-detail:
+-- library-profiling-detail:
 -- optimization: True
 -- debug-info: False
 -- library-for-ghci:
@@ -42,11 +52,12 @@ world-file: /home/sam/.cabal/world
 -- flags:
 -- extra-include-dirs:
 -- extra-lib-dirs:
+-- extra-framework-dirs:
 extra-prog-path: /home/sam/.cabal/bin
--- instantiate-with:
 -- tests: False
 -- coverage: False
 -- library-coverage:
+-- allow-newer: False
 -- exact-configuration: False
 -- benchmarks: False
 -- relocatable: False
@@ -54,7 +65,6 @@ extra-prog-path: /home/sam/.cabal/bin
 -- constraint:
 -- preference:
 -- solver: choose
--- allow-newer: False
 -- documentation: False
 -- doc-index-file: $datadir/doc/$arch-$os-$compiler/index.html
 -- max-backjumps: 2000
@@ -74,8 +84,26 @@ remote-build-reporting: anonymous
 -- one-shot: False
 -- run-tests:
 jobs: $ncpus
+-- offline: False
 -- username:
 -- password:
+-- password-command:
+-- builddir:
+
+haddock
+  -- keep-temp-files: False
+  -- hoogle: False
+  -- html: False
+  -- html-location:
+  -- executables: False
+  -- tests: False
+  -- benchmarks: False
+  -- all:
+  -- internal: False
+  -- css:
+  -- hyperlink-source: False
+  -- hscolour-css:
+  -- contents-location:
 
 haddock
   -- keep-temp-files: False
@@ -96,7 +124,8 @@ install-dirs user
   -- prefix: /home/sam/.cabal
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
-  -- libsubdir: $abi/$pkgkey
+  -- libsubdir: $abi/$libname
+  -- dynlibdir: $libdir/$abi
   -- libexecdir: $prefix/libexec
   -- datadir: $prefix/share
   -- datasubdir: $abi/$pkgid
@@ -109,7 +138,8 @@ install-dirs global
   -- prefix: /usr/local
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
-  -- libsubdir: $abi/$pkgkey
+  -- libsubdir: $abi/$libname
+  -- dynlibdir: $libdir/$abi
   -- libexecdir: $prefix/libexec
   -- datadir: $prefix/share
   -- datasubdir: $abi/$pkgid
