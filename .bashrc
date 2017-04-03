@@ -113,7 +113,7 @@ export EDITOR
 [[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
 
 # Haskell
-export PATH="$HOME/.local/bin:~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.8.4/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.cabal/bin:/opt/cabal/1.24/bin:/opt/ghc/7.10.3/bin:$PATH"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
