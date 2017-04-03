@@ -64,8 +64,8 @@ myKeys :: [(String, X ())]
 myKeys =
     ----- launchers ----- {{{3
     [ ("M-S-r",   gnomeRun)
-    , ("M-r",     summonGnomeDo)
-    , ("C-M-r",   onEmptyWorkspace summonGnomeDo)
+    , ("M-r",     summonKupfer)
+    , ("C-M-r",   onEmptyWorkspace summonKupfer)
     , ("M-i h",   ghciGridSelect)
     , ("M-i r",   irbGridSelect)
     , ("M-i p",   pryGridSelect)
@@ -157,8 +157,8 @@ myKeys =
     ]
     ----- helper functions ----- {{{3
     where
-      summonGnomeDo =
-        safeSpawn "dbus-send" ["--session", "--type=method_call", "--dest=org.gnome.Do", "/org/gnome/Do/Controller", "org.gnome.Do.Controller.Summon"]
+      summonKupfer =
+        safeSpawn "kupfer" []
 
 ----- Mouse bindings ----- {{{2
 
