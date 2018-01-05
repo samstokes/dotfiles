@@ -19,16 +19,6 @@ omap <silent> ie <Plug>CamelCaseMotion_ie
 xmap <silent> ie <Plug>CamelCaseMotion_ie
 
 
-if filereadable($HOME . '/.simplenoterc')
-  source ~/.simplenoterc
-
-  command! ScratchOutline :setl buftype=acwrite bufhidden=hide noswapfile filetype=vo_base
-
-  autocmd BufNewFile _newnote :ScratchOutline
-  autocmd BufWriteCmd _newnote Simplenote -n
-endif
-
-
 call pathogen#runtime_append_all_bundles()
 
 syntax on                       " syntax highlighting
