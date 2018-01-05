@@ -97,8 +97,6 @@ myKeys =
     , ("M-v",     spawn "gvim")
     , ("S-M-v",   spawnGvimWithArgs "+'set filetype=votl' +'lcd $HOME/Dropbox/Notes'")
     , ("C-M-v",   inputPrompt myXPConfig "args" ?+ spawnGvimWithArgs)
-    , ("S-M-n",   spawnGvimWithArgs "+'Simplenote -l'")
-    , ("M-n",     safeSpawn "gvim" ["_newnote"])
 
     , ("S-M-o",   spawnTail "/var/log/syslog")
     , ("C-M-o",   inputPrompt myXPConfig "file" ?+ spawnTail)
