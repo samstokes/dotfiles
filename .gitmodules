@@ -127,6 +127,9 @@
 [submodule ".vim/bundle/targets"]
 	path = .vim/bundle/targets
 	url = https://github.com/wellle/targets.vim.git
+[submodule ".vim/bundle/vim-go"]
+	path = .vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go
 [submodule ".vim/bundle/rhubarb"]
 	path = .vim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
