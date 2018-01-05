@@ -353,7 +353,7 @@ autocmd FileType votl setl nolist comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:
 nnoremap <F9> :Dispatch<CR>
 nnoremap <S-F9> :Dispatch!<CR>
 nnoremap <F10> :Copen<CR>
-nnoremap <S-F10> :cclose<CR>
+nnoremap <S-F10> :cclose\|lclose<CR>
 
 
 " use '*' to mean 'all other filetypes'
