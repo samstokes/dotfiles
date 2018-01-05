@@ -85,8 +85,9 @@ myKeys =
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
+    , ("M-g",     inputPrompt myXPConfig "search term" ?+ safeSpawnX "passclip" . pure)
     , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
-    , ("M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
+    , ("C-M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
     , ("M-s",     hasshPrompt myXPConfig sshConfig ?+ spawnSshHost)
     , ("M-S-s",   hasshPrompt myXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "tmux attach || tmux")))
     , ("C-M-s",   hasshPrompt myXPConfig sshConfig ?+ (\portal ->

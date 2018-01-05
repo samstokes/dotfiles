@@ -1,0 +1,22 @@
+#!/bin/bash
+set -ueo pipefail
+
+got=
+while read password; do
+  if [[ -z $got ]]; then
+    got=$password
+  else
+    echo "More than one response! Not copying to clipboard." >&2
+    got=
+    break
+  fi
+done < <(noecho ssh j bin/passgrep "$@" | tee /dev/stderr | awk -F'	+' '{print $NF}')
+if [[ -n $got ]]; then
+  xclip -selection clipboard <<<"$got"
+  echo Clipped!
+  # clipboard entry seems to only survive as long as this terminal does, so let's
+  # just say that's a security feature...
+else
+  echo "Found no results matching $@"
+fi
+sleep 30
