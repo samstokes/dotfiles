@@ -7,7 +7,7 @@ case "$(basename "$0")" in
 esac
 
 output=$(mktemp --suffix=.pdf)
-trap "rm -f $output" EXIT
+trap "sleep 5 && rm -f $output" EXIT
 
 man -t "$@" | ps2pdf - "$output"
 xdg-open "$output"
