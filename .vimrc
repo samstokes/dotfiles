@@ -295,6 +295,35 @@ autocmd FileType haskell,lhaskell let g:neocomplcache_disable_auto_complete = 1 
 "autocmd FileType haskell,lhaskell NeoComplCacheEnable " doesn't seem to be needed?
 autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
 
+" Go
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+	let l:file = expand('%')
+	if l:file =~# '^\f\+_test\.go$'
+		call go#test#Test(0, 1)
+	elseif l:file =~# '^\f\+\.go$'
+		call go#cmd#Build(0)
+	endif
+endfunction
+
+autocmd FileType go nmap <buffer> <Leader>b  :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <buffer> <Leader>r  <Plug>(go-run)
+autocmd FileType go nmap <buffer> <Leader>t  <Plug>(go-test)
+autocmd FileType go nmap <buffer> <Leader>i  <Plug>(go-info)
+autocmd FileType go nmap <buffer> <Leader>f  <Plug>(go-test-func)
+autocmd FileType go nmap <buffer> <Leader>v  <Plug>(go-coverage-toggle)
+autocmd FileType go setl autowrite
+
+let g:go_fmt_command = "goimports"
+let g:go_info_mode = 'guru'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
 let g:Gitv_TruncateCommitSubjects = 1
@@ -318,6 +347,11 @@ let g:syntastic_warning_symbol='⚠'
 let g:syntastic_stl_format = '[%E{Err: %e}%B{, }%W{Warn: %w}]'
 
 let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
+
+let g:syntastic_mode_map = {
+  \ "mode": "active",
+  \ "active_filetypes": [],
+  \ "passive_filetypes": ["go"] }
 
 " Ctrl-P
 nnoremap <C-b> :<C-u>CtrlPBuffer<CR>
