@@ -337,7 +337,7 @@ nnoremap <leader>' :Switch<CR>
 
 nnoremap <leader>vo :setl ft=votl<CR>
 
-autocmd FileType votl setl nolist comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>,:<,:;
+autocmd FileType votl setl autowrite nolist comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>,:<,:;
 
 
 nnoremap <F9> :Dispatch<CR>
