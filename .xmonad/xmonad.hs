@@ -5,7 +5,7 @@
 ----- Imports ----- {{{2
 import Control.Applicative ((<$>), (<*>))
 import Control.Applicative.Error (maybeRead)
-import Control.Monad (when)
+import Control.Monad (replicateM_, when)
 import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
@@ -139,6 +139,8 @@ myKeys =
     , ("S-M-<KP_Right>", sendToScreen (P 1))
 
     ----- window management commands ----- {{{3
+    , ("S-M-h",   replicateM_ 10 $ sendMessage Shrink)
+    , ("S-M-l",   replicateM_ 10 $ sendMessage Expand)
     , ("M-<Space>", sendMessage NextLayout >> notifyCurrentLayout)
     , ("M-z",     withFocused minimizeWindow)
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
