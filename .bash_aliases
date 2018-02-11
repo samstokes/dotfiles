@@ -60,8 +60,8 @@ done
 
 alias mgi="monitor gem install"
 alias msgi="monitor sudo gem install"
-alias msai="monitor sudo apt-get install"
-alias msau="monitor sudo apt-get update"
+alias msai="monitor sudo apt install"
+alias msau="monitor sudo apt update"
 alias mpi="monitor pip install"
 
 alias mmake="monitor make"
