@@ -316,10 +316,10 @@ onEmptyWorkspace = (viewEmptyWorkspace >>)
 ----- spawn in xterm ----- {{{3
 
 spawnX :: FilePath -> X ()
-spawnX = spawn . ("x " ++)
+spawnX cmd = safeSpawn "gnome-terminal" ["-e", cmd]
 
 safeSpawnX :: FilePath -> [String] -> X ()
-safeSpawnX cmd opts = safeSpawn "x" (cmd : opts)
+safeSpawnX cmd opts = safeSpawn "gnome-terminal" $ "-x" : cmd : opts
 
 
 ----- take screenshot and send to GIMP {{{3
