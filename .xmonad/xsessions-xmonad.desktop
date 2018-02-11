@@ -1,9 +1,0 @@
-# You probably want to copy this file to /usr/share/xsessions/ and chown
-# it to root (seems not to work otherwise)
-[Desktop Entry]
-Encoding=UTF-8
-Name=XMonad
-Comment=Lightweight tiling window manager
-Exec=/usr/local/bin/xmonad-flavoured-gnome-session
-Icon=xmonad.png
-Type=XSession
