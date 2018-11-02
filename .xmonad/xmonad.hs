@@ -129,6 +129,8 @@ myKeys =
     , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
+    , ("M-<Home>", safeSpawn "unity-control-center" ["display"])
+
     , ("M-<XF86Back>", viewScreen (P 0))
     , ("M-<XF86Forward>", viewScreen (P 1))
     , ("S-M-<XF86Back>", sendToScreen (P 0))
