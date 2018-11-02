@@ -1,5 +1,0 @@
-#!/bin/bash
-usage="$0 SOURCE [TARGET]"
-SOURCE=${1?Usage: $usage}
-TARGET=$2
-gvim -c ":0r ++edit $SOURCE" $TARGET
