@@ -105,6 +105,7 @@ myKeys =
     , ("<Print>", gimpShot FullScreenshot)
     , ("S-<Print>", gimpShot WindowScreenshot)
     , ("C-<Print>", gimpShot RegionScreenshot)
+    , ("C-S-<Print>", spawn "peek")
 
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
@@ -247,6 +248,7 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
                  ]
     ----- windows to float {{{2
     floatables = [ className =? "Gcalctool"
+                 , appName =? "peek"
                  ]
     ----- windows that should be made master when they appear {{{2
     masters = [
