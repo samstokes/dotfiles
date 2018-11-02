@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Encrypted Dropbox
+Comment=Sync your files across computers and to the web
+Exec=encrypted-dropbox start
+Terminal=true
+Type=Application
+Icon=dropbox
+Categories=Network;FileTransfer;
+StartupNotify=false

@@ -1,0 +1,16 @@
+#!/bin/bash
+set -ueo pipefail
+
+MAPPER_NAME=luks_store
+
+echo Please enter sudo password to mount encrypted partition
+
+exec >"$HOME"/.luks.log 2>&1
+
+echo "Mounting LUKS on $(date)"
+
+sudo cryptsetup -v luksOpen UUID=c330e147-8484-4a0d-9745-fac8ee55b457 "$MAPPER_NAME" --key-file="$HOME"/.store-secret-key
+
+udisksctl mount --block-device=/dev/mapper/"$MAPPER_NAME"
+
+echo "Mounted LUKS successfully."
