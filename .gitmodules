@@ -139,3 +139,9 @@
 [submodule ".vim/bundle/rhubarb"]
 	path = .vim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule ".vim/bundle/prettier"]
+	path = .vim/bundle/prettier
+	url = https://github.com/prettier/vim-prettier
+[submodule ".vim/bundle/styled-components"]
+	path = .vim/bundle/styled-components
+	url = https://github.com/styled-components/vim-styled-components
