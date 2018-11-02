@@ -34,7 +34,7 @@ end
 def methods_returning(answer, *args)
   # probably want to filter out some methods
   # e.g. ones that mutate their receiver...
-  blacklist = %w(debugger breakpoint)
+  blacklist = %i(debugger breakpoint exit exit! irb_quit quit help irb irb_exit irb_help)
 
   (methods - blacklist).select do |method|
     guinea_pig = begin
