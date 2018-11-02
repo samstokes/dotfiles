@@ -356,9 +356,12 @@ let g:syntastic_stl_format = '[%E{Err: %e}%B{, }%W{Warn: %w}]'
 
 let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of a variable in void context'}
 
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exec='cmd/poodle/node_modules/.bin/eslint'
+
 let g:syntastic_mode_map = {
   \ "mode": "active",
-  \ "active_filetypes": [],
+  \ "active_filetypes": ["javascript", "javascript.jsx"],
   \ "passive_filetypes": ["go"] }
 
 " Ctrl-P
