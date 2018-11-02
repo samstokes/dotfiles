@@ -158,6 +158,8 @@ autocmd FileType css,lucius,cassius setl iskeyword+=-
 
 autocmd FileType java,javascript setl shiftwidth=2 tabstop=2 expandtab
 
+autocmd FileType javascript.jsx setl shiftwidth=4 tabstop=4 expandtab
+
 let g:prettier#autoformat = 0
 let g:prettier#exec_cmd_path = "cmd/poodle/node_modules/.bin/prettier"
 if v:version >= 800
