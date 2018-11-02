@@ -24,6 +24,7 @@
   mt = mergetool
   mw = !git meanwhile
   meanwhile = !git logg $(git wbr)..master
+  pushit = !git push -u origin $(git wbr):refs/heads/samstokes/$(git wbr)
 	ct = committool
 	rc = review-commits
 	wbr = describe --contains --all HEAD
