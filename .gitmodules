@@ -139,6 +139,9 @@
 [submodule ".vim/bundle/solarized8"]
 	path = .vim/bundle/solarized8
 	url = https://github.com/lifepillar/vim-solarized8
-[submodule ".config/nvim/bundle/coc"]
-	path = .config/nvim/bundle/coc
-	url = https://github.com/neoclide/coc.nvim
+[submodule ".vim/bundle/rust"]
+	path = .vim/bundle/rust
+	url = https://github.com/rust-lang/rust.vim
+[submodule ".vim/bundle/racer"]
+	path = .vim/bundle/racer
+	url = https://github.com/racer-rust/vim-racer
