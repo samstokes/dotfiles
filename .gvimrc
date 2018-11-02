@@ -1,5 +1,7 @@
 colorscheme solarized
 set guifont=Ubuntu\ Mono\ 12
+nnoremap <Leader>gf :set guifont=Ubuntu\ Mono\ 9<CR>
+nnoremap <Leader>gF :set guifont=Ubuntu\ Mono\ 12<CR>
 
 call togglebg#map("<F5>")
 
