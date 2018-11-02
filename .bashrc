@@ -122,3 +122,9 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if hash rbenv 2>/dev/null; then
   eval "$(rbenv init -)"
 fi
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+if hash rustc 2>/dev/null; then
+  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
