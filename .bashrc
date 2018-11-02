@@ -105,6 +105,9 @@ fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 
+# custom vim build
+[[ -d "$HOME"/opt/vim ]] && export PATH="$HOME/opt/vim/bin:$PATH"
+
 hash gvim 2>/dev/null && EDITOR="gvim -f" || EDITOR=vim
 export EDITOR
 
