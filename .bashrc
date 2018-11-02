@@ -120,3 +120,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if hash rbenv 2>/dev/null; then
   eval "$(rbenv init -)"
 fi
+
+# Hub
+export PATH="$PATH:$HOME/opt/hub/bin"
