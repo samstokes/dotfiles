@@ -158,6 +158,14 @@ autocmd FileType css,lucius,cassius setl iskeyword+=-
 
 autocmd FileType java,javascript setl shiftwidth=2 tabstop=2 expandtab
 
+let g:prettier#autoformat = 0
+let g:prettier#exec_cmd_path = "cmd/poodle/node_modules/.bin/prettier"
+if v:version >= 800
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+else
+  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue Prettier
+end
+
 autocmd FileType xml setl equalprg=xmllint\ --format\ -
 
 " some helpful abbrevs for LaTeX documents
