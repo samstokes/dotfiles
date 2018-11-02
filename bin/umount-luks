@@ -1,0 +1,16 @@
+#!/bin/bash
+set -ueo pipefail
+
+MAPPER_NAME=luks_store
+
+echo Please enter sudo password to unmount encrypted partition
+
+exec >"$HOME"/.luks.log 2>&1
+
+echo "Unmounting LUKS on $(date)"
+
+udisksctl unmount --block-device=/dev/mapper/"$MAPPER_NAME"
+
+sudo cryptsetup -v luksClose "$MAPPER_NAME"
+
+echo "Unmounted LUKS successfully."

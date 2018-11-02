@@ -169,6 +169,7 @@ clients
 sounds
 .sqlite_history
 StarCraft II
+.store-secret-key
 .subversion
 .sudo_as_admin_successful
 .synaptic
