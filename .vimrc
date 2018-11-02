@@ -305,6 +305,10 @@ autocmd FileType haskell,lhaskell let g:neocomplcache_disable_auto_complete = 1 
 "autocmd FileType haskell,lhaskell NeoComplCacheEnable " doesn't seem to be needed?
 autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
 
+" Rust
+let g:rustfmt_autosave = 1
+let g:racer_experimental_completer = 1
+
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
 let g:Gitv_TruncateCommitSubjects = 1
