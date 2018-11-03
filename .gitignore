@@ -231,3 +231,22 @@ Yammer
 .config/dconf
 .config/update-notifier
 .rbenv
+.zoom
+.wget-hsts
+snap
+.config/zoomus.conf
+.config/gnome-control-center
+.config/unity
+.config/skypeforlinux
+.config/nautilus
+.config/libaccounts-glib
+.config/Signal
+.config/Unknown Organization/zoom.conf
+.config/eog
+.config/evince
+.config/evolution
+.config/gedit
+.steam*
+.cargo
+.multirust
+.rustup
