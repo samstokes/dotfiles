@@ -4,18 +4,15 @@
 {-# LANGUAGE GADTs #-}
 ----- Imports ----- {{{2
 import Control.Applicative ((<$>), (<*>))
-import Control.Applicative.Error (maybeRead)
 import Control.Monad (replicateM_, when)
 import Data.Char (toLower)
 import Data.List (intercalate, isInfixOf)
 import Data.Maybe
 import Data.Monoid
-import qualified SSH.Config
 import System.Directory (getDirectoryContents)
 import System.FilePath.Posix ((</>))
 import System.IO
 import System.Process (readProcess, runInteractiveCommand)
-import Text.Parsec ((<?>), anyChar, many1, noneOf, parse, spaces, Parsec)
 import XMonad hiding ( (|||), Tall ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
@@ -43,7 +40,6 @@ import XMonad.Layout.Spiral (spiral)
 import XMonad.Layout.ThreeColumns
 import XMonad.ManageHook
 import XMonad.Prompt
-import XMonad.Prompt.Hassh
 import XMonad.Prompt.Input
 import XMonad.Prompt.Window
 import qualified XMonad.StackSet as W
@@ -71,7 +67,6 @@ myKeys =
     , ("M-i p",   pryGridSelect)
     , ("M-i n",   spawnNode)
     , ("M-i y",   spawnPython)
-    , ("M-i u",   ubuntuGridSelect)
     , ("M-i s",   spawnPsql)
     , ("M-i j",   spawnJq)
     , ("M-e",     goToSelected windowGSConfig)
@@ -86,13 +81,6 @@ myKeys =
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
     , ("M-g",     inputPrompt myXPConfig "search term" ?+ safeSpawnX "passclip" . pure)
-    , ("M-S-g",   spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "vim stuff.asc")
-    , ("C-M-g",     spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/passgrep")
-    , ("M-s",     hasshPrompt myXPConfig sshConfig ?+ spawnSshHost)
-    , ("M-S-s",   hasshPrompt myXPConfig sshConfig ?+ (\host -> spawnSshHostOpts host ["-t"] (Just "tmux attach || tmux")))
-    , ("C-M-s",   hasshPrompt myXPConfig sshConfig ?+ (\portal ->
-                    hasshPrompt myXPConfig sshConfig ?+ (\host ->
-                      spawnSshHostOpts portal ["-t"] (Just $ "ssh " ++ SSH.Config.hostName host))))
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
@@ -108,10 +96,8 @@ myKeys =
 
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
-    , ("M-C-<XF86AudioPlay>", promptMinutes ?+ timerStart)
     , ("M-<XF86AudioStop>", timerStop)
     , ("M-S-<XF86AudioStop>", timerStop)
-    , ("M-<XF86AudioNext>", spawnSshOptsCmd "jabberwock.vm.bytemark.co.uk" ["-t"] "bin/log_pomos")
 
     ----- workspace navigation ----- {{{3
     , ("C-M-h",   myMove ToLeft)
@@ -395,46 +381,6 @@ listRubies :: IO [String]
 listRubies = (:) <$> return "system" <*> dir ".rbenv/versions"
 
 
------ Ubuntu prompt ----- {{{3
-
-ubuntuGridSelect :: X ()
-ubuntuGridSelect = ubuntuImageGridSelect ?+ spawnDockerBash
-
-spawnDockerBash :: String -> X ()
-spawnDockerBash image = safeSpawnX "docker" ["run", "--rm", "-i", "-t", image, "bash"]
-
-ubuntuImageGridSelect :: X (Maybe String)
-ubuntuImageGridSelect = noisyGrid "Ubuntu image" $ do
-  choices $ io (listDockerImages "ubuntu") `catchX` return []
-  labels snd
-  action $ return . fst
-  gsConfig myGSConfig
-
-listDockerImages :: String -> IO [(String, String)]
-listDockerImages repo = map parseImageLine . drop 1 . lines <$> getCommandOutput ("docker images " <> repo)
-  where
-    parseImageLine :: String -> (String, String)
-    parseImageLine str = case parse parser "" str of
-      Right (image, tag) -> (image, tag)
-      Left e -> (str, show e)
-    parser :: Parsec String () (String, String)
-    parser = do
-      repo <- many1 (noneOf " ") <?> "image repository"
-      spaces
-      tag <- many1 (noneOf " ") <?> "image tag"
-      spaces >> many1 anyChar
-      return (repo <> ":" <> tag, tag)
-
-
-getCommandOutput :: String -> IO String
-getCommandOutput command = do
-  (_, hOut, hErr, _) <- runInteractiveCommand command
-  out <- hGetContents hOut
-  err <- hGetContents hErr
-  when (err /= "") $ hPutStrLn stderr err
-  return out
-
-
 ----- ghci ----- {{{3
 
 ghcVersionsDir :: String
@@ -504,24 +450,6 @@ breakShort = Minutes 5
 breakLong = Minutes 30
 
 
------ spawn ssh ----- {{{3
-
-spawnSsh :: String -> X ()
-spawnSsh host = spawnSshOpts host [] Nothing
-
-spawnSshOptsCmd :: String -> [String] -> FilePath -> X ()
-spawnSshOptsCmd host opts cmd = spawnSshOpts host opts (Just cmd)
-
-spawnSshOpts :: String -> [String] -> Maybe FilePath -> X ()
-spawnSshOpts host opts maybeCmd = safeSpawnX "ssh" $
-    opts ++ [host] ++ maybeToList maybeCmd
-
-spawnSshHost :: SSH.Config.Section -> X ()
-spawnSshHost host = spawnSshHostOpts host [] Nothing
-
-spawnSshHostOpts :: SSH.Config.Section -> [String] -> Maybe FilePath -> X ()
-spawnSshHostOpts = spawnSshOpts . SSH.Config.alias
-
 ----- spawn gvim ----- {{{3
 
 spawnGvimWithArgs :: String -> X ()
@@ -535,15 +463,6 @@ spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
 ----- SSH utilities ----- {{{2
 sshConfig :: FilePath
 sshConfig = "/home/sam/.ssh/config"
-
------ Prompts ----- {{{2
-
-maybeReadM :: (Monad m, Read a) => Maybe String -> m (Maybe a)
-maybeReadM = return . (>>= maybeRead)
-
-promptMinutes :: X (Maybe (Duration Int))
-promptMinutes = inputPrompt greenXPConfig "Minutes" >>= maybeReadM
-
 
 -- === Put it all together === {{{1
 
