@@ -84,7 +84,7 @@ myKeys =
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
-    , ("S-M-v",   spawnGvimWithArgs "+'set filetype=votl' +'lcd $HOME/Dropbox/Notes'")
+    , ("S-M-v",   spawnGvimWithArgs "+'set filetype=votl' +'lcd $HOME/Dropbox/Notes' +'unlet g:ctrlp_user_command' +'let g:ctrlp_working_path_mode = \"a\"'")
     , ("C-M-v",   inputPrompt myXPConfig "args" ?+ spawnGvimWithArgs)
 
     , ("S-M-o",   spawnTail "/var/log/syslog")
