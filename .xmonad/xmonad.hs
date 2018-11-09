@@ -90,9 +90,9 @@ myKeys =
     , ("S-M-o",   spawnTail "/var/log/syslog")
     , ("C-M-o",   inputPrompt myXPConfig "file" ?+ spawnTail)
 
-    , ("<Print>", gimpShot FullScreenshot)
-    , ("S-<Print>", gimpShot WindowScreenshot)
-    , ("C-<Print>", gimpShot RegionScreenshot)
+    , ("<Print>", gnomeShot FullScreenshot)
+    , ("S-<Print>", gnomeShot WindowScreenshot)
+    , ("C-<Print>", gnomeShot RegionScreenshot)
 
     , ("M-<XF86AudioPlay>", timerStart pomodoro)
     , ("M-S-<XF86AudioPlay>", timerStart breakShort)
@@ -312,18 +312,18 @@ safeSpawnX cmd opts = safeSpawn "gnome-terminal" $ "-x" : cmd : opts
 
 data ScreenshotType = FullScreenshot | WindowScreenshot | RegionScreenshot
 
-gimpShot :: ScreenshotType -> X ()
-gimpShot FullScreenshot = gimpScrot False Nothing
-gimpShot WindowScreenshot = gimpScrot False $ Just "--focused"
-gimpShot RegionScreenshot = do
-  notify "Select a region" Nothing
-  -- Need to sleep before grabbing the cursor, or XMonad gets confused
-  gimpScrot True (Just "--select")
+gnomeShot :: ScreenshotType -> X ()
+gnomeShot FullScreenshot = gnomeShot_ False Nothing
+gnomeShot WindowScreenshot = gnomeShot_ False (Just "--window")
+gnomeShot RegionScreenshot = do
+    notify "Select a region" Nothing
+    -- Need to sleep before grabbing the cursor, or XMonad gets confused
+    gnomeShot_ True (Just "--area")
 
-gimpScrot :: Bool -> Maybe String -> X ()
-gimpScrot sleep opts = spawn scrotCmd
+gnomeShot_ :: Bool -> Maybe String -> X ()
+gnomeShot_ sleep opts = spawn shotCmd
   where
-    scrotCmd = unwords $ catMaybes [sleepCmd, Just "scrot -e 'gimp $f && rm $f'", opts]
+    shotCmd = unwords $ catMaybes [sleepCmd, Just "gnome-screenshot", opts]
     sleepCmd = if sleep then Just "sleep 0.2;" else Nothing
 
 
