@@ -8,3 +8,4 @@ x-scheme-handler/mailto=google-chrome.desktop
 
 [Added Associations]
 application/octet-stream=vim.desktop;
+x-scheme-handler/vscode-exploration=code-exploration-url-handler.desktop
