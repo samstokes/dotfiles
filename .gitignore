@@ -255,3 +255,6 @@ snap
 .config/lvim/plugin/packer_compiled.lua
 .config/gnome-initial-setup-done
 .config/Slack
+.xmonad/prompt-history
+.wget-hsts
+Notes
