@@ -456,10 +456,6 @@ spawnGvimWithArgs args = spawn ("gvim " ++ args)
 spawnTail :: String -> X ()
 spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
 
------ SSH utilities ----- {{{2
-sshConfig :: FilePath
-sshConfig = "/home/sam/.ssh/config"
-
 -- === Put it all together === {{{1
 
 ----- XConfig ----- {{{2
