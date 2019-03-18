@@ -214,6 +214,7 @@ workspace
 .xmonad/xmonad.errors
 .xmonad/xmonad.hi
 .xmonad/xmonad.o
+.xmonad/xmonad.state
 .xscreensaver-getimage.cache
 .xsession-errors*
 Yammer
@@ -252,3 +253,4 @@ snap
 .rustup
 .config/nvim-gtk/window.toml
 .config/lvim/plugin/packer_compiled.lua
+.config/gnome-initial-setup-done
