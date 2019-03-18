@@ -254,3 +254,4 @@ snap
 .config/nvim-gtk/window.toml
 .config/lvim/plugin/packer_compiled.lua
 .config/gnome-initial-setup-done
+.config/Slack
