@@ -127,6 +127,10 @@ myKeys =
     , ("S-M-<KP_Left>", sendToScreen (P 0))
     , ("S-M-<KP_Right>", sendToScreen (P 1))
 
+    -- adjust scaling factor for HiDPI shenanigans
+    , ("M-f", adjustScalingFactor 1)
+    , ("S-M-f", adjustScalingFactor 2)
+
     ----- window management commands ----- {{{3
     , ("S-M-h",   replicateM_ 10 $ sendMessage Shrink)
     , ("S-M-l",   replicateM_ 10 $ sendMessage Expand)
@@ -310,6 +314,15 @@ spawnX cmd = safeSpawn "gnome-terminal" ["-e", cmd]
 
 safeSpawnX :: FilePath -> [String] -> X ()
 safeSpawnX cmd opts = safeSpawn "gnome-terminal" $ "-x" : cmd : opts
+
+
+----- adjust HiDPI scaling factor {{{3
+
+adjustScalingFactor :: Int -> X ()
+adjustScalingFactor factor = safeSpawn "gsettings" opts
+  where
+    opts = ["set", "org.gnome.settings-daemon.plugins.xsettings", "overrides", value]
+    value = "[{'Gdk/WindowScalingFactor', <" ++ show factor ++ ">}]"
 
 
 ----- take screenshot and send to GIMP {{{3
