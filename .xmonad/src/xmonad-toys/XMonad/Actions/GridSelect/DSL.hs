@@ -34,7 +34,7 @@ data GridDoOpts item result = GridDoOpts {
 defaultGridDoOpts :: HasColorizer item => GridDoOpts item result
 defaultGridDoOpts = GridDoOpts {
     gridDoChoices = error "must specify choices"
-  , gridDoConfig = defaultGSConfig
+  , gridDoConfig = def
   , gridDoLabels = const "no label function specified"
   , gridDoAction = const $ gridNotify "item chosen" >> error "must specify action"
   }
