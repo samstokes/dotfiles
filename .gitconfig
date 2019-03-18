@@ -1,6 +1,6 @@
 [user]
+	email = sstokes@launchdarkly.com
 	name = Sam Stokes
-	email = me@samstokes.co.uk
 [core]
 	excludesfile = /home/sam/.git-excludes
 	pager = less -i
