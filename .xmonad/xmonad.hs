@@ -86,7 +86,7 @@ myKeys =
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
-    , ("S-M-v",   spawnGvimWithArgs "+'lcd $HOME/Dropbox/Notes' +'unlet g:ctrlp_user_command' +'let g:ctrlp_working_path_mode = \"a\"'")
+    , ("S-M-v",   spawnGvimWithArgs "+'lcd $HOME/Notes' +'unlet g:ctrlp_user_command' +'let g:ctrlp_working_path_mode = \"a\"'")
     , ("C-M-v",   inputPrompt myXPConfig "args" ?+ spawnGvimWithArgs)
     -- edit current clipboard contents
     , ("S-C-M-v", spawnGvimWithArgs "'+set buftype=nofile' '+put +' '+0,0delete' '+autocmd BufUnload <buffer> silent w !xclip -selection clipboard'")
