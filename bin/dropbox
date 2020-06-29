@@ -1,4 +1,0 @@
-#!/bin/bash
-# Wrapper that starts dropbox with an alternative HOME
-
-HOME=/media/sam/luks_store exec /usr/bin/dropbox "$@"
