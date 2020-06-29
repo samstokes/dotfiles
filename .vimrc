@@ -130,11 +130,20 @@ vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 autocmd FileType markdown nmap <buffer> <Leader>rp :silent w !pandoc \| bcat<CR>
 " insert date
 function BlogInsertDate()
-  let @x = strftime('%Y-%m-%d %H:%M:%S %z')
+  let @x = strftime('%A %d %B')
   normal! "xp
 endfunction
 autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>d ~<ESC>x:call BlogInsertDate()<CR>a
 autocmd FileType markdown setl spell
+
+" vimwiki
+if glob('~/Dropbox/Notes') != ''
+  let g:vimwiki_list = [{'path': '~/Dropbox/Notes/',
+                       \ 'syntax': 'markdown', 'ext': '.md'}]
+endif
+nmap <LocalLeader>cx :VimwikiToggleListItem<CR>
+nmap <LocalLeader>cp :VimwikiDecrementListItem<CR>
+nmap <LocalLeader>cn :VimwikiIncrementListItem<CR>
 
 " don't text wrap emails, mail client will do it too and conflict
 autocmd FileType mail setl textwidth=0
