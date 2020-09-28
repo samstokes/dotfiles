@@ -252,3 +252,4 @@ snap
 .multirust
 .rustup
 .config/nvim-gtk/window.toml
+.configure-inputs.errors

@@ -1,0 +1,20 @@
+#!/bin/bash
+set -ueo pipefail
+
+name=$(basename "$0")
+log="$HOME/.${name}.errors"
+
+loggily() {
+  "$@" 2>>"$log"
+}
+
+# custom keyboard settings
+[[ -r .xmodmaprc ]] && loggily xmodmap .xmodmaprc
+
+# disable trackpad, since apparently Gnome settings can't do that any more
+trackpad_id=$(loggily xinput list | loggily sed -n '/Synaptics/s/.*id=\([0-9]*\).*/\1/p')
+if [[ -n $trackpad_id ]]; then
+  loggily xinput set-prop "$trackpad_id" "Device Enabled" 0
+else
+  echo "Couldn't find trackpad to disable it" >>"$log"
+fi
