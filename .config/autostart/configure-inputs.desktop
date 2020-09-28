@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=configure-inputs
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Configure Inputs
+Name=Configure Inputs
+Comment[en_US]=Tweak keyboard, trackpad etc
+Comment=Tweak keyboard, trackpad etc
