@@ -139,6 +139,7 @@ autocmd FileType markdown setl spell
 " vimwiki
 if glob('~/Dropbox/Notes') != ''
   let g:vimwiki_list = [{'path': '~/Dropbox/Notes/',
+                       \ 'auto_tags': 1,
                        \ 'syntax': 'markdown', 'ext': '.md'}]
 endif
 nmap <LocalLeader>cx :VimwikiToggleListItem<CR>
