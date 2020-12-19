@@ -17,6 +17,7 @@ import XMonad hiding ( (|||), Tall ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.GridSelect.DSL
+import XMonad.Actions.Minimize (maximizeWindowAndFocus, minimizeWindow, withLastMinimized)
 import XMonad.Actions.Notify
 import XMonad.Actions.NotifyCurrentLayout
 import XMonad.Actions.PhysicalScreens
@@ -26,7 +27,6 @@ import XMonad.Actions.UpdatePointer
 import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
-import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.HintedGrid (Grid(..))
@@ -113,22 +113,22 @@ myKeys =
     , ("S-M-<Backspace>",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
-    , ("M-<XF86Back>", viewScreen (P 0))
-    , ("M-<XF86Forward>", viewScreen (P 1))
-    , ("S-M-<XF86Back>", sendToScreen (P 0))
-    , ("S-M-<XF86Forward>", sendToScreen (P 1))
+    , ("M-<XF86Back>", viewScreen def (P 0))
+    , ("M-<XF86Forward>", viewScreen def (P 1))
+    , ("S-M-<XF86Back>", sendToScreen def (P 0))
+    , ("S-M-<XF86Forward>", sendToScreen def (P 1))
 
-    , ("M-<KP_Left>", viewScreen (P 0))
-    , ("M-<KP_Right>", viewScreen (P 1))
-    , ("S-M-<KP_Left>", sendToScreen (P 0))
-    , ("S-M-<KP_Right>", sendToScreen (P 1))
+    , ("M-<KP_Left>", viewScreen def (P 0))
+    , ("M-<KP_Right>", viewScreen def (P 1))
+    , ("S-M-<KP_Left>", sendToScreen def (P 0))
+    , ("S-M-<KP_Right>", sendToScreen def (P 1))
 
     ----- window management commands ----- {{{3
     , ("S-M-h",   replicateM_ 10 $ sendMessage Shrink)
     , ("S-M-l",   replicateM_ 10 $ sendMessage Expand)
     , ("M-<Space>", sendMessage NextLayout >> notifyCurrentLayout)
     , ("M-z",     withFocused minimizeWindow)
-    , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
+    , ("S-M-z",   withLastMinimized maximizeWindowAndFocus)
     , ("M1-<F4>", kill)
     , ("M-<F11>", promote >> sendMessage (JumpToLayout "Full"))
       ----- skip boring windows when changing focus ----- {{{4
@@ -201,10 +201,6 @@ myLayoutHook = defaultLayout
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
 
--- === Event hook === {{{1
-
-myEventHook :: Event -> X All
-myEventHook = restoreMinimizedEventHook
 
 
 -- === Startup hook === {{{1
@@ -474,7 +470,7 @@ myConfig = gnomeConfig
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
     , layoutHook = myLayoutModifiers $ myLayoutHook
     , logHook = logHook gnomeConfig >> myLogHook
-    , handleEventHook = handleEventHook gnomeConfig `mappend` myEventHook
+    , handleEventHook = handleEventHook gnomeConfig
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
