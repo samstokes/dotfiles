@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec gvim +"lcd $HOME/Dropbox/Notes" +'unlet g:ctrlp_user_command' +'let g:ctrlp_working_path_mode = "a"' "$@"
