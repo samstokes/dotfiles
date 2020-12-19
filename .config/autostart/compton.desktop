@@ -9,3 +9,4 @@ TryExec=compton
 Exec=compton
 Icon=compton
 # Thanks to quequotion for providing this file!
+X-GNOME-Autostart-enabled=false
