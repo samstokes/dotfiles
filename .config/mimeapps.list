@@ -5,6 +5,7 @@ x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 x-scheme-handler/mailto=google-chrome.desktop
+x-scheme-handler/discord-402572971681644545=discord-402572971681644545.desktop
 
 [Added Associations]
 application/octet-stream=vim.desktop;
