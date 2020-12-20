@@ -250,3 +250,4 @@ snap
 .cargo
 .multirust
 .rustup
+.config/nvim-gtk/window.toml
