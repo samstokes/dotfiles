@@ -1,8 +1,10 @@
+" vim:foldmethod=marker
+
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-" coc
+" === coc === {{{1
 " Give more space for displaying messages.
 set cmdheight=2
 
@@ -148,6 +150,8 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" === coc === }}}1
 
 " workaround for gnvim not providing has('gui')
 if exists('g:gnvim')
