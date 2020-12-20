@@ -307,7 +307,6 @@ autocmd FileType haskell,lhaskell setlocal omnifunc=necoghc#omnifunc
 
 " Rust
 let g:rustfmt_autosave = 1
-let g:racer_experimental_completer = 1
 
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
