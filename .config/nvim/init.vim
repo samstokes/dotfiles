@@ -1,8 +1,10 @@
+" vim:foldmethod=marker
+
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
-" coc
+" === coc === {{{1
 " Give more space for displaying messages.
 set cmdheight=2
 
