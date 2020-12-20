@@ -4,7 +4,7 @@ i3xrocks.date.format2: %a %e %b %l:%M%P
 i3-wm.bar.background.color: #002b36dd
 i3-wm.binding.bluetooth: Ctrl+b
 i3-wm.binding.split_v: b
-i3-wm.program.editor: gvim
-i3-wm.program.editor.notes: gvim-notes
+i3-wm.program.editor: nvim-gtk
+i3-wm.program.editor.notes: nvim-gtk-notes
 i3-wm.workspace.auto_back_and_forth: yes
 Xft.dpi: 144
