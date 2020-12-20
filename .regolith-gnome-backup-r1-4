@@ -1,0 +1,11 @@
+# The following settings were changed by Regolith when configuring your system. Execute this file or run the commands manually to restore them.
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source "@as []"
+gsettings set org.gnome.desktop.wm.keybindings switch-input-source-backward "@as []"
+gsettings set org.gnome.desktop.background picture-uri "'file:///usr/share/backgrounds/TCP118v1_by_Tiziano_Consonni.jpg'"
+gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
+gsettings set org.gnome.desktop.wm.preferences theme 'Radiance'
+gsettings set org.gnome.desktop.interface icon-theme 'ubuntu-mono-light'
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+gsettings set org.gnome.gnome-flashback status-notifier-watcher false
+gsettings set org.gnome.gnome-flashback desktop false
+gsettings set org.gnome.gnome-flashback root-background true
