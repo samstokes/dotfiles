@@ -127,7 +127,7 @@ if hash rbenv 2>/dev/null; then
 fi
 
 # Rust
-export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d "$HOME/.cargo" ]] && source "$HOME/.cargo/env"
 if hash rustc 2>/dev/null; then
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
