@@ -139,3 +139,6 @@
 [submodule ".vim/bundle/vimwiki"]
 	path = .vim/bundle/vimwiki
 	url = https://github.com/vimwiki/vimwiki
+[submodule ".vim/bundle/solarized8"]
+	path = .vim/bundle/solarized8
+	url = https://github.com/lifepillar/vim-solarized8
