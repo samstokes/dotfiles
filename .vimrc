@@ -111,9 +111,6 @@ nnoremap <Leader>ss :syntax off\|syntax on<CR>
 
 " stuff for editing prose
 
-" start new paragraph
-nmap <C-o> O<CR>
-
 " with wrapped long lines, have up and down motions move as they look like
 " they should 
 nnoremap j           gj
