@@ -137,6 +137,14 @@ bindsym $mod+v exec $i3-wm.program.editor
 set_from_resource $i3-wm.program.editor.notes i3-wm.program.editor.notes true
 bindsym $mod+Shift+v exec $i3-wm.program.editor.notes
 
+## Launch // editor (new note) // <><Ctrl> v ##
+set_from_resource $i3-wm.program.editor.notes i3-wm.program.editor.notes true
+bindsym $mod+Ctrl+v exec $i3-wm.program.editor.notes +EditNewNote
+
+## Launch // editor (new note with title) // <><Ctrl><Shift> v ##
+set_from_resource $i3-wm.program.editor.notes i3-wm.program.editor.notes true
+bindsym $mod+Shift+Ctrl+v exec i3-input -F 'exec $i3-wm.program.editor.notes +"EditNewNote %s"' -P 'note title: '
+
 ###############################################################################
 # Window and Workspace Navigation
 ###############################################################################
