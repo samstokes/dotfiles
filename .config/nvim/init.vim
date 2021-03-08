@@ -6,6 +6,9 @@ source ~/.vimrc
 
 set inccommand=split
 
+" make <Esc> exit terminal-mode
+tnoremap <Esc> <C-\><C-n>
+
 " === coc === {{{1
 " Give more space for displaying messages.
 set cmdheight=2
