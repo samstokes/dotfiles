@@ -2,6 +2,8 @@
 
 # vim
 
+alias v=nvim-gtk
+
 for i in gvim gview gvimdiff; do
   alias $i="$i -O"
   alias "${i}x"="$i -O -geom 9999x9999"
