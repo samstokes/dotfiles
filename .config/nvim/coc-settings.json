@@ -1,3 +1,5 @@
 {
-  "codeLens.enable": true
+  "codeLens.enable": true,
+  "rust-analyzer.lens.debug": false,
+  "rust-analyzer.lens.methodReferences": true
 }
