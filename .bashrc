@@ -130,4 +130,5 @@ fi
 [[ -d "$HOME/.cargo" ]] && source "$HOME/.cargo/env"
 if hash rustc 2>/dev/null; then
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  source "$(rustc --print sysroot)/etc/bash_completion.d/cargo"
 fi
