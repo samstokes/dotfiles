@@ -136,3 +136,6 @@
 [submodule "projects/todo"]
 	path = projects/todo
 	url = https://gist.github.com/samstokes/5392339
+[submodule ".vim/bundle/notes"]
+	path = .vim/bundle/notes
+	url = https://github.com/samstokes/vim-notes.git
