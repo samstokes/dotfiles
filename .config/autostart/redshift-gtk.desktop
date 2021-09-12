@@ -8,7 +8,7 @@ Categories=Utility;
 Terminal=false
 Icon=redshift
 Name=Redshift
-X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-enabled=false
 Comment=Color temperature adjustment tool
 StartupNotify=true
 
