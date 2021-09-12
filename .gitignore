@@ -252,3 +252,4 @@ snap
 .rustup
 .config/nvim-gtk/window.toml
 .config/lvim/plugin/packer_compiled.lua
+.paradoxlauncher
