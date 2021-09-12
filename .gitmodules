@@ -142,3 +142,6 @@
 [submodule ".config/nvim/bundle/coc"]
 	path = .config/nvim/bundle/coc
 	url = https://github.com/neoclide/coc.nvim
+[submodule "projects/todo"]
+	path = projects/todo
+	url = https://gist.github.com/samstokes/5392339
