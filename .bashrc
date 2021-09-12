@@ -105,7 +105,15 @@ fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 
-hash gvim 2>/dev/null && EDITOR="gvim -f" || EDITOR=vim
+if type v >/dev/null 2>&1; then
+  EDITOR=v
+elif hash nvim 2>/dev/null; then
+  EDITOR=nvim
+elif hash gvim 2>/dev/null; then
+  EDITOR="gvim -f"
+else
+   EDITOR=vim
+fi
 export EDITOR
 
 # Add git-bits to PATH
