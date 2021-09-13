@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/textobj-rubyblock"]
 	path = .vim/bundle/textobj-rubyblock
 	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule ".vim/bundle/git"]
 	path = .vim/bundle/git
 	url = git@github.com:samstokes/vim-git.git
@@ -85,9 +82,6 @@
 [submodule ".vim/bundle/eunuch"]
 	path = .vim/bundle/eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule ".vim/bundle/easymotion"]
-	path = .vim/bundle/easymotion
-	url = https://github.com/Lokaltog/vim-easymotion.git
 [submodule ".vim/bundle/gitgutter"]
 	path = .vim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
