@@ -36,7 +36,7 @@
   rup = remote update --prune
 	logg = log --oneline --decorate --graph
 [merge]
-	tool = gvimdiff
+	tool = nvimdiff
 	defaultToUpstream = true
 [rerere]
 	enabled = true
