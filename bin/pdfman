@@ -6,8 +6,7 @@ case "$(basename "$0")" in
   hman) export MANROFFOPT="-f H";;
 esac
 
-output=$(mktemp --suffix=.pdf)
-trap "sleep 5 && rm -f $output" EXIT
-
-man -t "$@" | ps2pdf - "$output"
-xdg-open "$output"
+exec withtemp -d 5 -I OUTPUT -- sh -c "\
+  man -t ""$@"" | ps2pdf - \"OUTPUT\" \
+  && xdg-open \"OUTPUT\" \
+  "
