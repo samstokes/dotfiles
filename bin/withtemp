@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+
+usage() {
+  local me=$(basename "$0")
+  echo "$me [args] [mktemp_args...] -- [xargs_args]"
+  echo
+  echo "e.g."
+  echo "    $me -- ls"
+  echo "    $me -d 5 -I OUTPUT -- sh -c 'write_to OUTPUT && xdg-open OUTPUT'"
+}
+
+declare -a mktemp_args replace_str
+
+delay=0
+verbose=
+replace_str=()
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h | -\? | --help)
+      usage
+      exit
+      ;;
+    --)
+      shift
+      break
+      ;;
+    -d|--delay)
+      shift
+      delay="$1"
+      ;;
+    -I)
+      shift
+      replace_str=(-I "$1")
+      ;;
+    -v)
+      verbose=y
+      ;;
+    *)
+      mktemp_args+=("$1")
+      ;;
+  esac
+  shift
+done
+
+tempfile=$(mktemp "${mktemp_args[@]}")
+if [[ -n $verbose ]]; then
+  echo tempfile: "$tempfile" >&2
+fi
+
+trap "sleep \"$delay\" && rm -f \"$tempfile\"" EXIT
+
+xargs "${replace_str[@]}" "$@" <<<"$tempfile"
