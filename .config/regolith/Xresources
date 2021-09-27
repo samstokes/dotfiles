@@ -6,3 +6,4 @@ i3-wm.program.editor: gnvim
 i3-wm.program.editor.notes: gnvim-notes
 i3-wm.program.launcher.app: kupfer
 i3-wm.workspace.auto_back_and_forth: yes
+Xft.dpi: 192
