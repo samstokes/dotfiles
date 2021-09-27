@@ -1,2 +1,2 @@
-colorscheme solarized8_flat
+colorscheme solarized8_high
 call togglebg#map("<F5>")
