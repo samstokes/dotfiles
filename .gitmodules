@@ -138,4 +138,4 @@
 	url = https://gist.github.com/samstokes/5392339
 [submodule ".vim/bundle/notes"]
 	path = .vim/bundle/notes
-	url = https://github.com/samstokes/vim-notes.git
+	url = git@github.com:samstokes/vim-notes.git
