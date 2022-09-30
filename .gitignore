@@ -252,7 +252,6 @@ snap
 .multirust
 .rustup
 .config/nvim-gtk/window.toml
-.config/lvim/plugin/packer_compiled.lua
 .config/gnome-initial-setup-done
 .config/Slack
 .xmonad/prompt-history
