@@ -10,6 +10,7 @@ an executable
 
 require('my.gui')
 require('my.options')
+require('my.plugins')
 
 -- general
 lvim.log.level = "warn"
@@ -160,15 +161,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
 --     filetypes = { "javascript", "python" },
 --   },
--- }
-
--- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
 -- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
