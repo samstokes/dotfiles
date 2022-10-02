@@ -11,6 +11,7 @@ an executable
 require('my.gui')
 require('my.options')
 require('my.plugins')
+require('my.treesitter')
 
 -- general
 lvim.log.level = "warn"
