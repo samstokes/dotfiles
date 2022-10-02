@@ -10,6 +10,7 @@ an executable
 
 require('my.gui')
 require('my.options')
+require('my.lvim-customisations')
 require('my.plugins')
 require('my.treesitter')
 
