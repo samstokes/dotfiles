@@ -11,4 +11,5 @@ lvim.plugins = {
       })
     end,
   },
+  { "chaoren/vim-wordmotion" },
 }
