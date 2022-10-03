@@ -4,3 +4,6 @@
 for i in x xm monitor; do
   have $i && complete -F _command $filenames $i
 done
+
+# AWS
+complete -C $HOME/.local/bin/aws_completer aws
