@@ -1,3 +1,5 @@
+" vim:foldmethod=marker
+
 set nocompatible                " I think this is redundant, but just in case
 
 filetype off    " load order issue with pathogen.vim
@@ -133,7 +135,8 @@ endfunction
 autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>d ~<ESC>x:call BlogInsertDate()<CR>a
 autocmd FileType markdown setl spell
 
-" vimwiki
+" === vimwiki === {{{1
+
 if glob('~/Dropbox/Notes') != ''
   let g:vimwiki_list = [{'path': '~/Dropbox/Notes/',
                        \ 'auto_tags': 1,
@@ -142,6 +145,10 @@ endif
 nmap <LocalLeader>cx :VimwikiToggleListItem<CR>
 nmap <LocalLeader>cp :VimwikiDecrementListItem<CR>
 nmap <LocalLeader>cn :VimwikiIncrementListItem<CR>
+
+autocmd FileType vimwiki setl ts=4 sw=4
+
+" === vimwiki === }}}1
 
 " don't text wrap emails, mail client will do it too and conflict
 autocmd FileType mail setl textwidth=0
