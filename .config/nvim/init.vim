@@ -6,6 +6,9 @@ source ~/.vimrc
 
 set inccommand=split
 
+" markdown preview
+let g:mkdp_browser = 'sensible-browser'
+
 " === coc === {{{1
 " Give more space for displaying messages.
 set cmdheight=2
