@@ -128,7 +128,7 @@ export PATH="~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.8.4/bin:$PATH"
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
 if hash rbenv 2>/dev/null; then
-  eval "$(rbenv init -)"
+  eval "$(rbenv init - bash)"
 fi
 
 # set up convenient cd
