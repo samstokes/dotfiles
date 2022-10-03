@@ -89,3 +89,8 @@ alias dps='docker ps'
 alias dc=docker-compose
 alias dcps='docker-compose ps'
 alias dcl='docker-compose logs'
+
+# bat > cat
+if type bat >/dev/null 2>&1; then
+  alias cat=bat
+fi
