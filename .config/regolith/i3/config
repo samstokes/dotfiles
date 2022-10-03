@@ -447,6 +447,9 @@ set_from_resource $i3-wm.binding.sound i3-wm.binding.sound s
 set_from_resource $i3-wm.program.sound i3-wm.program.sound gnome-control-center --class=floating_window sound
 bindsym $mod+$i3-wm.binding.sound exec $i3-wm.program.sound
 
+## Modify // Edit i3 Config // <> <Shift> i ##
+bindsym $mod+Shift+i exec $i3-wm.program.editor "$HOME"/.config/regolith/i3/config
+
 ## Launch // File Browser // <><Shift> n ##
 set_from_resource $i3-wm.binding.files i3-wm.binding.files Shift+n
 set_from_resource $i3-wm.program.files i3-wm.program.files /usr/bin/nautilus --new-window
