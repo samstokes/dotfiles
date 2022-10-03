@@ -261,4 +261,3 @@ Notes
 mongodb
 .virtualenvs
 .mongoctl
-.config/lvim/plugin/packer_compiled.lua
