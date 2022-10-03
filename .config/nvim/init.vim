@@ -178,6 +178,6 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " === coc === }}}1
 
 " workaround for gnvim not providing has('gui')
-if exists('g:gnvim')
+if exists('g:gnvim') || exists('g:neovide')
   source ~/.config/nvim/ginit.vim
 endif
