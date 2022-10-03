@@ -105,8 +105,8 @@ fi
 
 export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
 
-if type v >/dev/null 2>&1; then
-  EDITOR=v
+if hash lvim 2>/dev/null; then
+  EDITOR=lvim
 elif hash nvim 2>/dev/null; then
   EDITOR=nvim
 elif hash gvim 2>/dev/null; then
