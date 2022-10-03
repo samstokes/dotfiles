@@ -221,6 +221,14 @@ nnoremap <Leader>du :diffupdate<CR>
 noremap <F1> <ESC>
 inoremap <F1> <ESC>
 
+" === windows === {{{1
+" quicker window navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+" === windows === }}}1
+
 " More intuitive new window placement
 set splitbelow splitright
 
