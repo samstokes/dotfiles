@@ -136,3 +136,6 @@ export CDPATH=".:~:$HOME/projects"
 
 # Rust
 [[ -d "$HOME"/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
+# Coursier, for Scala
+export PATH="$PATH:/home/sam/.local/share/coursier/bin"
