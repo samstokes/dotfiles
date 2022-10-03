@@ -141,3 +141,5 @@ export CDPATH=".:~:$HOME/projects"
 export PATH="$PATH:/home/sam/.local/share/coursier/bin"
 
 [[ -f "$HOME/.launchdarklyrc" ]] && source "$HOME/.launchdarklyrc"
+
+[[ -d "$HOME/.tfenv" ]] && export PATH="$HOME/.tfenv/bin:$PATH"
