@@ -13,6 +13,7 @@ require('my.options')
 require('my.lvim-customisations')
 require('my.plugins')
 require('my.treesitter')
+require('my.vimwiki')
 
 -- general
 lvim.log.level = "warn"

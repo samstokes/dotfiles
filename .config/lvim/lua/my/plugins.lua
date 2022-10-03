@@ -15,5 +15,6 @@ lvim.plugins = {
       require("nvim-surround").setup({})
     end,
   },
+  -- vimwiki is added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
 }
