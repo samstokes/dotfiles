@@ -258,3 +258,6 @@ snap
 .wget-hsts
 Notes
 .config/Bitwarden
+mongodb
+.virtualenvs
+.mongoctl
