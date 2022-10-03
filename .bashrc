@@ -130,3 +130,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 if hash rbenv 2>/dev/null; then
   eval "$(rbenv init -)"
 fi
+
+# set up convenient cd
+export CDPATH=".:~:$HOME/projects"
