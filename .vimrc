@@ -25,6 +25,7 @@ syntax on                       " syntax highlighting
 filetype plugin indent on       " enable per-filetype plugins and indenters
 
 set background=dark
+colorscheme solarized8_flat
 
 set showmode                    " show mode in status bar (on by default?)
 set showcmd                     " show partially typed commands (default?)
