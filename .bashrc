@@ -133,3 +133,6 @@ fi
 
 # set up convenient cd
 export CDPATH=".:~:$HOME/projects"
+
+# Rust
+[[ -d "$HOME"/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
