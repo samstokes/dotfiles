@@ -1,2 +1,1 @@
-#!/bin/sh
-EDITOR=vim exec $HOME/projects/todo/todo "$@"
+/home/sam/projects/todo/todo
