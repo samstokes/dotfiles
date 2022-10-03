@@ -139,3 +139,5 @@ export CDPATH=".:~:$HOME/projects"
 
 # Coursier, for Scala
 export PATH="$PATH:/home/sam/.local/share/coursier/bin"
+
+[[ -f "$HOME/.launchdarklyrc" ]] && source "$HOME/.launchdarklyrc"
