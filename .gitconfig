@@ -3,6 +3,7 @@
 	name = Sam Stokes
 [core]
 	excludesfile = /home/sam/.git-excludes
+	editor = nvr-if-in-nvim-terminal
 	pager = less -i
 [color]
 	branch = auto
@@ -37,8 +38,12 @@
   rup = remote update --prune
 	logg = log --oneline --decorate --graph
 [merge]
-	tool = gvimdiff
+	tool = nvr-if-in-nvim-terminal
 	defaultToUpstream = true
+[mergetool "nvr"]
+	cmd = nvr --remote-tab-wait-silent +'set bufhidden=delete' -c \"Gdiff\" \"$MERGED\"
+[mergetool "nvr-if-in-nvim-terminal"]
+	cmd = nvr-if-in-nvim-terminal -c \"Gdiff\" \"$MERGED\"
 [rerere]
 	enabled = true
 [clean]
