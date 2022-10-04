@@ -77,7 +77,7 @@ myKeys =
 
     , ("S-M-]",   soundGridSelect)
 
-    , ("S-M-x",   spawnGvimWithArgs ".xmonad/xmonad.hs")
+    , ("S-M-x",   spawnNvimWithArgs [".xmonad/xmonad.hs"] [])
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
@@ -85,11 +85,11 @@ myKeys =
     , ("S-M-<Return>", spawn "sensible-browser")
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
-    , ("M-v",     spawn "gvim")
-    , ("S-M-v",   spawnGvimWithArgs "+'lcd $HOME/Notes' +'unlet g:ctrlp_user_command' +'let g:ctrlp_working_path_mode = \"a\"'")
-    , ("C-M-v",   inputPrompt myXPConfig "args" ?+ spawnGvimWithArgs)
+    , ("M-v",     spawn "v")
+    , ("S-M-v",   spawnNvimForNotesWithArgs [])
+    , ("C-M-v",   inputPrompt myXPConfig "file" ?+ \file -> spawnNvimWithArgs [file] [])
     -- edit current clipboard contents
-    , ("S-C-M-v", spawnGvimWithArgs "'+set buftype=nofile' '+put +' '+0,0delete' '+autocmd BufUnload <buffer> silent w !xclip -selection clipboard'")
+    , ("S-C-M-v", spawnNvimWithArgs [] ["+set buftype=nofile", "+put +", "+0,0delete", "+autocmd BufUnload <buffer> silent w !xclip -selection clipboard"])
 
     , ("S-M-o",   spawnTail "/var/log/syslog")
     , ("C-M-o",   inputPrompt myXPConfig "file" ?+ spawnTail)
@@ -418,10 +418,14 @@ listHaskells :: IO [String]
 listHaskells = dir ghcVersionsDir
 
 
------ spawn gvim ----- {{{3
+----- spawn nvim ----- {{{3
 
-spawnGvimWithArgs :: String -> X ()
-spawnGvimWithArgs args = spawn ("gvim " ++ args)
+spawnNvimWithArgs :: [String] -> [String] -> X ()
+spawnNvimWithArgs files nvimArgs = safeSpawn "v" $ nvimArgs ++ files
+
+spawnNvimForNotesWithArgs :: [String] -> X ()
+spawnNvimForNotesWithArgs extraNvimArgs = spawnNvimWithArgs [] $ nvimArgs ++ extraNvimArgs
+  where nvimArgs = ["+lcd $HOME/Notes", "+unlet g:ctrlp_user_command", "+let g:ctrlp_working_path_mode = 'a'"]
 
 ----- tail a thing ----- {{{3
 
