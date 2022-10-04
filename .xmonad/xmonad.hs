@@ -93,6 +93,9 @@ myKeys =
 
     , ("M-x",     safeSpawn "1password" ["--toggle"])
 
+    , ("M-n",     spawnNvimForNotesWithArgs ["+EditNewNote"])
+    , ("S-M-n",   inputPrompt myXPConfig "note-title" ?+ \title -> spawnNvimForNotesWithArgs ["+EditNewNote " ++ title])
+
     , ("S-M-o",   spawnTail "/var/log/syslog")
     , ("C-M-o",   inputPrompt myXPConfig "file" ?+ spawnTail)
 
