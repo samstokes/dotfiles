@@ -278,9 +278,6 @@ else
   endif
 endif
 
-" include git branch in statusline via Fugitive
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
 " fugitive shortcuts
 nnoremap <Leader>gst :Gstatus<CR>
 nnoremap <Leader>gci :Gcommit<CR>
