@@ -25,6 +25,7 @@ import XMonad.Actions.Plane
 import XMonad.Actions.Promote
 import XMonad.Actions.UpdatePointer
 import XMonad.Config.Desktop (desktopLayoutModifiers)
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
 import XMonad.Hooks.SetWMName
@@ -196,6 +197,10 @@ myLayoutHook = defaultLayout
 myWorkspaces = ["mail", "read", "code"] ++ map show [4..9]
 
 
+-- === Event hook === {{{1
+
+myEventHook :: Event -> X All
+myEventHook = restoreMinimizedEventHook <+> fullscreenEventHook
 
 
 -- === Startup hook === {{{1
@@ -406,13 +411,13 @@ spawnTail file = safeSpawnX "less" ["-Ri", "+F", file]
 
 ----- XConfig ----- {{{2
 
-myConfig = gnomeConfig
+myConfig = ewmh gnomeConfig
     { modMask = myModMask
     , startupHook = startupHook gnomeConfig >> myStartupHook
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
     , layoutHook = myLayoutModifiers $ myLayoutHook
     , logHook = logHook gnomeConfig >> myLogHook
-    , handleEventHook = handleEventHook gnomeConfig
+    , handleEventHook = handleEventHook gnomeConfig <+> myEventHook
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
