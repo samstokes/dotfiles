@@ -265,9 +265,6 @@ nnoremap <Leader>mr ?<<<<<CR>V/====<CR>d/>>>><CR>dd
 " fewer keystrokes for a.vim
 nnoremap <Leader>a :AV<CR>
 
-" Taglist plugin
-map <Leader>ll :TlistToggle<CR>
-
 " easy project grep
 nmap <Leader>/ :grep 
 call system('git status >/dev/null 2>&1')
