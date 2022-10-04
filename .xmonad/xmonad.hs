@@ -133,8 +133,8 @@ myKeys =
     , ("S-M-<KP_Right>", sendToScreen (P 1))
 
     -- adjust scaling factor for HiDPI shenanigans
-    , ("M-f", adjustScalingFactor 1)
-    , ("S-M-f", adjustScalingFactor 2)
+    {-, ("M-f", adjustScalingFactor 1)-}
+    {-, ("S-M-f", adjustScalingFactor 2)-}
 
     ----- window management commands ----- {{{3
     , ("S-M-h",   replicateM_ 10 $ sendMessage Shrink)
