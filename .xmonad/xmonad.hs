@@ -60,9 +60,9 @@ myModMask = mod4Mask
 myKeys :: [(String, X ())]
 myKeys =
     ----- launchers ----- {{{3
-    [ ("M-S-r",   gnomeRun)
-    , ("M-r",     summonKupfer)
-    , ("C-M-r",   onEmptyWorkspace summonKupfer)
+    [ ("M-S-<Space>", gnomeRun)
+    , ("M-<Space>",   summonKupfer)
+    , ("C-M-<Space>", onEmptyWorkspace summonKupfer)
     , ("M-i h",   ghciGridSelect)
     , ("M-i r",   irbGridSelect)
     , ("M-i p",   pryGridSelect)
@@ -82,6 +82,8 @@ myKeys =
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
     , ("M-g",     inputPrompt myXPConfig "search term" ?+ safeSpawnX "passclip" . pure)
+    , ("M-<Return>", spawn myTerminal)
+    , ("S-M-<Return>", spawn "sensible-browser")
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
 
     , ("M-v",     spawn "gvim")
@@ -105,8 +107,8 @@ myKeys =
     , ("S-C-M-k", myShift ToUp)
     , ("S-C-M-l", myShift ToRight)
 
-    , ("M-<Backspace>",     viewEmptyWorkspace)
-    , ("S-M-<Backspace>",   tagToEmptyWorkspace)
+    , ("M-`",     viewEmptyWorkspace)
+    , ("S-M-`",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
     , ("M-<XF86Back>", viewScreen def (P 0))
@@ -122,7 +124,7 @@ myKeys =
     ----- window management commands ----- {{{3
     , ("S-M-h",   replicateM_ 10 $ sendMessage Shrink)
     , ("S-M-l",   replicateM_ 10 $ sendMessage Expand)
-    , ("M-<Space>", sendMessage NextLayout >> notifyCurrentLayout)
+    , ("M-t",     sendMessage NextLayout >> notifyCurrentLayout)
     , ("M-z",     withFocused minimizeWindow)
     , ("S-M-z",   withLastMinimized maximizeWindowAndFocus)
     , ("M1-<F4>", kill)
