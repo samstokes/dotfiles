@@ -296,6 +296,12 @@ nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
 " shortcut for :windo
 nnoremap <C-w>: :windo 
 
+" quicker window navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
 " after posting a gist (using gist.vim), open it in browser
 let g:gist_open_browser_after_post = 1
 
