@@ -428,3 +428,7 @@ let g:wildfire_objects = {
     \ "html,xml" : ["at"],
     \ "ruby" : ["i'", 'i"', "i)", "i]", "i}", "ir"],
   \ }
+
+
+" Rust
+let g:rustfmt_autosave = 1
