@@ -1,1 +1,2 @@
-/home/sam/projects/todo/todo
+#!/bin/sh
+EDITOR=nvim exec $HOME/projects/todo/todo "$@"
