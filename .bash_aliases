@@ -19,6 +19,7 @@ alias lessf="less -i +F"
 alias gh="x git help"
 
 alias gst="git status"
+alias gstu="git status --untracked=no"
 alias gci="git commit"
 alias gco="git checkout"
 alias gbr="git branch"
