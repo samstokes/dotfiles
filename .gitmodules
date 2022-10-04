@@ -133,3 +133,24 @@
 [submodule "projects/todo"]
 	path = projects/todo
 	url = https://gist.github.com/samstokes/5392339
+[submodule ".vim/bundle/rust"]
+	path = .vim/bundle/rust
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule ".vim/bundle/airline"]
+	path = .vim/bundle/airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/bundle/airline-themes"]
+	path = .vim/bundle/airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes
+[submodule ".vim/bundle/bracketed-paste"]
+	path = .vim/bundle/bracketed-paste
+	url = https://github.com/ConradIrwin/vim-bracketed-paste
+[submodule ".vim/bundle/terraform"]
+	path = .vim/bundle/terraform
+	url = https://github.com/hashivim/vim-terraform
+[submodule ".vim/bundle/LanguageClient-neovim"]
+	path = .vim/bundle/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
+[submodule ".vim/bundle/vimspector"]
+	path = .vim/bundle/vimspector
+	url = https://github.com/puremourning/vimspector
