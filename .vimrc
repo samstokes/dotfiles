@@ -131,7 +131,8 @@ vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 nmap <Leader>t :call templates#load_template()<CR>
 
 " markdown preview
-autocmd FileType markdown nmap <buffer> <Leader>rp :silent w !pandoc \| bcat<CR>
+autocmd FileType markdown nmap <buffer> <Leader>rp :silent w !pandoc --self-contained \| browser-preview<CR>
+autocmd FileType markdown nmap <buffer> <Leader>rg :silent w !pandoc --from=markdown_github+yaml_metadata_block --self-contained \| browser-preview<CR>
 function DiaryInsertDate()
   let @x = strftime('%A %B %d')
   normal! "xp
