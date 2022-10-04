@@ -91,6 +91,8 @@ myKeys =
     -- edit current clipboard contents
     , ("S-C-M-v", spawnNvimWithArgs [] ["+set buftype=nofile", "+put +", "+0,0delete", "+autocmd BufUnload <buffer> silent w !xclip -selection clipboard"])
 
+    , ("M-x",     safeSpawn "1password" ["--toggle"])
+
     , ("S-M-o",   spawnTail "/var/log/syslog")
     , ("C-M-o",   inputPrompt myXPConfig "file" ?+ spawnTail)
 
