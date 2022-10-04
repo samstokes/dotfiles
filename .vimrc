@@ -364,6 +364,11 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+let g:go_fmt_options = { 'goimports': '-local github.com/launchdarkly,gopkg.in/launchdarkly' }
+
+"let g:ale_linters = { 'go': ['golangci-lint'] }
+"let g:ale_go_golangci_lint_options = ''
+
 " gitv
 let g:Gitv_PromptToDeleteMergeBranch = 1
 let g:Gitv_TruncateCommitSubjects = 1
