@@ -432,3 +432,7 @@ let g:wildfire_objects = {
 
 " Rust
 let g:rustfmt_autosave = 1
+
+" Terraform
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
