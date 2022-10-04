@@ -127,6 +127,9 @@ inoremap <End>  <C-o>g$
 " blog-specific stuff
 vmap <C-n> s<pre>gvs<code>gvs<noscript>3Jgv<Esc>2k3Jk
 
+" binding to load template into current file
+nmap <Leader>t :call templates#load_template()<CR>
+
 " markdown preview
 autocmd FileType markdown nmap <buffer> <Leader>rp :silent w !pandoc \| bcat<CR>
 " insert date
