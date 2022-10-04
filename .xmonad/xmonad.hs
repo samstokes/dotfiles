@@ -152,6 +152,7 @@ myKeys =
 
     ----- session management ----- {{{3
     , ("M-<F4>",  spawn "gnome-session-save --shutdown-dialog")
+    , ("<XF86Display>", spawn "systemctl suspend")
     , ("C-M-q", rescreen)
     ]
     ----- helper functions ----- {{{3
