@@ -242,6 +242,7 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
                  ]
     ----- windows to float {{{2
     floatables = [ className =? "Gcalctool"
+                 , title =? "zoom " -- seems to include Zoom toasts but not the main Zoom video
                  ]
     ----- windows that should be made master when they appear {{{2
     masters = [
