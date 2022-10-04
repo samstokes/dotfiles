@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/bin/gnome-terminal -x "$@"
+exec /usr/bin/gnome-terminal --title "$*" -- "$@"
