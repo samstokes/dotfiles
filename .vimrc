@@ -284,6 +284,12 @@ nnoremap <Leader>gci :Gcommit<CR>
 nnoremap <Leader>gdf :Gdiff<CR>
 nnoremap <Leader>gad :Git add %<CR>
 
+" remap gitgutter text objects to avoid conflict with NERDCommenter
+omap ih <Plug>GitGutterTextObjectInnerPending
+omap ah <Plug>GitGutterTextObjectOuterPending
+xmap ih <Plug>GitGutterTextObjectInnerVisual
+xmap ah <Plug>GitGutterTextObjectOuterVisual
+
 " edit .vimrc in split window
 nnoremap <Leader>vv :vs $HOME/.vimrc<CR>
 
