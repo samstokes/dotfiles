@@ -291,7 +291,7 @@ xmap ih <Plug>GitGutterTextObjectInnerVisual
 xmap ah <Plug>GitGutterTextObjectOuterVisual
 
 " edit .vimrc in split window
-nnoremap <Leader>vv :vs $HOME/.vimrc<CR>
+nnoremap <Leader>ev :vs $HOME/.vimrc<CR>
 
 " shortcut for :windo
 nnoremap <C-w>: :windo 
