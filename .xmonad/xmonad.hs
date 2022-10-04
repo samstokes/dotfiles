@@ -246,6 +246,7 @@ myManageHook = hookAll `concatMap` [ (doFloat,  floatables)
                  ]
     ----- windows that should be made master when they appear {{{2
     masters = [
+                resource =? "ioquake3",
                 -- make git commit message editor master - this will only
                 -- work if gvim is invoked via a symlink called 'git-msg-vim'
                 fmap ("Git-msg-vim" `isInfixOf`) className
