@@ -122,10 +122,10 @@ myKeys =
     , ("S-M-<XF86Back>", sendToScreen def (P 0))
     , ("S-M-<XF86Forward>", sendToScreen def (P 1))
 
-    , ("M-<Page_Down>", viewScreen (P 0))
-    , ("M-<Page_Up>", viewScreen (P 1))
-    , ("S-M-<Page_Down>", sendToScreen (P 0))
-    , ("S-M-<Page_Up>", sendToScreen (P 1))
+    , ("M-<Page_Down>", viewScreen (P 1))
+    , ("M-<Page_Up>", viewScreen (P 0))
+    , ("S-M-<Page_Down>", sendToScreen (P 1))
+    , ("S-M-<Page_Up>", sendToScreen (P 0))
 
     , ("M-<KP_Left>", viewScreen (P 0))
     , ("M-<KP_Right>", viewScreen (P 1))
