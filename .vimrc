@@ -348,6 +348,12 @@ autocmd FileType go nmap <buffer> <Leader>f  <Plug>(go-test-func)
 autocmd FileType go nmap <buffer> <Leader>v  <Plug>(go-coverage-toggle)
 autocmd FileType go setl autowrite
 
+" replace 'alternate file' commands with vim-go versions
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+
 let g:go_fmt_command = "goimports"
 let g:go_info_mode = 'guru'
 let g:go_highlight_types = 1
