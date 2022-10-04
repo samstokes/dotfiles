@@ -81,7 +81,6 @@ myKeys =
 
     ----- tools and apps ----- {{{3
     , ("M-p",     spawnX "nice top")
-    , ("M-g",     inputPrompt myXPConfig "search term" ?+ safeSpawnX "passclip" . pure)
     , ("M-<Return>", spawn myTerminal)
     , ("S-M-<Return>", spawn "sensible-browser")
     , ("C-M-<Return>", onEmptyWorkspace $ spawn myTerminal)
