@@ -355,7 +355,8 @@ autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 
 let g:go_fmt_command = "goimports"
-let g:go_info_mode = 'guru'
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'gopls'
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
