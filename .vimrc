@@ -247,22 +247,20 @@ function! s:toggleDiff()
 endfunction
 nnoremap <Leader>dd :call <SID>toggleDiff()<CR>
 
-if &diff
-  " Handy shortcuts for three-way diffing (e.g. as git mergetool)
+" Handy shortcuts for three-way diffing (e.g. as git mergetool)
 
-  " Diff center window against just the left-hand window
-  nnoremap <C-Left> 2<C-w>l:diffo<CR>2<C-w>h:difft<CR>
-  " Diff center window against just the right-hand window
-  nnoremap <C-Right> 2<C-w>h:diffo<CR>2<C-w>l:difft<CR>
-  " Diff center window against both windows
-  nnoremap <C-Space> 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
+" Diff center window against just the left-hand window
+nnoremap <Leader>dl 2<C-w>l:diffo<CR>2<C-w>h:difft<CR>
+" Diff center window against just the right-hand window
+nnoremap <Leader>dr 2<C-w>h:diffo<CR>2<C-w>l:difft<CR>
+" Diff center window against both windows
+nnoremap <Leader>db 2<C-w>h:difft<CR>2<C-w>l:difft<CR><C-w>h
 
-  " 'Merge Local' - pick the local version of a merge conflict
-  nnoremap <Leader>ml />>>><CR>V?====<CR>d?<<<<<CR>dd
+" 'Merge Local' - pick the local version of a merge conflict
+nnoremap <Leader>ml />>>><CR>V?====<CR>d?<<<<<CR>dd
 
-  " 'Merge Remote' - pick the remote version of a merge conflict
-  nnoremap <Leader>mr ?<<<<<CR>V/====<CR>d/>>>><CR>dd
-endif
+" 'Merge Remote' - pick the remote version of a merge conflict
+nnoremap <Leader>mr ?<<<<<CR>V/====<CR>d/>>>><CR>dd
 
 " fewer keystrokes for a.vim
 nnoremap <Leader>a :AV<CR>
