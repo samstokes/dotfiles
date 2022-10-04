@@ -144,6 +144,16 @@ endfunction
 autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>d ~<ESC>x:call DiaryInsertDate()<CR>a
 autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>w ~<ESC>x:call DiaryInsertWeek()<CR>a
 autocmd FileType markdown setl spell
+autocmd FileType markdown,vimwiki setl shiftwidth=4 tabstop=4
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Notes/',
+                     \ 'auto_tags': 1,
+                     \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0 " don't take over all markdown files
+nmap <LocalLeader>cx :VimwikiToggleListItem<CR>
+nmap <LocalLeader>cp :VimwikiDecrementListItem<CR>
+nmap <LocalLeader>cn :VimwikiIncrementListItem<CR>
 
 " vimwiki
 if glob('~/Dropbox/Notes') != ''
