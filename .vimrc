@@ -132,12 +132,16 @@ nmap <Leader>t :call templates#load_template()<CR>
 
 " markdown preview
 autocmd FileType markdown nmap <buffer> <Leader>rp :silent w !pandoc \| bcat<CR>
-" insert date
-function BlogInsertDate()
-  let @x = strftime('%A %d %B')
+function DiaryInsertDate()
+  let @x = strftime('%A %B %d')
   normal! "xp
 endfunction
-autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>d ~<ESC>x:call BlogInsertDate()<CR>a
+function DiaryInsertWeek()
+  let @x = strftime('Week %W')
+  normal! "xp
+endfunction
+autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>d ~<ESC>x:call DiaryInsertDate()<CR>a
+autocmd FileType markdown inoremap <silent><buffer> <LocalLeader>w ~<ESC>x:call DiaryInsertWeek()<CR>a
 autocmd FileType markdown setl spell
 
 " vimwiki
