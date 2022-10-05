@@ -3,6 +3,8 @@ local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = t
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "scala", "sbt", "java" },
   callback = function()
+    -- based on https://github.com/LunarVim/LunarVim/issues/2121#issuecomment-1199926585
+
     -- see https://github.com/scalameta/nvim-metals#user-content-fn-shortmess-7339b78fb5b06c569d620f975212382f
     vim.opt_global.shortmess:remove("F")
 
