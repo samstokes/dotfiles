@@ -1,4 +1,4 @@
--- call :PackerSync after changing this
+-- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 -- TODO auto reload on saving this file
 
 lvim.plugins = {
