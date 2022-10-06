@@ -6,6 +6,7 @@ vim.o.whichwrap = 'b,s' -- Don't want Left/Right wrapping to next line. Restore 
 lvim.builtin.autopairs.active = false
 lvim.builtin.project.silent_chdir = false
 lvim.builtin.terminal.insert_mappings = false -- don't clobber <C-t> in insert mode
+lvim.builtin.dap.active = true
 
 -- Even smarter find_project_files (cf lvim:lua/lvim/core/telescope/custom-finders.lua)
 local find_project_files = function()
