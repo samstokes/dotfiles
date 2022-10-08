@@ -1,0 +1,26 @@
+##### Mod-Space
+# To bring kupfer back, override these:
+# set_from_resource $i3-wm.binding.launcher.app i3-wm.binding.launcher.app space
+# set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app ilia -p apps
+# bindsym $mod+$i3-wm.binding.launcher.app exec --no-startup-id $i3-wm.program.launcher.app -t $ilia.stylesheet
+
+##### Editor bindings
+
+## Launch // editor // <> v ##
+set_from_resource $i3-wm.program.editor i3-wm.program.editor i3-sensible-editor
+bindsym $mod+v exec $i3-wm.program.editor
+
+## Launch // editor (notes) // <><Shift> v ##
+set_from_resource $i3-wm.program.editor.notes i3-wm.program.editor.notes true
+bindsym $mod+Shift+v exec $i3-wm.program.editor.notes
+
+## Launch // editor (new note) // <><Ctrl> v ##
+set_from_resource $i3-wm.program.editor.notes i3-wm.program.editor.notes true
+bindsym $mod+Ctrl+v exec $i3-wm.program.editor.notes +EditNewNote
+
+## Launch // editor (new note with title) // <><Ctrl><Shift> v ##
+set_from_resource $i3-wm.program.editor.notes i3-wm.program.editor.notes true
+bindsym $mod+Shift+Ctrl+v exec i3-input -F 'exec $i3-wm.program.editor.notes +"EditNewNote %s"' -P 'note title: '
+
+## Modify // Edit i3 Config // <> <Shift> i ##
+bindsym $mod+Shift+i exec $i3-wm.program.editor "$HOME"/.config/regolith2/i3/config.d

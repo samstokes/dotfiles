@@ -1,6 +1,7 @@
 #################################
 #
 # Adapted for Regolith from https://gist.github.com/vemacs/458d101ad0bfb79ab70792ecb977c40c
+# Modified per https://github.com/regolith-linux/regolith-desktop/issues/578
 #
 #################################
 
@@ -42,7 +43,7 @@ glx-no-rebind-pixmap = true;
 
 use-damage = true;
 
-# Additionally use X Sync fence to sync clients' draw calls. 
+# Additionally use X Sync fence to sync clients' draw calls.
 # Needed on nvidia-drivers with GLX backend for some users.
 xrender-sync-fence = true;
 
@@ -78,20 +79,18 @@ shadow-exclude = [
     "name = 'Docky'",
     "name = 'Kupfer'",
     "name = 'xfce4-notifyd'",
-    "name *= 'VLC'",
     "name *= 'compton'",
     "name *= 'picom'",
     "name *= 'cpt_frame_window'",
-    "name *= 'Chromium'",
-    "name *= 'Chrome'",
+    "name *= 'cpt_frame_xcb_window'",
     "name *= 'wrapper-2.0'",
-    "class_g = 'Firefox' && argb",
     "class_g = 'Conky'",
     "class_g = 'Kupfer'",
     "class_g = 'Synapse'",
     "class_g ?= 'Notify-osd'",
     "class_g ?= 'Cairo-dock'",
-    "_GTK_FRAME_EXTENTS@:c"
+    "_GTK_FRAME_EXTENTS@:c",
+    "_NET_WM_STATE@:32a *= '_NET_WM_STATE_HIDDEN'"
 ];
 # Avoid drawing shadow on all shaped windows (see also: --detect-rounded-corners)
 shadow-ignore-shaped = false;
@@ -140,7 +139,9 @@ fade-out-step = 0.03;
 # no-fading-openclose = true;
 
 # Specify a list of conditions of windows that should not be faded.
-fade-exclude = [ ];
+fade-exclude = [
+    "name *= 'ilia'"
+];
 
 #################################
 #
@@ -217,13 +218,13 @@ wintypes:
     };
     dock = { shadow = true; }
     dnd = { shadow = false; }
-    popup_menu = { 
-        opacity = 1.0; 
+    popup_menu = {
+        opacity = 1.0;
         shadow = false;
         fade = false;
     }
-    dropdown_menu = { 
-        opacity = 1.0; 
+    dropdown_menu = {
+        opacity = 1.0;
         fade = false;
     }
 };
