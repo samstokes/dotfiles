@@ -9,7 +9,7 @@ lvim.plugins = {
     end,
   },
   { "tpope/vim-surround" },
-  -- vimwiki is added in vimwiki.lua
+  -- vimwiki and vim-notes are added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
   { "tpope/vim-unimpaired" },
   { "kiyoon/telescope-insert-path.nvim" },
