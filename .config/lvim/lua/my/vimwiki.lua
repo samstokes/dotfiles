@@ -18,5 +18,6 @@ table.insert(lvim.plugins, {
   "vimwiki/vimwiki",
   event = 'BufEnter ' .. notes_dirs_pat,
 })
+table.insert(lvim.plugins, { "samstokes/vim-notes" })
 
 table.insert(lvim.builtin.project.patterns, 1, '.vimwiki_tags')
