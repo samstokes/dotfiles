@@ -12,7 +12,7 @@ if vim.fn.glob(notes_dir) ~= "" then
   }
 end
 
-local notes_dirs_pat = table.concat({ notes_dir .. '/*' }, ',')
+local notes_dirs_pat = notes_dir .. '/*'
 
 table.insert(lvim.plugins, {
   "vimwiki/vimwiki",
