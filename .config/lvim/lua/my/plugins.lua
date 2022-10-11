@@ -17,4 +17,5 @@ lvim.plugins = {
   },
   -- vimwiki is added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
+  { "tpope/vim-unimpaired" },
 }
