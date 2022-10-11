@@ -29,7 +29,9 @@ vim.api.nvim_create_autocmd("FileType", {
     end
     metals_config.settings = {
       showImplicitArguments = true,
+      showImplicitConversionsAndClasses = true,
       showInferredType = true,
+      superMethodLensesEnabled = true,
     }
 
     lvim.builtin.lualine.sections.lualine_y = { 'g:metals_status' }
