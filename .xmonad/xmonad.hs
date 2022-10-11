@@ -17,7 +17,6 @@ import XMonad hiding ( (|||), Tall ) -- want ||| from LayoutCombinators
 import XMonad.Actions.FindEmptyWorkspace
 import XMonad.Actions.GridSelect
 import XMonad.Actions.GridSelect.DSL
-import XMonad.Actions.Minimize (maximizeWindowAndFocus, minimizeWindow, withLastMinimized)
 import XMonad.Actions.Notify
 import XMonad.Actions.NotifyCurrentLayout
 import XMonad.Actions.PhysicalScreens
@@ -28,6 +27,7 @@ import XMonad.Config.Desktop (desktopLayoutModifiers)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Config.Gnome
 import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.RestoreMinimized
 import XMonad.Hooks.SetWMName
 import qualified XMonad.Layout.BoringWindows as B
 import XMonad.Layout.HintedGrid (Grid(..))
@@ -117,10 +117,10 @@ myKeys =
     , ("S-M-`",   tagToEmptyWorkspace)
 
     ----- physical screens ----- {{{3
-    , ("M-<XF86Back>", viewScreen def (P 0))
-    , ("M-<XF86Forward>", viewScreen def (P 1))
-    , ("S-M-<XF86Back>", sendToScreen def (P 0))
-    , ("S-M-<XF86Forward>", sendToScreen def (P 1))
+    , ("M-<XF86Back>", viewScreen (P 0))
+    , ("M-<XF86Forward>", viewScreen (P 1))
+    , ("S-M-<XF86Back>", sendToScreen (P 0))
+    , ("S-M-<XF86Forward>", sendToScreen (P 1))
 
     , ("M-<Page_Down>", viewScreen (P 1))
     , ("M-<Page_Up>", viewScreen (P 0))
@@ -141,7 +141,7 @@ myKeys =
     , ("S-M-l",   replicateM_ 10 $ sendMessage Expand)
     , ("M-t",     sendMessage NextLayout >> notifyCurrentLayout)
     , ("M-z",     withFocused minimizeWindow)
-    , ("S-M-z",   withLastMinimized maximizeWindowAndFocus)
+    , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
     , ("M-<F11>", promote >> sendMessage (JumpToLayout "Full"))
       ----- skip boring windows when changing focus ----- {{{4
@@ -450,7 +450,7 @@ myConfig = ewmh gnomeConfig
     , manageHook = manageHook gnomeConfig <+> composeAll myManageHook
     , layoutHook = myLayoutModifiers $ myLayoutHook
     , logHook = logHook gnomeConfig >> myLogHook
-    , handleEventHook = handleEventHook gnomeConfig <+> myEventHook
+    , handleEventHook = handleEventHook gnomeConfig `mappend` myEventHook
     , workspaces = myWorkspaces
     }
     `additionalKeysP` myKeys
