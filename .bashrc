@@ -133,3 +133,5 @@ fi
 
 # set up convenient cd
 export CDPATH=".:~:$HOME/projects"
+
+. "$HOME/.cargo/env"
