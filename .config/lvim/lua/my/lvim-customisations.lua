@@ -23,3 +23,14 @@ end
 
 -- overwrite builtin <Leader>f mapping
 lvim.builtin.which_key.mappings.f = { find_project_files, "Find File" }
+
+-- unmap lvim mappings I don't want
+local unwanted_mappings = {
+  i = { "jk", "kj", "jj" },
+  n = { "<A-j>", "<A-k>" },
+}
+for mode, mappings in pairs(unwanted_mappings) do
+  for _, lhs in ipairs(mappings) do
+    vim.keymap.del(mode, lhs, {})
+  end
+end
