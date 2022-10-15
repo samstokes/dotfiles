@@ -1,6 +1,7 @@
 i3-wm.gaps.focus_follows_mouse: yes
 i3-wm.binding.bluetooth: Ctrl+b
 i3-wm.binding.split_v: b
+i3-wm.program.compositor: picom --experimental-backends --config /home/sam/.config/regolith2/picom/config
 i3-wm.program.editor: glvim
 i3-wm.program.editor.notes: glvim-notes
 i3-wm.workspace.auto_back_and_forth: yes

@@ -121,6 +121,8 @@ blur-background-exclude = [
     "window_type = 'desktop'"
 ];
 
+blur-method = "dual_kawase";
+
 #################################
 #
 # Fading
