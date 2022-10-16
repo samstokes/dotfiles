@@ -10,8 +10,7 @@ an executable
 
 require('my.gui')
 require('my.options')
-require('my.keymaps')
-require('my.lvim-customisations')
+require('my.lvim-customisations') -- before keymaps, so keymaps can override
 require('my.keymaps')
 require('my.plugins')
 require('my.treesitter')
