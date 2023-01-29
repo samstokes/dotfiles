@@ -12,11 +12,25 @@ if vim.fn.glob(notes_dir) ~= "" then
   }
 end
 
+-- Make vimwiki recognize tags in frontmatter, compatible with Obsidian and Jekyll.
+-- Disables default :tag:list: format and ability to write #tags inline.
+vim.g.vimwiki_tag_format = {
+  pre = '\\(^tags:\\s*\\)',
+  pre_mark = '',
+  ['in'] = '\\k\\+',
+  sep = '[[:space:]]\\+',
+  post_mark = '',
+  post = '',
+}
+
 local notes_dirs_pat = notes_dir .. '/*'
 
 table.insert(lvim.plugins, {
   "vimwiki/vimwiki",
   event = 'BufEnter ' .. notes_dirs_pat,
+  config = function()
+    vim.o.iskeyword = vim.o.iskeyword .. ',-'
+  end
 })
 table.insert(lvim.plugins, { "samstokes/vim-notes" })
 
