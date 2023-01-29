@@ -12,6 +12,7 @@ lvim.plugins = {
   -- vimwiki is added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
   { "tpope/vim-unimpaired" },
+  { "kiyoon/telescope-insert-path.nvim" },
   {
     "ggandor/leap.nvim",
     config = function()

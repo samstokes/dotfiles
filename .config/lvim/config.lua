@@ -14,6 +14,7 @@ require('my.lvim-customisations') -- before keymaps, so keymaps can override
 require('my.keymaps')
 require('my.plugins')
 require('my.treesitter')
+require('my.telescope')
 require('my.vimwiki')
 
 -- general
