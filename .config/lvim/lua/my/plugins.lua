@@ -8,13 +8,7 @@ lvim.plugins = {
       require("gruvbox").setup({})
     end,
   },
-  {
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-    config = function()
-      require("nvim-surround").setup({})
-    end,
-  },
+  { "tpope/vim-surround" },
   -- vimwiki is added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
   { "tpope/vim-unimpaired" },
