@@ -4,10 +4,12 @@
 lvim.plugins = {
   {
     "ellisonleao/gruvbox.nvim",
+    commit = 'cb7a8a867cfaa7f0e8ded57eb931da88635e7007', -- until upgrade to nvim 0.8
     config = function()
       require("gruvbox").setup({})
     end,
   },
+  { "lifepillar/vim-solarized8" },
   { "tpope/vim-surround" },
   -- vimwiki and vim-notes are added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
