@@ -8,6 +8,7 @@ Public
 Videos
 .bash_history
 .cache
+.config/gnome-initial-setup-done
 .gnupg
 .pki
 .ssh/id_*
