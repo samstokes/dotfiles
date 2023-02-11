@@ -8,17 +8,15 @@ case $- in
       *) return;;
 esac
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
-export HISTCONTROL=ignoreboth
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-export HISTFILESIZE=9999  # default 500
+export HISTFILESIZE=9999
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -103,8 +101,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export SVNROOT=svn+ssh://jabberwock.vm.bytemark.co.uk/home/sam/svn/sam
-
 if hash lvim 2>/dev/null; then
   EDITOR=lvim
 elif hash nvim 2>/dev/null; then
@@ -118,12 +114,6 @@ export EDITOR
 
 # Add git-bits to PATH
 [[ -d "$HOME/projects/git-bits" ]] && export PATH="$HOME/projects/git-bits/bin":"$PATH"
-
-# Add custom Python libs
-[[ -d "$HOME/lib/python" ]] && export PYTHONPATH="$HOME/lib/python":"$PYTHONPATH"
-
-# Haskell
-export PATH="~/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.8.4/bin:$PATH"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
