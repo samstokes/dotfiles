@@ -35,3 +35,10 @@ for mode, mappings in pairs(unwanted_mappings) do
     vim.keymap.del(mode, lhs, {})
   end
 end
+
+-- add vsplit versions of LSP mappings
+for lhs, _ in pairs(lvim.lsp.buffer_mappings.normal_mode) do
+  local split_lhs = '<C-w>' .. lhs
+  local split_rhs = '<cmd>vsplit|normal ' .. lhs .. '<CR>'
+  vim.keymap.set('n', split_lhs, split_rhs, {})
+end
