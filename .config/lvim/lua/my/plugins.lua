@@ -2,12 +2,7 @@
 -- TODO auto reload on saving this file
 
 lvim.plugins = {
-  {
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      require("gruvbox").setup({})
-    end,
-  },
+  { "lifepillar/vim-solarized8" },
   { "tpope/vim-surround" },
   -- vimwiki is added in vimwiki.lua
   { "chaoren/vim-wordmotion" },
