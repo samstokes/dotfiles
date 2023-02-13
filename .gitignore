@@ -261,3 +261,4 @@ Notes
 mongodb
 .virtualenvs
 .mongoctl
+.ssh/config
