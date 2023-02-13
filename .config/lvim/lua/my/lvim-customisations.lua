@@ -2,6 +2,7 @@
 
 vim.o.wrap = true
 vim.o.whichwrap = 'b,s' -- Don't want Left/Right wrapping to next line. Restore vim default.
+vim.o.clipboard = '' -- don't clobber clipboard except when I explicitly mean to
 
 lvim.builtin.autopairs.active = false
 lvim.builtin.project.silent_chdir = false
