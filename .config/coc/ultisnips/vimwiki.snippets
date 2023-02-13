@@ -1,39 +1,61 @@
-snippet ppp "Monthly PPP" bA
-# PPP - ${1:`date +'%A %B %d'`}
+"snippet note_md "Markdown Note"
+"---
+"title: ${1:`!v notes#noteTitle(expand('%'))`}
+"date: ${2:`date +'%A %B %d'`}
+"tags: ' ${3::optional:tags:} '
+"---
+"
+"endsnippet
 
-## Plans
+snippet ld_diary "Diary entry (LaunchDarkly)" b
+# ${1:`date +'%A %B %d'`} [Week ${2:`date +%W`}](week-$2)
 
-## Progress since [last time](${2:`!v system('cd ' . expand('%:h') . ' && ls ????-??-??.md | tail -1')`})
+- [ ] Meetings
+    - [ ] $3
 
-## Pains
+## Geekbot
+- [ ]
 
-## Plans from [last time]($2)
+## Unplanned
 
-## [Reflection](${3:../diary/`date +'%Y-%m-%d'`.md})
+${4:## On call log
+* delete me}
+
+## Pomos
 endsnippet
 
-# A valid snippet should starts with:
-#
-#		snippet trigger_word [ "description" [ options ] ]
-#
-# and end with:
-#
-#		endsnippet
-#
-# Snippet options:
-#
-#		b - Beginning of line.
-#		i - In-word expansion.
-#		w - Word boundary.
-#		r - Regular expression
-#		e - Custom context snippet
-#		A - Snippet will be triggered automatically, when condition matches.
-#
-# Basic example:
-#
-#		snippet emitter "emitter properties" b
-#		private readonly ${1} = new Emitter<$2>()
-#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
-#		endsnippet
-#
-# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet ld_week "Week planner (LaunchDarkly)" b
+# Week ${1:`date +%W`}
+
+## ${2:An active project}
+- [ ] ${3:An end-of-week goal for this project}
+
+## Non-core log
+Things I worked on this week outside of primary priorities
+* ${4:delete me}
+endsnippet
+
+snippet tag "Markdown note tag in header"
+' :${1:untagged}: '$2
+endsnippet
+
+snippet published "published_as header" b
+published_as: '[${1:description}](${2:https://0.0.0.0/some/url})'
+endsnippet
+
+snippet ld_one_pager "One-pager (LaunchDarkly)" b
+**Status**: WIP
+**Impact**: ${3:S/M/L}
+**Effort**: ${4:S/M/L}
+
+## Problem overview
+${1:Life is good, but it can be better!}
+
+## Solution overview
+${2:All you need is to want it.}
+
+## Solution details
+
+## Next steps
+- [ ] Agree we want to do this
+endsnippet
