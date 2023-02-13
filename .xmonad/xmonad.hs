@@ -139,7 +139,7 @@ myKeys =
     ----- window management commands ----- {{{3
     , ("S-M-h",   replicateM_ 10 $ sendMessage Shrink)
     , ("S-M-l",   replicateM_ 10 $ sendMessage Expand)
-    , ("M-t",     sendMessage NextLayout >> notifyCurrentLayout)
+    , ("S-M-t",   sendMessage NextLayout >> notifyCurrentLayout)
     , ("M-z",     withFocused minimizeWindow)
     , ("S-M-z",   sendMessage RestoreNextMinimizedWin)
     , ("M1-<F4>", kill)
