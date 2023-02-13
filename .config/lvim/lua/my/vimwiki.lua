@@ -1,4 +1,4 @@
-local notes_dir = '~/Dropbox/Notes'
+local notes_dir = '~/Notes'
 
 ---@diagnostic disable-next-line:missing-parameter
 if vim.fn.glob(notes_dir) ~= "" then
