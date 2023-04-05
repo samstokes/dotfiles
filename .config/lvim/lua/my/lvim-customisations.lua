@@ -35,16 +35,18 @@ for mode, mappings in pairs(unwanted_mappings) do
 end
 
 local lsp_extra_mappings = {
-  ["gy"] = { vim.lsp.buf.type_definition, "Goto Type Definition" },
+    ["gy"] = { vim.lsp.buf.type_definition, "Goto Type Definition" },
 }
 
 for lhs, rhs in pairs(lsp_extra_mappings) do
   lvim.lsp.buffer_mappings.normal_mode[lhs] = rhs
 end
 
--- add vsplit versions of LSP mappings
+-- add vsplit versions of LSP 'g' mappings
 for lhs, _ in pairs(lvim.lsp.buffer_mappings.normal_mode) do
-  local split_lhs = '<C-w>' .. lhs
-  local split_rhs = '<cmd>vsplit|normal ' .. lhs .. '<CR>'
-  vim.keymap.set('n', split_lhs, split_rhs, {})
+  if lhs:find('g') == 1 then
+    local split_lhs = '<C-w>' .. lhs
+    local split_rhs = '<cmd>vsplit|normal ' .. lhs .. '<CR>'
+    vim.keymap.set('n', split_lhs, split_rhs, {})
+  end
 end
