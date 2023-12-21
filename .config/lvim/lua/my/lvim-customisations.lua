@@ -5,6 +5,9 @@ vim.o.clipboard = '' -- don't clobber clipboard except when I explicitly mean to
 lvim.builtin.autopairs.active = false
 lvim.builtin.project.silent_chdir = false
 
+-- hlsearch is off so instead of disabling, toggle it
+lvim.builtin.which_key.mappings.h = { "<cmd>set invhlsearch<CR>", "Toggle Highlight" }
+
 -- Even smarter find_project_files (cf lvim:lua/lvim/core/telescope/custom-finders.lua)
 local find_project_files = function()
   local builtin = require("telescope.builtin")
