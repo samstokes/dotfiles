@@ -35,3 +35,5 @@ table.insert(lvim.plugins, {
 table.insert(lvim.plugins, { "samstokes/vim-notes" })
 
 table.insert(lvim.builtin.project.patterns, 1, '.vimwiki_tags')
+
+vim.treesitter.language.register('markdown', 'vimwiki')
