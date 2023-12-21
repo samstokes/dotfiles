@@ -23,6 +23,7 @@ if success then
     {{"x", "o"}, "Z", "<Plug>(leap-backward-to)", "Leap backward to"},
     {{"x", "o"}, "x", "<Plug>(leap-forward-till)", "Leap forward till"},
     {{"x", "o"}, "X", "<Plug>(leap-backward-till)", "Leap backward till"},
+    {{"n", "x", "o"}, "\\", function() require'leap-ast'.leap() end, "Leap AST"},
   }
 
   for _, keymap in ipairs(leap_keymaps) do

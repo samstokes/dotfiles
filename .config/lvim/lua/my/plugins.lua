@@ -5,5 +5,6 @@ lvim.plugins = {
   { "chaoren/vim-wordmotion" },
   { "tpope/vim-unimpaired" },
   { "ggandor/leap.nvim" },
+  { "ggandor/leap-ast.nvim" },
   { "kiyoon/telescope-insert-path.nvim" },
 }
