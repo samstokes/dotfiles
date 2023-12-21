@@ -1,13 +1,9 @@
--- General overrides to LunarVim defaults.
-
 vim.o.wrap = true
 vim.o.whichwrap = 'b,s' -- Don't want Left/Right wrapping to next line. Restore vim default.
 vim.o.clipboard = '' -- don't clobber clipboard except when I explicitly mean to
 
 lvim.builtin.autopairs.active = false
 lvim.builtin.project.silent_chdir = false
-lvim.builtin.terminal.insert_mappings = false -- don't clobber <C-t> in insert mode
-lvim.builtin.dap.active = true
 
 -- Even smarter find_project_files (cf lvim:lua/lvim/core/telescope/custom-finders.lua)
 local find_project_files = function()
@@ -27,7 +23,6 @@ lvim.builtin.which_key.mappings.f = { find_project_files, "Find File" }
 
 -- unmap lvim mappings I don't want
 local unwanted_mappings = {
-  i = { "jk", "kj", "jj" },
   n = { "<A-j>", "<A-k>" },
 }
 for mode, mappings in pairs(unwanted_mappings) do
