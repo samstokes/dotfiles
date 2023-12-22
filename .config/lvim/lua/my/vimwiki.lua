@@ -1,4 +1,4 @@
-local notes_dir = '~/Dropbox/Notes'
+local notes_dir = '/home/sam/Dropbox/Notes'
 
 ---@diagnostic disable-next-line:missing-parameter
 if vim.fn.glob(notes_dir) ~= "" then
@@ -35,3 +35,5 @@ table.insert(lvim.plugins, {
 table.insert(lvim.plugins, { "samstokes/vim-notes" })
 
 table.insert(lvim.builtin.project.patterns, 1, '.vimwiki_tags')
+
+vim.treesitter.language.register('markdown', 'vimwiki')
