@@ -9,7 +9,7 @@ lvim.plugins = {
     { "kiyoon/telescope-insert-path.nvim" },
     {
         "ruifm/gitlinker.nvim",
-        requires = "nvim-lua/plenary.nvim",
+        dependencies = "nvim-lua/plenary.nvim",
         config = function()
           require 'gitlinker'.setup()
         end,
