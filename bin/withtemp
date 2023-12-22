@@ -7,6 +7,7 @@ usage() {
   echo
   echo "e.g."
   echo "    $me -- ls"
+  echo "    $me --read-stdin -- sensible-browser"
   echo "    $me -d 5 -I OUTPUT -- sh -c 'write_to OUTPUT && xdg-open OUTPUT'"
 }
 
@@ -14,6 +15,7 @@ declare -a mktemp_args replace_str
 
 delay=0
 verbose=
+read_stdin=
 replace_str=()
 
 while [[ $# -gt 0 ]]; do
@@ -30,11 +32,18 @@ while [[ $# -gt 0 ]]; do
       shift
       delay="$1"
       ;;
+    -r|--read-stdin)
+      read_stdin=y
+      ;;
     -I)
       shift
       replace_str=(-I "$1")
       ;;
-    -v)
+    --tmpdir)
+      shift
+      mktemp_args+=(--tmpdir="$1")
+      ;;
+    -v|--verbose)
       verbose=y
       ;;
     *)
@@ -50,5 +59,15 @@ if [[ -n $verbose ]]; then
 fi
 
 trap "sleep \"$delay\" && rm -f \"$tempfile\"" EXIT
+
+if [[ -n $read_stdin ]]; then
+  if [[ -n $verbose ]]; then
+    echo Reading from stdin, send EOF to finish: >&2
+  fi
+  cat > "$tempfile"
+  if [[ -n $verbose ]]; then
+    echo Done reading from stdin >&2
+  fi
+fi
 
 xargs "${replace_str[@]}" "$@" <<<"$tempfile"

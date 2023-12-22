@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec withtemp --tmpdir=/home/sam/tmp --delay 5 --read-stdin --suffix=.html -- xdg-open
