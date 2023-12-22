@@ -24,3 +24,14 @@ bindsym $mod+Shift+Ctrl+v exec i3-input -F 'exec $i3-wm.program.editor.notes +"E
 
 ## Modify // Edit i3 Config // <> <Shift> i ##
 bindsym $mod+Shift+i exec $i3-wm.program.editor "$HOME"/.config/regolith2/i3/config.d
+
+##### Screenshot bindings
+
+## Launch // screenshot (full) // <Print> ##
+bindsym Print exec --no-startup-id shutter --full
+
+## Launch // screenshot (select window) // <Shift><Print> ##
+bindsym Shift+Print exec --no-startup-id shutter --window
+
+## Launch // screenshot (select area) // <Ctrl><Print> ##
+bindsym Ctrl+Print exec --no-startup-id shutter --select
