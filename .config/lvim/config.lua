@@ -8,4 +8,4 @@ require('my.telescope')
 require('my.vimwiki')
 
 lvim.colorscheme = "solarized8_flat"
-lvim.format_on_save = true
+lvim.format_on_save.enabled = true
