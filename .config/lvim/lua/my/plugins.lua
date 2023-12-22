@@ -8,10 +8,10 @@ lvim.plugins = {
   { "ggandor/leap-ast.nvim" },
   { "kiyoon/telescope-insert-path.nvim" },
   {
-    "ruifm/gitlinker.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require 'gitlinker'.setup()
-    end,
+      "ruifm/gitlinker.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require 'gitlinker'.setup()
+      end,
   },
 }
