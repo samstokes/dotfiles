@@ -39,6 +39,10 @@ while [[ $# -gt 0 ]]; do
       shift
       replace_str=(-I "$1")
       ;;
+    --tmpdir)
+      shift
+      mktemp_args+=(--tmpdir="$1")
+      ;;
     -v|--verbose)
       verbose=y
       ;;
