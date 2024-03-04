@@ -11,6 +11,11 @@ for lhs, rhs in pairs(normal_mappings) do
   vim.keymap.set('n', lhs, rhs, {})
 end
 
+lvim.builtin.which_key.mappings["t"] = {
+  "<cmd>Telescope todo<cr>",
+  "TODOs",
+}
+
 local success, _ = pcall(require, 'leap')
 if success then
   -- based on set_default_keymaps in leap:lua/leap/user.lua

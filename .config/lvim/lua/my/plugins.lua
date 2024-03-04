@@ -14,4 +14,11 @@ lvim.plugins = {
           require 'gitlinker'.setup()
         end,
     },
+    {
+      "samstokes/telescope-todo",
+      dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+      config = function()
+        require 'telescope-todo'.setup()
+      end,
+    },
 }
