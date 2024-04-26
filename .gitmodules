@@ -130,9 +130,6 @@
 [submodule ".vim/bundle/solarized8"]
 	path = .vim/bundle/solarized8
 	url = https://github.com/lifepillar/vim-solarized8
-[submodule ".config/nvim/bundle/coc"]
-	path = .config/nvim/bundle/coc
-	url = https://github.com/neoclide/coc.nvim
 [submodule "projects/todo"]
 	path = projects/todo
 	url = https://gist.github.com/samstokes/5392339
