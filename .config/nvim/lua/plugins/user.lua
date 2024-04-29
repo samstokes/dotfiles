@@ -2,6 +2,7 @@
 return {
   { "tpope/vim-surround" },
   { "tpope/vim-unimpaired" },
+  -- vimwiki and vim-notes are added in vimwiki.lua
   {
     "ggandor/leap.nvim",
     config = function()
