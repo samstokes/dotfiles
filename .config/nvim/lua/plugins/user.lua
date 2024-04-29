@@ -1,5 +1,7 @@
 ---@type LazySpec
 return {
+  { "tpope/vim-surround" },
+  { "tpope/vim-unimpaired" },
   {
     "ggandor/leap.nvim",
     config = function()
