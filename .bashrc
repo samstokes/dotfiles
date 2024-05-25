@@ -101,9 +101,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if hash lvim 2>/dev/null; then
-  EDITOR=lvim
-elif hash nvim 2>/dev/null; then
+if hash nvim 2>/dev/null; then
   EDITOR=nvim
 elif hash gvim 2>/dev/null; then
   EDITOR="gvim -f"
