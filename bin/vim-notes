@@ -1,0 +1,7 @@
+#!/bin/bash
+
+vim=${1:-$EDITOR}
+shift
+
+cd "$HOME"/Dropbox/Notes
+exec "$vim" "$@" index.md
