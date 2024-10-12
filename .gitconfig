@@ -2,7 +2,7 @@
 	name = Sam Stokes
 	email = sstokes@launchdarkly.com
 [core]
-	excludesfile = /home/sam/.git-excludes
+	excludesfile = /Users/sstokes/.git-excludes
 	pager = less -i
 [color]
 	branch = auto
