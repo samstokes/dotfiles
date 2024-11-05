@@ -1,2 +1,0 @@
-#!/bin/sh
-exec goneovim --nvim="$HOME"/.local/bin/lvim "$@"
