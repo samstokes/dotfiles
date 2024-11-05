@@ -1,2 +1,0 @@
-#!/bin/sh
-exec /usr/bin/wine "C:\Program Files\Spotify\spotify.exe" /uri "$@"
