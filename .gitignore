@@ -18,3 +18,4 @@ opt
 projects
 snap
 tmp
+.github_token_env

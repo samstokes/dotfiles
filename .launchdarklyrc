@@ -1,0 +1,25 @@
+##
+## WARNING This file will be deleted whenever the dev/mac-setup/bootstrap script is run.
+## You should probably not edit it directly.
+## If you have an alias or similar that would be useful for other engineers, consider
+## submitting a PR to https://github.com/launchdarkly/dev/blob/main/mac-setup/etc/launchdarklyrc
+##
+
+# default maxfiles ulimit is low and can break e.g. our ansible deploys, so increase it
+ulimit -n 8192
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+eval "$(goenv init -)"
+export PATH="$PATH:$HOME/.local/bin:$HOME/code/launchdarkly/dev/bin"
+go env -w "GOPRIVATE=github.com/launchdarkly" || true
+
+alias awslogin_launchdarkly="awslogin launchdarkly-default"
+alias awslogin_federal="awslogin federal-default"
+
+export AWS_SDK_LOAD_CONFIG=true
+
+[ -n "$GITHUB_TOKEN" ] && export HOMEBREW_GITHUB_API_TOKEN="$GITHUB_TOKEN"
+
+# Configure tenv to automatically install Terraform binaries if the desired version isn't installed.
+export TENV_AUTO_INSTALL="true"
