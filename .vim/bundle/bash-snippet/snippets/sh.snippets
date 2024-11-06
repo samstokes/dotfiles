@@ -1,0 +1,8 @@
+snippet -e set -e
+	set -e
+snippet error()
+	error() { echo "$@" >&2; exit 1; }
+snippet need()
+	need() { [ -e "$1" ] || error "$1 is missing"; }
+snippet :?
+	: ${${1:VAR}?${2:must be specified}}
