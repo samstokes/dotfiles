@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/sstokes/.git-excludes
 	pager = less -i
+	hooksPath = /Users/sstokes/code/launchdarkly/dev/scripts/git-global-hooks
 [color]
 	branch = auto
 	diff = auto
