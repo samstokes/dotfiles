@@ -10,5 +10,5 @@ require('my.telescope')
 require('my.lsp')
 require('my.vimwiki')
 
-lvim.colorscheme = "solarized8_flat"
+lvim.colorscheme = "solarized8_high"
 lvim.format_on_save.enabled = true
