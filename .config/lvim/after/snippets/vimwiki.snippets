@@ -1,0 +1,49 @@
+snippet daily "Daily Plan"
+  ---
+  title: Daily plan for $1
+  date: ${1:$CURRENT_DAY_NAME $CURRENT_MONTH_NAME $CURRENT_DATE $CURRENT_YEAR}
+  ---
+
+  ## Meetings
+  - [ ] ${2: A meeting}
+  
+  ## Plan
+  - [ ] ${3: A task}
+  
+  ## Interrupt log
+  
+  ## TODOs
+
+snippet weekly "Weekly Plan"
+  ---
+  title: Week $1 plan
+  date: ${2:$CURRENT_DAY_NAME $CURRENT_MONTH_NAME $CURRENT_DATE $CURRENT_YEAR}
+  ---
+
+  ## Goal shortlist
+  - [ ] ${3:come up with a goal}
+
+  ## Concern list (priority ordered!)
+  - [ ] [evergreen] Jira tickets assigned to me
+  - [ ] [evergreen] [KTLO](/ktlo.md#important)
+  ${4:<copy over concerns from last week}
+
+  ## Non-core log
+  Things I worked on outside of the above list
+  * 
+
+snippet one-pager "One Pager"
+  ## Problem overview
+  Want to eat meat but keep hands clean.
+
+  ## Solution overview
+  Put meat between two slices of bread.
+
+  ## Solution details
+  Bread may be toasted if desired, and must be if frozen.
+
+  ## Alternatives and prior art
+  Pizza.
+
+  ## Next steps
+  - Choose meat.
