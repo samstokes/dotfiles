@@ -6,6 +6,7 @@ require('my.keymaps') -- after plugins, so keymaps can invoke plugins
 require('my.statusline') -- after plugins, so statusline can invoke plugins
 require('my.treesitter')
 require('my.telescope')
+require('my.lsp')
 require('my.vimwiki')
 
 lvim.colorscheme = "solarized8_flat"
