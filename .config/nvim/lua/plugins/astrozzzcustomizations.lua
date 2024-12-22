@@ -9,6 +9,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     opts = function(_, config)
       config.filesystem.filtered_items.hide_dotfiles = false
+      config.filesystem.filtered_items.hide_gitignored = false
       config.sources = { "filesystem" }
     end,
   },
