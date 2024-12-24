@@ -52,6 +52,6 @@
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
   "vim-wordmotion": { "branch": "master", "commit": "81d9bd298376ab0dc465c85d55afa4cb8d5f47a1" },
-  "vimwiki": { "branch": "dev", "commit": "705ad1e0dded0e3b7ff5fac78547ab67c9d39bdf" },
+  "vimwiki": { "branch": "dev", "commit": "72792615e739d0eb54a9c8f7e0a46a6e2407c9e8" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
