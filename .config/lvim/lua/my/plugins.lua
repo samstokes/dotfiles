@@ -19,4 +19,23 @@ lvim.plugins = {
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
     opts = {},
   },
+  {
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require('copilot').setup({
+        filetypes = { vimwiki = false },
+        -- disable UI since we're using copilot-cmp
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+        copilot_node_command = 'nvm-node',
+      })
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    dependencies = { "hrsh7th/nvim-cmp", "zbirenbaum/copilot.lua" },
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+  },
 }
