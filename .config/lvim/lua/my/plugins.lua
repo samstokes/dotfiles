@@ -38,4 +38,10 @@ lvim.plugins = {
       require('copilot_cmp').setup()
     end,
   },
+  -- add metals but don't actually load it yet, see lsp.lua
+  {
+    'scalameta/nvim-metals',
+    tag = "v0.9.x",
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  }
 }
