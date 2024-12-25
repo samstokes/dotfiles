@@ -1,3 +1,5 @@
+# sourced for login shells, after .zshenv
+
 [ -s ~/.github_token_env ] && source ~/.github_token_env
 
 [ -s ~/.launchdarklyrc ] && source ~/.launchdarklyrc

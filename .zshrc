@@ -1,3 +1,5 @@
+# sourced for interactive shells, after .zshenv (and .zprofile for login shells)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
