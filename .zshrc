@@ -104,3 +104,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+###### Non-Oh-My-Zsh stuff ######
+
+cdpath=~/projects/launchdarkly
