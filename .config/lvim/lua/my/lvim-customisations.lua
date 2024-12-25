@@ -1,6 +1,6 @@
 vim.o.wrap = true
 vim.o.whichwrap = 'b,s' -- Don't want Left/Right wrapping to next line. Restore vim default.
-vim.o.clipboard = '' -- don't clobber clipboard except when I explicitly mean to
+vim.o.clipboard = ''    -- don't clobber clipboard except when I explicitly mean to
 
 lvim.builtin.autopairs.active = false
 lvim.builtin.project.silent_chdir = false
@@ -35,7 +35,7 @@ for mode, mappings in pairs(unwanted_mappings) do
 end
 
 local lsp_extra_mappings = {
-    ["gy"] = { vim.lsp.buf.type_definition, "Goto Type Definition" },
+  ["gy"] = { vim.lsp.buf.type_definition, "Goto Type Definition" },
 }
 
 for lhs, rhs in pairs(lsp_extra_mappings) do

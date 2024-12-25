@@ -22,12 +22,12 @@ if success then
   -- but omitting gs (cross-window search) to avoid conflict with LSP bindings
   -- and replacing visual and operator-pending s/S with z/Z to avoid conflict with vim-surround
   local leap_keymaps = {
-    { { "n" }, "s", "<Plug>(leap-forward-to)", "Leap forward to" },
-    { { "n" }, "S", "<Plug>(leap-backward-to)", "Leap backward to" },
-    { { "x", "o" }, "z", "<Plug>(leap-forward-to)", "Leap forward to" },
-    { { "x", "o" }, "Z", "<Plug>(leap-backward-to)", "Leap backward to" },
-    { { "x", "o" }, "x", "<Plug>(leap-forward-till)", "Leap forward till" },
-    { { "x", "o" }, "X", "<Plug>(leap-backward-till)", "Leap backward till" },
+    { { "n" },           "s",  "<Plug>(leap-forward-to)",                "Leap forward to" },
+    { { "n" },           "S",  "<Plug>(leap-backward-to)",               "Leap backward to" },
+    { { "x", "o" },      "z",  "<Plug>(leap-forward-to)",                "Leap forward to" },
+    { { "x", "o" },      "Z",  "<Plug>(leap-backward-to)",               "Leap backward to" },
+    { { "x", "o" },      "x",  "<Plug>(leap-forward-till)",              "Leap forward till" },
+    { { "x", "o" },      "X",  "<Plug>(leap-backward-till)",             "Leap backward till" },
     { { "n", "x", "o" }, "\\", function() require 'leap-ast'.leap() end, "Leap AST" },
   }
 
