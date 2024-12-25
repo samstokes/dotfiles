@@ -116,3 +116,7 @@ eval "$(/opt/homebrew/bin/mise activate zsh)"
 # >>> coursier install directory >>>
 export PATH="$PATH:/Users/sstokes/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
