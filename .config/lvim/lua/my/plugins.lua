@@ -6,6 +6,8 @@ lvim.plugins = {
   { "tpope/vim-unimpaired" },
   { "ggandor/leap.nvim" },
   { "ggandor/leap-ast.nvim" },
+  { "nvim-treesitter/nvim-treesitter-textobjects" },
+  { "aaronik/treewalker.nvim" },
   { "kiyoon/telescope-insert-path.nvim" },
   {
     "ruifm/gitlinker.nvim",

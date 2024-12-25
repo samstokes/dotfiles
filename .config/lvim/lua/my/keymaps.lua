@@ -42,3 +42,23 @@ if success then
     end
   end
 end
+
+local ast_mappings = {
+  { { 'n', 'v' }, '<LocalLeader>k', '<cmd>Treewalker Up<cr>',                             'Treewalker up' },
+  { { 'n', 'v' }, '<LocalLeader>j', '<cmd>Treewalker Down<cr>',                           'Treewalker down' },
+  { { 'n', 'v' }, '<LocalLeader>l', '<cmd>Treewalker Right<cr>',                          'Treewalker right' },
+  { { 'n', 'v' }, '<LocalLeader>h', '<cmd>Treewalker Left<cr>',                           'Treewalker left' },
+  { { 'n' },      '<LocalLeader>K', '<cmd>Treewalker SwapUp<cr>',                         'Treewalker up' },
+  { { 'n' },      '<LocalLeader>J', '<cmd>Treewalker SwapDown<cr>',                       'Treewalker down' },
+  { { 'n' },      '<LocalLeader>L', '<cmd>TSTextobjectSwapNext @parameter.inner<cr>',     'Swap next parameter' },
+  { { 'n' },      '<LocalLeader>H', '<cmd>TSTextobjectSwapPrevious @parameter.inner<cr>', 'Swap previous parameter' },
+}
+for _, keymap in ipairs(ast_mappings) do
+  local modes = keymap[1]
+  local lhs = keymap[2]
+  local rhs = keymap[3]
+  local desc = keymap[4]
+  for _, mode in ipairs(modes) do
+    vim.keymap.set(mode, lhs, rhs, { noremap = true, silent = true, desc = desc })
+  end
+end
