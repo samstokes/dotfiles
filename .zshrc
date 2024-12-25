@@ -109,3 +109,5 @@ source $ZSH/oh-my-zsh.sh
 ###### Non-Oh-My-Zsh stuff ######
 
 cdpath=~/projects/launchdarkly
+
+export PATH="$HOME"/projects/launchdarkly/rhino/bin:"$PATH"
