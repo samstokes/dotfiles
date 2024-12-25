@@ -34,6 +34,9 @@ for mode, mappings in pairs(unwanted_mappings) do
   end
 end
 
+-- unmap <Space>w, unnecessary and conflicts with vimwiki
+lvim.builtin.which_key.mappings.w = nil
+
 local lsp_extra_mappings = {
   ["gy"] = { vim.lsp.buf.type_definition, "Goto Type Definition" },
 }
