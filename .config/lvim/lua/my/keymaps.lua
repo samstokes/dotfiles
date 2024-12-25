@@ -1,6 +1,17 @@
 vim.g.maplocalleader = ';'
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
 
+-- rebind illuminate mappings since <A-n> won't work on Mac
+local illuminate_mappings = {
+  ["]r"] = { "goto_next_reference", "Move to next reference" },
+  ["[r"] = { "goto_prev_reference", "Move to previous reference" },
+}
+for lhs, rhs in pairs(illuminate_mappings) do
+  local func, desc = rhs[1], rhs[2]
+  vim.keymap.set('n', lhs, "<cmd>lua require('illuminate')['" .. func .. "']()<CR>",
+    { noremap = true, silent = true, desc = desc })
+end
+
 lvim.builtin.which_key.mappings["t"] = {
   "<cmd>Telescope todo<cr>",
   "TODOs",
