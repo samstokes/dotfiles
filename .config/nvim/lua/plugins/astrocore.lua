@@ -11,6 +11,7 @@ return {
     options = {
       opt = { -- vim.opt.<key>
         clipboard = "",
+        relativenumber = false,
       },
     },
   },
