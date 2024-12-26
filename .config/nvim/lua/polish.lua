@@ -2,6 +2,4 @@
 -- things like custom filetypes. This just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 
--- TODO apparently these are getting overridden? WTF
-vim.o.clipboard = "" -- don't clobber clipboard unless I explicitly mean to
 vim.o.wildmode = "longest,list"
