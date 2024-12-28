@@ -31,4 +31,5 @@ return {
     end,
   },
   { "ggandor/leap-ast.nvim" },
+  { "samstokes/telescope-todo", opts = {} },
 }
