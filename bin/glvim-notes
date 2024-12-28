@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd "$HOME"/Dropbox/Notes
-exec glvim "$@"
+exec glvim "$@" index.md
