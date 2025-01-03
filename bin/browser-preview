@@ -3,5 +3,5 @@
 exec withtemp \
   --delay 5 \
   --read-stdin \
-  --suffix=.html \
+  --suffix .html \
   -- open
