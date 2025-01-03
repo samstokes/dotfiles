@@ -17,6 +17,7 @@ delay=0
 verbose=
 read_stdin=
 replace_str=()
+suffix=
 
 platform=$(uname)
 
@@ -49,6 +50,10 @@ while [[ $# -gt 0 ]]; do
         mktemp_args+=(--tmpdir="$1")
       fi
       ;;
+    --suffix)
+      shift
+      suffix="$1"
+      ;;
     -v|--verbose)
       verbose=y
       ;;
@@ -59,7 +64,15 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-tempfile=$(mktemp "${mktemp_args[@]}")
+base_tempfile=$(mktemp "${mktemp_args[@]}")
+# Linux mktemp supports --suffix natively but Mac does not,
+# so implement it here as a portability workaround
+if [[ -n $suffix ]]; then
+  tempfile="${base_tempfile}${suffix}"
+  mv "$base_tempfile" "$tempfile"
+else
+  tempfile="$base_tempfile"
+fi
 if [[ -n $verbose ]]; then
   echo tempfile: "$tempfile" >&2
 fi
