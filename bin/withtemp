@@ -18,6 +18,8 @@ verbose=
 read_stdin=
 replace_str=()
 
+platform=$(uname)
+
 while [[ $# -gt 0 ]]; do
   case "$1" in
     -h | -\? | --help)
@@ -41,7 +43,11 @@ while [[ $# -gt 0 ]]; do
       ;;
     --tmpdir)
       shift
-      mktemp_args+=(--tmpdir="$1")
+      if [[ $platform == Darwin ]]; then
+        mktemp_args+=(-p "$1")
+      else
+        mktemp_args+=(--tmpdir="$1")
+      fi
       ;;
     -v|--verbose)
       verbose=y
