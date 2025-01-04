@@ -113,6 +113,8 @@ export PATH="$HOME"/projects/launchdarkly/rhino/bin:"$PATH"
 
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
+alias cfg='git --git-dir=$HOME/projects/dotfiles/.git --work-tree=$HOME'
+
 # >>> coursier install directory >>>
 export PATH="$PATH:/Users/sstokes/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<

@@ -12,5 +12,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # added by Snowflake SnowSQL installer v1.2
 export PATH=/Users/sstokes/Applications/SnowSQL.app/Contents/MacOS:$PATH
-
-alias cfg='git --git-dir=$HOME/projects/dotfiles/.git --work-tree=$HOME'
