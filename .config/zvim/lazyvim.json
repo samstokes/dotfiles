@@ -1,6 +1,7 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.mini-surround"
+    "lazyvim.plugins.extras.coding.mini-surround",
+    "lazyvim.plugins.extras.editor.leap"
   ],
   "news": {
     "NEWS.md": "10960"
