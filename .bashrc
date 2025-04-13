@@ -101,14 +101,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if hash lvim 2>/dev/null; then
-  EDITOR=lvim
+if hash neovide 2>/dev/null; then
+  EDITOR="neovide --no-fork"
 elif hash nvim 2>/dev/null; then
   EDITOR=nvim
 elif hash gvim 2>/dev/null; then
   EDITOR="gvim -f"
 else
-   EDITOR=vim
+  EDITOR=vim
 fi
 export EDITOR
 
