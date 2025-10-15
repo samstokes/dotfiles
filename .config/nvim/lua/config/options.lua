@@ -3,3 +3,5 @@
 -- Add any additional options here
 
 vim.o.clipboard = ""
+vim.o.relativenumber = false
+vim.o.title = true
