@@ -2,7 +2,7 @@
 	name = Sam Stokes
 	email = sam@eventualcomputing.com
 [core]
-	excludesfile = /home/sam/.git-excludes
+	excludesfile = /Users/sam/.git-excludes
 	pager = less -i
 [color]
 	branch = auto
