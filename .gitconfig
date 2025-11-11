@@ -1,6 +1,6 @@
 [user]
 	name = Sam Stokes
-	email = me@samstokes.co.uk
+	email = sam@eventualcomputing.com
 [core]
 	excludesfile = /home/sam/.git-excludes
 	pager = less -i
