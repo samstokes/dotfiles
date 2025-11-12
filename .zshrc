@@ -1,5 +1,7 @@
 # sourced for interactive shells, after .zshenv (and .zprofile for login shells)
 
+cdpath=~/projects
+
 . "$HOME/.local/bin/env"
 
 # bun completions
