@@ -1,3 +1,5 @@
+# vim:ft=ruby
+
 brew 'neovim'
 
 brew 'fish'
