@@ -35,6 +35,7 @@
 	ccc = !git clean-conflict-cruft
   rup = remote update --prune
 	logg = log --oneline --decorate --graph
+  pushit = !git push -u origin $(git wbr):refs/heads/sam/$(git wbr)
 [merge]
 	tool = gvimdiff
 	defaultToUpstream = true
