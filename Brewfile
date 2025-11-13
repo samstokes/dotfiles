@@ -1,6 +1,7 @@
 # vim:ft=ruby
 
 brew 'neovim'
+cask 'neovide'
 
 brew 'fish'
 

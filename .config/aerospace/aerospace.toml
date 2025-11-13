@@ -94,7 +94,7 @@ alt-shift-enter = '''exec-and-forget osascript -e 'tell application "Google Chro
 
 # Launch editor
 # TODO make this open a new window rather than a separate instance of the app
-alt-v = '''exec-and-forget open -n /Applications/Neovide.app'''
+alt-v = '''exec-and-forget neovide'''
 alt-shift-v = '''exec-and-forget /Applications/Kitty.app/Contents/MacOS/kitty --single-instance --directory ~/Notes zsh --login -c "nvim index.md"'''
 # alt-shift-v = '''exec-and-forget osascript -e 'tell application "iTerm2" to create window with default profile command "zsh -c \"lvim-notes index.md\""''''
 
