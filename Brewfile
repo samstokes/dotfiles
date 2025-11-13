@@ -19,6 +19,8 @@ tap 'dimentium/autoraise'
 # brew 'autoraise' # manually install instead with --with-dexperimental_focus_first
 cask 'dimentium/autoraise/autoraiseapp'
 
+brew 'pandoc'
+
 # needed for lazyvim
 brew 'fzf'
 brew 'ripgrep'
