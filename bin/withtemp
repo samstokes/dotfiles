@@ -64,7 +64,11 @@ while [[ $# -gt 0 ]]; do
   shift
 done
 
-base_tempfile=$(mktemp "${mktemp_args[@]}")
+if [[ ${#mktemp_args[@]} -gt 0 ]]; then
+  base_tempfile=$(mktemp "${mktemp_args[@]}")
+else
+  base_tempfile=$(mktemp)
+fi
 # Linux mktemp supports --suffix natively but Mac does not,
 # so implement it here as a portability workaround
 if [[ -n $suffix ]]; then
@@ -89,4 +93,8 @@ if [[ -n $read_stdin ]]; then
   fi
 fi
 
-xargs "${replace_str[@]}" "$@" <<<"$tempfile"
+if [[ ${#replace_str[@]} -gt 0 ]]; then
+  xargs "${replace_str[@]}" "$@" <<<"$tempfile"
+else
+  xargs "$@" <<<"$tempfile"
+fi
