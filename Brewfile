@@ -6,9 +6,18 @@ brew 'fish'
 
 cask 'codex'
 
+# Sane window management
+
 # brew 'acsandmann/tap/rift'
 
 cask 'nikitabobko/tap/aerospace'
+
+tap 'FelixKratz/formulae'
+brew 'borders'
+
+tap 'dimentium/autoraise'
+# brew 'autoraise' # manually install instead with --with-dexperimental_focus_first
+cask 'dimentium/autoraise/autoraiseapp'
 
 # needed for lazyvim
 brew 'fzf'
