@@ -2,8 +2,6 @@
 
 cdpath=~/projects
 
-. "$HOME/.local/bin/env"
-
 # bun completions
 [ -s "/Users/sam/.bun/_bun" ] && source "/Users/sam/.bun/_bun"
 
