@@ -28,4 +28,8 @@ return {
       folder = "diary",
     },
   },
+
+  keys = {
+    { "<Leader>o", "<CMD>Obsidian<CR>", desc = "Obsidian" },
+  },
 }
