@@ -16,6 +16,8 @@ complete -C '/usr/local/bin/aws_completer' aws
 
 . "$HOME/.zsh_aliases"
 
+[[ $commands[fzf] ]] && source <(fzf --zsh)
+
 # restore emacs-mode bindings lost in vi mode
 bindkey -M viins '\e.' insert-last-word
 bindkey -M viins '^A' beginning-of-line
