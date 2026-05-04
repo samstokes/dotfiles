@@ -12,6 +12,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
   callback = function()
     local map = LazyVim.safe_keymap_set
-    map("n", "<Leader>rp", "<Cmd>w !pandoc | browser-preview<CR>", { desc = "Pandoc to Browser Preview" })
+    map({ "n", "v" }, "<Leader>rp", "<Cmd>w !pandoc | browser-preview<CR>", { desc = "Pandoc to Browser Preview" })
   end,
 })
