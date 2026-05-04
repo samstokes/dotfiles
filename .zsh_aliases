@@ -1,0 +1,5 @@
+alias k=kubectl
+alias ls="ls --color=auto"
+alias d=docker
+alias tf=terraform
+alias argo="kubectl --namespace argocd port-forward svc/argocd-server 8080:80"

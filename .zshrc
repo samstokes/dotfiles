@@ -11,6 +11,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+. "$HOME/.zsh_aliases"
+
 # restore emacs-mode bindings lost in vi mode
 bindkey -M viins '\e.' insert-last-word
 bindkey -M viins '^A' beginning-of-line
